@@ -10,9 +10,9 @@ using System.Windows.Forms;
 
 namespace SIA
 {
-    public partial class Form1 : Form
+    public partial class FormUtama : Form
     {
-        public Form1()
+        public FormUtama()
         {
             InitializeComponent();
         }

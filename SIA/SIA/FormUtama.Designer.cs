@@ -1,6 +1,6 @@
 ﻿namespace SIA
 {
-    partial class Form1
+    partial class FormUtama
     {
         /// <summary>
         /// Required designer variable.
