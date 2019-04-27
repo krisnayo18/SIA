@@ -61,6 +61,12 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="FormNotaPembelian.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="FormNotaPembelian.Designer.cs">
+      <DependentUpon>FormNotaPembelian.cs</DependentUpon>
+    </Compile>
     <Compile Include="FormNotaPenjualan.cs">
       <SubType>Form</SubType>
     </Compile>
