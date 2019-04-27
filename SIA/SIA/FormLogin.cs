@@ -15,6 +15,9 @@ namespace SIA
         public FormLogin()
         {
             InitializeComponent();
+            string beb;
+            string bob;
+            int eger;
         }
     }
 }
