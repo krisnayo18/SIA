@@ -18,6 +18,7 @@ namespace SIA
             string beb;
             string bob;
             int eger;
+            MessageBox.Show("Zubaid lus");
         }
     }
 }
