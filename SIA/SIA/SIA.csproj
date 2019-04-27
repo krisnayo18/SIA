@@ -73,6 +73,12 @@
     <Compile Include="FormNotaPenjualan.Designer.cs">
       <DependentUpon>FormNotaPenjualan.cs</DependentUpon>
     </Compile>
+    <Compile Include="FormPembayaran.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="FormPembayaran.Designer.cs">
+      <DependentUpon>FormPembayaran.cs</DependentUpon>
+    </Compile>
     <Compile Include="FormUtama.cs">
       <SubType>Form</SubType>
     </Compile>
