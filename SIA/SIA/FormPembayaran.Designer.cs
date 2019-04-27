@@ -1,6 +1,6 @@
 ﻿namespace SIA
 {
-    partial class FormNotaPembelian
+    partial class FormPembayaran
     {
         /// <summary>
         /// Required designer variable.
@@ -28,17 +28,9 @@
         /// </summary>
         private void InitializeComponent()
         {
-            this.SuspendLayout();
-            // 
-            // FormNotaPembelian
-            // 
-            this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
+            this.components = new System.ComponentModel.Container();
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(429, 450);
-            this.Name = "FormNotaPembelian";
-            this.Text = "FormNotaPembelian";
-            this.ResumeLayout(false);
-
+            this.Text = "FormPembayaran";
         }
 
         #endregion
