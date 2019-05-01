@@ -157,6 +157,18 @@
     <Compile Include="FormTambahNotaJual.Designer.cs">
       <DependentUpon>FormTambahNotaJual.cs</DependentUpon>
     </Compile>
+    <Compile Include="FormTambahPenerimaanPembayaran.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="FormTambahPenerimaanPembayaran.Designer.cs">
+      <DependentUpon>FormTambahPenerimaanPembayaran.cs</DependentUpon>
+    </Compile>
+    <Compile Include="FormTambahPengiriman.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="FormTambahPengiriman.Designer.cs">
+      <DependentUpon>FormTambahPengiriman.cs</DependentUpon>
+    </Compile>
     <Compile Include="FormUtama.cs">
       <SubType>Form</SubType>
     </Compile>
