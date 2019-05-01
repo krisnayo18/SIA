@@ -79,11 +79,11 @@
     <Compile Include="FormDaftarNotaJual.Designer.cs">
       <DependentUpon>FormDaftarNotaJual.cs</DependentUpon>
     </Compile>
-    <Compile Include="FormDaftarPegawai.cs">
+    <Compile Include="FormDaftarKaryawan.cs">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="FormDaftarPegawai.Designer.cs">
-      <DependentUpon>FormDaftarPegawai.cs</DependentUpon>
+    <Compile Include="FormDaftarKaryawan.Designer.cs">
+      <DependentUpon>FormDaftarKaryawan.cs</DependentUpon>
     </Compile>
     <Compile Include="FormDaftarPelanggan.cs">
       <SubType>Form</SubType>
@@ -174,8 +174,8 @@
     <EmbeddedResource Include="FormDaftarNotaJual.resx">
       <DependentUpon>FormDaftarNotaJual.cs</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="FormDaftarPegawai.resx">
-      <DependentUpon>FormDaftarPegawai.cs</DependentUpon>
+    <EmbeddedResource Include="FormDaftarKaryawan.resx">
+      <DependentUpon>FormDaftarKaryawan.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="FormDaftarPelanggan.resx">
       <DependentUpon>FormDaftarPelanggan.cs</DependentUpon>
