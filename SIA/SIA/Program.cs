@@ -16,7 +16,7 @@ namespace SIA
         {
             Application.EnableVisualStyles();
             Application.SetCompatibleTextRenderingDefault(false);
-            Application.Run(new FormTambahJobOrder());
+            Application.Run(new FormUtama());
         }
     }
 }

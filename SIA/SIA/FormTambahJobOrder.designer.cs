@@ -314,7 +314,6 @@
             this.Controls.Add(this.label1);
             this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.None;
             this.Name = "FormTambahJobOrder";
-            this.Text = "Tambah Barang";
             this.Load += new System.EventHandler(this.FormTambahBarang_Load);
             this.panel1.ResumeLayout(false);
             this.panel1.PerformLayout();
