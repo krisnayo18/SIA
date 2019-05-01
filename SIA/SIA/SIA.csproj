@@ -91,11 +91,11 @@
     <Compile Include="FormDaftarPelanggan.Designer.cs">
       <DependentUpon>FormDaftarPelanggan.cs</DependentUpon>
     </Compile>
-    <Compile Include="FormEkspedisi.cs">
+    <Compile Include="FormDaftarEkspedisi.cs">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="FormEkspedisi.Designer.cs">
-      <DependentUpon>FormEkspedisi.cs</DependentUpon>
+    <Compile Include="FormDaftarEkspedisi.Designer.cs">
+      <DependentUpon>FormDaftarEkspedisi.cs</DependentUpon>
     </Compile>
     <Compile Include="FormDaftarJobOrder.cs">
       <SubType>Form</SubType>
@@ -109,35 +109,35 @@
     <Compile Include="FormLogin.Designer.cs">
       <DependentUpon>FormLogin.cs</DependentUpon>
     </Compile>
-    <Compile Include="FormPembayaran.cs">
+    <Compile Include="FormDaftarPembayaran.cs">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="FormPembayaran.Designer.cs">
-      <DependentUpon>FormPembayaran.cs</DependentUpon>
+    <Compile Include="FormDaftarPembayaran.Designer.cs">
+      <DependentUpon>FormDaftarPembayaran.cs</DependentUpon>
     </Compile>
-    <Compile Include="FormPenerimaan.cs">
+    <Compile Include="FormDaftarPenerimaan.cs">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="FormPenerimaan.Designer.cs">
-      <DependentUpon>FormPenerimaan.cs</DependentUpon>
+    <Compile Include="FormDaftarPenerimaan.Designer.cs">
+      <DependentUpon>FormDaftarPenerimaan.cs</DependentUpon>
     </Compile>
-    <Compile Include="FormPenerimaanPembayaran.cs">
+    <Compile Include="FormDaftarPenerimaanPembayaran.cs">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="FormPenerimaanPembayaran.Designer.cs">
-      <DependentUpon>FormPenerimaanPembayaran.cs</DependentUpon>
+    <Compile Include="FormDaftarPenerimaanPembayaran.Designer.cs">
+      <DependentUpon>FormDaftarPenerimaanPembayaran.cs</DependentUpon>
     </Compile>
-    <Compile Include="FormPengiriman.cs">
+    <Compile Include="FormDaftarPengiriman.cs">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="FormPengiriman.Designer.cs">
-      <DependentUpon>FormPengiriman.cs</DependentUpon>
+    <Compile Include="FormDaftarPengiriman.Designer.cs">
+      <DependentUpon>FormDaftarPengiriman.cs</DependentUpon>
     </Compile>
-    <Compile Include="FormPermintaan.cs">
+    <Compile Include="FormDaftarPermintaan.cs">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="FormPermintaan.Designer.cs">
-      <DependentUpon>FormPermintaan.cs</DependentUpon>
+    <Compile Include="FormDaftarPermintaan.Designer.cs">
+      <DependentUpon>FormDaftarPermintaan.cs</DependentUpon>
     </Compile>
     <Compile Include="FormTambahJobOrder.cs">
       <SubType>Form</SubType>
@@ -165,11 +165,11 @@
     </Compile>
     <Compile Include="Program.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
-    <Compile Include="SuratJalan.cs">
+    <Compile Include="FormDaftarSuratJalan.cs">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="SuratJalan.Designer.cs">
-      <DependentUpon>SuratJalan.cs</DependentUpon>
+    <Compile Include="FormDaftarSuratJalan.Designer.cs">
+      <DependentUpon>FormDaftarSuratJalan.cs</DependentUpon>
     </Compile>
     <EmbeddedResource Include="FormDaftarBarang.resx">
       <DependentUpon>FormDaftarBarang.cs</DependentUpon>

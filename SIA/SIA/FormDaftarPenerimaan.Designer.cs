@@ -1,6 +1,6 @@
 ﻿namespace SIA
 {
-    partial class FormPembayaran
+    partial class FormDaftarPenerimaan
     {
         /// <summary>
         /// Required designer variable.
@@ -30,7 +30,8 @@
         {
             this.components = new System.ComponentModel.Container();
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.Text = "FormPembayaran";
+            this.ClientSize = new System.Drawing.Size(800, 450);
+            this.Text = "FormPenerimaan";
         }
 
         #endregion

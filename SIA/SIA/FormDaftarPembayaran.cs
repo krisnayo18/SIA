@@ -10,9 +10,9 @@ using System.Windows.Forms;
 
 namespace SIA
 {
-    public partial class FormPermintaan : Form
+    public partial class FormDaftarPembayaran : Form
     {
-        public FormPermintaan()
+        public FormDaftarPembayaran()
         {
             InitializeComponent();
         }

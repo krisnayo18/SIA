@@ -1,6 +1,6 @@
 ﻿namespace SIA
 {
-    partial class FormPermintaan
+    partial class FormDaftarPermintaan
     {
         /// <summary>
         /// Required designer variable.
