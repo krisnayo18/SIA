@@ -79,18 +79,6 @@
     <Compile Include="FormLogin.Designer.cs">
       <DependentUpon>FormLogin.cs</DependentUpon>
     </Compile>
-    <Compile Include="FormNotaPembelian.cs">
-      <SubType>Form</SubType>
-    </Compile>
-    <Compile Include="FormNotaPembelian.Designer.cs">
-      <DependentUpon>FormNotaPembelian.cs</DependentUpon>
-    </Compile>
-    <Compile Include="FormNotaPenjualan.cs">
-      <SubType>Form</SubType>
-    </Compile>
-    <Compile Include="FormNotaPenjualan.Designer.cs">
-      <DependentUpon>FormNotaPenjualan.cs</DependentUpon>
-    </Compile>
     <Compile Include="FormPembayaran.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -147,9 +135,6 @@
     <Compile Include="SuratJalan.Designer.cs">
       <DependentUpon>SuratJalan.cs</DependentUpon>
     </Compile>
-    <EmbeddedResource Include="FormNotaPenjualan.resx">
-      <DependentUpon>FormNotaPenjualan.cs</DependentUpon>
-    </EmbeddedResource>
     <EmbeddedResource Include="FormTambahNotaBeli.resx">
       <DependentUpon>FormTambahNotaBeli.cs</DependentUpon>
     </EmbeddedResource>
