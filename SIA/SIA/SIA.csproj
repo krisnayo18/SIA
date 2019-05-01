@@ -186,6 +186,9 @@
     <EmbeddedResource Include="FormDaftarBarang.resx">
       <DependentUpon>FormDaftarBarang.cs</DependentUpon>
     </EmbeddedResource>
+    <EmbeddedResource Include="FormDaftarEkspedisi.resx">
+      <DependentUpon>FormDaftarEkspedisi.cs</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="FormDaftarNotaBeli.resx">
       <DependentUpon>FormDaftarNotaBeli.cs</DependentUpon>
     </EmbeddedResource>
@@ -200,6 +203,24 @@
     </EmbeddedResource>
     <EmbeddedResource Include="FormDaftarJobOrder.resx">
       <DependentUpon>FormDaftarJobOrder.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="FormDaftarPembayaran.resx">
+      <DependentUpon>FormDaftarPembayaran.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="FormDaftarPenerimaan.resx">
+      <DependentUpon>FormDaftarPenerimaan.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="FormDaftarPenerimaanPembayaran.resx">
+      <DependentUpon>FormDaftarPenerimaanPembayaran.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="FormDaftarPengiriman.resx">
+      <DependentUpon>FormDaftarPengiriman.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="FormDaftarPermintaan.resx">
+      <DependentUpon>FormDaftarPermintaan.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="FormDaftarSuratJalan.resx">
+      <DependentUpon>FormDaftarSuratJalan.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="FormTambahJobOrder.resx">
       <DependentUpon>FormTambahJobOrder.cs</DependentUpon>

@@ -16,5 +16,10 @@ namespace SIA
         {
             InitializeComponent();
         }
+
+        private void buttonTambah_Click(object sender, EventArgs e)
+        {
+
+        }
     }
 }
