@@ -10,7 +10,7 @@ using System.Windows.Forms;
 
 using ClassJualBeli;
 
-namespace Indomart
+namespace SIA
 {
     public partial class FormDaftarPegawai : Form
     {

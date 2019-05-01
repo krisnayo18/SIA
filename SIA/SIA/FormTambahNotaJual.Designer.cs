@@ -1,4 +1,4 @@
-﻿namespace Indomart
+﻿namespace SIA
 {
     partial class FormTambahNotaJual
     {

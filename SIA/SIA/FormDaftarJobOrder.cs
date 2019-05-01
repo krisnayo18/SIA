@@ -10,11 +10,16 @@ using System.Windows.Forms;
 
 namespace SIA
 {
-    public partial class FormJobOrder : Form
+    public partial class FormDaftarJobOrder : Form
     {
-        public FormJobOrder()
+        public FormDaftarJobOrder()
         {
             InitializeComponent();
+        }
+
+        private void buttonTambah_Click(object sender, EventArgs e)
+        {
+
         }
     }
 }

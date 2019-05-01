@@ -97,11 +97,11 @@
     <Compile Include="FormEkspedisi.Designer.cs">
       <DependentUpon>FormEkspedisi.cs</DependentUpon>
     </Compile>
-    <Compile Include="FormJobOrder.cs">
+    <Compile Include="FormDaftarJobOrder.cs">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="FormJobOrder.Designer.cs">
-      <DependentUpon>FormJobOrder.cs</DependentUpon>
+    <Compile Include="FormDaftarJobOrder.Designer.cs">
+      <DependentUpon>FormDaftarJobOrder.cs</DependentUpon>
     </Compile>
     <Compile Include="FormLogin.cs">
       <SubType>Form</SubType>
@@ -138,6 +138,12 @@
     </Compile>
     <Compile Include="FormPermintaan.Designer.cs">
       <DependentUpon>FormPermintaan.cs</DependentUpon>
+    </Compile>
+    <Compile Include="FormTambahJobOrder.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="FormTambahJobOrder.designer.cs">
+      <DependentUpon>FormTambahJobOrder.cs</DependentUpon>
     </Compile>
     <Compile Include="FormTambahNotaBeli.cs">
       <SubType>Form</SubType>
@@ -179,6 +185,12 @@
     </EmbeddedResource>
     <EmbeddedResource Include="FormDaftarPelanggan.resx">
       <DependentUpon>FormDaftarPelanggan.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="FormDaftarJobOrder.resx">
+      <DependentUpon>FormDaftarJobOrder.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="FormTambahJobOrder.resx">
+      <DependentUpon>FormTambahJobOrder.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="FormTambahNotaBeli.resx">
       <DependentUpon>FormTambahNotaBeli.cs</DependentUpon>

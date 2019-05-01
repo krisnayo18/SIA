@@ -9,7 +9,7 @@ using System.Threading.Tasks;
 using System.Windows.Forms;
 using ClassJualBeli;
 
-namespace Indomart
+namespace SIA
 {
     public partial class FormDaftarNotaBeli : Form
     {
