@@ -8,7 +8,7 @@ using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
 
-using ClassJualBeli;
+
 
 namespace SIA
 {
@@ -19,7 +19,7 @@ namespace SIA
             InitializeComponent();
         }
 
-        List<Barang> listHasilData = new List<Barang>();
+        //List<Barang> listHasilData = new List<Barang>();
 
         private void buttonKeluar_Click(object sender, EventArgs e)
         {
@@ -54,27 +54,27 @@ namespace SIA
 
         public void FormDaftarBarang_Load(object sender, EventArgs e)
         {
-            this.Location = new Point(0, 0);
-            comboBoxBarang.DropDownStyle = ComboBoxStyle.DropDownList;
+            //this.Location = new Point(0, 0);
+            //comboBoxBarang.DropDownStyle = ComboBoxStyle.DropDownList;
 
-            FormatDataGrid();
+            //FormatDataGrid();
 
-            string hasilBaca = Barang.BacaData("", "", listHasilData);
+            //string hasilBaca = Barang.BacaData("", "", listHasilData);
 
-            if (hasilBaca == "1")
-            {
-                dataGridViewBarang.Rows.Clear();
+            //if (hasilBaca == "1")
+            //{
+            //    dataGridViewBarang.Rows.Clear();
 
-                for(int i=0; i<listHasilData.Count; i++)
-                {
-                    dataGridViewBarang.Rows.Add(listHasilData[i].KodeBarang, listHasilData[i].Barcode, listHasilData[i].Nama,listHasilData[i].HargaJual ,listHasilData[i].Stok, listHasilData[i].Kategori.KodeKategori, listHasilData[i].Kategori.Nama);
-                }
-            }
+            //    for(int i=0; i<listHasilData.Count; i++)
+            //    {
+            //        dataGridViewBarang.Rows.Add(listHasilData[i].KodeBarang, listHasilData[i].Barcode, listHasilData[i].Nama,listHasilData[i].HargaJual ,listHasilData[i].Stok, listHasilData[i].Kategori.KodeKategori, listHasilData[i].Kategori.Nama);
+            //    }
+            //}
         }
 
         private void buttonTambah_Click(object sender, EventArgs e)
         {
-            FormTambahBarang frmTbhBarang = new FormTambahBarang();
+            FormTambahJobOrder frmTbhBarang = new FormTambahJobOrder();
             frmTbhBarang.Owner = this;
             frmTbhBarang.ShowDialog();
         }
@@ -111,35 +111,35 @@ namespace SIA
                 hasilCari = "K.Nama";
             }
 
-            string hasilBaca = Barang.BacaData(hasilCari, textBoxBarang.Text, listHasilData);
+            //string hasilBaca = Barang.BacaData(hasilCari, textBoxBarang.Text, listHasilData);
 
-            if (hasilBaca == "1")
-            {
-                dataGridViewBarang.Rows.Clear();
+            //if (hasilBaca == "1")
+            //{
+            //    dataGridViewBarang.Rows.Clear();
 
-                for (int i = 0; i < listHasilData.Count; i++)
-                {
-                    dataGridViewBarang.Rows.Add(listHasilData[i].KodeBarang, listHasilData[i].Barcode, listHasilData[i].Nama, listHasilData[i].HargaJual, listHasilData[i].Stok, listHasilData[i].Kategori.KodeKategori, listHasilData[i].Kategori.Nama);
-                }
-            }
-            else
-            {
-                dataGridViewBarang.Rows.Clear();
-            }
+            //    for (int i = 0; i < listHasilData.Count; i++)
+            //    {
+            //        dataGridViewBarang.Rows.Add(listHasilData[i].KodeBarang, listHasilData[i].Barcode, listHasilData[i].Nama, listHasilData[i].HargaJual, listHasilData[i].Stok, listHasilData[i].Kategori.KodeKategori, listHasilData[i].Kategori.Nama);
+            //    }
+            //}
+            //else
+            //{
+            //    dataGridViewBarang.Rows.Clear();
+            //}
         }
 
         private void buttonUbah_Click(object sender, EventArgs e)
         {
-            FormUbahBarang frmUbhBarang = new FormUbahBarang();
-            frmUbhBarang.Owner = this;
-            frmUbhBarang.ShowDialog();
+            //FormUbahBarang frmUbhBarang = new FormUbahBarang();
+            //frmUbhBarang.Owner = this;
+            //frmUbhBarang.ShowDialog();
         }
 
         private void buttonHapus_Click(object sender, EventArgs e)
         {
-            FormHapusBarang frmHpsBarang = new FormHapusBarang();
-            frmHpsBarang.Owner = this;
-            frmHpsBarang.ShowDialog();
+            //FormHapusBarang frmHpsBarang = new FormHapusBarang();
+            //frmHpsBarang.Owner = this;
+            //frmHpsBarang.ShowDialog();
         }
     }
 }

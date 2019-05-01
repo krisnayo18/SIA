@@ -8,7 +8,7 @@ using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
 
-using ClassJualBeli;
+
 
 namespace SIA
 {
@@ -19,8 +19,8 @@ namespace SIA
             InitializeComponent();
         }
 
-        List<Pelanggan> listHasilData = new List<Pelanggan>();
-        List<Barang> listHasilBarang = new List<Barang>();
+        //List<Pelanggan> listHasilData = new List<Pelanggan>();
+        //List<Barang> listHasilBarang = new List<Barang>();
 
         private void FormatDataGrid()
         {
@@ -61,71 +61,71 @@ namespace SIA
             comboBoxPelanggan.DropDownStyle = ComboBoxStyle.DropDownList;
 
 
-            string noNotaBaru;
-            string hasilGenerate = NotaJual.GenerateNoNota(out noNotaBaru);
-            textBoxNo.Clear();
-            if (hasilGenerate == "1")
-            {
-                textBoxNo.Text = noNotaBaru;
-                textBoxBarcode.Focus();
-            }
-            else
-            {
-                MessageBox.Show("Gagal melakukan generate code. Pesan kesalahan: " + hasilGenerate);
-            }
+            //string noNotaBaru;
+            //string hasilGenerate = NotaJual.GenerateNoNota(out noNotaBaru);
+            //textBoxNo.Clear();
+            //if (hasilGenerate == "1")
+            //{
+            //    textBoxNo.Text = noNotaBaru;
+            //    textBoxBarcode.Focus();
+            //}
+            //else
+            //{
+            //    MessageBox.Show("Gagal melakukan generate code. Pesan kesalahan: " + hasilGenerate);
+            //}
 
-            dateTimePickerTanggal.Value = DateTime.Now;
-            dateTimePickerTanggal.Enabled = false;
+            //dateTimePickerTanggal.Value = DateTime.Now;
+            //dateTimePickerTanggal.Enabled = false;
 
-            string hasilBaca = Pelanggan.BacaData("", "", listHasilData);
+            //string hasilBaca = Pelanggan.BacaData("", "", listHasilData);
 
-            if (hasilBaca == "1")
-            {
-                comboBoxPelanggan.Items.Clear();
-                for (int i = 0; i < listHasilData.Count; i++)
-                {
-                    comboBoxPelanggan.Items.Add(listHasilData[i].KodePelanggan + " - " + listHasilData[i].Nama);
-                }
-            }
-            else
-            {
-                comboBoxPelanggan.Items.Clear();
-            }
+            //if (hasilBaca == "1")
+            //{
+            //    comboBoxPelanggan.Items.Clear();
+            //    for (int i = 0; i < listHasilData.Count; i++)
+            //    {
+            //        comboBoxPelanggan.Items.Add(listHasilData[i].KodePelanggan + " - " + listHasilData[i].Nama);
+            //    }
+            //}
+            //else
+            //{
+            //    comboBoxPelanggan.Items.Clear();
+            //}
 
-            FormUtama form = (FormUtama)this.Owner.MdiParent;
-            labelKodePgw.Text = form.labelKodePgw.Text;
-            labelNamaPgw.Text = form.labelNamaPgw.Text;
+            //FormUtama form = (FormUtama)this.Owner.MdiParent;
+            //labelKodePgw.Text = form.labelKodePgw.Text;
+            //labelNamaPgw.Text = form.labelNamaPgw.Text;
         }
 
         private void textBoxBarcode_TextChanged(object sender, EventArgs e)
         {
-            if (textBoxBarcode.Text.Length == textBoxBarcode.MaxLength)
-            {
-                string hasilBaca = Barang.BacaData("barcode", textBoxBarcode.Text, listHasilBarang);
+            //if (textBoxBarcode.Text.Length == textBoxBarcode.MaxLength)
+            //{
+            //    string hasilBaca = Barang.BacaData("barcode", textBoxBarcode.Text, listHasilBarang);
 
-                if (hasilBaca == "1")
-                {
-                    if (listHasilBarang.Count > 0)
-                    {
+            //    if (hasilBaca == "1")
+            //    {
+            //        if (listHasilBarang.Count > 0)
+            //        {
 
-                        labelNama.Text = listHasilBarang[0].Nama;
-                        labelKode.Text = listHasilBarang[0].KodeBarang;
-                        labelHarga.Text = listHasilBarang[0].HargaJual.ToString();
-                        textBoxJumlah.Focus();
-                        textBoxJumlah.Text = "1";
-                    }
-                    else
-                    {
-                        MessageBox.Show("Baranf tidak ditemukan.");
-                        textBoxBarcode.Clear();
-                    }
+            //            labelNama.Text = listHasilBarang[0].Nama;
+            //            labelKode.Text = listHasilBarang[0].KodeBarang;
+            //            labelHarga.Text = listHasilBarang[0].HargaJual.ToString();
+            //            textBoxJumlah.Focus();
+            //            textBoxJumlah.Text = "1";
+            //        }
+            //        else
+            //        {
+            //            MessageBox.Show("Baranf tidak ditemukan.");
+            //            textBoxBarcode.Clear();
+            //        }
 
-                }
-                else
-                {
-                    MessageBox.Show("Perintah SQL gagal dijalankan. Pesan kesalahan: " + hasilBaca);
-                }
-            }
+            //    }
+            //    else
+            //    {
+            //        MessageBox.Show("Perintah SQL gagal dijalankan. Pesan kesalahan: " + hasilBaca);
+            //    }
+            //}
         }
 
         private void buttonKeluar_Click(object sender, EventArgs e)
@@ -164,67 +164,67 @@ namespace SIA
 
         private void comboBoxPelanggan_SelectedIndexChanged(object sender, EventArgs e)
         {
-            listHasilData.Clear();
-            string hasilBaca = Pelanggan.BacaData("KodePelanggan", comboBoxPelanggan.Text.Substring(0, 1), listHasilData);
+            //listHasilData.Clear();
+            //string hasilBaca = Pelanggan.BacaData("KodePelanggan", comboBoxPelanggan.Text.Substring(0, 1), listHasilData);
             
-            if (hasilBaca == "1")
-            {
-                textBoxAlamat.Clear();
-                if (listHasilData.Count > 0)
-                {
-                    textBoxAlamat.Text = listHasilData[0].Alamat;
-                }
-            }
-            else
-            {
-                textBoxAlamat.Clear();
-            }
+            //if (hasilBaca == "1")
+            //{
+            //    textBoxAlamat.Clear();
+            //    if (listHasilData.Count > 0)
+            //    {
+            //        textBoxAlamat.Text = listHasilData[0].Alamat;
+            //    }
+            //}
+            //else
+            //{
+            //    textBoxAlamat.Clear();
+            //}
         }
 
         private void buttonSimpan_Click(object sender, EventArgs e)
         {
-            FormDaftarNotaJual form = (FormDaftarNotaJual)this.Owner;
-            Pelanggan pelanggan = new Pelanggan();
+            //FormDaftarNotaJual form = (FormDaftarNotaJual)this.Owner;
+            //Pelanggan pelanggan = new Pelanggan();
 
-            pelanggan.KodePelanggan = int.Parse(comboBoxPelanggan.Text.Substring(0, 1));
-            pelanggan.Nama = comboBoxPelanggan.Text.Substring(4, comboBoxPelanggan.Text.Length - 4);
-            pelanggan.Alamat = textBoxAlamat.Text;
+            //pelanggan.KodePelanggan = int.Parse(comboBoxPelanggan.Text.Substring(0, 1));
+            //pelanggan.Nama = comboBoxPelanggan.Text.Substring(4, comboBoxPelanggan.Text.Length - 4);
+            //pelanggan.Alamat = textBoxAlamat.Text;
 
-            Pegawai pgw = new Pegawai();
-            pgw.KodePegawai = int.Parse(labelKodePgw.Text);
-            pgw.Nama = labelNamaPgw.Text;
+            //Pegawai pgw = new Pegawai();
+            //pgw.KodePegawai = int.Parse(labelKodePgw.Text);
+            //pgw.Nama = labelNamaPgw.Text;
 
-            NotaJual nota = new NotaJual(textBoxNo.Text, dateTimePickerTanggal.Value, pelanggan, pgw);
+            //NotaJual nota = new NotaJual(textBoxNo.Text, dateTimePickerTanggal.Value, pelanggan, pgw);
 
-            for(int i = 0; i< dataGridViewNota.Rows.Count; i++)
-            {
-                Barang barang = new Barang();
-                barang.KodeBarang = dataGridViewNota.Rows[i].Cells["KodeBarang"].Value.ToString();
-                barang.Nama = dataGridViewNota.Rows[i].Cells["NamaBarang"].Value.ToString();
-                int harga = int.Parse(dataGridViewNota.Rows[i].Cells["HargaJual"].Value.ToString());
-                int jumlah = int.Parse(dataGridViewNota.Rows[i].Cells["Jumlah"].Value.ToString());
+            //for(int i = 0; i< dataGridViewNota.Rows.Count; i++)
+            //{
+            //    Barang barang = new Barang();
+            //    barang.KodeBarang = dataGridViewNota.Rows[i].Cells["KodeBarang"].Value.ToString();
+            //    barang.Nama = dataGridViewNota.Rows[i].Cells["NamaBarang"].Value.ToString();
+            //    int harga = int.Parse(dataGridViewNota.Rows[i].Cells["HargaJual"].Value.ToString());
+            //    int jumlah = int.Parse(dataGridViewNota.Rows[i].Cells["Jumlah"].Value.ToString());
 
-                NotaJualDetil notaDetil = new NotaJualDetil(barang, harga, jumlah);
-                nota.TambahDetilBarang(barang, harga, jumlah);
-            }
+            //    NotaJualDetil notaDetil = new NotaJualDetil(barang, harga, jumlah);
+            //    nota.TambahDetilBarang(barang, harga, jumlah);
+            //}
 
-            string hasilTambah = NotaJual.TambahData(nota);
-            if(hasilTambah == "1")
-            {
-                MessageBox.Show("Data nota jual telah tersimpan", "Info");
-                form.FormDaftarNotaJual_Load(sender, e);
-            }
-            else
-            {
-                MessageBox.Show("Data nota jual gagal tersimpan. Pesan kesalahan : " + hasilTambah, "Kesalahan");
-            }
+            //string hasilTambah = NotaJual.TambahData(nota);
+            //if(hasilTambah == "1")
+            //{
+            //    MessageBox.Show("Data nota jual telah tersimpan", "Info");
+            //    form.FormDaftarNotaJual_Load(sender, e);
+            //}
+            //else
+            //{
+            //    MessageBox.Show("Data nota jual gagal tersimpan. Pesan kesalahan : " + hasilTambah, "Kesalahan");
+            //}
         }
 
         private void buttonCetakNota_Click(object sender, EventArgs e)
         {
-            string hasilCetak = NotaJual.CetakNota("N.NoNota", textBoxNo.Text, "Nota_Jual_Tambah.txt");
-            if (hasilCetak == "1") MessageBox.Show("Nota telah tercetak");
-            else MessageBox.Show("Nota jual gagal dicetak. Pesan kesalahan : " + hasilCetak);   
+            //string hasilCetak = NotaJual.CetakNota("N.NoNota", textBoxNo.Text, "Nota_Jual_Tambah.txt");
+            //if (hasilCetak == "1") MessageBox.Show("Nota telah tercetak");
+            //else MessageBox.Show("Nota jual gagal dicetak. Pesan kesalahan : " + hasilCetak);   
         }
     }
 }

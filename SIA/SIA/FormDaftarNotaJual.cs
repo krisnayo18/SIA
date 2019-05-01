@@ -8,7 +8,7 @@ using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
 
-using ClassJualBeli;
+
 
 namespace SIA
 {
@@ -19,8 +19,8 @@ namespace SIA
             InitializeComponent();
         }
 
-        List<NotaJual> listHasilData = new List<NotaJual>();
-        string kriteria = "";
+        //List<NotaJual> listHasilData = new List<NotaJual>();
+        //string kriteria = "";
         private void buttonKeluar_Click(object sender, EventArgs e)
         {
             this.Close();
@@ -35,22 +35,22 @@ namespace SIA
 
         public void FormDaftarNotaJual_Load(object sender, EventArgs e)
         {
-            this.Location = new Point(0, 0);
-            comboBoxCari.DropDownStyle = ComboBoxStyle.DropDownList;
+            //this.Location = new Point(0, 0);
+            //comboBoxCari.DropDownStyle = ComboBoxStyle.DropDownList;
 
-            FormatDataGrid();
+            //FormatDataGrid();
 
-            string hasilBaca = NotaJual.BacaData("", "", listHasilData);
+            //string hasilBaca = NotaJual.BacaData("", "", listHasilData);
 
-            if (hasilBaca == "1")
-            {
-                dataGridViewNota.Rows.Clear();
+            //if (hasilBaca == "1")
+            //{
+            //    dataGridViewNota.Rows.Clear();
 
-                for (int i = 0; i < listHasilData.Count; i++)
-                {
-                    dataGridViewNota.Rows.Add(listHasilData[i].NoNota, listHasilData[i].Tanggal, listHasilData[i].Pelanggan.KodePelanggan, listHasilData[i].Pelanggan.Nama,listHasilData[i].Pelanggan.Alamat,listHasilData[i].Pegawai.KodePegawai,listHasilData[i].Pegawai.Nama);
-                }
-            }
+            //    for (int i = 0; i < listHasilData.Count; i++)
+            //    {
+            //        dataGridViewNota.Rows.Add(listHasilData[i].NoNota, listHasilData[i].Tanggal, listHasilData[i].Pelanggan.KodePelanggan, listHasilData[i].Pelanggan.Nama,listHasilData[i].Pelanggan.Alamat,listHasilData[i].Pegawai.KodePegawai,listHasilData[i].Pegawai.Nama);
+            //    }
+            //}
         }
 
         private void FormatDataGrid()
@@ -83,35 +83,35 @@ namespace SIA
 
         private void textBoxNotaJual_TextChanged(object sender, EventArgs e)
         {
-            string nilaiKriteria = textBoxCari.Text;
-            if (comboBoxCari.Text == "No. Nota") kriteria = "N.NoNota";
-            else if (comboBoxCari.Text == "Tanggal") kriteria = "N.Tanggal";
-            else if (comboBoxCari.Text == "Kode Pelanggan") kriteria = "N.KodePelanggan";
-            else if (comboBoxCari.Text == "Nama Pelanggan") kriteria = "Plg.Nama";
-            else if (comboBoxCari.Text == "Alamat Pelanggan") kriteria = "Plg.Alamat";
-            else if (comboBoxCari.Text == "Kode Pegawai") kriteria = "N.KodePegawai";
-            else if (comboBoxCari.Text == "Nama Pegawai") kriteria = "Pgw.Nama";
+            //string nilaiKriteria = textBoxCari.Text;
+            //if (comboBoxCari.Text == "No. Nota") kriteria = "N.NoNota";
+            //else if (comboBoxCari.Text == "Tanggal") kriteria = "N.Tanggal";
+            //else if (comboBoxCari.Text == "Kode Pelanggan") kriteria = "N.KodePelanggan";
+            //else if (comboBoxCari.Text == "Nama Pelanggan") kriteria = "Plg.Nama";
+            //else if (comboBoxCari.Text == "Alamat Pelanggan") kriteria = "Plg.Alamat";
+            //else if (comboBoxCari.Text == "Kode Pegawai") kriteria = "N.KodePegawai";
+            //else if (comboBoxCari.Text == "Nama Pegawai") kriteria = "Pgw.Nama";
 
-            string hasilBaca = NotaJual.BacaData(kriteria, nilaiKriteria, listHasilData);
+            //string hasilBaca = NotaJual.BacaData(kriteria, nilaiKriteria, listHasilData);
 
-            if (hasilBaca == "1")
-            {
-                dataGridViewNota.Rows.Clear();
+            //if (hasilBaca == "1")
+            //{
+            //    dataGridViewNota.Rows.Clear();
 
-                for (int i = 0; i < listHasilData.Count; i++)
-                {
-                    dataGridViewNota.Rows.Add(listHasilData[i].NoNota, listHasilData[i].Tanggal, listHasilData[i].Pelanggan.KodePelanggan, listHasilData[i].Pelanggan.Nama, listHasilData[i].Pelanggan.Alamat, listHasilData[i].Pegawai.KodePegawai, listHasilData[i].Pegawai.Nama);
-                }
-            }
+            //    for (int i = 0; i < listHasilData.Count; i++)
+            //    {
+            //        dataGridViewNota.Rows.Add(listHasilData[i].NoNota, listHasilData[i].Tanggal, listHasilData[i].Pelanggan.KodePelanggan, listHasilData[i].Pelanggan.Nama, listHasilData[i].Pelanggan.Alamat, listHasilData[i].Pegawai.KodePegawai, listHasilData[i].Pegawai.Nama);
+            //    }
+            //}
         }
 
         private void buttoncetak_Click(object sender, EventArgs e)
         {
             //cetak semua nota yang memenuhi kriteria user
             //simpan di file daftar_nota_jual.txt
-            string hasilCetak = NotaJual.CetakNota(kriteria, textBoxCari.Text, "daftar_nota_jual.txt");
-            if (hasilCetak == "1") MessageBox.Show("Nota telah tercetak");
-            else MessageBox.Show("Nota jual gagal dicetak. Pesan kesalahan : " + hasilCetak);
+            //string hasilCetak = NotaJual.CetakNota(kriteria, textBoxCari.Text, "daftar_nota_jual.txt");
+            //if (hasilCetak == "1") MessageBox.Show("Nota telah tercetak");
+            //else MessageBox.Show("Nota jual gagal dicetak. Pesan kesalahan : " + hasilCetak);
         }
     }
 }

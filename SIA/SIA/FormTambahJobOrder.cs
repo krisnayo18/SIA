@@ -8,18 +8,18 @@ using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
 
-using ClassJualBeli;
+
 
 namespace SIA
 {
-    public partial class FormTambahBarang : Form
+    public partial class FormTambahJobOrder : Form
     {
-        public FormTambahBarang()
+        public FormTambahJobOrder()
         {
             InitializeComponent();
         }
 
-        List<Kategori> listDataKategori = new List<Kategori>();
+        //List<Kategori> listDataKategori = new List<Kategori>();
 
         private void buttonKeluar_Click(object sender, EventArgs e)
         {
@@ -30,82 +30,82 @@ namespace SIA
         {
             FormDaftarBarang fdb = (FormDaftarBarang)this.Owner; 
 
-            Kategori kategoriBrng = listDataKategori[comboBoxKategori.SelectedIndex];
-            Barang br = new Barang(textBoxKode.Text, textBoxBarcode.Text, textBoxNama.Text, int.Parse(textBoxHargaJual.Text), int.Parse(textBoxStok.Text), kategoriBrng);
-            string hasilTambah = Barang.TambahData(br);
+            //Kategori kategoriBrng = listDataKategori[comboBoxKodeBarang.SelectedIndex];
+            //Barang br = new Barang(textBoxQuantity.Text, textBoxDirectLabor.Text, textBoxNama.Text, int.Parse(textBoxHargaJual.Text), int.Parse(textBoxStok.Text), kategoriBrng);
+            //string hasilTambah = Barang.TambahData(br);
 
             
-            if (hasilTambah == "1")
-            {
-                MessageBox.Show("Data barang telah tersimpan.", "Informasi");
+            //if (hasilTambah == "1")
+            //{
+            //    MessageBox.Show("Data barang telah tersimpan.", "Informasi");
 
-                textBoxKode.Clear();
-                textBoxBarcode.Clear();
-                textBoxHargaJual.Clear();
-                textBoxStok.Clear();
-                textBoxNama.Clear();
+            //    textBoxQuantity.Clear();
+            //    textBoxDirectLabor.Clear();
+            //    textBoxHargaJual.Clear();
+            //    textBoxStok.Clear();
+            //    textBoxNama.Clear();
 
-                fdb.FormDaftarBarang_Load(sender, e);
-            }
-            else
-            {
-                MessageBox.Show("Gagal menambah kategori. Pesan kesalahan : " + hasilTambah);
-            }
+            //    fdb.FormDaftarBarang_Load(sender, e);
+            //}
+            //else
+            //{
+            //    MessageBox.Show("Gagal menambah kategori. Pesan kesalahan : " + hasilTambah);
+            //}
         }
 
         private void FormTambahBarang_Load(object sender, EventArgs e)
         {
-            this.Location = new Point(881, 26);
-            textBoxKode.MaxLength = 5;
-            textBoxBarcode.MaxLength = 13;
-            textBoxNama.MaxLength = 45;
+            //this.Location = new Point(881, 26);
+            //textBoxQuantity.MaxLength = 5;
+            //textBoxDirectLabor.MaxLength = 13;
+            //textBoxNama.MaxLength = 45;
 
-            comboBoxKategori.DropDownStyle = ComboBoxStyle.DropDownList;
+            //comboBoxKodeBarang.DropDownStyle = ComboBoxStyle.DropDownList;
 
-            textBoxKode.Enabled = false;
+            //textBoxQuantity.Enabled = false;
 
-            string hasilBaca = Kategori.BacaData("", "", listDataKategori);
+            //string hasilBaca = Kategori.BacaData("", "", listDataKategori);
 
-            if (hasilBaca == "1")
-            {
-                comboBoxKategori.Items.Clear();
-                for (int i = 0; i < listDataKategori.Count; i++)
-                {
-                    comboBoxKategori.Items.Add(listDataKategori[i].KodeKategori + " - " + listDataKategori[i].Nama);
-                }
-            }
-            else
-            {
-                comboBoxKategori.Items.Clear();
-            }
+            //if (hasilBaca == "1")
+            //{
+            //    comboBoxKodeBarang.Items.Clear();
+            //    for (int i = 0; i < listDataKategori.Count; i++)
+            //    {
+            //        comboBoxKodeBarang.Items.Add(listDataKategori[i].KodeKategori + " - " + listDataKategori[i].Nama);
+            //    }
+            //}
+            //else
+            //{
+            //    comboBoxKodeBarang.Items.Clear();
+            //}
         }
 
         private void comboBoxKategori_SelectedIndexChanged(object sender, EventArgs e)
         {
-            string kodeKategori = comboBoxKategori.Text.Substring(0, 2);
-            string kodeTerbaru;
+            //string kodeKategori = comboBoxKodeBarang.Text.Substring(0, 2);
+            //string kodeTerbaru;
 
-            string hasilGenerate = Barang.GenerateCode(kodeKategori, out kodeTerbaru);
+            //string hasilGenerate = Barang.GenerateCode(kodeKategori, out kodeTerbaru);
 
-            if (hasilGenerate == "1")
-            {
-                textBoxKode.Text = kodeTerbaru;
+            //if (hasilGenerate == "1")
+            //{
+            //    textBoxQuantity.Text = kodeTerbaru;
 
-                textBoxBarcode.Focus();
-            }
-            else
-            {
-                MessageBox.Show("Gagal melakukan generate code. Pesan kesalahan: " + hasilGenerate);
-            }
+            //    textBoxDirectLabor.Focus();
+            //}
+            //else
+            //{
+            //    MessageBox.Show("Gagal melakukan generate code. Pesan kesalahan: " + hasilGenerate);
+            //}
         }
 
         private void buttonKosongi_Click(object sender, EventArgs e)
         {
-            textBoxKode.Clear();
-            textBoxBarcode.Clear();
-            textBoxHargaJual.Clear();
-            textBoxStok.Clear();
-            textBoxNama.Clear();
+            //textBoxQuantity.Clear();
+            //textBoxDirectLabor.Clear();
+            //textBoxHargaJual.Clear();
+            //textBoxStok.Clear();
+            //textBoxNama.Clear();
         }
     }
 }

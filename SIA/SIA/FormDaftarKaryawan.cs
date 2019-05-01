@@ -8,7 +8,7 @@ using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
 
-using ClassJualBeli;
+
 
 namespace SIA
 {
@@ -19,7 +19,7 @@ namespace SIA
             InitializeComponent();
         }
 
-        List<Pegawai> listHasilData = new List<Pegawai>();
+        //List<Pegawai> listHasilData = new List<Pegawai>();
 
         private void FormatDataGrid()
         {
@@ -54,41 +54,41 @@ namespace SIA
 
         private void buttonTambah_Click(object sender, EventArgs e)
         {
-            FormTambahPegawai frmTmbhPegawai = new FormTambahPegawai();
-            frmTmbhPegawai.Owner = this;
-            frmTmbhPegawai.ShowDialog();
+            //FormTambahPegawai frmTmbhPegawai = new FormTambahPegawai();
+            //frmTmbhPegawai.Owner = this;
+            //frmTmbhPegawai.ShowDialog();
         }
 
         private void buttonUbah_Click(object sender, EventArgs e)
         {
-            FormUbahPegawai frmUbhPegawai = new FormUbahPegawai();
-            frmUbhPegawai.Owner = this;
-            frmUbhPegawai.ShowDialog();
+            //FormUbahPegawai frmUbhPegawai = new FormUbahPegawai();
+            //frmUbhPegawai.Owner = this;
+            //frmUbhPegawai.ShowDialog();
         }
 
         private void buttonHapus_Click(object sender, EventArgs e)
         {
-            FormHapusPegawai frmHpsPegawai = new FormHapusPegawai();
-            frmHpsPegawai.Owner = this;
-            frmHpsPegawai.ShowDialog();
+            //FormHapusPegawai frmHpsPegawai = new FormHapusPegawai();
+            //frmHpsPegawai.Owner = this;
+            //frmHpsPegawai.ShowDialog();
         }
 
         public void FormDaftarPegawai_Load(object sender, EventArgs e)
         {
-            this.Location = new Point(0, 0);
-            FormatDataGrid();
+            //this.Location = new Point(0, 0);
+            //FormatDataGrid();
 
-            string hasilBaca = Pegawai.BacaData("", "", listHasilData);
+            //string hasilBaca = Pegawai.BacaData("", "", listHasilData);
 
-            if (hasilBaca == "1")
-            {
-                dataGridViewPegawai.Rows.Clear();
+            //if (hasilBaca == "1")
+            //{
+            //    dataGridViewPegawai.Rows.Clear();
 
-                for (int i=0; i<listHasilData.Count; i++)
-                {
-                    dataGridViewPegawai.Rows.Add(listHasilData[i].KodePegawai, listHasilData[i].Nama, listHasilData[i].TglLahir, listHasilData[i].Alamat, listHasilData[i].Gaji, listHasilData[i].Username, listHasilData[i].Jabatan.NamaJabatan);
-                }
-            }
+            //    for (int i=0; i<listHasilData.Count; i++)
+            //    {
+            //        dataGridViewPegawai.Rows.Add(listHasilData[i].KodePegawai, listHasilData[i].Nama, listHasilData[i].TglLahir, listHasilData[i].Alamat, listHasilData[i].Gaji, listHasilData[i].Username, listHasilData[i].Jabatan.NamaJabatan);
+            //    }
+            //}
         }
 
         private void textBoxPegawai_TextChanged(object sender, EventArgs e)
@@ -123,21 +123,21 @@ namespace SIA
                 hasilCari = "J.Nama";
             }
 
-            string hasilBaca = Pegawai.BacaData(hasilCari, textBoxPegawai.Text, listHasilData);
+            //string hasilBaca = Pegawai.BacaData(hasilCari, textBoxPegawai.Text, listHasilData);
 
-            if (hasilBaca == "1")
-            {
-                dataGridViewPegawai.Rows.Clear();
+            //if (hasilBaca == "1")
+            //{
+            //    dataGridViewPegawai.Rows.Clear();
 
-                for (int i = 0; i < listHasilData.Count; i++)
-                {
-                    dataGridViewPegawai.Rows.Add(listHasilData[i].KodePegawai, listHasilData[i].Nama, listHasilData[i].TglLahir, listHasilData[i].Alamat, listHasilData[i].Gaji, listHasilData[i].Username, listHasilData[i].Jabatan.NamaJabatan);
-                }
-            }
-            else
-            {
-                dataGridViewPegawai.Rows.Clear();
-            }
+            //    for (int i = 0; i < listHasilData.Count; i++)
+            //    {
+            //        dataGridViewPegawai.Rows.Add(listHasilData[i].KodePegawai, listHasilData[i].Nama, listHasilData[i].TglLahir, listHasilData[i].Alamat, listHasilData[i].Gaji, listHasilData[i].Username, listHasilData[i].Jabatan.NamaJabatan);
+            //    }
+            //}
+            //else
+            //{
+            //    dataGridViewPegawai.Rows.Clear();
+            //}
         }
     }
 }
