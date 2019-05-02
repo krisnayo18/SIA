@@ -158,6 +158,18 @@
     <Compile Include="FormTambahNotaJual.Designer.cs">
       <DependentUpon>FormTambahNotaJual.cs</DependentUpon>
     </Compile>
+    <Compile Include="FormTambahPembayaran.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="FormTambahPembayaran.Designer.cs">
+      <DependentUpon>FormTambahPembayaran.cs</DependentUpon>
+    </Compile>
+    <Compile Include="FormTambahPenerimaan.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="FormTambahPenerimaan.Designer.cs">
+      <DependentUpon>FormTambahPenerimaan.cs</DependentUpon>
+    </Compile>
     <Compile Include="FormTambahPenerimaanPembayaran.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -169,6 +181,18 @@
     </Compile>
     <Compile Include="FormTambahPengiriman.Designer.cs">
       <DependentUpon>FormTambahPengiriman.cs</DependentUpon>
+    </Compile>
+    <Compile Include="FormTambahSuratJalan.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="FormTambahSuratJalan.Designer.cs">
+      <DependentUpon>FormTambahSuratJalan.cs</DependentUpon>
+    </Compile>
+    <Compile Include="FormTambahSuratPermintaan.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="FormTambahSuratPermintaan.Designer.cs">
+      <DependentUpon>FormTambahSuratPermintaan.cs</DependentUpon>
     </Compile>
     <Compile Include="FormUtama.cs">
       <SubType>Form</SubType>
@@ -232,11 +256,23 @@
     <EmbeddedResource Include="FormTambahNotaJual.resx">
       <DependentUpon>FormTambahNotaJual.cs</DependentUpon>
     </EmbeddedResource>
+    <EmbeddedResource Include="FormTambahPembayaran.resx">
+      <DependentUpon>FormTambahPembayaran.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="FormTambahPenerimaan.resx">
+      <DependentUpon>FormTambahPenerimaan.cs</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="FormTambahPenerimaanPembayaran.resx">
       <DependentUpon>FormTambahPenerimaanPembayaran.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="FormTambahPengiriman.resx">
       <DependentUpon>FormTambahPengiriman.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="FormTambahSuratJalan.resx">
+      <DependentUpon>FormTambahSuratJalan.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="FormTambahSuratPermintaan.resx">
+      <DependentUpon>FormTambahSuratPermintaan.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="FormUtama.resx">
       <DependentUpon>FormUtama.cs</DependentUpon>

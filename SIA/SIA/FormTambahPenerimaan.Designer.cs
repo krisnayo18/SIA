@@ -1,6 +1,6 @@
 ﻿namespace SIA
 {
-    partial class FormTambahPengiriman
+    partial class FormTambahPenerimaan
     {
         /// <summary>
         /// Required designer variable.
@@ -28,13 +28,14 @@
         /// </summary>
         private void InitializeComponent()
         {
-            this.buttonSimpan = new System.Windows.Forms.Button();
-            this.panel1 = new System.Windows.Forms.Panel();
+            this.label1 = new System.Windows.Forms.Label();
             this.dateTimePickerMulai = new System.Windows.Forms.DateTimePicker();
             this.textBoxDirectMaterial = new System.Windows.Forms.TextBox();
             this.label3 = new System.Windows.Forms.Label();
             this.comboBoxNoNotaJual = new System.Windows.Forms.ComboBox();
             this.textBoxKodeJobOrder = new System.Windows.Forms.TextBox();
+            this.buttonKosongi = new System.Windows.Forms.Button();
+            this.buttonKeluar = new System.Windows.Forms.Button();
             this.label2 = new System.Windows.Forms.Label();
             this.textBoxQuantity = new System.Windows.Forms.TextBox();
             this.label4 = new System.Windows.Forms.Label();
@@ -44,51 +45,22 @@
             this.textBoxDirectLabor = new System.Windows.Forms.TextBox();
             this.label9 = new System.Windows.Forms.Label();
             this.comboBoxKodeBarang = new System.Windows.Forms.ComboBox();
-            this.buttonKeluar = new System.Windows.Forms.Button();
-            this.label1 = new System.Windows.Forms.Label();
-            this.buttonKosongi = new System.Windows.Forms.Button();
-            this.label7 = new System.Windows.Forms.Label();
-            this.textBox1 = new System.Windows.Forms.TextBox();
+            this.buttonSimpan = new System.Windows.Forms.Button();
+            this.panel1 = new System.Windows.Forms.Panel();
             this.panel1.SuspendLayout();
             this.SuspendLayout();
             // 
-            // buttonSimpan
+            // label1
             // 
-            this.buttonSimpan.BackColor = System.Drawing.Color.DodgerBlue;
-            this.buttonSimpan.FlatAppearance.BorderSize = 0;
-            this.buttonSimpan.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.buttonSimpan.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.buttonSimpan.ForeColor = System.Drawing.Color.White;
-            this.buttonSimpan.Location = new System.Drawing.Point(13, 361);
-            this.buttonSimpan.Name = "buttonSimpan";
-            this.buttonSimpan.Size = new System.Drawing.Size(96, 33);
-            this.buttonSimpan.TabIndex = 37;
-            this.buttonSimpan.Text = "SIMPAN";
-            this.buttonSimpan.UseVisualStyleBackColor = false;
-            // 
-            // panel1
-            // 
-            this.panel1.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(192)))), ((int)(((byte)(192)))), ((int)(((byte)(255)))));
-            this.panel1.Controls.Add(this.textBox1);
-            this.panel1.Controls.Add(this.label7);
-            this.panel1.Controls.Add(this.dateTimePickerMulai);
-            this.panel1.Controls.Add(this.textBoxDirectMaterial);
-            this.panel1.Controls.Add(this.label3);
-            this.panel1.Controls.Add(this.comboBoxNoNotaJual);
-            this.panel1.Controls.Add(this.textBoxKodeJobOrder);
-            this.panel1.Controls.Add(this.label2);
-            this.panel1.Controls.Add(this.textBoxQuantity);
-            this.panel1.Controls.Add(this.label4);
-            this.panel1.Controls.Add(this.label5);
-            this.panel1.Controls.Add(this.label6);
-            this.panel1.Controls.Add(this.label8);
-            this.panel1.Controls.Add(this.textBoxDirectLabor);
-            this.panel1.Controls.Add(this.label9);
-            this.panel1.Controls.Add(this.comboBoxKodeBarang);
-            this.panel1.Location = new System.Drawing.Point(13, 48);
-            this.panel1.Name = "panel1";
-            this.panel1.Size = new System.Drawing.Size(442, 307);
-            this.panel1.TabIndex = 41;
+            this.label1.BackColor = System.Drawing.Color.DodgerBlue;
+            this.label1.Font = new System.Drawing.Font("Tahoma", 18F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label1.ForeColor = System.Drawing.Color.White;
+            this.label1.Location = new System.Drawing.Point(12, 9);
+            this.label1.Name = "label1";
+            this.label1.Size = new System.Drawing.Size(442, 32);
+            this.label1.TabIndex = 35;
+            this.label1.Text = "TAMBAH PENERIMAAN";
+            this.label1.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
             // 
             // dateTimePickerMulai
             // 
@@ -133,6 +105,34 @@
             this.textBoxKodeJobOrder.Name = "textBoxKodeJobOrder";
             this.textBoxKodeJobOrder.Size = new System.Drawing.Size(74, 20);
             this.textBoxKodeJobOrder.TabIndex = 1;
+            // 
+            // buttonKosongi
+            // 
+            this.buttonKosongi.BackColor = System.Drawing.Color.DodgerBlue;
+            this.buttonKosongi.FlatAppearance.BorderSize = 0;
+            this.buttonKosongi.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.buttonKosongi.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.buttonKosongi.ForeColor = System.Drawing.Color.White;
+            this.buttonKosongi.Location = new System.Drawing.Point(115, 360);
+            this.buttonKosongi.Name = "buttonKosongi";
+            this.buttonKosongi.Size = new System.Drawing.Size(96, 33);
+            this.buttonKosongi.TabIndex = 33;
+            this.buttonKosongi.Text = "KOSONGI";
+            this.buttonKosongi.UseVisualStyleBackColor = false;
+            // 
+            // buttonKeluar
+            // 
+            this.buttonKeluar.BackColor = System.Drawing.Color.DodgerBlue;
+            this.buttonKeluar.FlatAppearance.BorderSize = 0;
+            this.buttonKeluar.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.buttonKeluar.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.buttonKeluar.ForeColor = System.Drawing.Color.White;
+            this.buttonKeluar.Location = new System.Drawing.Point(358, 360);
+            this.buttonKeluar.Name = "buttonKeluar";
+            this.buttonKeluar.Size = new System.Drawing.Size(96, 33);
+            this.buttonKeluar.TabIndex = 34;
+            this.buttonKeluar.Text = "KELUAR";
+            this.buttonKeluar.UseVisualStyleBackColor = false;
             // 
             // label2
             // 
@@ -216,76 +216,56 @@
             this.comboBoxKodeBarang.Size = new System.Drawing.Size(165, 21);
             this.comboBoxKodeBarang.TabIndex = 2;
             // 
-            // buttonKeluar
+            // buttonSimpan
             // 
-            this.buttonKeluar.BackColor = System.Drawing.Color.DodgerBlue;
-            this.buttonKeluar.FlatAppearance.BorderSize = 0;
-            this.buttonKeluar.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.buttonKeluar.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.buttonKeluar.ForeColor = System.Drawing.Color.White;
-            this.buttonKeluar.Location = new System.Drawing.Point(359, 361);
-            this.buttonKeluar.Name = "buttonKeluar";
-            this.buttonKeluar.Size = new System.Drawing.Size(96, 33);
-            this.buttonKeluar.TabIndex = 39;
-            this.buttonKeluar.Text = "KELUAR";
-            this.buttonKeluar.UseVisualStyleBackColor = false;
+            this.buttonSimpan.BackColor = System.Drawing.Color.DodgerBlue;
+            this.buttonSimpan.FlatAppearance.BorderSize = 0;
+            this.buttonSimpan.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.buttonSimpan.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.buttonSimpan.ForeColor = System.Drawing.Color.White;
+            this.buttonSimpan.Location = new System.Drawing.Point(12, 360);
+            this.buttonSimpan.Name = "buttonSimpan";
+            this.buttonSimpan.Size = new System.Drawing.Size(96, 33);
+            this.buttonSimpan.TabIndex = 32;
+            this.buttonSimpan.Text = "SIMPAN";
+            this.buttonSimpan.UseVisualStyleBackColor = false;
             // 
-            // label1
+            // panel1
             // 
-            this.label1.BackColor = System.Drawing.Color.DodgerBlue;
-            this.label1.Font = new System.Drawing.Font("Tahoma", 18F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label1.ForeColor = System.Drawing.Color.White;
-            this.label1.Location = new System.Drawing.Point(13, 10);
-            this.label1.Name = "label1";
-            this.label1.Size = new System.Drawing.Size(442, 32);
-            this.label1.TabIndex = 40;
-            this.label1.Text = "TAMBAH PENGIRIMAN";
-            this.label1.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
+            this.panel1.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(192)))), ((int)(((byte)(192)))), ((int)(((byte)(255)))));
+            this.panel1.Controls.Add(this.dateTimePickerMulai);
+            this.panel1.Controls.Add(this.textBoxDirectMaterial);
+            this.panel1.Controls.Add(this.label3);
+            this.panel1.Controls.Add(this.comboBoxNoNotaJual);
+            this.panel1.Controls.Add(this.textBoxKodeJobOrder);
+            this.panel1.Controls.Add(this.label2);
+            this.panel1.Controls.Add(this.textBoxQuantity);
+            this.panel1.Controls.Add(this.label4);
+            this.panel1.Controls.Add(this.label5);
+            this.panel1.Controls.Add(this.label6);
+            this.panel1.Controls.Add(this.label8);
+            this.panel1.Controls.Add(this.textBoxDirectLabor);
+            this.panel1.Controls.Add(this.label9);
+            this.panel1.Controls.Add(this.comboBoxKodeBarang);
+            this.panel1.Location = new System.Drawing.Point(12, 47);
+            this.panel1.Name = "panel1";
+            this.panel1.Size = new System.Drawing.Size(442, 307);
+            this.panel1.TabIndex = 36;
             // 
-            // buttonKosongi
-            // 
-            this.buttonKosongi.BackColor = System.Drawing.Color.DodgerBlue;
-            this.buttonKosongi.FlatAppearance.BorderSize = 0;
-            this.buttonKosongi.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.buttonKosongi.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.buttonKosongi.ForeColor = System.Drawing.Color.White;
-            this.buttonKosongi.Location = new System.Drawing.Point(116, 361);
-            this.buttonKosongi.Name = "buttonKosongi";
-            this.buttonKosongi.Size = new System.Drawing.Size(96, 33);
-            this.buttonKosongi.TabIndex = 38;
-            this.buttonKosongi.Text = "KOSONGI";
-            this.buttonKosongi.UseVisualStyleBackColor = false;
-            // 
-            // label7
-            // 
-            this.label7.AutoSize = true;
-            this.label7.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label7.Location = new System.Drawing.Point(87, 197);
-            this.label7.Name = "label7";
-            this.label7.Size = new System.Drawing.Size(105, 13);
-            this.label7.TabIndex = 50;
-            this.label7.Text = "Nomor Ekspedisi:";
-            // 
-            // textBox1
-            // 
-            this.textBox1.Location = new System.Drawing.Point(203, 190);
-            this.textBox1.Name = "textBox1";
-            this.textBox1.Size = new System.Drawing.Size(74, 20);
-            this.textBox1.TabIndex = 51;
-            // 
-            // FormTambahPengiriman
+            // FormTambahPenerimaan
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackColor = System.Drawing.Color.SteelBlue;
-            this.ClientSize = new System.Drawing.Size(468, 404);
-            this.Controls.Add(this.buttonSimpan);
-            this.Controls.Add(this.panel1);
-            this.Controls.Add(this.buttonKeluar);
+            this.ClientSize = new System.Drawing.Size(472, 410);
             this.Controls.Add(this.label1);
             this.Controls.Add(this.buttonKosongi);
+            this.Controls.Add(this.buttonKeluar);
+            this.Controls.Add(this.buttonSimpan);
+            this.Controls.Add(this.panel1);
             this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.None;
-            this.Name = "FormTambahPengiriman";
+            this.Name = "FormTambahPenerimaan";
+            this.Text = "FormTambahPenerimaan";
             this.panel1.ResumeLayout(false);
             this.panel1.PerformLayout();
             this.ResumeLayout(false);
@@ -294,15 +274,14 @@
 
         #endregion
 
-        private System.Windows.Forms.Button buttonSimpan;
-        private System.Windows.Forms.Panel panel1;
-        private System.Windows.Forms.TextBox textBox1;
-        private System.Windows.Forms.Label label7;
+        private System.Windows.Forms.Label label1;
         private System.Windows.Forms.DateTimePicker dateTimePickerMulai;
         private System.Windows.Forms.TextBox textBoxDirectMaterial;
         private System.Windows.Forms.Label label3;
         private System.Windows.Forms.ComboBox comboBoxNoNotaJual;
         private System.Windows.Forms.TextBox textBoxKodeJobOrder;
+        private System.Windows.Forms.Button buttonKosongi;
+        private System.Windows.Forms.Button buttonKeluar;
         private System.Windows.Forms.Label label2;
         private System.Windows.Forms.TextBox textBoxQuantity;
         private System.Windows.Forms.Label label4;
@@ -312,8 +291,7 @@
         private System.Windows.Forms.TextBox textBoxDirectLabor;
         private System.Windows.Forms.Label label9;
         private System.Windows.Forms.ComboBox comboBoxKodeBarang;
-        private System.Windows.Forms.Button buttonKeluar;
-        private System.Windows.Forms.Label label1;
-        private System.Windows.Forms.Button buttonKosongi;
+        private System.Windows.Forms.Button buttonSimpan;
+        private System.Windows.Forms.Panel panel1;
     }
 }
