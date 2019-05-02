@@ -16,5 +16,10 @@ namespace SIA
         {
             InitializeComponent();
         }
+
+        private void keluarToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            Application.Exit();
+        }
     }
 }
