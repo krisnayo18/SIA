@@ -237,6 +237,9 @@
     <EmbeddedResource Include="FormTambahPengiriman.resx">
       <DependentUpon>FormTambahPengiriman.cs</DependentUpon>
     </EmbeddedResource>
+    <EmbeddedResource Include="FormUtama.resx">
+      <DependentUpon>FormUtama.cs</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="Properties\Resources.resx">
       <Generator>ResXFileCodeGenerator</Generator>
       <LastGenOutput>Resources.Designer.cs</LastGenOutput>
