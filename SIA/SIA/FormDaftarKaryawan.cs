@@ -19,34 +19,8 @@ namespace SIA
             InitializeComponent();
         }
 
-        //List<Pegawai> listHasilData = new List<Pegawai>();
-
-        private void FormatDataGrid()
-        {
-            dataGridViewPegawai.Columns.Clear();
-
-            dataGridViewPegawai.Columns.Add("KodePegawai", "Kode Pegawai");
-            dataGridViewPegawai.Columns.Add("NamaPegawai", "Nama Pegawai");
-            dataGridViewPegawai.Columns.Add("TglLahir", "Tgl Lahir");
-            dataGridViewPegawai.Columns.Add("Alamat", "Alamat");
-            dataGridViewPegawai.Columns.Add("Gaji", "Gaji");
-            dataGridViewPegawai.Columns.Add("Username", "Username");
-            dataGridViewPegawai.Columns.Add("NamaJabatan", "Jabatan");
-
-            dataGridViewPegawai.Columns["KodePegawai"].AutoSizeMode = DataGridViewAutoSizeColumnMode.AllCells;
-            dataGridViewPegawai.Columns["NamaPegawai"].AutoSizeMode = DataGridViewAutoSizeColumnMode.AllCells;
-            dataGridViewPegawai.Columns["TglLahir"].AutoSizeMode = DataGridViewAutoSizeColumnMode.AllCells;
-            dataGridViewPegawai.Columns["Alamat"].AutoSizeMode = DataGridViewAutoSizeColumnMode.AllCells;
-            dataGridViewPegawai.Columns["Gaji"].AutoSizeMode = DataGridViewAutoSizeColumnMode.AllCells;
-            dataGridViewPegawai.Columns["Username"].AutoSizeMode = DataGridViewAutoSizeColumnMode.AllCells;
-            dataGridViewPegawai.Columns["NamaJabatan"].AutoSizeMode = DataGridViewAutoSizeColumnMode.AllCells;
-
-            dataGridViewPegawai.Columns["TglLahir"].DefaultCellStyle.Alignment = DataGridViewContentAlignment.MiddleRight;
-            dataGridViewPegawai.Columns["Gaji"].DefaultCellStyle.Alignment = DataGridViewContentAlignment.MiddleRight;
-
-
-            dataGridViewPegawai.Columns["Gaji"].DefaultCellStyle.Format = "0,###";
-        }
+        
+        
         private void buttonKeluar_Click(object sender, EventArgs e)
         {
             this.Close();
@@ -54,90 +28,63 @@ namespace SIA
 
         private void buttonTambah_Click(object sender, EventArgs e)
         {
-            //FormTambahPegawai frmTmbhPegawai = new FormTambahPegawai();
-            //frmTmbhPegawai.Owner = this;
-            //frmTmbhPegawai.ShowDialog();
+           
         }
 
-        private void buttonUbah_Click(object sender, EventArgs e)
-        {
-            //FormUbahPegawai frmUbhPegawai = new FormUbahPegawai();
-            //frmUbhPegawai.Owner = this;
-            //frmUbhPegawai.ShowDialog();
-        }
-
-        private void buttonHapus_Click(object sender, EventArgs e)
-        {
-            //FormHapusPegawai frmHpsPegawai = new FormHapusPegawai();
-            //frmHpsPegawai.Owner = this;
-            //frmHpsPegawai.ShowDialog();
-        }
+       
 
         public void FormDaftarPegawai_Load(object sender, EventArgs e)
         {
-            //this.Location = new Point(0, 0);
-            //FormatDataGrid();
-
-            //string hasilBaca = Pegawai.BacaData("", "", listHasilData);
-
-            //if (hasilBaca == "1")
-            //{
-            //    dataGridViewPegawai.Rows.Clear();
-
-            //    for (int i=0; i<listHasilData.Count; i++)
-            //    {
-            //        dataGridViewPegawai.Rows.Add(listHasilData[i].KodePegawai, listHasilData[i].Nama, listHasilData[i].TglLahir, listHasilData[i].Alamat, listHasilData[i].Gaji, listHasilData[i].Username, listHasilData[i].Jabatan.NamaJabatan);
-            //    }
-            //}
+           
         }
 
         private void textBoxPegawai_TextChanged(object sender, EventArgs e)
         {
             string hasilCari = "";
-            if (comboBoxPegawai.Text == "Kode Pegawai")
+            if (comboBoxPegawai.Text == "ID Karyawan")
             {
-                hasilCari = "P.KodePegawai";
+                hasilCari = "P.idkaryawan";
             }
-            else if (comboBoxPegawai.Text == "Nama")
+            else if (comboBoxPegawai.Text == "Nama Karyawan")
             {
-                hasilCari = "P.Nama";
+                hasilCari = "P.nama";
             }
-            else if (comboBoxPegawai.Text == "Tanggal Lahir")
+            else if (comboBoxPegawai.Text == "Jenis Kelamin")
             {
-                hasilCari = "P.TglLahir";
+                hasilCari = "P.gender";
             }
             else if (comboBoxPegawai.Text == "Alamat")
             {
-                hasilCari = "P.Alamat";
+                hasilCari = "P.alamat";
             }
             else if (comboBoxPegawai.Text == "Gaji")
             {
-                hasilCari = "P.Gaji";
+                hasilCari = "P.gaji";
             }
-            else if (comboBoxPegawai.Text == "Username")
+            else if (comboBoxPegawai.Text == "Nomor Telepon")
             {
-                hasilCari = "P.Username";
-            }
-            else if (comboBoxPegawai.Text == "Jabatan")
-            {
-                hasilCari = "J.Nama";
+                hasilCari = "P.noTelepon";
             }
 
-            //string hasilBaca = Pegawai.BacaData(hasilCari, textBoxPegawai.Text, listHasilData);
+           
+        }
+        private void FormatDataGrid()
+        {
+            dataGridViewPegawai.Columns.Clear();
 
-            //if (hasilBaca == "1")
-            //{
-            //    dataGridViewPegawai.Rows.Clear();
+            dataGridViewPegawai.Columns.Add("idkaryawan", "ID Karyawan");
+            dataGridViewPegawai.Columns.Add("nama", "Nama Karyawan");
+            dataGridViewPegawai.Columns.Add("gender", "Jenis Kelamin");
+            dataGridViewPegawai.Columns.Add("alamat", "Alamat");
+            dataGridViewPegawai.Columns.Add("noTelepon", "Nomor Telepon");
+            dataGridViewPegawai.Columns.Add("gaji", "Gaji");
 
-            //    for (int i = 0; i < listHasilData.Count; i++)
-            //    {
-            //        dataGridViewPegawai.Rows.Add(listHasilData[i].KodePegawai, listHasilData[i].Nama, listHasilData[i].TglLahir, listHasilData[i].Alamat, listHasilData[i].Gaji, listHasilData[i].Username, listHasilData[i].Jabatan.NamaJabatan);
-            //    }
-            //}
-            //else
-            //{
-            //    dataGridViewPegawai.Rows.Clear();
-            //}
+            dataGridViewPegawai.Columns["idkaryawan"].AutoSizeMode = DataGridViewAutoSizeColumnMode.AllCells;
+            dataGridViewPegawai.Columns["nama"].AutoSizeMode = DataGridViewAutoSizeColumnMode.AllCells;
+            dataGridViewPegawai.Columns["gender"].AutoSizeMode = DataGridViewAutoSizeColumnMode.AllCells;
+            dataGridViewPegawai.Columns["alamat"].AutoSizeMode = DataGridViewAutoSizeColumnMode.AllCells;
+            dataGridViewPegawai.Columns["noTelepon"].AutoSizeMode = DataGridViewAutoSizeColumnMode.AllCells;
+            dataGridViewPegawai.Columns["gaji"].AutoSizeMode = DataGridViewAutoSizeColumnMode.AllCells;
         }
     }
 }

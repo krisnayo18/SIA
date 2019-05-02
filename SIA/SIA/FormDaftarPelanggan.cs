@@ -19,7 +19,7 @@ namespace SIA
             InitializeComponent();
         }
 
-        //List<Pelanggan> listHasilData = new List<Pelanggan>();
+        
 
         private void buttonKeluar_Click(object sender, EventArgs e)
         {
@@ -28,40 +28,15 @@ namespace SIA
 
         public void FormDaftarPelanggan_Load(object sender, EventArgs e)
         {
-            //this.Location = new Point(0, 0);
-            //string hasilBaca = Pelanggan.BacaData("", "", listHasilData);
 
-            //if (hasilBaca == "1")
-            //{
-            //    //dataGridViewPelanggan.DataSource = null;
-            //    dataGridViewPelanggan.DataSource = listHasilData;
-            //}
-            //else
-            //{
-            //    dataGridViewPelanggan.DataSource = null;
-            //}
         }
 
         private void buttonTambah_Click(object sender, EventArgs e)
         {
-            //FormTambahPelanggan frmTambah = new FormTambahPelanggan();
-            //frmTambah.Owner = this;
-            //frmTambah.ShowDialog();
+            
         }
 
-        private void buttonUbah_Click(object sender, EventArgs e)
-        {
-            //FormUbahPelanggan frmUbah = new FormUbahPelanggan();
-            //frmUbah.Owner = this;
-            //frmUbah.ShowDialog();
-        }
-
-        private void buttonHapus_Click(object sender, EventArgs e)
-        {
-            //FormHapusPelanggan frmHapus = new FormHapusPelanggan();
-            //frmHapus.Owner = this;
-            //frmHapus.ShowDialog();
-        }
+        
 
         private void textBoxPelanggan_TextChanged(object sender, EventArgs e)
         {

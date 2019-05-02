@@ -16,5 +16,12 @@ namespace SIA
         {
             InitializeComponent();
         }
+
+        private void buttonTambah_Click(object sender, EventArgs e)
+        {
+            /*FormTambahDaftarPembayaran frmTambah = new FormTambahDaftarPembayaran();
+            frmTambah.Owner = this;
+            frmTambah.ShowDialog();*/
+        }
     }
 }

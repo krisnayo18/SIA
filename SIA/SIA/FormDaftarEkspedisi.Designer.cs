@@ -46,10 +46,9 @@
             this.buttonCari.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.buttonCari.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.buttonCari.ForeColor = System.Drawing.Color.White;
-            this.buttonCari.Location = new System.Drawing.Point(825, 66);
-            this.buttonCari.Margin = new System.Windows.Forms.Padding(4, 5, 4, 5);
+            this.buttonCari.Location = new System.Drawing.Point(550, 43);
             this.buttonCari.Name = "buttonCari";
-            this.buttonCari.Size = new System.Drawing.Size(69, 38);
+            this.buttonCari.Size = new System.Drawing.Size(46, 25);
             this.buttonCari.TabIndex = 31;
             this.buttonCari.Text = "CARI";
             this.buttonCari.UseVisualStyleBackColor = false;
@@ -57,12 +56,11 @@
             // textBoxBarang
             // 
             this.textBoxBarang.BorderStyle = System.Windows.Forms.BorderStyle.None;
-            this.textBoxBarang.Location = new System.Drawing.Point(463, 66);
-            this.textBoxBarang.Margin = new System.Windows.Forms.Padding(4, 5, 4, 5);
-            this.textBoxBarang.MaximumSize = new System.Drawing.Size(750, 769);
+            this.textBoxBarang.Location = new System.Drawing.Point(309, 43);
+            this.textBoxBarang.MaximumSize = new System.Drawing.Size(500, 500);
             this.textBoxBarang.Multiline = true;
             this.textBoxBarang.Name = "textBoxBarang";
-            this.textBoxBarang.Size = new System.Drawing.Size(348, 37);
+            this.textBoxBarang.Size = new System.Drawing.Size(232, 24);
             this.textBoxBarang.TabIndex = 30;
             // 
             // comboBoxBarang
@@ -78,10 +76,9 @@
             "Stok",
             "Kode Kategori",
             "Nama Kategori"});
-            this.comboBoxBarang.Location = new System.Drawing.Point(165, 69);
-            this.comboBoxBarang.Margin = new System.Windows.Forms.Padding(4, 5, 4, 5);
+            this.comboBoxBarang.Location = new System.Drawing.Point(110, 45);
             this.comboBoxBarang.Name = "comboBoxBarang";
-            this.comboBoxBarang.Size = new System.Drawing.Size(286, 28);
+            this.comboBoxBarang.Size = new System.Drawing.Size(192, 21);
             this.comboBoxBarang.TabIndex = 29;
             // 
             // buttonTambah
@@ -91,10 +88,9 @@
             this.buttonTambah.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.buttonTambah.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.buttonTambah.ForeColor = System.Drawing.Color.White;
-            this.buttonTambah.Location = new System.Drawing.Point(17, 540);
-            this.buttonTambah.Margin = new System.Windows.Forms.Padding(4, 5, 4, 5);
+            this.buttonTambah.Location = new System.Drawing.Point(11, 351);
             this.buttonTambah.Name = "buttonTambah";
-            this.buttonTambah.Size = new System.Drawing.Size(144, 51);
+            this.buttonTambah.Size = new System.Drawing.Size(96, 33);
             this.buttonTambah.TabIndex = 27;
             this.buttonTambah.Text = "TAMBAH";
             this.buttonTambah.UseVisualStyleBackColor = false;
@@ -106,10 +102,9 @@
             this.label2.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.label2.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.label2.ForeColor = System.Drawing.Color.White;
-            this.label2.Location = new System.Drawing.Point(-1, 58);
-            this.label2.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
+            this.label2.Location = new System.Drawing.Point(-1, 38);
             this.label2.Name = "label2";
-            this.label2.Size = new System.Drawing.Size(910, 54);
+            this.label2.Size = new System.Drawing.Size(607, 35);
             this.label2.TabIndex = 22;
             this.label2.Text = "Cari Berdasarkan:";
             this.label2.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
@@ -121,10 +116,9 @@
             this.buttonKeluar.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.buttonKeluar.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.buttonKeluar.ForeColor = System.Drawing.Color.White;
-            this.buttonKeluar.Location = new System.Drawing.Point(765, 540);
-            this.buttonKeluar.Margin = new System.Windows.Forms.Padding(4, 5, 4, 5);
+            this.buttonKeluar.Location = new System.Drawing.Point(510, 351);
             this.buttonKeluar.Name = "buttonKeluar";
-            this.buttonKeluar.Size = new System.Drawing.Size(144, 51);
+            this.buttonKeluar.Size = new System.Drawing.Size(96, 33);
             this.buttonKeluar.TabIndex = 25;
             this.buttonKeluar.Text = "KELUAR";
             this.buttonKeluar.UseVisualStyleBackColor = false;
@@ -133,10 +127,9 @@
             // 
             this.dataGridViewBarang.BackgroundColor = System.Drawing.Color.White;
             this.dataGridViewBarang.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
-            this.dataGridViewBarang.Location = new System.Drawing.Point(-1, 120);
-            this.dataGridViewBarang.Margin = new System.Windows.Forms.Padding(4, 5, 4, 5);
+            this.dataGridViewBarang.Location = new System.Drawing.Point(-1, 78);
             this.dataGridViewBarang.Name = "dataGridViewBarang";
-            this.dataGridViewBarang.Size = new System.Drawing.Size(910, 411);
+            this.dataGridViewBarang.Size = new System.Drawing.Size(607, 267);
             this.dataGridViewBarang.TabIndex = 24;
             // 
             // label1
@@ -145,19 +138,18 @@
             this.label1.Font = new System.Drawing.Font("Tahoma", 18F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.label1.ForeColor = System.Drawing.Color.White;
             this.label1.Location = new System.Drawing.Point(-1, 0);
-            this.label1.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
             this.label1.Name = "label1";
-            this.label1.Size = new System.Drawing.Size(910, 49);
+            this.label1.Size = new System.Drawing.Size(607, 32);
             this.label1.TabIndex = 23;
             this.label1.Text = "DAFTAR EKSPEDISI";
             this.label1.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
             // 
             // FormDaftarEkspedisi
             // 
-            this.AutoScaleDimensions = new System.Drawing.SizeF(9F, 20F);
+            this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackColor = System.Drawing.Color.SteelBlue;
-            this.ClientSize = new System.Drawing.Size(908, 594);
+            this.ClientSize = new System.Drawing.Size(605, 386);
             this.Controls.Add(this.buttonCari);
             this.Controls.Add(this.textBoxBarang);
             this.Controls.Add(this.comboBoxBarang);
@@ -167,6 +159,7 @@
             this.Controls.Add(this.dataGridViewBarang);
             this.Controls.Add(this.label1);
             this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.None;
+            this.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
             this.Name = "FormDaftarEkspedisi";
             this.Text = "FormEkspedisi";
             ((System.ComponentModel.ISupportInitialize)(this.dataGridViewBarang)).EndInit();

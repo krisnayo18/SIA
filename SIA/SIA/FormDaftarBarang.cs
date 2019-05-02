@@ -19,14 +19,14 @@ namespace SIA
             InitializeComponent();
         }
 
-        //List<Barang> listHasilData = new List<Barang>();
+       
 
         private void buttonKeluar_Click(object sender, EventArgs e)
         {
             this.Close();
         }
 
-        private void FormatDataGrid()
+        /*private void FormatDataGrid()
         {
             dataGridViewBarang.Columns.Clear();
 
@@ -50,7 +50,7 @@ namespace SIA
             dataGridViewBarang.Columns["Stok"].DefaultCellStyle.Alignment = DataGridViewContentAlignment.MiddleRight;
 
             dataGridViewBarang.Columns["HargaJual"].DefaultCellStyle.Format = "0,###";
-        }
+        }*/
 
         public void FormDaftarBarang_Load(object sender, EventArgs e)
         {
@@ -84,31 +84,31 @@ namespace SIA
             string hasilCari = "";
             if (comboBoxBarang.Text == "Kode Barang")
             {
-                hasilCari = "B.KodeBarang";
+                hasilCari = "B.kodeBarang";
             }
-            else if (comboBoxBarang.Text == "Barcode")
+            else if (comboBoxBarang.Text == "Nama Barang")
             {
-                hasilCari = "B.Barcode";
+                hasilCari = "B.nama";
             }
-            else if (comboBoxBarang.Text == "Nama")
+            else if (comboBoxBarang.Text == "Harga Beli")
             {
-                hasilCari = "B.Nama";
+                hasilCari = "B.hargaBeliTerbaru";
             }
             else if (comboBoxBarang.Text == "Harga Jual")
             {
-                hasilCari = "B.HargaJUal";
+                hasilCari = "B.hargaJual";
             }
-            else if (comboBoxBarang.Text == "Stok")
+            else if (comboBoxBarang.Text == "Jenis")
             {
-                hasilCari = "B.Stok";
+                hasilCari = "B.jenis";
             }
-            else if (comboBoxBarang.Text == "Kode Kategori")
+            else if (comboBoxBarang.Text == "Kuantitas")
             {
-                hasilCari = "B.KodeKategori";
+                hasilCari = "B.quantity";
             }
-            else if (comboBoxBarang.Text == "Nama Kategori")
+            else if (comboBoxBarang.Text == "Satuan")
             {
-                hasilCari = "K.Nama";
+                hasilCari = "B.satuan";
             }
 
             //string hasilBaca = Barang.BacaData(hasilCari, textBoxBarang.Text, listHasilData);
@@ -126,6 +126,26 @@ namespace SIA
             //{
             //    dataGridViewBarang.Rows.Clear();
             //}
+        }
+        private void FormatDataGrid()
+        {
+            dataGridViewBarang.Columns.Clear();
+
+            dataGridViewBarang.Columns.Add("kodeBarang", "Kode Barang");
+            dataGridViewBarang.Columns.Add("nama", "Nama Barang");
+            dataGridViewBarang.Columns.Add("quantity", "Kuantitas");
+            dataGridViewBarang.Columns.Add("jenis", "Jenis");
+            dataGridViewBarang.Columns.Add("hargaBeliTerbaru", "Harga Beli");
+            dataGridViewBarang.Columns.Add("hargaJual", "Harga Jual");
+            dataGridViewBarang.Columns.Add("satuan", "Satuan");
+
+            dataGridViewBarang.Columns["kodeBarang"].AutoSizeMode = DataGridViewAutoSizeColumnMode.AllCells;
+            dataGridViewBarang.Columns["nama"].AutoSizeMode = DataGridViewAutoSizeColumnMode.AllCells;
+            dataGridViewBarang.Columns["quantity"].AutoSizeMode = DataGridViewAutoSizeColumnMode.AllCells;
+            dataGridViewBarang.Columns["jenis"].AutoSizeMode = DataGridViewAutoSizeColumnMode.AllCells;
+            dataGridViewBarang.Columns["hargaBeliTerbaru"].AutoSizeMode = DataGridViewAutoSizeColumnMode.AllCells;
+            dataGridViewBarang.Columns["hargaJual"].AutoSizeMode = DataGridViewAutoSizeColumnMode.AllCells;
+            dataGridViewBarang.Columns["satuan"].AutoSizeMode = DataGridViewAutoSizeColumnMode.AllCells;
         }
 
         private void buttonUbah_Click(object sender, EventArgs e)
