@@ -28,9 +28,7 @@
         /// </summary>
         private void InitializeComponent()
         {
-            this.buttonUbah = new System.Windows.Forms.Button();
             this.buttonTambah = new System.Windows.Forms.Button();
-            this.buttonHapus = new System.Windows.Forms.Button();
             this.buttonKeluar = new System.Windows.Forms.Button();
             this.dataGridViewPelanggan = new System.Windows.Forms.DataGridView();
             this.panel1 = new System.Windows.Forms.Panel();
@@ -42,21 +40,6 @@
             ((System.ComponentModel.ISupportInitialize)(this.dataGridViewPelanggan)).BeginInit();
             this.panel1.SuspendLayout();
             this.SuspendLayout();
-            // 
-            // buttonUbah
-            // 
-            this.buttonUbah.BackColor = System.Drawing.Color.DodgerBlue;
-            this.buttonUbah.FlatAppearance.BorderSize = 0;
-            this.buttonUbah.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.buttonUbah.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.buttonUbah.ForeColor = System.Drawing.Color.White;
-            this.buttonUbah.Location = new System.Drawing.Point(187, 549);
-            this.buttonUbah.Margin = new System.Windows.Forms.Padding(4, 5, 4, 5);
-            this.buttonUbah.Name = "buttonUbah";
-            this.buttonUbah.Size = new System.Drawing.Size(144, 51);
-            this.buttonUbah.TabIndex = 52;
-            this.buttonUbah.Text = "UBAH";
-            this.buttonUbah.UseVisualStyleBackColor = false;
             // 
             // buttonTambah
             // 
@@ -72,21 +55,6 @@
             this.buttonTambah.TabIndex = 51;
             this.buttonTambah.Text = "TAMBAH";
             this.buttonTambah.UseVisualStyleBackColor = false;
-            // 
-            // buttonHapus
-            // 
-            this.buttonHapus.BackColor = System.Drawing.Color.DodgerBlue;
-            this.buttonHapus.FlatAppearance.BorderSize = 0;
-            this.buttonHapus.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.buttonHapus.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.buttonHapus.ForeColor = System.Drawing.Color.White;
-            this.buttonHapus.Location = new System.Drawing.Point(333, 549);
-            this.buttonHapus.Margin = new System.Windows.Forms.Padding(4, 5, 4, 5);
-            this.buttonHapus.Name = "buttonHapus";
-            this.buttonHapus.Size = new System.Drawing.Size(144, 51);
-            this.buttonHapus.TabIndex = 50;
-            this.buttonHapus.Text = "HAPUS";
-            this.buttonHapus.UseVisualStyleBackColor = false;
             // 
             // buttonKeluar
             // 
@@ -198,9 +166,7 @@
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackColor = System.Drawing.Color.SteelBlue;
             this.ClientSize = new System.Drawing.Size(944, 615);
-            this.Controls.Add(this.buttonUbah);
             this.Controls.Add(this.buttonTambah);
-            this.Controls.Add(this.buttonHapus);
             this.Controls.Add(this.buttonKeluar);
             this.Controls.Add(this.dataGridViewPelanggan);
             this.Controls.Add(this.panel1);
@@ -216,10 +182,7 @@
         }
 
         #endregion
-
-        private System.Windows.Forms.Button buttonUbah;
         private System.Windows.Forms.Button buttonTambah;
-        private System.Windows.Forms.Button buttonHapus;
         private System.Windows.Forms.Button buttonKeluar;
         private System.Windows.Forms.DataGridView dataGridViewPelanggan;
         private System.Windows.Forms.Panel panel1;

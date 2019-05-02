@@ -36,8 +36,6 @@
             this.comboBoxBarang = new System.Windows.Forms.ComboBox();
             this.textBoxBarang = new System.Windows.Forms.TextBox();
             this.buttonCari = new System.Windows.Forms.Button();
-            this.buttonHapus = new System.Windows.Forms.Button();
-            this.buttonUbah = new System.Windows.Forms.Button();
             ((System.ComponentModel.ISupportInitialize)(this.dataGridViewBarang)).BeginInit();
             this.SuspendLayout();
             // 
@@ -156,38 +154,6 @@
             this.buttonCari.Text = "CARI";
             this.buttonCari.UseVisualStyleBackColor = false;
             // 
-            // buttonHapus
-            // 
-            this.buttonHapus.BackColor = System.Drawing.Color.DodgerBlue;
-            this.buttonHapus.FlatAppearance.BorderSize = 0;
-            this.buttonHapus.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.buttonHapus.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.buttonHapus.ForeColor = System.Drawing.Color.White;
-            this.buttonHapus.Location = new System.Drawing.Point(328, 554);
-            this.buttonHapus.Margin = new System.Windows.Forms.Padding(4, 5, 4, 5);
-            this.buttonHapus.Name = "buttonHapus";
-            this.buttonHapus.Size = new System.Drawing.Size(144, 51);
-            this.buttonHapus.TabIndex = 15;
-            this.buttonHapus.Text = "HAPUS";
-            this.buttonHapus.UseVisualStyleBackColor = false;
-            this.buttonHapus.Click += new System.EventHandler(this.buttonHapus_Click);
-            // 
-            // buttonUbah
-            // 
-            this.buttonUbah.BackColor = System.Drawing.Color.DodgerBlue;
-            this.buttonUbah.FlatAppearance.BorderSize = 0;
-            this.buttonUbah.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.buttonUbah.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.buttonUbah.ForeColor = System.Drawing.Color.White;
-            this.buttonUbah.Location = new System.Drawing.Point(183, 554);
-            this.buttonUbah.Margin = new System.Windows.Forms.Padding(4, 5, 4, 5);
-            this.buttonUbah.Name = "buttonUbah";
-            this.buttonUbah.Size = new System.Drawing.Size(144, 51);
-            this.buttonUbah.TabIndex = 17;
-            this.buttonUbah.Text = "UBAH";
-            this.buttonUbah.UseVisualStyleBackColor = false;
-            this.buttonUbah.Click += new System.EventHandler(this.buttonUbah_Click);
-            // 
             // FormDaftarBarang
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(9F, 20F);
@@ -195,12 +161,10 @@
             this.BackColor = System.Drawing.Color.SteelBlue;
             this.ClientSize = new System.Drawing.Size(944, 615);
             this.Controls.Add(this.buttonCari);
-            this.Controls.Add(this.buttonUbah);
             this.Controls.Add(this.textBoxBarang);
             this.Controls.Add(this.comboBoxBarang);
             this.Controls.Add(this.buttonTambah);
             this.Controls.Add(this.label2);
-            this.Controls.Add(this.buttonHapus);
             this.Controls.Add(this.buttonKeluar);
             this.Controls.Add(this.dataGridViewBarang);
             this.Controls.Add(this.label1);
@@ -224,7 +188,5 @@
         private System.Windows.Forms.ComboBox comboBoxBarang;
         private System.Windows.Forms.TextBox textBoxBarang;
         private System.Windows.Forms.Button buttonCari;
-        private System.Windows.Forms.Button buttonHapus;
-        private System.Windows.Forms.Button buttonUbah;
     }
 }

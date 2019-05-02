@@ -37,8 +37,6 @@
             this.comboBoxPegawai = new System.Windows.Forms.ComboBox();
             this.label2 = new System.Windows.Forms.Label();
             this.label1 = new System.Windows.Forms.Label();
-            this.buttonHapus = new System.Windows.Forms.Button();
-            this.buttonUbah = new System.Windows.Forms.Button();
             ((System.ComponentModel.ISupportInitialize)(this.dataGridViewPegawai)).BeginInit();
             this.panel1.SuspendLayout();
             this.SuspendLayout();
@@ -167,47 +165,13 @@
             this.label1.Text = "DAFTAR PEGAWAI";
             this.label1.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
             // 
-            // buttonHapus
-            // 
-            this.buttonHapus.BackColor = System.Drawing.Color.DodgerBlue;
-            this.buttonHapus.FlatAppearance.BorderSize = 0;
-            this.buttonHapus.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.buttonHapus.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.buttonHapus.ForeColor = System.Drawing.Color.White;
-            this.buttonHapus.Location = new System.Drawing.Point(338, 554);
-            this.buttonHapus.Margin = new System.Windows.Forms.Padding(4, 5, 4, 5);
-            this.buttonHapus.Name = "buttonHapus";
-            this.buttonHapus.Size = new System.Drawing.Size(144, 51);
-            this.buttonHapus.TabIndex = 22;
-            this.buttonHapus.Text = "HAPUS";
-            this.buttonHapus.UseVisualStyleBackColor = false;
-            this.buttonHapus.Click += new System.EventHandler(this.buttonHapus_Click);
-            // 
-            // buttonUbah
-            // 
-            this.buttonUbah.BackColor = System.Drawing.Color.DodgerBlue;
-            this.buttonUbah.FlatAppearance.BorderSize = 0;
-            this.buttonUbah.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.buttonUbah.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.buttonUbah.ForeColor = System.Drawing.Color.White;
-            this.buttonUbah.Location = new System.Drawing.Point(192, 554);
-            this.buttonUbah.Margin = new System.Windows.Forms.Padding(4, 5, 4, 5);
-            this.buttonUbah.Name = "buttonUbah";
-            this.buttonUbah.Size = new System.Drawing.Size(144, 51);
-            this.buttonUbah.TabIndex = 24;
-            this.buttonUbah.Text = "UBAH";
-            this.buttonUbah.UseVisualStyleBackColor = false;
-            this.buttonUbah.Click += new System.EventHandler(this.buttonUbah_Click);
-            // 
             // FormDaftarPegawai
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(9F, 20F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackColor = System.Drawing.Color.SteelBlue;
             this.ClientSize = new System.Drawing.Size(944, 615);
-            this.Controls.Add(this.buttonUbah);
             this.Controls.Add(this.buttonTambah);
-            this.Controls.Add(this.buttonHapus);
             this.Controls.Add(this.buttonKeluar);
             this.Controls.Add(this.dataGridViewPegawai);
             this.Controls.Add(this.panel1);
@@ -234,7 +198,5 @@
         private System.Windows.Forms.ComboBox comboBoxPegawai;
         private System.Windows.Forms.Label label2;
         private System.Windows.Forms.Label label1;
-        private System.Windows.Forms.Button buttonHapus;
-        private System.Windows.Forms.Button buttonUbah;
     }
 }
