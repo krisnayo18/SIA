@@ -6,7 +6,7 @@ using System.Threading.Tasks;
 
 namespace ClassLibraryTransaksi
 {
-    public class Class1
+    class JobOrder
     {
     }
 }

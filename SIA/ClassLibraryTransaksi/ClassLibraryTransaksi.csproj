@@ -1,10 +1,10 @@
-<?xml version="1.0" encoding="utf-8"?>
+﻿<?xml version="1.0" encoding="utf-8"?>
 <Project ToolsVersion="14.0" DefaultTargets="Build" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
   <Import Project="$(MSBuildExtensionsPath)\$(MSBuildToolsVersion)\Microsoft.Common.props" Condition="Exists('$(MSBuildExtensionsPath)\$(MSBuildToolsVersion)\Microsoft.Common.props')" />
   <PropertyGroup>
     <Configuration Condition=" '$(Configuration)' == '' ">Debug</Configuration>
     <Platform Condition=" '$(Platform)' == '' ">AnyCPU</Platform>
-    <ProjectGuid>e06b8296-b929-415b-83f8-63c2a3b6d676</ProjectGuid>
+    <ProjectGuid>{E06B8296-B929-415B-83F8-63C2A3B6D676}</ProjectGuid>
     <OutputType>Library</OutputType>
     <AppDesignerFolder>Properties</AppDesignerFolder>
     <RootNamespace>ClassLibraryTransaksi</RootNamespace>
@@ -30,24 +30,36 @@
     <WarningLevel>4</WarningLevel>
   </PropertyGroup>
   <ItemGroup>
-    <Reference Include="System"/>
-    
-    <Reference Include="System.Core"/>
-    <Reference Include="System.Xml.Linq"/>
-    <Reference Include="System.Data.DataSetExtensions"/>
-    
-    
-    <Reference Include="Microsoft.CSharp"/>
-    
-    <Reference Include="System.Data"/>
-    
-    <Reference Include="System.Net.Http"/>
-    
-    <Reference Include="System.Xml"/>
+    <Reference Include="System" />
+    <Reference Include="System.Core" />
+    <Reference Include="System.Xml.Linq" />
+    <Reference Include="System.Data.DataSetExtensions" />
+    <Reference Include="Microsoft.CSharp" />
+    <Reference Include="System.Data" />
+    <Reference Include="System.Net.Http" />
+    <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
-    <Compile Include="Class1.cs" />
+    <Compile Include="Barang.cs" />
+    <Compile Include="DetilJobOrder.cs" />
+    <Compile Include="DetilNotaBeli.cs" />
+    <Compile Include="DetilNotaJual.cs" />
+    <Compile Include="DetilSuratJalan.cs" />
+    <Compile Include="DetilSuratPermintaan.cs" />
+    <Compile Include="Ekspedisi.cs" />
+    <Compile Include="JobOrder.cs" />
+    <Compile Include="Karyawan.cs" />
+    <Compile Include="NotaPembelian.cs" />
+    <Compile Include="NotaPenjualan.cs" />
+    <Compile Include="Pelanggan.cs" />
+    <Compile Include="Pembayaran.cs" />
+    <Compile Include="Penerimaan.cs" />
+    <Compile Include="PenerimaanPembayaran.cs" />
+    <Compile Include="Pengiriman.cs" />
+    <Compile Include="SuratPermintaan.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
+    <Compile Include="Supplier.cs" />
+    <Compile Include="SuratJalan.cs" />
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
   <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 
@@ -57,5 +69,4 @@
   <Target Name="AfterBuild">
   </Target>
   -->
-
- </Project>
+</Project>
