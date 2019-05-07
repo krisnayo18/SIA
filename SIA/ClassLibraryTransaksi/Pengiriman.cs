@@ -6,7 +6,8 @@ using System.Threading.Tasks;
 
 namespace ClassLibraryTransaksi
 {
-    class Pengiriman
+    public class Pengiriman
     {
+         private string 
     }
 }

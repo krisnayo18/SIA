@@ -6,7 +6,10 @@ using System.Threading.Tasks;
 
 namespace ClassLibraryTransaksi
 {
-    class DetilNotaJual
+    public   class DetilNotaJual
     {
+        NotaPenjualan noNota;
+        Barang barang;
+        private int jumlah, hargaJual;
     }
 }

@@ -6,7 +6,7 @@ using System.Threading.Tasks;
 
 namespace ClassLibraryTransaksi
 {
-    class Barang
+   public class Barang
     {
     }
 }

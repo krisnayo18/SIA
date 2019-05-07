@@ -6,7 +6,12 @@ using System.Threading.Tasks;
 
 namespace ClassLibraryTransaksi
 {
-    class NotaPenjualan
+    public class NotaPenjualan
     {
+        private string noNotaPenjualan, status, keterangan;
+        private DateTime tglJual, tglBatasPelunasan, tglBatasDiskon, tglBeli;
+        private int totalHarga;
+        Pelanggan Pelanggan;
+
     }
 }

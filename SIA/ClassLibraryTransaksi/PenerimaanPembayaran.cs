@@ -6,7 +6,11 @@ using System.Threading.Tasks;
 
 namespace ClassLibraryTransaksi
 {
-    class PenerimaanPembayaran
+    public class PenerimaanPembayaran
     {
+        private string caraPembayaran, noPenerimaanPembayaran, noNotaPenjualan;
+        private DateTime tanggal;
+        private int nominal;
+        
     }
 }
