@@ -2,11 +2,28 @@
 using System.Collections.Generic;
 using System.Text;
 
-namespace SIA_LIB
+namespace ClassLibraryJurnal
 {
-    class LaporanAkun
+    public class LaporanAkun
     {
-        private Laporan laporan;
+        #region Data Member
         private Akun akun;
+        #endregion
+
+        #region Properties
+        public Akun Akun
+        {
+            get
+            {
+                return akun;
+            }
+
+            set
+            {
+                akun = value;
+            }
+        }
+
+#endregion
     }
 }

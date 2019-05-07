@@ -6,7 +6,40 @@ using System.Threading.Tasks;
 
 namespace ClassLibraryTransaksi
 {
-    class DetilSuratJalan
+    public class DetilSuratJalan
     {
+        #region Data Member
+        private Barang barang;
+        private int jumlah;
+        #endregion
+
+        #region Properties
+        public Barang Barang
+        {
+            get
+            {
+                return barang;
+            }
+
+            set
+            {
+                barang = value;
+            }
+        }
+
+        public int Jumlah
+        {
+            get
+            {
+                return jumlah;
+            }
+
+            set
+            {
+                jumlah = value;
+            }
+        }
+
+        #endregion
     }
 }
