@@ -8,7 +8,7 @@
 // </auto-generated>
 //------------------------------------------------------------------------------
 
-namespace SistemAkuntansi.Properties {
+namespace SIA.Properties {
     using System;
     
     

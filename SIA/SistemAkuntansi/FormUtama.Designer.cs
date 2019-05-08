@@ -154,6 +154,7 @@
             // 
             // pictureBox1
             // 
+            this.pictureBox1.BackgroundImage = global::SIA.Properties.Resources.profil;
             this.pictureBox1.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Zoom;
             this.pictureBox1.Location = new System.Drawing.Point(41, 6);
             this.pictureBox1.Name = "pictureBox1";
