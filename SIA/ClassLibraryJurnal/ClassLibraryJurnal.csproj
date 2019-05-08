@@ -50,7 +50,6 @@
     <Compile Include="Akun.cs" />
     <Compile Include="DetilJurnal.cs" />
     <Compile Include="Jurnal.cs" />
-    <Compile Include="Koneksi.cs" />
     <Compile Include="Laporan.cs" />
     <Compile Include="LaporanAkun.cs" />
     <Compile Include="Periode.cs" />

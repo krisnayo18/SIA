@@ -9,7 +9,7 @@ using System.Threading.Tasks;
 using System.Windows.Forms;
 
 
-namespace SIA
+namespace SistemAkuntansi
 {
     public partial class FormTambahNotaBeli : Form
     {

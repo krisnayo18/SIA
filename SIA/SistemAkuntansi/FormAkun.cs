@@ -10,11 +10,15 @@ using System.Windows.Forms;
 
 namespace SistemAkuntansi
 {
-    public partial class FormTambahPembayaran : Form
+    public partial class FormAkun : Form
     {
-        public FormTambahPembayaran()
+        public FormAkun()
         {
             InitializeComponent();
+            string beb;
+            string bob;
+            int eger;
+            MessageBox.Show("Zubaid lus");
         }
     }
 }

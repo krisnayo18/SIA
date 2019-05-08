@@ -10,11 +10,16 @@ using System.Windows.Forms;
 
 namespace SistemAkuntansi
 {
-    public partial class FormTambahPembayaran : Form
+    public partial class FormPeriode : Form
     {
-        public FormTambahPembayaran()
+        public FormPeriode()
         {
             InitializeComponent();
+        }
+
+        private void keluarToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            Application.Exit();
         }
     }
 }

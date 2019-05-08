@@ -7,7 +7,7 @@ using System.Threading.Tasks;
 using MySql.Data.MySqlClient;
 using System.Configuration;
 
-namespace ClassJualBeli
+namespace ClassLibraryTransaksi
 {
     public class Koneksi
     {

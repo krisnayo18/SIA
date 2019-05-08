@@ -10,7 +10,7 @@ using System.Windows.Forms;
 
 
 
-namespace SIA
+namespace SistemAkuntansi
 {
     public partial class FormTambahJobOrder : Form
     {
