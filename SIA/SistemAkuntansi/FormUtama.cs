@@ -200,5 +200,21 @@ namespace SistemAkuntansi
                 panelTransaksi.Location = new Point(1, 300);
             }
         }
+
+        private void buttonPelunasan_Click(object sender, EventArgs e)
+        {
+            Form form = Application.OpenForms["FormDaftarPermintaanPembayaran"];
+            if (form == null)
+            {
+                FormDaftarPenerimaanPembayaran fp = new FormDaftarPenerimaanPembayaran();
+                fp.MdiParent = this;
+                fp.Show();
+            }
+            else
+            {
+                form.Show();
+                form.BringToFront();
+            }
+        }
     }
 }

@@ -7,7 +7,7 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
-
+using ClassLibraryTransaksi;
 
 
 namespace SistemAkuntansi
@@ -19,8 +19,8 @@ namespace SistemAkuntansi
             InitializeComponent();
         }
 
-        //List<NotaJual> listHasilData = new List<NotaJual>();
-        //string kriteria = "";
+        List<NotaPenjualan> listHasilData = new List<NotaPenjualan>();
+        string kriteria = "";
         private void buttonKeluar_Click(object sender, EventArgs e)
         {
             this.Close();
@@ -35,22 +35,22 @@ namespace SistemAkuntansi
 
         public void FormDaftarNotaJual_Load(object sender, EventArgs e)
         {
-            //this.Location = new Point(0, 0);
-            //comboBoxCari.DropDownStyle = ComboBoxStyle.DropDownList;
+            this.Location = new Point(0, 0);
+            comboBoxCari.DropDownStyle = ComboBoxStyle.DropDownList;
 
-            //FormatDataGrid();
+            FormatDataGrid();
 
-            //string hasilBaca = NotaJual.BacaData("", "", listHasilData);
+            string hasilBaca = NotaPenjualan.BacaData("", "", listHasilData);
 
-            //if (hasilBaca == "1")
-            //{
-            //    dataGridViewNota.Rows.Clear();
+            if (hasilBaca == "1")
+            {
+                dataGridViewNota.Rows.Clear();
 
-            //    for (int i = 0; i < listHasilData.Count; i++)
-            //    {
-            //        dataGridViewNota.Rows.Add(listHasilData[i].NoNota, listHasilData[i].Tanggal, listHasilData[i].Pelanggan.KodePelanggan, listHasilData[i].Pelanggan.Nama,listHasilData[i].Pelanggan.Alamat,listHasilData[i].Pegawai.KodePegawai,listHasilData[i].Pegawai.Nama);
-            //    }
-            //}
+                for (int i = 0; i < listHasilData.Count; i++)
+                {
+                    dataGridViewNota.Rows.Add(listHasilData[i].NoNota, listHasilData[i].Tanggal, listHasilData[i].Pelanggan.KodePelanggan, listHasilData[i].Pelanggan.Nama, listHasilData[i].Pelanggan.Alamat, listHasilData[i].Pegawai.KodePegawai, listHasilData[i].Pegawai.Nama);
+                }
+            }
         }
 
         private void FormatDataGrid()

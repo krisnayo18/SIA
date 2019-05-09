@@ -50,6 +50,7 @@
             this.labelTransaksi = new System.Windows.Forms.Label();
             this.buttonPenjualan = new System.Windows.Forms.Button();
             this.buttonPembelian = new System.Windows.Forms.Button();
+            this.buttonPelunasan = new System.Windows.Forms.Button();
             this.menuStrip1.SuspendLayout();
             this.panelMenu.SuspendLayout();
             this.panelProfil.SuspendLayout();
@@ -281,12 +282,13 @@
             // panelTransaksi
             // 
             this.panelTransaksi.BackColor = System.Drawing.Color.Transparent;
+            this.panelTransaksi.Controls.Add(this.buttonPelunasan);
             this.panelTransaksi.Controls.Add(this.labelTransaksi);
             this.panelTransaksi.Controls.Add(this.buttonPenjualan);
             this.panelTransaksi.Controls.Add(this.buttonPembelian);
             this.panelTransaksi.Location = new System.Drawing.Point(1, 479);
             this.panelTransaksi.Name = "panelTransaksi";
-            this.panelTransaksi.Size = new System.Drawing.Size(250, 120);
+            this.panelTransaksi.Size = new System.Drawing.Size(250, 193);
             this.panelTransaksi.TabIndex = 9;
             // 
             // labelTransaksi
@@ -330,6 +332,21 @@
             this.buttonPembelian.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
             this.buttonPembelian.UseVisualStyleBackColor = true;
             this.buttonPembelian.Click += new System.EventHandler(this.buttonPembelian_Click);
+            // 
+            // buttonPelunasan
+            // 
+            this.buttonPelunasan.FlatAppearance.BorderSize = 0;
+            this.buttonPelunasan.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.buttonPelunasan.Font = new System.Drawing.Font("Century Gothic", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.buttonPelunasan.ForeColor = System.Drawing.Color.White;
+            this.buttonPelunasan.Location = new System.Drawing.Point(59, 114);
+            this.buttonPelunasan.Name = "buttonPelunasan";
+            this.buttonPelunasan.Size = new System.Drawing.Size(95, 30);
+            this.buttonPelunasan.TabIndex = 3;
+            this.buttonPelunasan.Text = "Pelunasan";
+            this.buttonPelunasan.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
+            this.buttonPelunasan.UseVisualStyleBackColor = true;
+            this.buttonPelunasan.Click += new System.EventHandler(this.buttonPelunasan_Click);
             // 
             // FormUtama
             // 
@@ -380,5 +397,6 @@
         private System.Windows.Forms.ToolStripMenuItem keluarSistemToolStripMenuItem1;
         private System.Windows.Forms.Panel panelProfil;
         private System.Windows.Forms.PictureBox pictureBox1;
+        private System.Windows.Forms.Button buttonPelunasan;
     }
 }
