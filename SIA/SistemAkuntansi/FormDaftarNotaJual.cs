@@ -48,7 +48,7 @@ namespace SistemAkuntansi
 
                 for (int i = 0; i < listHasilData.Count; i++)
                 {
-                    dataGridViewNota.Rows.Add(listHasilData[i].NoNota, listHasilData[i].Tanggal, listHasilData[i].Pelanggan.KodePelanggan, listHasilData[i].Pelanggan.Nama, listHasilData[i].Pelanggan.Alamat, listHasilData[i].Pegawai.KodePegawai, listHasilData[i].Pegawai.Nama);
+                    dataGridViewNota.Rows.Add(listHasilData[i].NoNotaPenjualan, listHasilData[i].Pelanggan.IdPelanggan, listHasilData[i].Pelanggan.Nama, listHasilData[i].Pelanggan.Alamat, listHasilData[i].Diskon, listHasilData[i].TotalHarga, listHasilData[i].TglBatasPelunasan, listHasilData[i].TglBatasDiskon, listHasilData[i].TglJual, listHasilData[i].Status, listHasilData[i].Keterangan);
                 }
             }
         }
@@ -57,27 +57,33 @@ namespace SistemAkuntansi
         {
             dataGridViewNota.Columns.Clear();
 
-            dataGridViewNota.Columns.Add("idNotaPenjualan", "No Nota");
-            dataGridViewNota.Columns.Add("tglJual", "Tanggal Penjualan");
+            dataGridViewNota.Columns.Add("noNotaPenjualan", "No Nota");
+            dataGridViewNota.Columns.Add("idPelanggan", "No Pelanggan");
+            dataGridViewNota.Columns.Add("NamaPelanggan", "Nama Pelanggan");
+            dataGridViewNota.Columns.Add("AlamatPelanggan", "Alamat Pelanggan");
+            dataGridViewNota.Columns.Add("diskon", "Diskon");
             dataGridViewNota.Columns.Add("totalHarga", "Total Harga");
             dataGridViewNota.Columns.Add("tglBatasPelunasan", "Batas Pelunasan");
             dataGridViewNota.Columns.Add("tglBatasDiskon", "Batas Diskon");
-            dataGridViewNota.Columns.Add("tglBeli", "Tanggal Pembelian");
+            dataGridViewNota.Columns.Add("tglJual", "Tanggal Penjualan");
             dataGridViewNota.Columns.Add("status", "Status");
             dataGridViewNota.Columns.Add("keterangan", "Keterangan");
 
-            dataGridViewNota.Columns.Add("idPelanggan", "No Pelanggan");
+            
 
-            dataGridViewNota.Columns["idNotaPenjualan"].AutoSizeMode = DataGridViewAutoSizeColumnMode.AllCells;
-            dataGridViewNota.Columns["tglJual"].AutoSizeMode = DataGridViewAutoSizeColumnMode.AllCells;
+            dataGridViewNota.Columns["noNotaPenjualan"].AutoSizeMode = DataGridViewAutoSizeColumnMode.AllCells;
+            dataGridViewNota.Columns["idPelanggan"].AutoSizeMode = DataGridViewAutoSizeColumnMode.AllCells;
+            dataGridViewNota.Columns["NamaPelanggan"].AutoSizeMode = DataGridViewAutoSizeColumnMode.AllCells;
+            dataGridViewNota.Columns["AlamatPelanggan"].AutoSizeMode = DataGridViewAutoSizeColumnMode.AllCells;
+            dataGridViewNota.Columns["diskon"].AutoSizeMode = DataGridViewAutoSizeColumnMode.AllCells;
             dataGridViewNota.Columns["totalHarga"].AutoSizeMode = DataGridViewAutoSizeColumnMode.AllCells;
             dataGridViewNota.Columns["tglBatasPelunasan"].AutoSizeMode = DataGridViewAutoSizeColumnMode.AllCells;
             dataGridViewNota.Columns["tglBatasDiskon"].AutoSizeMode = DataGridViewAutoSizeColumnMode.AllCells;
-            dataGridViewNota.Columns["tglBeli"].AutoSizeMode = DataGridViewAutoSizeColumnMode.AllCells;
+            dataGridViewNota.Columns["tglJual"].AutoSizeMode = DataGridViewAutoSizeColumnMode.AllCells;
             dataGridViewNota.Columns["status"].AutoSizeMode = DataGridViewAutoSizeColumnMode.AllCells;
             dataGridViewNota.Columns["keterangan"].AutoSizeMode = DataGridViewAutoSizeColumnMode.AllCells;
 
-            dataGridViewNota.Columns["idPelanggan"].AutoSizeMode = DataGridViewAutoSizeColumnMode.AllCells;
+            
 
 
             dataGridViewNota.AllowUserToAddRows = false;
@@ -90,7 +96,31 @@ namespace SistemAkuntansi
 
         private void textBoxNotaJual_TextChanged(object sender, EventArgs e)
         {
-            
+            string nilaiKriteria = textBoxCari.Text;
+            if (comboBoxCari.Text == "No Nota") kriteria = "N.NoNotaPenjualan";
+            else if (comboBoxCari.Text == "No Pelanggan") kriteria = "N.idPelanggan";
+            else if (comboBoxCari.Text == "Nama Pelanggan") kriteria = "P.idPelanggan";
+            else if (comboBoxCari.Text == "Alamat Pelanggan") kriteria = "P.idPelanggan";
+            else if (comboBoxCari.Text == "Diskon") kriteria = "N.diskon";
+            else if (comboBoxCari.Text == "Total Harga") kriteria = "N.totalHarga";
+            else if (comboBoxCari.Text == "Batas Pelunasan") kriteria = "N.tglBatasPelunasan";
+            else if (comboBoxCari.Text == "Batas Diskon") kriteria = "N.tglBatasDiskon";
+            else if (comboBoxCari.Text == "Tanggal Penjualan") kriteria = "N.tglJual";
+            else if (comboBoxCari.Text == "Status") kriteria = "N.status";
+            else if (comboBoxCari.Text == "Keterangan") kriteria = "N.keterangan";
+
+
+            string hasilBaca = NotaPenjualan.BacaData(kriteria, nilaiKriteria, listHasilData);
+
+            if (hasilBaca == "1")
+            {
+                dataGridViewNota.Rows.Clear();
+
+                for (int i = 0; i < listHasilData.Count; i++)
+                {
+                    dataGridViewNota.Rows.Add(listHasilData[i].NoNotaPenjualan, listHasilData[i].Pelanggan.IdPelanggan, listHasilData[i].Pelanggan.Nama, listHasilData[i].Pelanggan.Alamat, listHasilData[i].Diskon, listHasilData[i].TotalHarga, listHasilData[i].TglBatasPelunasan, listHasilData[i].TglBatasDiskon, listHasilData[i].TglJual, listHasilData[i].Status, listHasilData[i].Keterangan);
+                }
+            }
         }
 
         private void buttoncetak_Click(object sender, EventArgs e)

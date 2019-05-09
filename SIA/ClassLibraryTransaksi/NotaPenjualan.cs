@@ -22,7 +22,7 @@ namespace ClassLibraryTransaksi
         #endregion
 
         #region Constructor 
-        public NotaPenjualan(string noNotaPenjualan, string status, string keterangan, double diskon, int totalHarga, DateTime tglBatasPelunasan, DateTime tglBatasDiskon,  DateTime pTglJual, Pelanggan pelanggan, List<DetilNotaJual> listNotaPenjualan)
+        public NotaPenjualan(string noNotaPenjualan, string status, string keterangan, double diskon, int totalHarga, DateTime tglBatasPelunasan, DateTime tglBatasDiskon,  DateTime pTglJual, Pelanggan pelanggan)
         {
             this.noNotaPenjualan = noNotaPenjualan;
             this.status = status;
@@ -33,7 +33,7 @@ namespace ClassLibraryTransaksi
             this.tglBatasDiskon = tglBatasDiskon;
             this.tglJual = pTglJual;
             this.pelanggan = pelanggan;
-            this.ListNotaJualDetil = listNotaPenjualan;
+            ListNotaJualDetil = new List<DetilNotaJual>();
         }
         public NotaPenjualan()
         {
@@ -199,14 +199,14 @@ namespace ClassLibraryTransaksi
             {
                 string sql1 = "INSERT INTO notapenjualan(noNotaPenjualan, diskon,  totalHarga, tglBatasPelunasan, tglBatasDiskon, tglJual, status, keterangan, idPelanggan) VALUES ('" + 
                     pNotaJual.NoNotaPenjualan + "', " +
-                    pNotaJual.Diskon + ", '" + 
+                    pNotaJual.Diskon + ", " + 
                     pNotaJual.TotalHarga + ", '" +
-                    pNotaJual.TglBatasPelunasan.ToString("dddd dd MMM yyyy") + "', '" +
-                    pNotaJual.TglBatasPelunasan.ToString("dddd dd MMM yyyy") + "', '" +
-                    pNotaJual.TglJual.ToString("dddd dd MMM yyyy") + "', '" +
+                    pNotaJual.TglBatasPelunasan.ToString("yyyy-MM-dd hh:mm:ss") + "', '" +
+                    pNotaJual.TglBatasPelunasan.ToString("yyyy-MM-dd hh:mm:ss") + "', '" +
+                    pNotaJual.TglJual.ToString("yyyy-MM-dd hh:mm:ss") + "', '" +
                     pNotaJual.Status + "', '"+
-                    pNotaJual.Keterangan + "', '" +
-                    pNotaJual.Pelanggan.IdPelanggan + "')";
+                    pNotaJual.Keterangan + "', " +
+                    pNotaJual.Pelanggan.IdPelanggan + ")";
 
                 try
                 {
@@ -214,11 +214,11 @@ namespace ClassLibraryTransaksi
 
                     for (int i = 0; i < pNotaJual.ListNotaJualDetil.Count; i++)
                     {
-                        string sql2 = "INSERT INTO detilNotaJual(noNotaPenjualan, KodeBarang, jumlah, hargaJual) VALUES ('" + 
+                        string sql2 = "INSERT INTO detilNotaJual(noNotaPenjualan, kodeBarang, jumlah, hargaJual) VALUES ('" + 
                             pNotaJual.NoNotaPenjualan + "', '" + 
-                            pNotaJual.ListNotaJualDetil[i].Barang.KodeBarang + "', '" + 
-                            pNotaJual.ListNotaJualDetil[i].Jumlah + "', '" + 
-                            pNotaJual.ListNotaJualDetil[i].HargaJual + "')";
+                            pNotaJual.ListNotaJualDetil[i].Barang.KodeBarang + "', " + 
+                            pNotaJual.ListNotaJualDetil[i].Jumlah + ", " + 
+                            pNotaJual.ListNotaJualDetil[i].HargaJual + ")";
 
                         Koneksi.JalankanPerintahDML(sql2);
 
@@ -292,23 +292,28 @@ namespace ClassLibraryTransaksi
 
                     //nomor & tgl nota
                     string nomorNota = hasilData1.GetValue(0).ToString();
-
-                    DateTime tglNota = DateTime.Parse(hasilData1.GetValue(9).ToString());
+                    string status = hasilData1.GetValue(9).ToString();
+                    string keterangan = hasilData1.GetValue(10).ToString();
+                    double diskon = double.Parse(hasilData1.GetValue(4).ToString());
+                    int totalHarga = int.Parse(hasilData1.GetValue(5).ToString());
+                    DateTime tglBatasPelunasan = DateTime.Parse(hasilData1.GetValue(6).ToString());
+                    DateTime tglBatasDiskon = DateTime.Parse(hasilData1.GetValue(7).ToString());
+                    DateTime tglJual = DateTime.Parse(hasilData1.GetValue(8).ToString());
 
                     //pelanggan
-                    int idPlg = int.Parse(hasilData1.GetValue(2).ToString());
-                    string namaPlg = hasilData1.GetValue(3).ToString();
-                    string alamatPlg = hasilData1.GetValue(4).ToString();
+                    int idPlg = int.Parse(hasilData1.GetValue(1).ToString());
+                    string namaPlg = hasilData1.GetValue(2).ToString();
+                    string alamatPlg = hasilData1.GetValue(3).ToString();
                     Pelanggan plg = new Pelanggan();
                     plg.IdPelanggan = idPlg;
                     plg.Nama = namaPlg;
                     plg.Alamat = alamatPlg;
 
-                    NotaPenjualan nota = new NotaPenjualan(nomorNota, tglNota, plg);
+                    NotaPenjualan nota = new NotaPenjualan( nomorNota,  status,  keterangan,  diskon, totalHarga,  tglBatasPelunasan,tglBatasDiskon, tglJual, plg);
 
                     //DETAIL
                     //query utk detail nota jual
-                    string sql2 = "SELECT ND.KodeBarang, B.Nama, ND.Harga, ND.Jumlah FROM NotaJual N INNER JOIN NotaJualDetil ND ON N.NoNota = ND.NoNota INNER JOIN Barang B ON ND.KodeBarang = B.KodeBarang WHERE N.NoNota = '" + nomorNota + "'";
+                    string sql2 = "SELECT ND.KodeBarang, B.Nama, ND.Jumlah , ND.HargaJual FROM NotaPenjualan N INNER JOIN detilNotaJual ND ON N.NoNotaPenjualan = ND.NoNotaPenjualan INNER JOIN Barang B ON ND.KodeBarang = B.KodeBarang WHERE N.NoNotaPenjualan = '" + nomorNota + "'";
                     MySqlDataReader hasilData2 = Koneksi.JalankanPerintahQuery(sql2);
                     while (hasilData2.Read() == true)
                     {
@@ -320,13 +325,13 @@ namespace ClassLibraryTransaksi
                         brg.Nama = namaBrg;
 
                         //harga dan jumlah
-                        int hargaJual = int.Parse(hasilData2.GetValue(2).ToString());
-                        int jumlah = int.Parse(hasilData2.GetValue(3).ToString());
+                        int hargaJual = int.Parse(hasilData2.GetValue(3).ToString());
+                        int jumlah = int.Parse(hasilData2.GetValue(2).ToString());
 
                         //NotaJualDetil detilNota = new NotaJualDetil(brg, jumlah, hargaJual);
 
                         //simpan di nota
-                        nota.TambahDetilBarang(brg, hargaJual, jumlah);
+                        nota.TambahDetilBarang(brg, jumlah, hargaJual);
                     }
 
                     listNotaJual.Add(nota);

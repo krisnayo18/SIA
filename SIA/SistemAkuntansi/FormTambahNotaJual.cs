@@ -8,7 +8,7 @@ using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
 
-
+using ClassLibraryTransaksi;
 
 namespace SistemAkuntansi
 {
@@ -19,8 +19,8 @@ namespace SistemAkuntansi
             InitializeComponent();
         }
 
-        //List<Pelanggan> listHasilData = new List<Pelanggan>();
-        //List<Barang> listHasilBarang = new List<Barang>();
+        List<Pelanggan> listHasilData = new List<Pelanggan>();
+        List<Barang> listHasilBarang = new List<Barang>();
 
         private void FormatDataGrid()
         {
@@ -28,17 +28,28 @@ namespace SistemAkuntansi
 
             dataGridViewNota.Columns.Add("KodeBarang", "Kode Barang");
             dataGridViewNota.Columns.Add("NamaBarang", "Nama Barang");
+            dataGridViewNota.Columns.Add("diskon", "Diskon");
+            dataGridViewNota.Columns.Add("status", "Status");
+            dataGridViewNota.Columns.Add("keterangan", "Keterangan");
             dataGridViewNota.Columns.Add("HargaJual", "Harga Jual");
+            dataGridViewNota.Columns.Add("jenis", "Jenis");
+            dataGridViewNota.Columns.Add("satuan", "Satuan");
             dataGridViewNota.Columns.Add("Jumlah", "Jumlah");
             dataGridViewNota.Columns.Add("SubTotal", "Sub Total");
 
             dataGridViewNota.Columns["KodeBarang"].AutoSizeMode = DataGridViewAutoSizeColumnMode.AllCells;
             dataGridViewNota.Columns["NamaBarang"].AutoSizeMode = DataGridViewAutoSizeColumnMode.AllCells;
+            dataGridViewNota.Columns["diskon"].AutoSizeMode = DataGridViewAutoSizeColumnMode.AllCells;
+            dataGridViewNota.Columns["status"].AutoSizeMode = DataGridViewAutoSizeColumnMode.AllCells;
+            dataGridViewNota.Columns["keterangan"].AutoSizeMode = DataGridViewAutoSizeColumnMode.AllCells;
             dataGridViewNota.Columns["HargaJual"].AutoSizeMode = DataGridViewAutoSizeColumnMode.AllCells;
             dataGridViewNota.Columns["Jumlah"].AutoSizeMode = DataGridViewAutoSizeColumnMode.AllCells;
             dataGridViewNota.Columns["SubTotal"].AutoSizeMode = DataGridViewAutoSizeColumnMode.AllCells;
+            dataGridViewNota.Columns["jenis"].AutoSizeMode = DataGridViewAutoSizeColumnMode.AllCells;
+            dataGridViewNota.Columns["satuan"].AutoSizeMode = DataGridViewAutoSizeColumnMode.AllCells;
 
             dataGridViewNota.Columns["Jumlah"].DefaultCellStyle.Alignment = DataGridViewContentAlignment.MiddleRight;
+            dataGridViewNota.Columns["diskon"].DefaultCellStyle.Alignment = DataGridViewContentAlignment.MiddleRight;
             dataGridViewNota.Columns["HargaJual"].DefaultCellStyle.Alignment = DataGridViewContentAlignment.MiddleRight;
             dataGridViewNota.Columns["SubTotal"].DefaultCellStyle.Alignment = DataGridViewContentAlignment.MiddleRight;
 
@@ -50,10 +61,10 @@ namespace SistemAkuntansi
 
         private void FormTambahNotaJual_Load(object sender, EventArgs e)
         {
-            this.Location = new Point(881, 26);
+            this.Location = new Point(500, 26);
             FormatDataGrid();
 
-            textBoxBarcode.MaxLength = 13;
+            textBoxKode.MaxLength = 5;
             textBoxNo.Enabled = false;
             
             textBoxAlamat.Enabled = false;
@@ -61,71 +72,72 @@ namespace SistemAkuntansi
             comboBoxPelanggan.DropDownStyle = ComboBoxStyle.DropDownList;
 
 
-            //string noNotaBaru;
-            //string hasilGenerate = NotaJual.GenerateNoNota(out noNotaBaru);
-            //textBoxNo.Clear();
-            //if (hasilGenerate == "1")
-            //{
-            //    textBoxNo.Text = noNotaBaru;
-            //    textBoxBarcode.Focus();
-            //}
-            //else
-            //{
-            //    MessageBox.Show("Gagal melakukan generate code. Pesan kesalahan: " + hasilGenerate);
-            //}
+            string noNotaBaru;
+            string hasilGenerate = NotaPenjualan.GenerateNoNota(out noNotaBaru);
+            textBoxNo.Clear();
+            if (hasilGenerate == "1")
+            {
+                textBoxNo.Text = noNotaBaru;
+                textBoxKode.Focus();
+            }
+            else
+            {
+                MessageBox.Show("Gagal melakukan generate code. Pesan kesalahan: " + hasilGenerate);
+            }
 
-            //dateTimePickerTanggal.Value = DateTime.Now;
-            //dateTimePickerTanggal.Enabled = false;
+            dateTimePickerTanggalJual.Value = DateTime.Now;
+            dateTimePickerTanggalJual.Enabled = false;
 
-            //string hasilBaca = Pelanggan.BacaData("", "", listHasilData);
+            string hasilBaca = Pelanggan.BacaData("", "", listHasilData);
 
-            //if (hasilBaca == "1")
-            //{
-            //    comboBoxPelanggan.Items.Clear();
-            //    for (int i = 0; i < listHasilData.Count; i++)
-            //    {
-            //        comboBoxPelanggan.Items.Add(listHasilData[i].KodePelanggan + " - " + listHasilData[i].Nama);
-            //    }
-            //}
-            //else
-            //{
-            //    comboBoxPelanggan.Items.Clear();
-            //}
+            if (hasilBaca == "1")
+            {
+                comboBoxPelanggan.Items.Clear();
+                for (int i = 0; i < listHasilData.Count; i++)
+                {
+                    comboBoxPelanggan.Items.Add(listHasilData[i].IdPelanggan + " - " + listHasilData[i].Nama);
+                }
+            }
+            else
+            {
+                comboBoxPelanggan.Items.Clear();
+            }
 
-            //FormUtama form = (FormUtama)this.Owner.MdiParent;
-            //labelKodePgw.Text = form.labelKodePgw.Text;
-            //labelNamaPgw.Text = form.labelNamaPgw.Text;
+            FormUtama form = (FormUtama)this.Owner.MdiParent;
+            labelKodePgw.Text = form.labelKodePgw.Text;
+            labelNamaPgw.Text = form.labelNamaPgw.Text;
         }
 
-        private void textBoxBarcode_TextChanged(object sender, EventArgs e)
+        private void textBoxKode_TextChanged(object sender, EventArgs e)
         {
-            //if (textBoxBarcode.Text.Length == textBoxBarcode.MaxLength)
-            //{
-            //    string hasilBaca = Barang.BacaData("barcode", textBoxBarcode.Text, listHasilBarang);
+            if (textBoxKode.Text.Length == textBoxKode.MaxLength)
+            {
+                string hasilBaca = Barang.BacaData("kodeBarang", textBoxKode.Text, listHasilBarang);
 
-            //    if (hasilBaca == "1")
-            //    {
-            //        if (listHasilBarang.Count > 0)
-            //        {
+                if (hasilBaca == "1")
+                {
+                    if (listHasilBarang.Count > 0)
+                    {
 
-            //            labelNama.Text = listHasilBarang[0].Nama;
-            //            labelKode.Text = listHasilBarang[0].KodeBarang;
-            //            labelHarga.Text = listHasilBarang[0].HargaJual.ToString();
-            //            textBoxJumlah.Focus();
-            //            textBoxJumlah.Text = "1";
-            //        }
-            //        else
-            //        {
-            //            MessageBox.Show("Baranf tidak ditemukan.");
-            //            textBoxBarcode.Clear();
-            //        }
+                        labelNama.Text = listHasilBarang[0].Nama;
+                        labelSatuan.Text = listHasilBarang[0].Satuan;
+                        labelJenis.Text = listHasilBarang[0].Jenis;
+                        labelHarga.Text = listHasilBarang[0].HargaJual.ToString();
+                        textBoxJumlah.Focus();
+                        textBoxJumlah.Text = "1";
+                    }
+                    else
+                    {
+                        MessageBox.Show("Baranf tidak ditemukan.");
+                        textBoxKode.Clear();
+                    }
 
-            //    }
-            //    else
-            //    {
-            //        MessageBox.Show("Perintah SQL gagal dijalankan. Pesan kesalahan: " + hasilBaca);
-            //    }
-            //}
+                }
+                else
+                {
+                    MessageBox.Show("Perintah SQL gagal dijalankan. Pesan kesalahan: " + hasilBaca);
+                }
+            }
         }
 
         private void buttonKeluar_Click(object sender, EventArgs e)
@@ -139,14 +151,16 @@ namespace SistemAkuntansi
             {
                 int subTotal = int.Parse(labelHarga.Text) * int.Parse(textBoxJumlah.Text);
 
-                dataGridViewNota.Rows.Add(labelKode.Text, labelNama.Text, labelHarga.Text, textBoxJumlah.Text, subTotal);
+                dataGridViewNota.Rows.Add(textBoxKode.Text, labelNama.Text, textBoxDiskon.Text, textBoxStatus.Text, textBoxKeterangan.Text, labelHarga.Text, labelJenis.Text, labelSatuan.Text,  textBoxJumlah.Text,   subTotal);
                 labelTotalHarga.Text = HitungGrandTotal().ToString("0,###");
 
 
-                textBoxBarcode.Clear();
-                labelKode.Text = "";
+                textBoxKode.Clear();
+                labelJenis.Text = "";
                 labelNama.Text = "";
                 labelHarga.Text = "";
+                labelSatuan.Text = "";
+                labelJenis.Text = "";
                 textBoxJumlah.Clear();
             }
         }
@@ -164,60 +178,71 @@ namespace SistemAkuntansi
 
         private void comboBoxPelanggan_SelectedIndexChanged(object sender, EventArgs e)
         {
-            //listHasilData.Clear();
-            //string hasilBaca = Pelanggan.BacaData("KodePelanggan", comboBoxPelanggan.Text.Substring(0, 1), listHasilData);
-            
-            //if (hasilBaca == "1")
-            //{
-            //    textBoxAlamat.Clear();
-            //    if (listHasilData.Count > 0)
-            //    {
-            //        textBoxAlamat.Text = listHasilData[0].Alamat;
-            //    }
-            //}
-            //else
-            //{
-            //    textBoxAlamat.Clear();
-            //}
+            listHasilData.Clear();
+            string hasilBaca = Pelanggan.BacaData("idPelanggan", comboBoxPelanggan.Text.Substring(0, 1), listHasilData);
+
+            if (hasilBaca == "1")
+            {
+                textBoxAlamat.Clear();
+                if (listHasilData.Count > 0)
+                {
+                    textBoxAlamat.Text = listHasilData[0].Alamat;
+                }
+            }
+            else
+            {
+                textBoxAlamat.Clear();
+            }
         }
 
         private void buttonSimpan_Click(object sender, EventArgs e)
         {
-            //FormDaftarNotaJual form = (FormDaftarNotaJual)this.Owner;
-            //Pelanggan pelanggan = new Pelanggan();
+            FormDaftarNotaJual form = (FormDaftarNotaJual)this.Owner;
+            Pelanggan pelanggan = new Pelanggan();
 
-            //pelanggan.KodePelanggan = int.Parse(comboBoxPelanggan.Text.Substring(0, 1));
-            //pelanggan.Nama = comboBoxPelanggan.Text.Substring(4, comboBoxPelanggan.Text.Length - 4);
-            //pelanggan.Alamat = textBoxAlamat.Text;
+            pelanggan.IdPelanggan = int.Parse(comboBoxPelanggan.Text.Substring(0, 1));
+            pelanggan.Nama = comboBoxPelanggan.Text.Substring(4, comboBoxPelanggan.Text.Length - 4);
+            pelanggan.Alamat = textBoxAlamat.Text;
 
-            //Pegawai pgw = new Pegawai();
-            //pgw.KodePegawai = int.Parse(labelKodePgw.Text);
-            //pgw.Nama = labelNamaPgw.Text;
+            NotaPenjualan nota = new NotaPenjualan();
+            nota.NoNotaPenjualan = textBoxNo.Text;
+            nota.Status = textBoxStatus.Text;
+            nota.Keterangan = textBoxKeterangan.Text;
+            nota.Diskon = double.Parse(textBoxDiskon.Text);
+            nota.TotalHarga = HitungGrandTotal();
+            nota.TglBatasPelunasan = dateTimePickerTglLunas.Value;
+            nota.TglBatasDiskon = dateTimePickerDiskon.Value;
+            nota.TglJual = dateTimePickerTanggalJual.Value;
+            nota.Pelanggan = pelanggan;
 
-            //NotaJual nota = new NotaJual(textBoxNo.Text, dateTimePickerTanggal.Value, pelanggan, pgw);
 
-            //for(int i = 0; i< dataGridViewNota.Rows.Count; i++)
-            //{
-            //    Barang barang = new Barang();
-            //    barang.KodeBarang = dataGridViewNota.Rows[i].Cells["KodeBarang"].Value.ToString();
-            //    barang.Nama = dataGridViewNota.Rows[i].Cells["NamaBarang"].Value.ToString();
-            //    int harga = int.Parse(dataGridViewNota.Rows[i].Cells["HargaJual"].Value.ToString());
-            //    int jumlah = int.Parse(dataGridViewNota.Rows[i].Cells["Jumlah"].Value.ToString());
+            for (int i = 0; i < dataGridViewNota.Rows.Count; i++)
+            {
+                Barang barang = new Barang();
+                barang.KodeBarang = dataGridViewNota.Rows[i].Cells["KodeBarang"].Value.ToString();
+                barang.Nama = dataGridViewNota.Rows[i].Cells["NamaBarang"].Value.ToString();
+                barang.KodeBarang = dataGridViewNota.Rows[i].Cells["jenis"].Value.ToString();
+                barang.Nama = dataGridViewNota.Rows[i].Cells["satuan"].Value.ToString();
+                int harga = int.Parse(dataGridViewNota.Rows[i].Cells["HargaJual"].Value.ToString());
+                int jumlah = int.Parse(dataGridViewNota.Rows[i].Cells["Jumlah"].Value.ToString());
 
-            //    NotaJualDetil notaDetil = new NotaJualDetil(barang, harga, jumlah);
-            //    nota.TambahDetilBarang(barang, harga, jumlah);
-            //}
+                
+               
 
-            //string hasilTambah = NotaJual.TambahData(nota);
-            //if(hasilTambah == "1")
-            //{
-            //    MessageBox.Show("Data nota jual telah tersimpan", "Info");
-            //    form.FormDaftarNotaJual_Load(sender, e);
-            //}
-            //else
-            //{
-            //    MessageBox.Show("Data nota jual gagal tersimpan. Pesan kesalahan : " + hasilTambah, "Kesalahan");
-            //}
+                DetilNotaJual notaDetil = new DetilNotaJual(barang, jumlah, harga);
+                nota.TambahDetilBarang(barang, harga, jumlah);
+            }
+
+            string hasilTambah = NotaPenjualan.TambahData(nota);
+            if (hasilTambah == "1")
+            {
+                MessageBox.Show("Data nota jual telah tersimpan", "Info");
+                form.FormDaftarNotaJual_Load(sender, e);
+            }
+            else
+            {
+                MessageBox.Show("Data nota jual gagal tersimpan. Pesan kesalahan : " + hasilTambah, "Kesalahan");
+            }
         }
 
         private void buttonCetakNota_Click(object sender, EventArgs e)
@@ -225,6 +250,16 @@ namespace SistemAkuntansi
             //string hasilCetak = NotaJual.CetakNota("N.NoNota", textBoxNo.Text, "Nota_Jual_Tambah.txt");
             //if (hasilCetak == "1") MessageBox.Show("Nota telah tercetak");
             //else MessageBox.Show("Nota jual gagal dicetak. Pesan kesalahan : " + hasilCetak);   
+        }
+
+        private void label10_Click(object sender, EventArgs e)
+        {
+
+        }
+
+        private void labelKode_Click(object sender, EventArgs e)
+        {
+
         }
     }
 }
