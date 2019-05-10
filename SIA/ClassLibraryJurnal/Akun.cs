@@ -9,6 +9,21 @@ namespace ClassLibraryJurnal
         #region Data Member
         private string nomor, nama, kelompok;
         private int saldoNominal;
+
+        public Akun(string nomor, string nama, string kelompok, int saldoNominal)
+        {
+            this.nomor = nomor;
+            this.nama = nama;
+            this.kelompok = kelompok;
+            this.saldoNominal = saldoNominal;
+        }
+        public Akun()
+        {
+            this.nomor = "";
+            this.nama = "";
+            this.kelompok = "";
+            this.saldoNominal = 0 ;
+        }
         #endregion
 
         #region Properties

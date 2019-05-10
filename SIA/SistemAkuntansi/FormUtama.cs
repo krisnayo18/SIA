@@ -9,6 +9,7 @@ using System.Threading.Tasks;
 using System.Windows.Forms;
 
 using ClassLibraryTransaksi;
+using ClassLibraryJurnal;
 
 namespace SistemAkuntansi
 {
@@ -18,7 +19,8 @@ namespace SistemAkuntansi
         {
             InitializeComponent();
         }
-     
+
+        public Periode periode;
         //public void PengaturanHakAksesMenu(Jabatan pJabatan)
         //{
         //    if (pJabatan.IdJabatan == "J1") //jika jabatan nya pegawai pembelian
@@ -55,6 +57,7 @@ namespace SistemAkuntansi
         }
         private void FormUtama_Load(object sender, EventArgs e)
         {
+           
             this.WindowState = FormWindowState.Maximized;
             
             this.IsMdiContainer = true;
@@ -64,6 +67,10 @@ namespace SistemAkuntansi
             FormLogin formLogin = new FormLogin();
             formLogin.Owner = this;
             formLogin.Show();
+
+            MessageBox.Show(Periode.GetPeriodeTerbaru().ToString());
+            periode = new Periode();
+            periode.IdPeriode = Periode.GetPeriodeTerbaru().ToString();
         }
 
         private void buttonBarang_Click(object sender, EventArgs e)

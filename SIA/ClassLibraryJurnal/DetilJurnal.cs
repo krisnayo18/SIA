@@ -9,6 +9,21 @@ namespace ClassLibraryJurnal
         #region Data Member
         private Akun akun;
         private int noUrut, debit, kredit;
+
+        public DetilJurnal(Akun akun, int noUrut, int debit, int kredit)
+        {
+            this.akun = akun;
+            this.noUrut = noUrut;
+            this.debit = debit;
+            this.kredit = kredit;
+        }
+        public DetilJurnal()
+        {
+
+            this.noUrut = 0;
+            this.debit = 0;
+            this.kredit = 0;
+        }
         #endregion
 
         #region Properties

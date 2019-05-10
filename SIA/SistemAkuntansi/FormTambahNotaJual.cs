@@ -9,6 +9,7 @@ using System.Threading.Tasks;
 using System.Windows.Forms;
 
 using ClassLibraryTransaksi;
+using ClassLibraryJurnal;
 
 namespace SistemAkuntansi
 {
@@ -230,18 +231,55 @@ namespace SistemAkuntansi
                
 
                 DetilNotaJual notaDetil = new DetilNotaJual(barang, jumlah, harga);
+                //simpan detil barang ke nota
                 nota.TambahDetilBarang(barang, harga, jumlah);
             }
 
-            string hasilTambah = NotaPenjualan.TambahData(nota);
-            if (hasilTambah == "1")
+            string hasilTambahNota = NotaPenjualan.TambahData(nota);
+            if (hasilTambahNota == "1")
             {
                 MessageBox.Show("Data nota jual telah tersimpan", "Info");
                 form.FormDaftarNotaJual_Load(sender, e);
+
+                //tambah posting ke jurnal
+                FormUtama frmUtama = (FormUtama)this.Owner.MdiParent; ;
+                // periode diambil dari form utama
+                Periode periode = frmUtama.periode;
+
+
+
+                Transaksi trans = new Transaksi();
+                //transaksi penjualan tunai (id transkasi 008);
+                trans.IdTransaksi = "008";
+                trans.Keterangan = "Menjual barang dagangan secara tunai";
+
+                string idJurnal = Jurnal.GenerateIdJurnal();
+                Jurnal jurnal = new Jurnal();
+                jurnal.IdJurnal = idJurnal;
+                jurnal.Tanggal = dateTimePickerTanggalJual.Value;
+                jurnal.Keterangan = textBoxKeterangan.Text;
+                jurnal.NomorBukti = textBoxNo.Text;
+                jurnal.Jenis = "JU";
+                jurnal.Periode = periode;
+                jurnal.Transaksi = trans;
+
+                //isi detil jurnalnya
+                jurnal.TambahDetilJurnalPenjualanTunai(int.Parse(labelTotalHarga.Text), )
+                 //simpan ke 
+                string hasilTambahJurnal = Jurnal.TambahData(jurnal);
+                if (hasilTambahJurnal == "1")
+                {
+                    MessageBox.Show("berhasil posting akuntansi");
+                }
+                else
+                {
+                    MessageBox.Show("gagal posting ke jurnal" + hasilTambahJurnal);
+                }
+
             }
             else
             {
-                MessageBox.Show("Data nota jual gagal tersimpan. Pesan kesalahan : " + hasilTambah, "Kesalahan");
+                MessageBox.Show("Data nota jual gagal tersimpan. Pesan kesalahan : " + hasilTambahNota, "Kesalahan");
             }
         }
 
