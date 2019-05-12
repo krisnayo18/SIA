@@ -7,19 +7,19 @@ namespace ClassLibraryJurnal
     public class Akun
     {
         #region Data Member
-        private string nomor, nama, kelompok;
+        private string nomorAkun, nama, kelompok;
         private int saldoNominal;
 
-        public Akun(string nomor, string nama, string kelompok, int saldoNominal)
+        public Akun(string nomorAkun, string nama, string kelompok, int saldoNominal)
         {
-            this.nomor = nomor;
+            this.nomorAkun = nomorAkun;
             this.nama = nama;
             this.kelompok = kelompok;
             this.saldoNominal = saldoNominal;
         }
         public Akun()
         {
-            this.nomor = "";
+            this.nomorAkun = "";
             this.nama = "";
             this.kelompok = "";
             this.saldoNominal = 0 ;
@@ -53,16 +53,16 @@ namespace ClassLibraryJurnal
             }
         }
 
-        public string Nomor
+        public string NomorAkun
         {
             get
             {
-                return nomor;
+                return nomorAkun;
             }
 
             set
             {
-                nomor = value;
+                nomorAkun = value;
             }
         }
 

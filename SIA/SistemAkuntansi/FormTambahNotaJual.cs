@@ -20,6 +20,8 @@ namespace SistemAkuntansi
             InitializeComponent();
         }
 
+        int totalHpp = 0;
+        int hargaBeli = 0;
         List<Pelanggan> listHasilData = new List<Pelanggan>();
         List<Barang> listHasilBarang = new List<Barang>();
 
@@ -111,25 +113,28 @@ namespace SistemAkuntansi
 
         private void textBoxKode_TextChanged(object sender, EventArgs e)
         {
+            //jika user mengisi panjang karakter sesuai kode barang
             if (textBoxKode.Text.Length == textBoxKode.MaxLength)
-            {
+            {   
+                //cari nama barang sesuai kode yang diinputkan oleh user
                 string hasilBaca = Barang.BacaData("kodeBarang", textBoxKode.Text, listHasilBarang);
 
                 if (hasilBaca == "1")
                 {
-                    if (listHasilBarang.Count > 0)
+                    if (listHasilBarang.Count > 0) //jika kode barang  ditemukan di database
                     {
 
                         labelNama.Text = listHasilBarang[0].Nama;
                         labelSatuan.Text = listHasilBarang[0].Satuan;
                         labelJenis.Text = listHasilBarang[0].Jenis;
                         labelHarga.Text = listHasilBarang[0].HargaJual.ToString();
+                        hargaBeli = int.Parse(listHasilBarang[0].HargaBeliTerbaru.ToString());
                         textBoxJumlah.Focus();
                         textBoxJumlah.Text = "1";
                     }
                     else
                     {
-                        MessageBox.Show("Baranf tidak ditemukan.");
+                        MessageBox.Show("Barang tidak ditemukan.");
                         textBoxKode.Clear();
                     }
 
@@ -151,8 +156,12 @@ namespace SistemAkuntansi
             if (e.KeyCode == Keys.Enter)
             {
                 int subTotal = int.Parse(labelHarga.Text) * int.Parse(textBoxJumlah.Text);
+                totalHpp = totalHpp + (int.Parse(textBoxJumlah.Text) * hargaBeli);
 
-                dataGridViewNota.Rows.Add(textBoxKode.Text, labelNama.Text, textBoxDiskon.Text, textBoxStatus.Text, textBoxKeterangan.Text, labelHarga.Text, labelJenis.Text, labelSatuan.Text,  textBoxJumlah.Text,   subTotal);
+                dataGridViewNota.Rows.Add(textBoxKode.Text, labelNama.Text, textBoxDiskon.Text,
+                textBoxStatus.Text, textBoxKeterangan.Text, labelHarga.Text, labelJenis.Text,
+                labelSatuan.Text,  textBoxJumlah.Text,   subTotal);
+
                 labelTotalHarga.Text = HitungGrandTotal().ToString("0,###");
 
 
@@ -199,12 +208,14 @@ namespace SistemAkuntansi
         private void buttonSimpan_Click(object sender, EventArgs e)
         {
             FormDaftarNotaJual form = (FormDaftarNotaJual)this.Owner;
+            //buat objek bertipe pelanggan
             Pelanggan pelanggan = new Pelanggan();
-
-            pelanggan.IdPelanggan = int.Parse(comboBoxPelanggan.Text.Substring(0, 1));
-            pelanggan.Nama = comboBoxPelanggan.Text.Substring(4, comboBoxPelanggan.Text.Length - 4);
+            //format combo box pelanggan: X -yyyyyy (kode pelanggan karakter 0 sebanyak 1, nama kategori mulai karakter  ke-4 s/d akhir
+            pelanggan.IdPelanggan = int.Parse(comboBoxPelanggan.Text.Substring(0, 1)); //kode pelanggan diambil dari  combobox
+            pelanggan.Nama = comboBoxPelanggan.Text.Substring(4, comboBoxPelanggan.Text.Length - 4);//nama pelanggan diambil dari combo box
             pelanggan.Alamat = textBoxAlamat.Text;
 
+            //buat object bertipe notajual
             NotaPenjualan nota = new NotaPenjualan();
             nota.NoNotaPenjualan = textBoxNo.Text;
             nota.Status = textBoxStatus.Text;
@@ -216,45 +227,53 @@ namespace SistemAkuntansi
             nota.TglJual = dateTimePickerTanggalJual.Value;
             nota.Pelanggan = pelanggan;
 
-
+            //data barang diperoleh dari data gridview
             for (int i = 0; i < dataGridViewNota.Rows.Count; i++)
             {
+                //buat object bertipe barang
                 Barang barang = new Barang();
+                //tambahkan kode, nama, jenis, satuan
+                //hati hati dalam menambahkan
                 barang.KodeBarang = dataGridViewNota.Rows[i].Cells["KodeBarang"].Value.ToString();
                 barang.Nama = dataGridViewNota.Rows[i].Cells["NamaBarang"].Value.ToString();
-                barang.KodeBarang = dataGridViewNota.Rows[i].Cells["jenis"].Value.ToString();
-                barang.Nama = dataGridViewNota.Rows[i].Cells["satuan"].Value.ToString();
+                barang.Jenis = dataGridViewNota.Rows[i].Cells["jenis"].Value.ToString();
+                barang.Satuan= dataGridViewNota.Rows[i].Cells["satuan"].Value.ToString();
+                //simpan  data hargajual dan jumlah 
                 int harga = int.Parse(dataGridViewNota.Rows[i].Cells["HargaJual"].Value.ToString());
                 int jumlah = int.Parse(dataGridViewNota.Rows[i].Cells["Jumlah"].Value.ToString());
-
-                
-               
-
+                //buat object dan tambahkan
                 DetilNotaJual notaDetil = new DetilNotaJual(barang, jumlah, harga);
                 //simpan detil barang ke nota
-                nota.TambahDetilBarang(barang, harga, jumlah);
+                nota.TambahDetilBarang(barang, jumlah, harga);
             }
 
             string hasilTambahNota = NotaPenjualan.TambahData(nota);
-            if (hasilTambahNota == "1")
+
+            if (hasilTambahNota == "1") //jika berhasil maka insert jurnal dan detil jurnal
             {
                 MessageBox.Show("Data nota jual telah tersimpan", "Info");
-                form.FormDaftarNotaJual_Load(sender, e);
+                form.FormDaftarNotaJual_Load(sender, e); //supaya formdaftar barang menampilkan daftar terbaru
 
                 //tambah posting ke jurnal
                 FormUtama frmUtama = (FormUtama)this.Owner.MdiParent; ;
+                string idJurnal = Jurnal.GenerateIdJurnal();
+
                 // periode diambil dari form utama
-                Periode periode = frmUtama.periode;
+                //Periode periode = frmUtama.periode;
 
-
+                //buat object periode
+                Periode periode = new Periode();
+                //tambhakan data id periode
+                periode.IdPeriode = "1501";
 
                 Transaksi trans = new Transaksi();
                 //transaksi penjualan tunai (id transkasi 008);
                 trans.IdTransaksi = "008";
                 trans.Keterangan = "Menjual barang dagangan secara tunai";
 
-                string idJurnal = Jurnal.GenerateIdJurnal();
+                //buat object bertipe jurnal
                 Jurnal jurnal = new Jurnal();
+                //tambahkan data
                 jurnal.IdJurnal = idJurnal;
                 jurnal.Tanggal = dateTimePickerTanggalJual.Value;
                 jurnal.Keterangan = textBoxKeterangan.Text;
@@ -264,12 +283,15 @@ namespace SistemAkuntansi
                 jurnal.Transaksi = trans;
 
                 //isi detil jurnalnya
-                jurnal.TambahDetilJurnalPenjualanTunai(int.Parse(labelTotalHarga.Text), )
-                 //simpan ke 
+                int totalharga = HitungGrandTotal(); // panggil method hitung total harga untuk mendapatkan totalharga
+
+                jurnal.TambahDetilJurnalPenjualanBarangTunai(totalharga, totalHpp);
+                 //simpan ke tabel _jurnal
                 string hasilTambahJurnal = Jurnal.TambahData(jurnal);
                 if (hasilTambahJurnal == "1")
                 {
-                    MessageBox.Show("berhasil posting akuntansi");
+                    MessageBox.Show("berhasil posting ke jurnal");
+                    this.Close();
                 }
                 else
                 {

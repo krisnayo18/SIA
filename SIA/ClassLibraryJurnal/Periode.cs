@@ -87,20 +87,22 @@ namespace ClassLibraryJurnal
         public static Periode GetPeriodeTerbaru()
         {   
             //ambil data dari periode
-            string sql = "select * from _periode " +
-                         "where idPeriode = (select max(idPeriode) from _periode ";
-
-            MySqlDataReader hasilData = Koneksi.JalankanPerintahQuery(sql);
-
+            string sql = "select * from _periode where idPeriode = (select max(idPeriode) from _periode ";
             Periode hasilPeriode = null;
-            if(hasilData.Read()==true) //jika ada data
-            {
-                string idPeriode = hasilData.GetValue(0).ToString();
-                DateTime tglAwal = DateTime.Parse(hasilData.GetValue(1).ToString());
-                DateTime tglAkhir = DateTime.Parse(hasilData.GetValue(2).ToString());
-                hasilPeriode = new Periode( idPeriode, tglAwal, tglAkhir);
-            }
-            return hasilPeriode;
+            
+                MySqlDataReader hasilData = Koneksi.JalankanPerintahQuery(sql);
+
+                
+                if (hasilData.Read() == true) //jika ada data
+                {
+                    string idPeriode = hasilData.GetValue(0).ToString();
+                    DateTime tglAwal = DateTime.Parse(hasilData.GetValue(1).ToString());
+                    DateTime tglAkhir = DateTime.Parse(hasilData.GetValue(2).ToString());
+                    hasilPeriode = new Periode(idPeriode, tglAwal, tglAkhir);
+                }
+                return hasilPeriode;
+            
+            
         }
         #endregion
 

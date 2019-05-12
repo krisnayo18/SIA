@@ -99,8 +99,8 @@ namespace SistemAkuntansi
             string nilaiKriteria = textBoxCari.Text;
             if (comboBoxCari.Text == "No Nota") kriteria = "N.NoNotaPenjualan";
             else if (comboBoxCari.Text == "No Pelanggan") kriteria = "N.idPelanggan";
-            else if (comboBoxCari.Text == "Nama Pelanggan") kriteria = "P.idPelanggan";
-            else if (comboBoxCari.Text == "Alamat Pelanggan") kriteria = "P.idPelanggan";
+            else if (comboBoxCari.Text == "Nama Pelanggan") kriteria = "P.nama";
+            else if (comboBoxCari.Text == "Alamat Pelanggan") kriteria = "P.alamat";
             else if (comboBoxCari.Text == "Diskon") kriteria = "N.diskon";
             else if (comboBoxCari.Text == "Total Harga") kriteria = "N.totalHarga";
             else if (comboBoxCari.Text == "Batas Pelunasan") kriteria = "N.tglBatasPelunasan";

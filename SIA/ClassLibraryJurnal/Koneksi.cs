@@ -62,7 +62,7 @@ namespace ClassLibraryJurnal
             NamaServer = server;
             Username = username;
             Password = pass;
-            string strCon = "server=" + NamaServer + "; database= " + NamaDatabase + "; uid=" + Username + "; pwd=" + Password;
+            string strCon = "server=" + NamaServer + "; database=" + NamaDatabase + "; uid=" + Username + "; pwd=" + Password;
 
             KoneksiDB = new MySqlConnection();
             KoneksiDB.ConnectionString = strCon;

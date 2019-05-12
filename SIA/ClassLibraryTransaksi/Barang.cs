@@ -260,7 +260,8 @@ namespace ClassLibraryTransaksi
 
         public static string UbahStokTerjual(string pKodeBarang, int pJumlahTerjual)
         {
-            string sql = "UPDATE Barang SET quantity = quantity - " + pJumlahTerjual + " WHERE KodeBarang='" + pKodeBarang + "'";
+            //perintah sql = untuk mengurangi quantity/stok barang yang sudah terjual
+            string sql = "UPDATE barang SET quantity = quantity - " + pJumlahTerjual + " WHERE kodeBarang='" + pKodeBarang + "'";
 
             try
             {

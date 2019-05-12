@@ -8,6 +8,7 @@ using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
 
+using ClassLibraryJurnal;
 using ClassLibraryTransaksi;
 
 namespace SistemAkuntansi
@@ -57,9 +58,9 @@ namespace SistemAkuntansi
         {
             if (textBoxUsername.Text != "")
             {
-                
-                
-               Koneksi k = new Koneksi(textBoxServer.Text, textBoxDatabase.Text, textBoxUsername.Text, textBoxPassword.Text);
+
+                //ciptakan object bertipe koneksi  dengan memanggil constructor  berparameter  milik  class koneksi
+                ClassLibraryJurnal.Koneksi k = new ClassLibraryJurnal.Koneksi(textBoxServer.Text, textBoxDatabase.Text, textBoxUsername.Text, textBoxPassword.Text);
 
 
                 string hasilCon = k.Connect();

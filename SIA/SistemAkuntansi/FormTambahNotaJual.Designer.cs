@@ -32,8 +32,8 @@
             this.buttonCetakNota = new System.Windows.Forms.Button();
             this.buttonKeluar = new System.Windows.Forms.Button();
             this.panel1 = new System.Windows.Forms.Panel();
-            this.textBoxTotalHarga = new System.Windows.Forms.TextBox();
-            this.label18 = new System.Windows.Forms.Label();
+            this.labelSatuan = new System.Windows.Forms.Label();
+            this.label20 = new System.Windows.Forms.Label();
             this.dateTimePickerDiskon = new System.Windows.Forms.DateTimePicker();
             this.label17 = new System.Windows.Forms.Label();
             this.dateTimePickerTglLunas = new System.Windows.Forms.DateTimePicker();
@@ -69,8 +69,6 @@
             this.label8 = new System.Windows.Forms.Label();
             this.label9 = new System.Windows.Forms.Label();
             this.label1 = new System.Windows.Forms.Label();
-            this.labelSatuan = new System.Windows.Forms.Label();
-            this.label20 = new System.Windows.Forms.Label();
             this.panel1.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.dataGridViewNota)).BeginInit();
             this.SuspendLayout();
@@ -125,8 +123,6 @@
             this.panel1.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(192)))), ((int)(((byte)(192)))), ((int)(((byte)(255)))));
             this.panel1.Controls.Add(this.labelSatuan);
             this.panel1.Controls.Add(this.label20);
-            this.panel1.Controls.Add(this.textBoxTotalHarga);
-            this.panel1.Controls.Add(this.label18);
             this.panel1.Controls.Add(this.dateTimePickerDiskon);
             this.panel1.Controls.Add(this.label17);
             this.panel1.Controls.Add(this.dateTimePickerTglLunas);
@@ -166,22 +162,24 @@
             this.panel1.Size = new System.Drawing.Size(542, 394);
             this.panel1.TabIndex = 31;
             // 
-            // textBoxTotalHarga
+            // labelSatuan
             // 
-            this.textBoxTotalHarga.Location = new System.Drawing.Point(386, 116);
-            this.textBoxTotalHarga.Name = "textBoxTotalHarga";
-            this.textBoxTotalHarga.Size = new System.Drawing.Size(145, 20);
-            this.textBoxTotalHarga.TabIndex = 76;
+            this.labelSatuan.BorderStyle = System.Windows.Forms.BorderStyle.Fixed3D;
+            this.labelSatuan.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.labelSatuan.Location = new System.Drawing.Point(417, 235);
+            this.labelSatuan.Name = "labelSatuan";
+            this.labelSatuan.Size = new System.Drawing.Size(59, 20);
+            this.labelSatuan.TabIndex = 78;
             // 
-            // label18
+            // label20
             // 
-            this.label18.AutoSize = true;
-            this.label18.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label18.Location = new System.Drawing.Point(292, 124);
-            this.label18.Name = "label18";
-            this.label18.Size = new System.Drawing.Size(86, 13);
-            this.label18.TabIndex = 75;
-            this.label18.Text = "Total Harga : ";
+            this.label20.AutoSize = true;
+            this.label20.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label20.Location = new System.Drawing.Point(417, 219);
+            this.label20.Name = "label20";
+            this.label20.Size = new System.Drawing.Size(47, 13);
+            this.label20.TabIndex = 77;
+            this.label20.Text = "Satuan";
             // 
             // dateTimePickerDiskon
             // 
@@ -510,25 +508,6 @@
             this.label1.Text = "TAMBAH NOTA JUAL";
             this.label1.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
             // 
-            // labelSatuan
-            // 
-            this.labelSatuan.BorderStyle = System.Windows.Forms.BorderStyle.Fixed3D;
-            this.labelSatuan.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.labelSatuan.Location = new System.Drawing.Point(417, 235);
-            this.labelSatuan.Name = "labelSatuan";
-            this.labelSatuan.Size = new System.Drawing.Size(59, 20);
-            this.labelSatuan.TabIndex = 78;
-            // 
-            // label20
-            // 
-            this.label20.AutoSize = true;
-            this.label20.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label20.Location = new System.Drawing.Point(417, 219);
-            this.label20.Name = "label20";
-            this.label20.Size = new System.Drawing.Size(47, 13);
-            this.label20.TabIndex = 77;
-            this.label20.Text = "Satuan";
-            // 
             // FormTambahNotaJual
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
@@ -592,8 +571,6 @@
         private System.Windows.Forms.Label label17;
         private System.Windows.Forms.DateTimePicker dateTimePickerTglLunas;
         private System.Windows.Forms.Label label16;
-        private System.Windows.Forms.TextBox textBoxTotalHarga;
-        private System.Windows.Forms.Label label18;
         private System.Windows.Forms.Label labelSatuan;
         private System.Windows.Forms.Label label20;
     }

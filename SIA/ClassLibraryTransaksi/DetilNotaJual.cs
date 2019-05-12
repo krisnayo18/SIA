@@ -10,7 +10,7 @@ namespace ClassLibraryTransaksi
     {
 
         #region Data Member
-        private Barang barang;
+        private Barang barang; //aggregation
         private int jumlah, hargaJual;
         #endregion
 
