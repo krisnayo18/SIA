@@ -138,7 +138,7 @@
             this.panelMenu.Dock = System.Windows.Forms.DockStyle.Left;
             this.panelMenu.Location = new System.Drawing.Point(0, 24);
             this.panelMenu.Name = "panelMenu";
-            this.panelMenu.Size = new System.Drawing.Size(250, 748);
+            this.panelMenu.Size = new System.Drawing.Size(250, 716);
             this.panelMenu.TabIndex = 6;
             // 
             // panelProfil
@@ -162,6 +162,7 @@
             this.pictureBox1.Size = new System.Drawing.Size(168, 163);
             this.pictureBox1.TabIndex = 0;
             this.pictureBox1.TabStop = false;
+            this.pictureBox1.Click += new System.EventHandler(this.PictureBox1_Click);
             // 
             // panelMaster
             // 
@@ -353,7 +354,7 @@
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackColor = System.Drawing.Color.White;
-            this.ClientSize = new System.Drawing.Size(854, 772);
+            this.ClientSize = new System.Drawing.Size(854, 740);
             this.Controls.Add(this.panelMenu);
             this.Controls.Add(this.menuStrip1);
             this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.None;
