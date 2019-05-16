@@ -32,6 +32,7 @@
             this.buttonCetakNota = new System.Windows.Forms.Button();
             this.buttonKeluar = new System.Windows.Forms.Button();
             this.panel1 = new System.Windows.Forms.Panel();
+            this.comboBoxStatus = new System.Windows.Forms.ComboBox();
             this.labelSatuan = new System.Windows.Forms.Label();
             this.label20 = new System.Windows.Forms.Label();
             this.dateTimePickerDiskon = new System.Windows.Forms.DateTimePicker();
@@ -121,6 +122,7 @@
             // panel1
             // 
             this.panel1.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(192)))), ((int)(((byte)(192)))), ((int)(((byte)(255)))));
+            this.panel1.Controls.Add(this.comboBoxStatus);
             this.panel1.Controls.Add(this.labelSatuan);
             this.panel1.Controls.Add(this.label20);
             this.panel1.Controls.Add(this.dateTimePickerDiskon);
@@ -161,6 +163,17 @@
             this.panel1.Name = "panel1";
             this.panel1.Size = new System.Drawing.Size(542, 394);
             this.panel1.TabIndex = 31;
+            // 
+            // comboBoxStatus
+            // 
+            this.comboBoxStatus.FormattingEnabled = true;
+            this.comboBoxStatus.Items.AddRange(new object[] {
+            "L",
+            "P"});
+            this.comboBoxStatus.Location = new System.Drawing.Point(386, 147);
+            this.comboBoxStatus.Name = "comboBoxStatus";
+            this.comboBoxStatus.Size = new System.Drawing.Size(145, 21);
+            this.comboBoxStatus.TabIndex = 79;
             // 
             // labelSatuan
             // 
@@ -255,7 +268,7 @@
             // 
             // textBoxStatus
             // 
-            this.textBoxStatus.Location = new System.Drawing.Point(386, 146);
+            this.textBoxStatus.Location = new System.Drawing.Point(386, 116);
             this.textBoxStatus.Name = "textBoxStatus";
             this.textBoxStatus.Size = new System.Drawing.Size(145, 20);
             this.textBoxStatus.TabIndex = 66;
@@ -573,5 +586,6 @@
         private System.Windows.Forms.Label label16;
         private System.Windows.Forms.Label labelSatuan;
         private System.Windows.Forms.Label label20;
+        private System.Windows.Forms.ComboBox comboBoxStatus;
     }
 }

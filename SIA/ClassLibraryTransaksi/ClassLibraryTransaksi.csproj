@@ -62,7 +62,7 @@
     <Compile Include="Pelanggan.cs" />
     <Compile Include="Pembayaran.cs" />
     <Compile Include="Penerimaan.cs" />
-    <Compile Include="PenerimaanPembayaran.cs" />
+    <Compile Include="Pelunasan.cs" />
     <Compile Include="Pengiriman.cs" />
     <Compile Include="SuratPermintaan.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />

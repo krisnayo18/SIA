@@ -73,7 +73,7 @@ namespace SistemAkuntansi
             textBoxAlamat.Enabled = false;
 
             comboBoxPelanggan.DropDownStyle = ComboBoxStyle.DropDownList;
-
+            comboBoxStatus.DropDownStyle = ComboBoxStyle.DropDownList;
 
             string noNotaBaru;
             string hasilGenerate = NotaPenjualan.GenerateNoNota(out noNotaBaru);
@@ -159,7 +159,7 @@ namespace SistemAkuntansi
                 totalHpp = totalHpp + (int.Parse(textBoxJumlah.Text) * hargaBeli);
 
                 dataGridViewNota.Rows.Add(textBoxKode.Text, labelNama.Text, textBoxDiskon.Text,
-                textBoxStatus.Text, textBoxKeterangan.Text, labelHarga.Text, labelJenis.Text,
+                comboBoxStatus.Text, textBoxKeterangan.Text, labelHarga.Text, labelJenis.Text,
                 labelSatuan.Text,  textBoxJumlah.Text,   subTotal);
 
                 labelTotalHarga.Text = HitungGrandTotal().ToString("0,###");
@@ -218,7 +218,7 @@ namespace SistemAkuntansi
             //buat object bertipe notajual
             NotaPenjualan nota = new NotaPenjualan();
             nota.NoNotaPenjualan = textBoxNo.Text;
-            nota.Status = textBoxStatus.Text;
+            nota.Status = comboBoxStatus.Text;
             nota.Keterangan = textBoxKeterangan.Text;
             nota.Diskon = double.Parse(textBoxDiskon.Text);
             nota.TotalHarga = HitungGrandTotal();

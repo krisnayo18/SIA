@@ -124,11 +124,11 @@
     <Compile Include="FormDaftarPenerimaan.Designer.cs">
       <DependentUpon>FormDaftarPenerimaan.cs</DependentUpon>
     </Compile>
-    <Compile Include="FormDaftarPenerimaanPembayaran.cs">
+    <Compile Include="FormDaftarPelunasan.cs">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="FormDaftarPenerimaanPembayaran.Designer.cs">
-      <DependentUpon>FormDaftarPenerimaanPembayaran.cs</DependentUpon>
+    <Compile Include="FormDaftarPelunasan.Designer.cs">
+      <DependentUpon>FormDaftarPelunasan.cs</DependentUpon>
     </Compile>
     <Compile Include="FormDaftarPengiriman.cs">
       <SubType>Form</SubType>
@@ -178,11 +178,11 @@
     <Compile Include="FormTambahPenerimaan.Designer.cs">
       <DependentUpon>FormTambahPenerimaan.cs</DependentUpon>
     </Compile>
-    <Compile Include="FormTambahPenerimaanPembayaran.cs">
+    <Compile Include="FormTambahPelunasan.cs">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="FormTambahPenerimaanPembayaran.Designer.cs">
-      <DependentUpon>FormTambahPenerimaanPembayaran.cs</DependentUpon>
+    <Compile Include="FormTambahPelunasan.Designer.cs">
+      <DependentUpon>FormTambahPelunasan.cs</DependentUpon>
     </Compile>
     <Compile Include="FormTambahPengiriman.cs">
       <SubType>Form</SubType>
@@ -249,8 +249,8 @@
     <EmbeddedResource Include="FormDaftarPenerimaan.resx">
       <DependentUpon>FormDaftarPenerimaan.cs</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="FormDaftarPenerimaanPembayaran.resx">
-      <DependentUpon>FormDaftarPenerimaanPembayaran.cs</DependentUpon>
+    <EmbeddedResource Include="FormDaftarPelunasan.resx">
+      <DependentUpon>FormDaftarPelunasan.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="FormDaftarPengiriman.resx">
       <DependentUpon>FormDaftarPengiriman.cs</DependentUpon>
@@ -279,8 +279,8 @@
     <EmbeddedResource Include="FormTambahPenerimaan.resx">
       <DependentUpon>FormTambahPenerimaan.cs</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="FormTambahPenerimaanPembayaran.resx">
-      <DependentUpon>FormTambahPenerimaanPembayaran.cs</DependentUpon>
+    <EmbeddedResource Include="FormTambahPelunasan.resx">
+      <DependentUpon>FormTambahPelunasan.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="FormTambahPengiriman.resx">
       <DependentUpon>FormTambahPengiriman.cs</DependentUpon>

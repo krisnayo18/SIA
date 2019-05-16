@@ -224,10 +224,5 @@ namespace SistemAkuntansi
                 form.BringToFront();
             }
         }
-
-        private void PictureBox1_Click(object sender, EventArgs e)
-        {
-            //testHanif
-        }
     }
 }
