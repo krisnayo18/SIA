@@ -270,7 +270,7 @@ namespace SistemAkuntansi
                 //tambahkan data
                 jurnal.IdJurnal = idJurnal;
                 jurnal.Tanggal = dateTimePickerTanggalJual.Value;
-                jurnal.Keterangan = textBoxKeterangan.Text;
+              
                 jurnal.NomorBukti = textBoxNo.Text;
                 jurnal.Jenis = "JU";
                 jurnal.Periode = pPeriode;

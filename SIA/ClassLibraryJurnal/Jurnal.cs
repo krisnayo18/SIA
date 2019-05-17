@@ -7,7 +7,7 @@ namespace ClassLibraryJurnal
     public class Jurnal
     {
         #region Data Member
-        private string idJurnal, keterangan, nomorBukti, jenis;
+        private string idJurnal,  nomorBukti, jenis;
         private DateTime tanggal;
         private Periode periode;
         private Transaksi transaksi;
@@ -22,10 +22,10 @@ namespace ClassLibraryJurnal
 
         #region Constructor
 
-        public Jurnal(string idJurnal, string keterangan, string nomorBukti, string jenis, DateTime tanggal, Periode periode, Transaksi transaksi)
+        public Jurnal(string idJurnal,  string nomorBukti, string jenis, DateTime tanggal, Periode periode, Transaksi transaksi)
         {
             this.idJurnal = idJurnal;
-            this.keterangan = keterangan;
+            
             this.nomorBukti = nomorBukti;
             this.jenis = jenis;
             this.tanggal = tanggal;
@@ -46,7 +46,7 @@ namespace ClassLibraryJurnal
         public Jurnal()
         {
             this.idJurnal = "";
-            this.keterangan = "";
+            
             this.nomorBukti = "";
             this.jenis = "";
             this.tanggal = DateTime.Now;
@@ -68,18 +68,7 @@ namespace ClassLibraryJurnal
             }
         }
 
-        public string Keterangan
-        {
-            get
-            {
-                return keterangan;
-            }
-
-            set
-            {
-                keterangan = value;
-            }
-        }
+       
 
         public string NomorBukti
         {
@@ -185,10 +174,10 @@ namespace ClassLibraryJurnal
         public static string TambahData(Jurnal pJurnal)
         {
             //sql1 untuk menambahkan data ke tabel _jurnal
-            string sql = "Insert into _jurnal(idJurnal, tanggal, keterangan, nomorBukti,  jenis, idPeriode, idTransaksi ) values ('" +
+            string sql = "Insert into _jurnal(idJurnal, tanggal,  nomorBukti,  jenis, idPeriode, idTransaksi ) values ('" +
                         pJurnal.IdJurnal + "',  ' " +
                         pJurnal.Tanggal.ToString("yyyy-MM-dd hh:mm:ss") + "', '" +
-                        pJurnal.Keterangan + "','" +
+                        
                         pJurnal.NomorBukti + "', '" +
                         pJurnal.Jenis + "' , '" +
                         pJurnal.Periode.IdPeriode + "' , '" +
