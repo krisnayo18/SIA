@@ -25,6 +25,7 @@ namespace SistemAkuntansi
         List<Pelanggan> listHasilData = new List<Pelanggan>();
         List<Barang> listHasilBarang = new List<Barang>();
 
+         Periode pPeriode = new Periode();
         private void FormatDataGrid()
         {
             dataGridViewNota.Columns.Clear();
@@ -66,7 +67,7 @@ namespace SistemAkuntansi
         {
             this.Location = new Point(500, 26);
             FormatDataGrid();
-
+            pPeriode = Periode.GetPeriodeTerbaru();
             textBoxKode.MaxLength = 5;
             textBoxNo.Enabled = false;
             
@@ -252,19 +253,12 @@ namespace SistemAkuntansi
             if (hasilTambahNota == "1") //jika berhasil maka insert jurnal dan detil jurnal
             {
                 MessageBox.Show("Data nota jual telah tersimpan", "Info");
+              
+                FormUtama frmUtama = (FormUtama)this.Owner.MdiParent; 
                 form.FormDaftarNotaJual_Load(sender, e); //supaya formdaftar barang menampilkan daftar terbaru
-
                 //tambah posting ke jurnal
-                FormUtama frmUtama = (FormUtama)this.Owner.MdiParent; ;
+
                 string idJurnal = Jurnal.GenerateIdJurnal();
-
-                // periode diambil dari form utama
-                //Periode periode = frmUtama.periode;
-
-                //buat object periode
-                Periode periode = new Periode();
-                //tambhakan data id periode
-                periode.IdPeriode = "1501";
 
                 Transaksi trans = new Transaksi();
                 //transaksi penjualan tunai (id transkasi 008);
@@ -279,7 +273,7 @@ namespace SistemAkuntansi
                 jurnal.Keterangan = textBoxKeterangan.Text;
                 jurnal.NomorBukti = textBoxNo.Text;
                 jurnal.Jenis = "JU";
-                jurnal.Periode = periode;
+                jurnal.Periode = pPeriode;
                 jurnal.Transaksi = trans;
 
                 //isi detil jurnalnya

@@ -12,9 +12,9 @@ using ClassLibraryTransaksi;
 
 namespace SistemAkuntansi
 {
-    public partial class FormDaftarPenerimaanPembayaran : Form
+    public partial class FormDaftarPelunasan : Form
     {
-        public FormDaftarPenerimaanPembayaran()
+        public FormDaftarPelunasan()
         {
             InitializeComponent();
         }
@@ -81,7 +81,7 @@ namespace SistemAkuntansi
             this.Close();
         }
 
-        private void FormDaftarPenerimaanPembayaran_Load(object sender, EventArgs e)
+        public void FormDaftarPelunasan_Load(object sender, EventArgs e)
         {
             this.Location = new Point(0, 0);
             comboBoxCari.DropDownStyle = ComboBoxStyle.DropDownList;

@@ -70,6 +70,12 @@
     <Compile Include="FormDaftarBarang.Designer.cs">
       <DependentUpon>FormDaftarBarang.cs</DependentUpon>
     </Compile>
+    <Compile Include="FormDaftarJurnal.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="FormDaftarJurnal.Designer.cs">
+      <DependentUpon>FormDaftarJurnal.cs</DependentUpon>
+    </Compile>
     <Compile Include="FormDaftarNotaBeli.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -227,6 +233,9 @@
     </EmbeddedResource>
     <EmbeddedResource Include="FormDaftarEkspedisi.resx">
       <DependentUpon>FormDaftarEkspedisi.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="FormDaftarJurnal.resx">
+      <DependentUpon>FormDaftarJurnal.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="FormDaftarNotaBeli.resx">
       <DependentUpon>FormDaftarNotaBeli.cs</DependentUpon>

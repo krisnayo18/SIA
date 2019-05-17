@@ -20,7 +20,7 @@ namespace SistemAkuntansi
             InitializeComponent();
         }
 
-        public Periode periode = new Periode();
+        
 
 
         //public void PengaturanHakAksesMenu(Jabatan pJabatan)
@@ -59,7 +59,7 @@ namespace SistemAkuntansi
         }
         private void FormUtama_Load(object sender, EventArgs e)
         {
-            //periode = Periode.GetPeriodeTerbaru();
+            
 
             this.WindowState = FormWindowState.Maximized;
             
@@ -214,7 +214,23 @@ namespace SistemAkuntansi
             Form form = Application.OpenForms["FormDaftarPermintaanPembayaran"];
             if (form == null)
             {
-                FormDaftarPenerimaanPembayaran fp = new FormDaftarPenerimaanPembayaran();
+                FormDaftarPelunasan fp = new FormDaftarPelunasan();
+                fp.MdiParent = this;
+                fp.Show();
+            }
+            else
+            {
+                form.Show();
+                form.BringToFront();
+            }
+        }
+
+        private void buttonJurnal_Click(object sender, EventArgs e)
+        {
+            Form form = Application.OpenForms["FormDaftarJurnal"];
+            if (form == null)
+            {
+                FormDaftarJurnal fp = new FormDaftarJurnal();
                 fp.MdiParent = this;
                 fp.Show();
             }

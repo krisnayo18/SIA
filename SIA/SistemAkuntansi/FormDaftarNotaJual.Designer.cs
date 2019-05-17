@@ -137,6 +137,7 @@
             this.comboBoxCari.Name = "comboBoxCari";
             this.comboBoxCari.Size = new System.Drawing.Size(192, 21);
             this.comboBoxCari.TabIndex = 2;
+            this.comboBoxCari.TextChanged += new System.EventHandler(this.comboBoxCari_TextChanged);
             // 
             // label2
             // 

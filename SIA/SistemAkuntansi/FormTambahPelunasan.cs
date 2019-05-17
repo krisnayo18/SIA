@@ -18,16 +18,17 @@ namespace SistemAkuntansi
             InitializeComponent();
         }
         List<Pelunasan> listHasilData = new List<Pelunasan>();
-
+        List<NotaPenjualan> listHasilData2 = new List<NotaPenjualan>();
         private void FormatDataGrid()
         {
             dataGridViewNota.Columns.Clear();
-
+            dataGridViewNota.Columns.Add("noPelunasan", "Nomor Pelunasan");
             dataGridViewNota.Columns.Add("noNotaPenjualan", "No Nota Penjualan");
             dataGridViewNota.Columns.Add("tanggal", "Tanggal");
             dataGridViewNota.Columns.Add("caraPembayaran", "Cara Pembayaran");
             dataGridViewNota.Columns.Add("nominal", "nominal");
 
+            dataGridViewNota.Columns["noPelunasan"].AutoSizeMode = DataGridViewAutoSizeColumnMode.AllCells;
             dataGridViewNota.Columns["noNotaPenjualan"].AutoSizeMode = DataGridViewAutoSizeColumnMode.AllCells;
             dataGridViewNota.Columns["tanggal"].AutoSizeMode = DataGridViewAutoSizeColumnMode.AllCells;
             dataGridViewNota.Columns["caraPembayaran"].AutoSizeMode = DataGridViewAutoSizeColumnMode.AllCells;
@@ -42,10 +43,40 @@ namespace SistemAkuntansi
 
         private void buttonSimpan_Click(object sender, EventArgs e)
         {
-           
+            FormDaftarPelunasan form = (FormDaftarPelunasan)this.Owner;
+
+            NotaPenjualan nota = new NotaPenjualan();
+            nota.NoNotaPenjualan = comboBoxNoNotaJual.Text;
+            nota.Status = "L";
+            //buat object bertipe notajual
+            Pelunasan lunas = new Pelunasan();
+            lunas.NoPelunasan = textBoxNoPelunasan.Text;
+            lunas.Tanggal = dateTimePickerTgl.Value;
+            lunas.CaraPembayaran = comboBoxCaraPemb.Text;
+            lunas.Nominal = int.Parse(textBoxNominal.Text);
+            lunas.NotaPenjualan = nota;
+
+            string hasilTambahNota = Pelunasan.TambahData(lunas, nota);
+
+            if (hasilTambahNota == "1") //jika berhasil maka insert jurnal dan detil jurnal
+            {
+                MessageBox.Show("Data Pelunasan telah tersimpan", "Info");
+                
+                FormUtama frmUtama = (FormUtama)this.Owner.MdiParent; 
+                form.FormDaftarPelunasan_Load(sender, e);
+
+                dataGridViewNota.Rows.Add(textBoxNoPelunasan.Text, comboBoxNoNotaJual.Text, dateTimePickerTgl.Value, 
+                comboBoxCaraPemb.Text, textBoxNominal.Text);
+
+                this.Close();
+            }
+            else
+            {
+                MessageBox.Show("Data pelunasan gagal tersimpan. Pesan kesalahan : " + hasilTambahNota, "Kesalahan");
+            }
         }
 
-        private void FormTambahPenerimaanPembayaran_Load(object sender, EventArgs e)
+    private void FormTambahPenerimaanPembayaran_Load(object sender, EventArgs e)
         {
             FormatDataGrid();
             string noNotaBaru;
@@ -66,14 +97,14 @@ namespace SistemAkuntansi
             dateTimePickerTgl.Value = DateTime.Now;
             dateTimePickerTgl.Enabled = false;
 
-            string hasilBaca = Pelunasan.BacaData("", "", listHasilData);
+            string hasilBaca = NotaPenjualan.BacaData("", "", listHasilData2);
 
             if (hasilBaca == "1")
             {
                 comboBoxNoNotaJual.Items.Clear();
-                for (int i = 0; i < listHasilData.Count; i++)
+                for (int i = 0; i < listHasilData2.Count; i++)
                 {
-                        comboBoxNoNotaJual.Items.Add(listHasilData[i].NotaPenjualan.NoNotaPenjualan);
+                        comboBoxNoNotaJual.Items.Add(listHasilData2[i].NoNotaPenjualan);
                 }
             }
             else
@@ -90,14 +121,14 @@ namespace SistemAkuntansi
         private void comboBoxNoNotaJual_SelectedIndexChanged(object sender, EventArgs e)
         {
             listHasilData.Clear();
-            string hasilBaca = Pelunasan.BacaData("NP.noNotaPenjualan", comboBoxNoNotaJual.Text, listHasilData);
+            string hasilBaca = NotaPenjualan.BacaData("N.noNotaPenjualan", comboBoxNoNotaJual.Text, listHasilData2);
 
             if (hasilBaca == "1")
             {
                 textBoxNominal.Clear();
-                if (listHasilData.Count > 0)
+                if (listHasilData2.Count > 0)
                 {
-                    textBoxNominal.Text = listHasilData[0].NotaPenjualan.TotalHarga.ToString();
+                    textBoxNominal.Text = listHasilData2[0].TotalHarga.ToString();
                 }
             }
             else

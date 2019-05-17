@@ -13,6 +13,11 @@ namespace ClassLibraryJurnal
         private Transaksi transaksi;
         private List<DetilJurnal> listDetilJurnal;
 
+
+        //percobaan
+        private DetilJurnal detilJurnal;
+
+
         #endregion
 
         #region Constructor
@@ -27,6 +32,16 @@ namespace ClassLibraryJurnal
             this.periode = periode;
             this.transaksi = transaksi;
             ListDetilJurnal = new List<DetilJurnal>();
+        }
+        public Jurnal(string idJurnal, DateTime tanggal, Transaksi transaksi, DetilJurnal detil, string nomorBukti)
+        {
+            this.idJurnal = idJurnal;
+            this.nomorBukti = nomorBukti;
+            this.tanggal = tanggal;
+            this.transaksi = transaksi;
+            this.DetilJurnal = detil;
+
+ 
         }
         public Jurnal()
         {
@@ -143,9 +158,30 @@ namespace ClassLibraryJurnal
                 listDetilJurnal = value;
             }
         }
+
+        public DetilJurnal DetilJurnal
+        {
+            get
+            {
+                return detilJurnal;
+            }
+
+            set
+            {
+                detilJurnal = value;
+            }
+        }
         #endregion
 
         #region Method
+        public void TambahDetilJurnal( Akun pAkun, int pDebet, int pKredit)
+        {
+            DetilJurnal dj = new DetilJurnal(pAkun, 0, pDebet, pKredit);
+
+            ListDetilJurnal.Add(dj);
+
+
+        }
         public static string TambahData(Jurnal pJurnal)
         {
             //sql1 untuk menambahkan data ke tabel _jurnal
@@ -350,6 +386,69 @@ namespace ClassLibraryJurnal
             DetilJurnal detil3 = new DetilJurnal(akun3, 3, 0, pDiskon);
 
             ListDetilJurnal.Add(detil3);
+        }
+
+        public static string BacaData(string pKriteria, string pNilaiKriteria, List<Jurnal> listJurnal)
+        {
+            string sql1 = "";
+
+            if (pKriteria == "")
+            {
+                //tuliskan perintah sql1 = untuk menampilkan semua data  ditabel notapenjualan 
+                sql1 = "select * from vLaporanDaftarJurnal";
+            }
+            else
+            {
+                sql1 = " select * from vLaporanDaftarJurnal WHERE "
+                        + pKriteria + " LIKE '%" + pNilaiKriteria + "%'";
+            }
+            try
+            {
+                //data reader 1 = memperoleh semua data di tabel jurnal
+                MySqlDataReader hasilData1 = Koneksi.JalankanPerintahQuery(sql1);
+                listJurnal.Clear();//kosongi isi list terlebih dahulu
+                while (hasilData1.Read() == true)
+                {
+                    string pIdJurnal = hasilData1.GetValue(0).ToString();
+                    string pNomorBukti = hasilData1.GetValue(6).ToString();
+                    DateTime pTanggal = DateTime.Parse(hasilData1.GetValue(1).ToString());
+
+                    //mendapatkan kredit dan debit
+                    int Debet = int.Parse(hasilData1.GetValue(4).ToString());
+                    int Kredit = int.Parse(hasilData1.GetValue(5).ToString());
+
+
+                    Transaksi trans = new Transaksi();
+                    trans.Keterangan = hasilData1.GetValue(2).ToString();
+
+                    //mendapatkan  nama akun 
+                    string namaAkun = hasilData1.GetValue(3).ToString();
+                    Akun pAkun = new Akun();
+                    pAkun.Nama = namaAkun;
+                    
+                    //buat object akun dan tambahkan
+                    DetilJurnal detil = new DetilJurnal();
+                    detil.Akun = pAkun;
+                    detil.Debit = Debet;
+                    detil.Kredit = Kredit;
+
+                    Jurnal jurnal = new Jurnal(pIdJurnal, pTanggal, trans,detil, pNomorBukti);
+
+                    //buat object bertipe detiljurnal dan tambahkan
+                    //ingat baik baik agar fk tidak duplicate
+                    //DetilJurnal dj = new DetilJurnal(akun, 0, Debet, Kredit);
+
+                    //simpan detil jurnal ke jurnal
+                    //jurnal.TambahDetilJurnal(akun, Debet, Kredit);
+
+                    listJurnal.Add(jurnal);
+                }
+                return "1";
+            }
+            catch (MySqlException ex)
+            {
+                return ex.Message;
+            }
         }
 
         #endregion

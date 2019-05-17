@@ -113,7 +113,7 @@ namespace ClassLibraryTransaksi
                         pPelunasan.Tanggal.ToString("yyyy-MM-dd hh:mm:ss") + "', '" +
                         pPelunasan.CaraPembayaran + "'," +
                         pPelunasan.Nominal + ", '" +
-                        pPelunasan.NotaPenjualan + "')";
+                        pPelunasan.NotaPenjualan.NoNotaPenjualan + "')";
             try
             {
                 //jalankan perintah sql untuk menambahkan ke tabel 
@@ -122,7 +122,7 @@ namespace ClassLibraryTransaksi
                 //sql2 untuk mengubah status notapenjualan yang belum lunas atau P menjadi L
                 string sql2 = "UPDATE notapenjualan SET  status ='" +
                        pNota.Status + "' WHERE  noNotaPenjualan = '" +
-                      pPelunasan.NotaPenjualan + "'";
+                    pNota.NoNotaPenjualan + "'";
 
                 //jalankan sql2 untuk menambhkan ke detiljurnal
                 Koneksi.JalankanPerintahDML(sql2);
@@ -142,14 +142,15 @@ namespace ClassLibraryTransaksi
 
             if (pKriteria == "")
             {
-                sql = "SELECT P.noPelunasan, NP.noNotaPenjualan, P.tgl, P.caraPembayaran, P.nominal,  NP.status , NP.totalHarga FROM " +
-                      "pelunasan P  inner join notapenjualan NP on P.noNotaPenjualan = NP.noNotaPenjualan where NP.status = 'P'"; 
-                      
+                sql = "SELECT P.noPelunasan, NP.noNotaPenjualan, P.tgl, P.caraPembayaran, P.nominal,  NP.status , NP.totalHarga FROM "
+                    + " notaPenjualan NP  inner join pelunasan P  where NP.status = 'P'" ; 
+
+
             }
             else
             {
-                sql = "SELECT P.noPelunasan, NP.noNotaPenjualan, P.tgl, P.caraPembayaran, P.nominal,  NP.status , NP.totalHarga FROM " +
-                      "pelunasan P  inner join notapenjualan NP where NP.status = 'P' and " 
+                sql = "SELECT P.noPelunasan, NP.noNotaPenjualan, P.tgl, P.caraPembayaran, P.nominal,  NP.status , NP.totalHarga FROM "
+                    + "notaPenjualan NP  inner join pelunasan P  where NP.status = 'P' and "
                       + pKriteria + " LIKE '%" + 
                        pNilaiKriteria + "%'";
                 
@@ -161,6 +162,7 @@ namespace ClassLibraryTransaksi
 
                 while (hasilData.Read() == true)
                 {
+
                     string noPelunasan = hasilData.GetValue(0).ToString();
                     DateTime tanggal = DateTime.Parse(hasilData.GetValue(2).ToString());
                     string caraPemb = hasilData.GetValue(3).ToString();

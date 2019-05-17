@@ -51,6 +51,7 @@
             this.labelTransaksi = new System.Windows.Forms.Label();
             this.buttonPenjualan = new System.Windows.Forms.Button();
             this.buttonPembelian = new System.Windows.Forms.Button();
+            this.buttonJurnal = new System.Windows.Forms.Button();
             this.menuStrip1.SuspendLayout();
             this.panelMenu.SuspendLayout();
             this.panelProfil.SuspendLayout();
@@ -282,13 +283,14 @@
             // panelTransaksi
             // 
             this.panelTransaksi.BackColor = System.Drawing.Color.Transparent;
+            this.panelTransaksi.Controls.Add(this.buttonJurnal);
             this.panelTransaksi.Controls.Add(this.buttonPelunasan);
             this.panelTransaksi.Controls.Add(this.labelTransaksi);
             this.panelTransaksi.Controls.Add(this.buttonPenjualan);
             this.panelTransaksi.Controls.Add(this.buttonPembelian);
             this.panelTransaksi.Location = new System.Drawing.Point(1, 479);
             this.panelTransaksi.Name = "panelTransaksi";
-            this.panelTransaksi.Size = new System.Drawing.Size(250, 162);
+            this.panelTransaksi.Size = new System.Drawing.Size(250, 223);
             this.panelTransaksi.TabIndex = 9;
             // 
             // buttonPelunasan
@@ -348,6 +350,21 @@
             this.buttonPembelian.UseVisualStyleBackColor = true;
             this.buttonPembelian.Click += new System.EventHandler(this.buttonPembelian_Click);
             // 
+            // buttonJurnal
+            // 
+            this.buttonJurnal.FlatAppearance.BorderSize = 0;
+            this.buttonJurnal.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.buttonJurnal.Font = new System.Drawing.Font("Century Gothic", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.buttonJurnal.ForeColor = System.Drawing.Color.White;
+            this.buttonJurnal.Location = new System.Drawing.Point(59, 150);
+            this.buttonJurnal.Name = "buttonJurnal";
+            this.buttonJurnal.Size = new System.Drawing.Size(95, 30);
+            this.buttonJurnal.TabIndex = 4;
+            this.buttonJurnal.Text = "Jurnal";
+            this.buttonJurnal.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
+            this.buttonJurnal.UseVisualStyleBackColor = true;
+            this.buttonJurnal.Click += new System.EventHandler(this.buttonJurnal_Click);
+            // 
             // FormUtama
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
@@ -398,5 +415,6 @@
         private System.Windows.Forms.Panel panelProfil;
         private System.Windows.Forms.PictureBox pictureBox1;
         private System.Windows.Forms.Button buttonPelunasan;
+        private System.Windows.Forms.Button buttonJurnal;
     }
 }

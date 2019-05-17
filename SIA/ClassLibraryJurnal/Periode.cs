@@ -87,13 +87,13 @@ namespace ClassLibraryJurnal
         public static Periode GetPeriodeTerbaru()
         {   
             //ambil data dari periode
-            string sql = "select * from _periode where idPeriode = (select max(idPeriode) from _periode ";
-            Periode hasilPeriode = null;
+            string sql = "select * from _periode where idPeriode = (select max(idPeriode) from _periode)";
+         
             
                 MySqlDataReader hasilData = Koneksi.JalankanPerintahQuery(sql);
 
-                
-                if (hasilData.Read() == true) //jika ada data
+            Periode hasilPeriode = null;
+            if (hasilData.Read() == true) //jika ada data
                 {
                     string idPeriode = hasilData.GetValue(0).ToString();
                     DateTime tglAwal = DateTime.Parse(hasilData.GetValue(1).ToString());

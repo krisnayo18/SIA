@@ -1,6 +1,6 @@
 ﻿namespace SistemAkuntansi
 {
-    partial class FormDaftarPenerimaanPembayaran
+    partial class FormDaftarPelunasan
     {
         /// <summary>
         /// Required designer variable.
@@ -169,7 +169,7 @@
             this.Margin = new System.Windows.Forms.Padding(2);
             this.Name = "FormDaftarPenerimaanPembayaran";
             this.Text = "FormPenerimaanPembayaran";
-            this.Load += new System.EventHandler(this.FormDaftarPenerimaanPembayaran_Load);
+            this.Load += new System.EventHandler(this.FormDaftarPelunasan_Load);
             ((System.ComponentModel.ISupportInitialize)(this.dataGridViewPelunasan)).EndInit();
             this.panel1.ResumeLayout(false);
             this.panel1.PerformLayout();

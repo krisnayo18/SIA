@@ -15,10 +15,7 @@ namespace SistemAkuntansi
         public FormAkun()
         {
             InitializeComponent();
-            string beb;
-            string bob;
-            int eger;
-            MessageBox.Show("Zubaid lus");
+           
         }
     }
 }
