@@ -9,6 +9,9 @@ namespace ClassLibraryJurnal
         #region Data Member
         private Akun akun;
         private int noUrut, debit, kredit;
+        #endregion
+
+        #region Constructor
 
         public DetilJurnal(Akun akun, int noUrut, int debit, int kredit)
         {
