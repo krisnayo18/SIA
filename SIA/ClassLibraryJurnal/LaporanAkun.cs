@@ -24,6 +24,17 @@ namespace ClassLibraryJurnal
             }
         }
 
-#endregion
+        #endregion
+
+        #region Constructor
+        public LaporanAkun(Akun akun)
+        {
+            this.akun = akun;
+        }
+        public LaporanAkun()
+        {
+
+        }
+        #endregion
     }
 }

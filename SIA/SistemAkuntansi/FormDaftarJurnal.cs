@@ -59,6 +59,8 @@ namespace SistemAkuntansi
             this.Location = new Point(0, 0);
             comboBoxCari.DropDownStyle = ComboBoxStyle.DropDownList;
 
+            dataGridViewJurnal.AllowUserToAddRows = false;
+
             FormatDataGrid();
 
             string hasilBaca = Jurnal.BacaData("", "", listHasilData);
@@ -69,11 +71,17 @@ namespace SistemAkuntansi
 
                 for (int i = 0; i < listHasilData.Count; i++)
                 {
-                        dataGridViewJurnal.Rows.Add(listHasilData[i].IdJurnal, listHasilData[i].Tanggal, 
+                    //tampilkan ke daftar grid sesuai urutan index yang ada di method baca data)
+                    //penempatan data sesuai format data grid
+                        dataGridViewJurnal.Rows.Add(
+                        listHasilData[i].IdJurnal, 
+                        listHasilData[i].Tanggal, 
                         listHasilData[i].Transaksi.Keterangan,
-                        listHasilData[i].DetilJurnal.Akun.Nama,
-                        listHasilData[i].DetilJurnal.Debit,
-                        listHasilData[i].DetilJurnal.Kredit, listHasilData[i].NomorBukti);
+                        listHasilData[i].Jenis,
+                        listHasilData[i].Transaksi.IdTransaksi,
+                        listHasilData[i].Periode.IdPeriode,
+                        listHasilData[i].NomorBukti
+                        );
                    
                 }
             }
@@ -100,11 +108,15 @@ namespace SistemAkuntansi
 
                 for (int i = 0; i < listHasilData.Count; i++)
                 {
-                    dataGridViewJurnal.Rows.Add(listHasilData[i].IdJurnal, listHasilData[i].Tanggal,
-                      listHasilData[i].Transaksi.Keterangan,
-                      listHasilData[i].DetilJurnal.Akun.Nama,
-                      listHasilData[i].DetilJurnal.Debit,
-                      listHasilData[i].DetilJurnal.Kredit, listHasilData[i].NomorBukti);
+                    dataGridViewJurnal.Rows.Add(
+                        listHasilData[i].IdJurnal,
+                        listHasilData[i].Tanggal,
+                        listHasilData[i].Transaksi.Keterangan,
+                        listHasilData[i].Jenis,
+                        listHasilData[i].Transaksi.IdTransaksi,
+                        listHasilData[i].Periode.IdPeriode,
+                        listHasilData[i].NomorBukti
+                       );
                 }
             }
         }

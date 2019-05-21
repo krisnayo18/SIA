@@ -380,6 +380,51 @@ namespace ClassLibraryTransaksi
             }
         }
 
+        public static  string BacaDataPelunasan(string pKriteria, string pNilaiKriteria, List<NotaPenjualan> listNotaJual)
+        {
+            string sql = "";
+            if (pKriteria == "")
+            {
+                sql = "select * from notapenjualan where status ='P' ";
+
+
+            }
+            else
+            {
+                sql = " select * from notapenjualan where status ='P' and "
+                      + pKriteria + " LIKE '%" +
+                       pNilaiKriteria + "%'";
+
+            }
+            try
+            {
+
+                MySqlDataReader hasilData = Koneksi.JalankanPerintahQuery(sql);
+                listNotaJual.Clear();//kosongi isi list terlebih dahulu
+
+                while (hasilData.Read() == true)
+                {
+
+                    string nomornota = hasilData.GetValue(0).ToString();
+                    int nominal =int.Parse( hasilData.GetValue(2).ToString());
+                    string status = hasilData.GetValue(6).ToString();
+
+                    NotaPenjualan nota = new NotaPenjualan();
+                    nota.NoNotaPenjualan = nomornota;
+                    nota.Status = status;
+                    nota.TotalHarga = nominal;
+
+                    listNotaJual.Add(nota);
+                }
+                    return "1";
+            }
+            catch(MySqlException ex)
+            {
+                return ex.Message;
+            }
+            
+        }
+
         #endregion
     }
 }

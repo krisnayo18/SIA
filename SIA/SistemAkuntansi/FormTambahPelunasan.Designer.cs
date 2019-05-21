@@ -37,7 +37,7 @@
             this.label4 = new System.Windows.Forms.Label();
             this.label6 = new System.Windows.Forms.Label();
             this.buttonSimpan = new System.Windows.Forms.Button();
-            this.buttonKosongi = new System.Windows.Forms.Button();
+            this.buttonTambahkan = new System.Windows.Forms.Button();
             this.buttonKeluar = new System.Windows.Forms.Button();
             this.panel1 = new System.Windows.Forms.Panel();
             this.label7 = new System.Windows.Forms.Label();
@@ -144,19 +144,19 @@
             this.buttonSimpan.UseVisualStyleBackColor = false;
             this.buttonSimpan.Click += new System.EventHandler(this.buttonSimpan_Click);
             // 
-            // buttonKosongi
+            // buttonTambahkan
             // 
-            this.buttonKosongi.BackColor = System.Drawing.Color.DodgerBlue;
-            this.buttonKosongi.FlatAppearance.BorderSize = 0;
-            this.buttonKosongi.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.buttonKosongi.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.buttonKosongi.ForeColor = System.Drawing.Color.White;
-            this.buttonKosongi.Location = new System.Drawing.Point(115, 399);
-            this.buttonKosongi.Name = "buttonKosongi";
-            this.buttonKosongi.Size = new System.Drawing.Size(96, 33);
-            this.buttonKosongi.TabIndex = 7;
-            this.buttonKosongi.Text = "KOSONGI";
-            this.buttonKosongi.UseVisualStyleBackColor = false;
+            this.buttonTambahkan.BackColor = System.Drawing.Color.DodgerBlue;
+            this.buttonTambahkan.FlatAppearance.BorderSize = 0;
+            this.buttonTambahkan.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.buttonTambahkan.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.buttonTambahkan.ForeColor = System.Drawing.Color.White;
+            this.buttonTambahkan.Location = new System.Drawing.Point(277, 170);
+            this.buttonTambahkan.Name = "buttonTambahkan";
+            this.buttonTambahkan.Size = new System.Drawing.Size(96, 33);
+            this.buttonTambahkan.TabIndex = 7;
+            this.buttonTambahkan.Text = "TAMBAH";
+            this.buttonTambahkan.UseVisualStyleBackColor = false;
             // 
             // buttonKeluar
             // 
@@ -177,6 +177,7 @@
             // 
             this.panel1.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(192)))), ((int)(((byte)(192)))), ((int)(((byte)(255)))));
             this.panel1.Controls.Add(this.label7);
+            this.panel1.Controls.Add(this.buttonTambahkan);
             this.panel1.Controls.Add(this.labelKodePgw);
             this.panel1.Controls.Add(this.labelNamaPgw);
             this.panel1.Controls.Add(this.label8);
@@ -284,7 +285,6 @@
             this.BackColor = System.Drawing.Color.SteelBlue;
             this.ClientSize = new System.Drawing.Size(556, 437);
             this.Controls.Add(this.buttonSimpan);
-            this.Controls.Add(this.buttonKosongi);
             this.Controls.Add(this.buttonKeluar);
             this.Controls.Add(this.panel1);
             this.Controls.Add(this.label1);
@@ -309,7 +309,7 @@
         private System.Windows.Forms.Label label4;
         private System.Windows.Forms.Label label6;
         private System.Windows.Forms.Button buttonSimpan;
-        private System.Windows.Forms.Button buttonKosongi;
+        private System.Windows.Forms.Button buttonTambahkan;
         private System.Windows.Forms.Button buttonKeluar;
         private System.Windows.Forms.Panel panel1;
         private System.Windows.Forms.Label label5;

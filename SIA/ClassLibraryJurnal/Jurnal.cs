@@ -7,22 +7,22 @@ namespace ClassLibraryJurnal
     public class Jurnal
     {
         #region Data Member
-        private string idJurnal,  nomorBukti, jenis;
+        private int idJurnal;
+        private string   nomorBukti, jenis;
         private DateTime tanggal;
         private Periode periode;
         private Transaksi transaksi;
         private List<DetilJurnal> listDetilJurnal;
 
 
-        //percobaan
-        private DetilJurnal detilJurnal;
+       
 
 
         #endregion
 
         #region Constructor
 
-        public Jurnal(string idJurnal,  string nomorBukti, string jenis, DateTime tanggal, Periode periode, Transaksi transaksi)
+        public Jurnal(int idJurnal,  string nomorBukti, string jenis, DateTime tanggal, Periode periode, Transaksi transaksi)
         {
             this.idJurnal = idJurnal;
             
@@ -33,20 +33,9 @@ namespace ClassLibraryJurnal
             this.transaksi = transaksi;
             ListDetilJurnal = new List<DetilJurnal>();
         }
-        public Jurnal(string idJurnal, DateTime tanggal, Transaksi transaksi, DetilJurnal detil, string nomorBukti)
-        {
-            this.idJurnal = idJurnal;
-            this.nomorBukti = nomorBukti;
-            this.tanggal = tanggal;
-            this.transaksi = transaksi;
-            this.DetilJurnal = detil;
-
- 
-        }
         public Jurnal()
         {
-            this.idJurnal = "";
-            
+            this.idJurnal = 0;
             this.nomorBukti = "";
             this.jenis = "";
             this.tanggal = DateTime.Now;
@@ -55,7 +44,7 @@ namespace ClassLibraryJurnal
         #endregion
 
         #region Properties
-        public string IdJurnal
+        public int IdJurnal
         {
             get
             {
@@ -147,19 +136,6 @@ namespace ClassLibraryJurnal
                 listDetilJurnal = value;
             }
         }
-
-        public DetilJurnal DetilJurnal
-        {
-            get
-            {
-                return detilJurnal;
-            }
-
-            set
-            {
-                detilJurnal = value;
-            }
-        }
         #endregion
 
         #region Method
@@ -217,7 +193,7 @@ namespace ClassLibraryJurnal
             // perintah sql untuk mengambil angka terbesar di kolom idjurnal
             string sql = "select max(idJurnal) from _jurnal ";
 
-            string pIdJurnalTerbaru = "1";
+            int pIdJurnalTerbaru = 1;
             try
             {
                 MySqlDataReader hasilData = Koneksi.JalankanPerintahQuery(sql);
@@ -228,14 +204,14 @@ namespace ClassLibraryJurnal
 
                     if(idJurnalTerakhir != "") // jika idjurnal terakhir tidak 0 
                     {
-                        pIdJurnalTerbaru = (int.Parse(idJurnalTerakhir) + 1).ToString();
+                         pIdJurnalTerbaru = int.Parse(idJurnalTerakhir) + 1;
                     }
 
                 }
 
-                return pIdJurnalTerbaru;
+                return pIdJurnalTerbaru.ToString();
             }
-            catch (Exception e)
+            catch (MySqlException e)
             {
                 return e.Message;
             }
@@ -398,39 +374,28 @@ namespace ClassLibraryJurnal
                 listJurnal.Clear();//kosongi isi list terlebih dahulu
                 while (hasilData1.Read() == true)
                 {
-                    string pIdJurnal = hasilData1.GetValue(0).ToString();
-                    string pNomorBukti = hasilData1.GetValue(6).ToString();
-                    DateTime pTanggal = DateTime.Parse(hasilData1.GetValue(1).ToString());
-
-                    //mendapatkan kredit dan debit
-                    int Debet = int.Parse(hasilData1.GetValue(4).ToString());
-                    int Kredit = int.Parse(hasilData1.GetValue(5).ToString());
-
+                    //buat object jurnal
+                    Jurnal j = new Jurnal();
+                    
+                    j.IdJurnal = int.Parse(hasilData1.GetValue(0).ToString());
+                    j.Tanggal = DateTime.Parse(hasilData1.GetValue(1).ToString());
+                    j.NomorBukti = hasilData1.GetValue(6).ToString();
+                    //tambahkan nama akun pada jenis (nama akun pada index ke 3)                  
+                    j.Jenis = hasilData1.GetValue(3).ToString();
 
                     Transaksi trans = new Transaksi();
                     trans.Keterangan = hasilData1.GetValue(2).ToString();
+                    //tambahkan debet pada id transaksi (debet di index ke 4 pada vlaporandaftarjural)
+                    trans.IdTransaksi = hasilData1.GetValue(4).ToString();
 
-                    //mendapatkan  nama akun 
-                    string namaAkun = hasilData1.GetValue(3).ToString();
-                    Akun pAkun = new Akun();
-                    pAkun.Nama = namaAkun;
-                    
-                    //buat object akun dan tambahkan
-                    DetilJurnal detil = new DetilJurnal();
-                    detil.Akun = pAkun;
-                    detil.Debit = Debet;
-                    detil.Kredit = Kredit;
+                    Periode period = new Periode();
+                    //tambahkan kredit pada idperiode ( kredit pada index ke 5)
+                    period.IdPeriode = hasilData1.GetValue(5).ToString();
 
-                    Jurnal jurnal = new Jurnal(pIdJurnal, pTanggal, trans,detil, pNomorBukti);
-
-                    //buat object bertipe detiljurnal dan tambahkan
-                    //ingat baik baik agar fk tidak duplicate
-                    //DetilJurnal dj = new DetilJurnal(akun, 0, Debet, Kredit);
-
-                    //simpan detil jurnal ke jurnal
-                    //jurnal.TambahDetilJurnal(akun, Debet, Kredit);
-
-                    listJurnal.Add(jurnal);
+                    //tambahkan ke list
+                    j.Transaksi = trans;
+                    j.Periode = period;
+                    listJurnal.Add(j);
                 }
                 return "1";
             }

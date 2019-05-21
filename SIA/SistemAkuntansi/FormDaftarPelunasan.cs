@@ -30,22 +30,22 @@ namespace SistemAkuntansi
         {
             dataGridViewPelunasan.Columns.Clear();
 
-            dataGridViewPelunasan.Columns.Add("noPelunasan", "Nomor Pelunasan");
-            dataGridViewPelunasan.Columns.Add("noNotaPenjualan", "Nomor Nota Jual");
-            dataGridViewPelunasan.Columns.Add("tgl", "Tanggal");
-            dataGridViewPelunasan.Columns.Add("caraPembayaran", "Cara Pembayaran");
-            dataGridViewPelunasan.Columns.Add("nominal", "Nominal");
+            dataGridViewPelunasan.Columns.Add("P.noPelunasan", "Nomor Pelunasan");
+            dataGridViewPelunasan.Columns.Add("NP.noNotaPenjualan", "Nomor Nota Jual");
+            dataGridViewPelunasan.Columns.Add("P.tgl", "Tanggal");
+            dataGridViewPelunasan.Columns.Add("P.caraPembayaran", "Cara Pembayaran");
+            dataGridViewPelunasan.Columns.Add("P.nominal", "Nominal");
             //dataGridViewPelunasan.Columns.Add("namaPelanggan", "Nama Pelanggan");
-            dataGridViewPelunasan.Columns.Add("status", "Status");
+           
             //dataGridViewPelunasan.Columns.Add("tglBatasPelunasan", "Tanggal Batas Pelunasan");
 
-            dataGridViewPelunasan.Columns["noPelunasan"].AutoSizeMode = DataGridViewAutoSizeColumnMode.AllCells;
-            dataGridViewPelunasan.Columns["noNotaPenjualan"].AutoSizeMode = DataGridViewAutoSizeColumnMode.AllCells;
-            dataGridViewPelunasan.Columns["tgl"].AutoSizeMode = DataGridViewAutoSizeColumnMode.AllCells;
-            dataGridViewPelunasan.Columns["caraPembayaran"].AutoSizeMode = DataGridViewAutoSizeColumnMode.AllCells;
-            dataGridViewPelunasan.Columns["nominal"].AutoSizeMode = DataGridViewAutoSizeColumnMode.AllCells;
+            dataGridViewPelunasan.Columns["P.noPelunasan"].AutoSizeMode = DataGridViewAutoSizeColumnMode.AllCells;
+            dataGridViewPelunasan.Columns["NP.noNotaPenjualan"].AutoSizeMode = DataGridViewAutoSizeColumnMode.AllCells;
+            dataGridViewPelunasan.Columns["P.tgl"].AutoSizeMode = DataGridViewAutoSizeColumnMode.AllCells;
+            dataGridViewPelunasan.Columns["P.caraPembayaran"].AutoSizeMode = DataGridViewAutoSizeColumnMode.AllCells;
+            dataGridViewPelunasan.Columns["P.nominal"].AutoSizeMode = DataGridViewAutoSizeColumnMode.AllCells;
             //dataGridViewPelunasan.Columns["namaPelanggan"].AutoSizeMode = DataGridViewAutoSizeColumnMode.AllCells;
-            dataGridViewPelunasan.Columns["status"].AutoSizeMode = DataGridViewAutoSizeColumnMode.AllCells;
+            //dataGridViewPelunasan.Columns["status"].AutoSizeMode = DataGridViewAutoSizeColumnMode.AllCells;
             //dataGridViewPelunasan.Columns["tglBatasPelunasan"].AutoSizeMode = DataGridViewAutoSizeColumnMode.AllCells;
 
 
@@ -89,7 +89,6 @@ namespace SistemAkuntansi
             FormatDataGrid();
 
             string hasilBaca = Pelunasan.BacaData("", "", listHasilData);
-
             if (hasilBaca == "1")
             {
                 dataGridViewPelunasan.Rows.Clear();
@@ -98,12 +97,10 @@ namespace SistemAkuntansi
                 {
                     //tampilkan data sesuai urutan di format data grid
                     dataGridViewPelunasan.Rows.Add(listHasilData[i].NoPelunasan, listHasilData[i].NotaPenjualan.NoNotaPenjualan,
-                    listHasilData[i].Tanggal, listHasilData[i].CaraPembayaran, listHasilData[i].Nominal, 
-                    listHasilData[i].NotaPenjualan.Status
-                    //listHasilData[i].NotaPenjualan.Pelanggan.Nama, 
-                    //listHasilData[i].NotaPenjualan.TglBatasPelunasan
-                    );
+                    listHasilData[i].Tanggal, listHasilData[i].CaraPembayaran, listHasilData[i].Nominal );
+                   
                 }
+                
             }
         }
     }

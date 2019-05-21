@@ -12,6 +12,22 @@ namespace ClassLibraryJurnal
         private List<LaporanAkun> listLaporanAkun;
         #endregion
 
+        #region Constructor
+        public Laporan(string idLaporan, string judul, Periode periode)
+        {
+            this.idLaporan = idLaporan;
+            this.judul = judul;
+            this.periode = periode;
+            ListLaporanAkun = new List<LaporanAkun>();
+        }
+        public Laporan()
+        {
+            IdLaporan = "";
+            Judul = "";
+            ListLaporanAkun = new List<LaporanAkun>();
+        }
+        #endregion
+
         #region Properties
         public string IdLaporan
         {

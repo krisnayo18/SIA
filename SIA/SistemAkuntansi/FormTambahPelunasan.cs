@@ -97,7 +97,7 @@ namespace SistemAkuntansi
             dateTimePickerTgl.Value = DateTime.Now;
             dateTimePickerTgl.Enabled = false;
 
-            string hasilBaca = NotaPenjualan.BacaData("", "", listHasilData2);
+            string hasilBaca = NotaPenjualan.BacaDataPelunasan("","", listHasilData2);
 
             if (hasilBaca == "1")
             {
@@ -121,7 +121,7 @@ namespace SistemAkuntansi
         private void comboBoxNoNotaJual_SelectedIndexChanged(object sender, EventArgs e)
         {
             listHasilData.Clear();
-            string hasilBaca = NotaPenjualan.BacaData("N.noNotaPenjualan", comboBoxNoNotaJual.Text, listHasilData2);
+            string hasilBaca = NotaPenjualan.BacaDataPelunasan("noNotaPenjualan", comboBoxNoNotaJual.Text, listHasilData2);
 
             if (hasilBaca == "1")
             {

@@ -268,7 +268,7 @@ namespace SistemAkuntansi
                 //buat object bertipe jurnal
                 Jurnal jurnal = new Jurnal();
                 //tambahkan data
-                jurnal.IdJurnal = idJurnal;
+                jurnal.IdJurnal = int.Parse(idJurnal);
                 jurnal.Tanggal = dateTimePickerTanggalJual.Value;
               
                 jurnal.NomorBukti = textBoxNo.Text;

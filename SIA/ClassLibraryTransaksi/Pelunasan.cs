@@ -142,15 +142,15 @@ namespace ClassLibraryTransaksi
 
             if (pKriteria == "")
             {
-                sql = "SELECT P.noPelunasan, NP.noNotaPenjualan, P.tgl, P.caraPembayaran, P.nominal,  NP.status , NP.totalHarga FROM "
-                    + " notaPenjualan NP  inner join pelunasan P  where NP.status = 'P'" ; 
+                sql = " select P.noPelunasan, P.tgl, P.caraPembayaran, P.nominal, NP.noNotaPenjualan FROM pelunasan P inner join " +
+                        "notapenjualan NP on P.nonotapenjualan = NP.nonotapenjualan " ; 
 
 
             }
             else
             {
-                sql = "SELECT P.noPelunasan, NP.noNotaPenjualan, P.tgl, P.caraPembayaran, P.nominal,  NP.status , NP.totalHarga FROM "
-                    + "notaPenjualan NP  inner join pelunasan P  where NP.status = 'P' and "
+                sql = " select P.noPelunasan, P.tgl, P.caraPembayaran, P.nominal, NP.noNotaPenjualan FROM pelunasan P inner join " +
+                        "notapenjualan NP on P.nonotapenjualan = NP.nonotapenjualan where"
                       + pKriteria + " LIKE '%" + 
                        pNilaiKriteria + "%'";
                 
@@ -159,22 +159,20 @@ namespace ClassLibraryTransaksi
             try
             {
                 MySqlDataReader hasilData = Koneksi.JalankanPerintahQuery(sql);
+                listHasilData.Clear();
 
                 while (hasilData.Read() == true)
                 {
 
                     string noPelunasan = hasilData.GetValue(0).ToString();
-                    DateTime tanggal = DateTime.Parse(hasilData.GetValue(2).ToString());
-                    string caraPemb = hasilData.GetValue(3).ToString();
-                    int nominal = int.Parse(hasilData.GetValue(4).ToString());
-                        
-                    NotaPenjualan NP = new NotaPenjualan();
-                    NP.NoNotaPenjualan = hasilData.GetValue(1).ToString();
-                    NP.Status = hasilData.GetValue(5).ToString();
-                    NP.TotalHarga =int.Parse(hasilData.GetValue(6).ToString());
-
-                    Pelunasan pelunasan = new Pelunasan(noPelunasan, NP, tanggal, caraPemb, nominal);
-                
+                    DateTime tanggal = DateTime.Parse(hasilData.GetValue(1).ToString());
+                    string caraPemb = hasilData.GetValue(2).ToString();
+                    int nominal = int.Parse(hasilData.GetValue(3).ToString());
+                  
+     
+                    NotaPenjualan nota = new NotaPenjualan();
+                    nota.NoNotaPenjualan = hasilData.GetValue(4).ToString();
+                    Pelunasan pelunasan = new Pelunasan(noPelunasan, nota, tanggal, caraPemb, nominal);           
                     listHasilData.Add(pelunasan);
                 }
                 return "1";
