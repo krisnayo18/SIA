@@ -53,7 +53,7 @@ namespace SistemAkuntansi
 
             dataGridViewJurnal.AllowUserToAddRows = false;
         }
-        private void FormDaftarJurnal_Load(object sender, EventArgs e)
+        public void FormDaftarJurnal_Load(object sender, EventArgs e)
         {
 
             this.Location = new Point(0, 0);

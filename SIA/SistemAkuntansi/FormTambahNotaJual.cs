@@ -208,7 +208,8 @@ namespace SistemAkuntansi
 
         private void buttonSimpan_Click(object sender, EventArgs e)
         {
-            FormDaftarNotaJual form = (FormDaftarNotaJual)this.Owner;
+            FormUtama frmUtama = (FormUtama)this.Owner.MdiParent;
+          
             //buat objek bertipe pelanggan
             Pelanggan pelanggan = new Pelanggan();
             //format combo box pelanggan: X -yyyyyy (kode pelanggan karakter 0 sebanyak 1, nama kategori mulai karakter  ke-4 s/d akhir
@@ -254,8 +255,7 @@ namespace SistemAkuntansi
             {
                 MessageBox.Show("Data nota jual telah tersimpan", "Info");
               
-                FormUtama frmUtama = (FormUtama)this.Owner.MdiParent; 
-                form.FormDaftarNotaJual_Load(sender, e); //supaya formdaftar barang menampilkan daftar terbaru
+              
                 //tambah posting ke jurnal
 
                 string idJurnal = Jurnal.GenerateIdJurnal();
@@ -285,6 +285,8 @@ namespace SistemAkuntansi
                 if (hasilTambahJurnal == "1")
                 {
                     MessageBox.Show("berhasil posting ke jurnal");
+                    FormDaftarNotaJual form = (FormDaftarNotaJual)this.Owner;
+                    form.FormDaftarNotaJual_Load(sender, e); //supaya formdaftar barang menampilkan daftar terbaru
                     this.Close();
                 }
                 else

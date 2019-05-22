@@ -94,11 +94,11 @@
     <Compile Include="FormDaftarKaryawan.Designer.cs">
       <DependentUpon>FormDaftarKaryawan.cs</DependentUpon>
     </Compile>
-    <Compile Include="FormDaftarPelanggan.cs">
+    <Compile Include="FormLaporanBukuBesar.cs">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="FormDaftarPelanggan.Designer.cs">
-      <DependentUpon>FormDaftarPelanggan.cs</DependentUpon>
+    <Compile Include="FormLaporanBukuBesar.Designer.cs">
+      <DependentUpon>FormLaporanBukuBesar.cs</DependentUpon>
     </Compile>
     <Compile Include="FormDaftarEkspedisi.cs">
       <SubType>Form</SubType>
@@ -136,17 +136,17 @@
     <Compile Include="FormDaftarPelunasan.Designer.cs">
       <DependentUpon>FormDaftarPelunasan.cs</DependentUpon>
     </Compile>
-    <Compile Include="FormDaftarPengiriman.cs">
+    <Compile Include="FormLaporanNeraca.cs">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="FormDaftarPengiriman.Designer.cs">
-      <DependentUpon>FormDaftarPengiriman.cs</DependentUpon>
+    <Compile Include="FormLaporanNeraca.Designer.cs">
+      <DependentUpon>FormLaporanNeraca.cs</DependentUpon>
     </Compile>
-    <Compile Include="FormDaftarPermintaan.cs">
+    <Compile Include="FormLaporanEkuitas.cs">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="FormDaftarPermintaan.Designer.cs">
-      <DependentUpon>FormDaftarPermintaan.cs</DependentUpon>
+    <Compile Include="FormLaporanEkuitas.Designer.cs">
+      <DependentUpon>FormLaporanEkuitas.cs</DependentUpon>
     </Compile>
     <Compile Include="FormLogin.cs">
       <SubType>Form</SubType>
@@ -222,11 +222,11 @@
     </Compile>
     <Compile Include="Program.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
-    <Compile Include="FormDaftarSuratJalan.cs">
+    <Compile Include="FormLaporanLabaRugi.cs">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="FormDaftarSuratJalan.Designer.cs">
-      <DependentUpon>FormDaftarSuratJalan.cs</DependentUpon>
+    <Compile Include="FormLaporanLabaRugi.Designer.cs">
+      <DependentUpon>FormLaporanLabaRugi.cs</DependentUpon>
     </Compile>
     <EmbeddedResource Include="FormDaftarBarang.resx">
       <DependentUpon>FormDaftarBarang.cs</DependentUpon>
@@ -246,8 +246,8 @@
     <EmbeddedResource Include="FormDaftarKaryawan.resx">
       <DependentUpon>FormDaftarKaryawan.cs</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="FormDaftarPelanggan.resx">
-      <DependentUpon>FormDaftarPelanggan.cs</DependentUpon>
+    <EmbeddedResource Include="FormLaporanBukuBesar.resx">
+      <DependentUpon>FormLaporanBukuBesar.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="FormDaftarJobOrder.resx">
       <DependentUpon>FormDaftarJobOrder.cs</DependentUpon>
@@ -261,14 +261,14 @@
     <EmbeddedResource Include="FormDaftarPelunasan.resx">
       <DependentUpon>FormDaftarPelunasan.cs</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="FormDaftarPengiriman.resx">
-      <DependentUpon>FormDaftarPengiriman.cs</DependentUpon>
+    <EmbeddedResource Include="FormLaporanNeraca.resx">
+      <DependentUpon>FormLaporanNeraca.cs</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="FormDaftarPermintaan.resx">
-      <DependentUpon>FormDaftarPermintaan.cs</DependentUpon>
+    <EmbeddedResource Include="FormLaporanEkuitas.resx">
+      <DependentUpon>FormLaporanEkuitas.cs</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="FormDaftarSuratJalan.resx">
-      <DependentUpon>FormDaftarSuratJalan.cs</DependentUpon>
+    <EmbeddedResource Include="FormLaporanLabaRugi.resx">
+      <DependentUpon>FormLaporanLabaRugi.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="FormLogin.resx">
       <DependentUpon>FormLogin.cs</DependentUpon>

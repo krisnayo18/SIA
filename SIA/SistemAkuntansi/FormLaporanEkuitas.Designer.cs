@@ -1,6 +1,6 @@
 ﻿namespace SistemAkuntansi
 {
-    partial class FormDaftarPengiriman
+    partial class FormLaporanEkuitas
     {
         /// <summary>
         /// Required designer variable.
@@ -28,33 +28,23 @@
         /// </summary>
         private void InitializeComponent()
         {
-            this.buttonTambah = new System.Windows.Forms.Button();
             this.buttonKeluar = new System.Windows.Forms.Button();
-            this.dataGridViewPelanggan = new System.Windows.Forms.DataGridView();
+            this.dataGridViewEkuitas = new System.Windows.Forms.DataGridView();
             this.panel1 = new System.Windows.Forms.Panel();
             this.buttonCari = new System.Windows.Forms.Button();
             this.textBoxCari = new System.Windows.Forms.TextBox();
             this.comboBoxCari = new System.Windows.Forms.ComboBox();
             this.label2 = new System.Windows.Forms.Label();
             this.label1 = new System.Windows.Forms.Label();
-            ((System.ComponentModel.ISupportInitialize)(this.dataGridViewPelanggan)).BeginInit();
+            this.label3 = new System.Windows.Forms.Label();
+            this.labelTotal = new System.Windows.Forms.Label();
+            this.labelTotalHarga = new System.Windows.Forms.Label();
+            this.label4 = new System.Windows.Forms.Label();
+            this.label5 = new System.Windows.Forms.Label();
+            this.labelLabaRugi = new System.Windows.Forms.Label();
+            ((System.ComponentModel.ISupportInitialize)(this.dataGridViewEkuitas)).BeginInit();
             this.panel1.SuspendLayout();
             this.SuspendLayout();
-            // 
-            // buttonTambah
-            // 
-            this.buttonTambah.BackColor = System.Drawing.Color.DodgerBlue;
-            this.buttonTambah.FlatAppearance.BorderSize = 0;
-            this.buttonTambah.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.buttonTambah.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.buttonTambah.ForeColor = System.Drawing.Color.White;
-            this.buttonTambah.Location = new System.Drawing.Point(27, 357);
-            this.buttonTambah.Name = "buttonTambah";
-            this.buttonTambah.Size = new System.Drawing.Size(96, 33);
-            this.buttonTambah.TabIndex = 44;
-            this.buttonTambah.Text = "TAMBAH";
-            this.buttonTambah.UseVisualStyleBackColor = false;
-            this.buttonTambah.Click += new System.EventHandler(this.buttonTambah_Click);
             // 
             // buttonKeluar
             // 
@@ -63,21 +53,22 @@
             this.buttonKeluar.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.buttonKeluar.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.buttonKeluar.ForeColor = System.Drawing.Color.White;
-            this.buttonKeluar.Location = new System.Drawing.Point(519, 357);
+            this.buttonKeluar.Location = new System.Drawing.Point(9, 357);
             this.buttonKeluar.Name = "buttonKeluar";
             this.buttonKeluar.Size = new System.Drawing.Size(96, 33);
-            this.buttonKeluar.TabIndex = 42;
+            this.buttonKeluar.TabIndex = 49;
             this.buttonKeluar.Text = "KELUAR";
             this.buttonKeluar.UseVisualStyleBackColor = false;
+            this.buttonKeluar.Click += new System.EventHandler(this.buttonKeluar_Click);
             // 
-            // dataGridViewPelanggan
+            // dataGridViewEkuitas
             // 
-            this.dataGridViewPelanggan.BackgroundColor = System.Drawing.Color.White;
-            this.dataGridViewPelanggan.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
-            this.dataGridViewPelanggan.Location = new System.Drawing.Point(9, 84);
-            this.dataGridViewPelanggan.Name = "dataGridViewPelanggan";
-            this.dataGridViewPelanggan.Size = new System.Drawing.Size(607, 267);
-            this.dataGridViewPelanggan.TabIndex = 41;
+            this.dataGridViewEkuitas.BackgroundColor = System.Drawing.Color.White;
+            this.dataGridViewEkuitas.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
+            this.dataGridViewEkuitas.Location = new System.Drawing.Point(9, 84);
+            this.dataGridViewEkuitas.Name = "dataGridViewEkuitas";
+            this.dataGridViewEkuitas.Size = new System.Drawing.Size(607, 267);
+            this.dataGridViewEkuitas.TabIndex = 48;
             // 
             // panel1
             // 
@@ -89,7 +80,7 @@
             this.panel1.Location = new System.Drawing.Point(9, 43);
             this.panel1.Name = "panel1";
             this.panel1.Size = new System.Drawing.Size(607, 37);
-            this.panel1.TabIndex = 40;
+            this.panel1.TabIndex = 47;
             // 
             // buttonCari
             // 
@@ -112,7 +103,6 @@
             this.textBoxCari.Name = "textBoxCari";
             this.textBoxCari.Size = new System.Drawing.Size(228, 22);
             this.textBoxCari.TabIndex = 3;
-            this.textBoxCari.TextChanged += new System.EventHandler(this.textBoxCari_TextChanged);
             // 
             // comboBoxCari
             // 
@@ -149,26 +139,92 @@
             this.label1.Location = new System.Drawing.Point(9, 6);
             this.label1.Name = "label1";
             this.label1.Size = new System.Drawing.Size(607, 32);
-            this.label1.TabIndex = 39;
-            this.label1.Text = "DAFTAR PENGIRIMAN";
+            this.label1.TabIndex = 46;
+            this.label1.Text = "LAPORAN PERUBAHAN EKUITAS";
             this.label1.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
             // 
-            // FormDaftarPengiriman
+            // label3
+            // 
+            this.label3.Font = new System.Drawing.Font("Microsoft Sans Serif", 15.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label3.Location = new System.Drawing.Point(424, 393);
+            this.label3.Name = "label3";
+            this.label3.Size = new System.Drawing.Size(51, 39);
+            this.label3.TabIndex = 62;
+            this.label3.Text = "Rp.";
+            this.label3.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
+            // 
+            // labelTotal
+            // 
+            this.labelTotal.Font = new System.Drawing.Font("Microsoft Sans Serif", 15.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.labelTotal.Location = new System.Drawing.Point(221, 392);
+            this.labelTotal.Name = "labelTotal";
+            this.labelTotal.Size = new System.Drawing.Size(176, 39);
+            this.labelTotal.TabIndex = 61;
+            this.labelTotal.Text = "Ekuitas Pemilik :";
+            this.labelTotal.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
+            // 
+            // labelTotalHarga
+            // 
+            this.labelTotalHarga.Font = new System.Drawing.Font("Microsoft Sans Serif", 15.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.labelTotalHarga.Location = new System.Drawing.Point(448, 393);
+            this.labelTotalHarga.Name = "labelTotalHarga";
+            this.labelTotalHarga.Size = new System.Drawing.Size(168, 36);
+            this.labelTotalHarga.TabIndex = 60;
+            this.labelTotalHarga.Text = "0";
+            this.labelTotalHarga.TextAlign = System.Drawing.ContentAlignment.MiddleRight;
+            // 
+            // label4
+            // 
+            this.label4.Font = new System.Drawing.Font("Microsoft Sans Serif", 15.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label4.Location = new System.Drawing.Point(424, 354);
+            this.label4.Name = "label4";
+            this.label4.Size = new System.Drawing.Size(51, 39);
+            this.label4.TabIndex = 65;
+            this.label4.Text = "Rp.";
+            this.label4.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
+            // 
+            // label5
+            // 
+            this.label5.Font = new System.Drawing.Font("Microsoft Sans Serif", 15.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label5.Location = new System.Drawing.Point(264, 353);
+            this.label5.Name = "label5";
+            this.label5.Size = new System.Drawing.Size(133, 39);
+            this.label5.TabIndex = 64;
+            this.label5.Text = "Laba Rugi  :";
+            this.label5.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
+            // 
+            // labelLabaRugi
+            // 
+            this.labelLabaRugi.Font = new System.Drawing.Font("Microsoft Sans Serif", 15.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.labelLabaRugi.Location = new System.Drawing.Point(448, 354);
+            this.labelLabaRugi.Name = "labelLabaRugi";
+            this.labelLabaRugi.Size = new System.Drawing.Size(168, 36);
+            this.labelLabaRugi.TabIndex = 63;
+            this.labelLabaRugi.Text = "0";
+            this.labelLabaRugi.TextAlign = System.Drawing.ContentAlignment.MiddleRight;
+            // 
+            // FormLaporanEkuitas
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackColor = System.Drawing.Color.SteelBlue;
-            this.ClientSize = new System.Drawing.Size(629, 400);
-            this.Controls.Add(this.buttonTambah);
+            this.ClientSize = new System.Drawing.Size(629, 457);
+            this.Controls.Add(this.label4);
+            this.Controls.Add(this.label5);
+            this.Controls.Add(this.labelLabaRugi);
+            this.Controls.Add(this.label3);
+            this.Controls.Add(this.labelTotal);
+            this.Controls.Add(this.labelTotalHarga);
             this.Controls.Add(this.buttonKeluar);
-            this.Controls.Add(this.dataGridViewPelanggan);
+            this.Controls.Add(this.dataGridViewEkuitas);
             this.Controls.Add(this.panel1);
             this.Controls.Add(this.label1);
             this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.None;
-            this.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
-            this.Name = "FormDaftarPengiriman";
-            this.Text = "FormPengiriman";
-            ((System.ComponentModel.ISupportInitialize)(this.dataGridViewPelanggan)).EndInit();
+            this.Margin = new System.Windows.Forms.Padding(2);
+            this.Name = "FormLaporanEkuitas";
+            this.Text = "FormLaporanEkuitas";
+            this.Load += new System.EventHandler(this.FormDaftarPermintaan_Load);
+            ((System.ComponentModel.ISupportInitialize)(this.dataGridViewEkuitas)).EndInit();
             this.panel1.ResumeLayout(false);
             this.panel1.PerformLayout();
             this.ResumeLayout(false);
@@ -176,14 +232,19 @@
         }
 
         #endregion
-        private System.Windows.Forms.Button buttonTambah;
         private System.Windows.Forms.Button buttonKeluar;
-        private System.Windows.Forms.DataGridView dataGridViewPelanggan;
+        private System.Windows.Forms.DataGridView dataGridViewEkuitas;
         private System.Windows.Forms.Panel panel1;
         private System.Windows.Forms.Button buttonCari;
         private System.Windows.Forms.TextBox textBoxCari;
         private System.Windows.Forms.ComboBox comboBoxCari;
         private System.Windows.Forms.Label label2;
         private System.Windows.Forms.Label label1;
+        private System.Windows.Forms.Label label3;
+        private System.Windows.Forms.Label labelTotal;
+        private System.Windows.Forms.Label labelTotalHarga;
+        private System.Windows.Forms.Label label4;
+        private System.Windows.Forms.Label label5;
+        private System.Windows.Forms.Label labelLabaRugi;
     }
 }

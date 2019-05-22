@@ -202,10 +202,11 @@ namespace ClassLibraryJurnal
                     Laporan laporan = new Laporan();
                     //simpan data  kelompok di idlaporan  
                     laporan.IdLaporan = hasilData.GetValue(0).ToString();
+                    //simpan nama akun di judul
                     laporan.Judul = hasilData.GetValue(1).ToString();
 
                     Periode period = new Periode();
-                    //tambahkan kredit pada idperiode ( kredit pada index ke 5)
+                    //tambahkan saldoakhir pada idperiode ( saldo akhir pada index ke 2)
                     period.IdPeriode = hasilData.GetValue(2).ToString();
 
                     //tambahkan ke list
@@ -221,6 +222,32 @@ namespace ClassLibraryJurnal
         }
 
         //Laporan Ekuitas
+        public static int HitungEkuitasAkhir()
+        {
+            //hasil query prive (jika ada, di project prive= 0)
+            int prive = 0;
+            int ekuitasAkhir = int.Parse(TampilkanModalAwal()) + HitungLabaRugi() - prive;
+            return ekuitasAkhir;
+        }
+        public static string TampilkanModalAwal()
+        {
+            string modalAwal = "";
+            string sql = " SELECT saldoAwal FROM _periodeakun WHERE nomor = '31'";
+            try
+            {
+                MySqlDataReader hasilData = Koneksi.JalankanPerintahQuery(sql);
+                while (hasilData.Read() == true)
+                {
+                    modalAwal = hasilData.GetValue(0).ToString();
+                }
+                return modalAwal;
+            }
+            catch (MySqlException ex)
+            {
+                return ex.Message;
+            }
+        }
+
         public static string BacaDataEkuitas(string pKriteria, string pNilaiKriteria, List<Laporan> listLaporan)
         {
             string sql = "";
@@ -228,11 +255,11 @@ namespace ClassLibraryJurnal
             if (pKriteria == "")
             {
                 //tuliskan perintah sql1 = untuk menampilkan semua data  ditabel notapenjualan 
-                sql = "select * from vsaldoakhir";
+                sql = "SELECT * FROM vsaldoakhir WHERE kelompok = 'E' ";
             }
             else
             {
-                sql = " select * from vsaldoakhir WHERE "
+                sql = " SELECT * FROM vsaldoakhir WHERE kelompok = 'E' and "
                         + pKriteria + " LIKE '%" + pNilaiKriteria + "%'";
             }
             try
@@ -246,10 +273,11 @@ namespace ClassLibraryJurnal
                     Laporan laporan = new Laporan();
                     //simpan data  kelompok di idlaporan  
                     laporan.IdLaporan = hasilData.GetValue(0).ToString();
+                    //simpan nama akun di judul
                     laporan.Judul = hasilData.GetValue(1).ToString();
 
                     Periode period = new Periode();
-                    //tambahkan kredit pada idperiode ( kredit pada index ke 5)
+                    //tambahkan saldoakhir pada idperiode ( saldo akhir pada index ke 2)
                     period.IdPeriode = hasilData.GetValue(2).ToString();
 
                     //tambahkan ke list
@@ -273,11 +301,11 @@ namespace ClassLibraryJurnal
             if (pKriteria == "")
             {
                 //tuliskan perintah sql1 = untuk menampilkan semua data  ditabel notapenjualan 
-                sql = "SELECT * FROM vsaldoakhir WHERE kelompok IN ('ASET', 'KEWAJIBAN', 'EKUITAS')";
+                sql = "SELECT * FROM vsaldoakhir WHERE kelompok IN ('A', 'K', 'E')";
             }
             else
             {
-                sql = "SELECT * FROM vsaldoakhir WHERE kelompok IN ('ASET', 'KEWAJIBAN', 'EKUITAS') and "
+                sql = "SELECT * FROM vsaldoakhir WHERE kelompok IN ('A', 'K', 'E') and "
                         + pKriteria + " LIKE '%" + pNilaiKriteria + "%'";
             }
             try
@@ -309,41 +337,41 @@ namespace ClassLibraryJurnal
             }
         }
 
-        public static string HitungTotalAktiva()
+        public static int HitungTotalAktiva()
         {
-            string totalAktiva = "";
-            string sql = " SELECT SUM(SaldoAkhir) AS TotalAktiva FROM vsaldoakhir WHERE kelompok = 'ASET' ";
+            int totalAktiva = 0;
+            string sql = " SELECT SUM(SaldoAkhir) AS TotalAktiva FROM vsaldoakhir WHERE kelompok = 'A' ";
             try
             {
                 MySqlDataReader hasilData = Koneksi.JalankanPerintahQuery(sql);
                 while (hasilData.Read() == true)
                 {
-                    totalAktiva =hasilData.GetValue(0).ToString();
+                    totalAktiva = int.Parse(hasilData.GetValue(0).ToString());
                 }
                 return totalAktiva;
             }
             catch (MySqlException ex)
             {
-                return ex.Message;
+                return int.Parse(ex.Message);
             }
         }
 
-        public static string HitungTotalPasiva()
+        public static int HitungTotalPasiva()
         {
-            string totalPasiva = "";
-            string sql = " SELECT SUM(SaldoAkhir) + " + HitungLabaRugi() + "  AS TotalAktiva FROM vsaldoakhir WHERE kelompok IN('KEWAJIBAN', 'EKUITAS') ";
+            int totalPasiva = 0;
+            string sql = " SELECT SUM(SaldoAkhir) + " + HitungLabaRugi() + "  AS TotalPasiva FROM vsaldoakhir WHERE kelompok IN('K', 'E') ";
             try
             {
                 MySqlDataReader hasilData = Koneksi.JalankanPerintahQuery(sql);
                 while (hasilData.Read() == true)
                 {
-                    totalPasiva = hasilData.GetValue(0).ToString();
+                    totalPasiva =int.Parse( hasilData.GetValue(0).ToString());
                 }
                 return totalPasiva;
             }
             catch (MySqlException ex)
             {
-                return ex.Message;
+                return int.Parse(ex.Message);
             }
         }
 

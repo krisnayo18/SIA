@@ -111,7 +111,7 @@ namespace SistemAkuntansi
             Form form = Application.OpenForms["FormDaftarPelanggan"];
             if (form == null)
             {
-                FormDaftarPelanggan frmPelanggan = new FormDaftarPelanggan();
+                FormLaporanBukuBesar frmPelanggan = new FormLaporanBukuBesar();
                 frmPelanggan.MdiParent = this;
                 frmPelanggan.Show();
             }
@@ -231,6 +231,70 @@ namespace SistemAkuntansi
             if (form == null)
             {
                 FormDaftarJurnal fp = new FormDaftarJurnal();
+                fp.MdiParent = this;
+                fp.Show();
+            }
+            else
+            {
+                form.Show();
+                form.BringToFront();
+            }
+        }
+
+        private void buttonBukuBesar_Click(object sender, EventArgs e)
+        {
+            Form form = Application.OpenForms["FormLaporanBukuBesar"];
+            if (form == null)
+            {
+                FormLaporanBukuBesar fp = new FormLaporanBukuBesar();
+                fp.MdiParent = this;
+                fp.Show();
+            }
+            else
+            {
+                form.Show();
+                form.BringToFront();
+            }
+        }
+
+        private void buttonLabaRugi_Click(object sender, EventArgs e)
+        {
+            Form form = Application.OpenForms["FormLaporanLabaRugi"];
+            if (form == null)
+            {
+                FormLaporanLabaRugi fp = new FormLaporanLabaRugi();
+                fp.MdiParent = this;
+                fp.Show();
+            }
+            else
+            {
+                form.Show();
+                form.BringToFront();
+            }
+        }
+
+        private void buttonPerubahanEkuitas_Click(object sender, EventArgs e)
+        {
+            Form form = Application.OpenForms["FormLaporanEkuitas"];
+            if (form == null)
+            {
+               FormLaporanEkuitas fp = new FormLaporanEkuitas();
+                fp.MdiParent = this;
+                fp.Show();
+            }
+            else
+            {
+                form.Show();
+                form.BringToFront();
+            }
+        }
+
+        private void buttonNeraca_Click(object sender, EventArgs e)
+        {
+            Form form = Application.OpenForms["FormLaporanNeraca"];
+            if (form == null)
+            {
+                FormLaporanNeraca fp = new FormLaporanNeraca();
                 fp.MdiParent = this;
                 fp.Show();
             }
