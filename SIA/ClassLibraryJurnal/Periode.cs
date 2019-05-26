@@ -126,18 +126,23 @@ namespace ClassLibraryJurnal
 
         //2. Posting jurnal penutup
         #region Jurnal Penutup
+        
         public static string JurnalPenutup()
         {
+            //dapatkan total biaya dan total pend terlebih dahulu supaya waktu posting ke jurnal penutup  ihtisar laba rugi tidak menjadi 0
+            int totalBiaya = Laporan.HitungTotalBiaya();
+            int totalpend = Laporan.HitungTotalPendapatan();
+            int hasil = totalpend - totalBiaya;
             string status = "";
             try
             {
-                status = PenutupanPendapatan();
+                status = PenutupanPendapatan(totalpend);
                 if (status == "1")
                 {
                     status = PenutupanBiaya();
                     if(status == "1")
                     {
-                        status = PenutupanModalDanLR();
+                        status = PenutupanModalDanLR(hasil);
                         //jika ada penutupan modal dan prive buat method dan tambahkan dibawah
                     }
                 }
@@ -149,11 +154,13 @@ namespace ClassLibraryJurnal
             }
 
         }
+
         //2.1 Penutupan pendapatan
         #region Penutupan Pendapatan
         //Tambahkan di tabel transaksi dengan  idtransaksi = 901 dan keterangan = penutupan pendapatan
-        public static string PenutupanPendapatan()
+        public static string PenutupanPendapatan(int ptotalpend)
         {
+            int totalpend = ptotalpend;
             string status = ""; 
             string periodeterbaru = GetPeriodeTerbaru().IdPeriode;
             string idjurnalterbaru = Jurnal.GenerateIdJurnal();
@@ -163,14 +170,13 @@ namespace ClassLibraryJurnal
                 if (status == "1") // jika berhasil insert ke jurnal
                 {
                     status = InsertDJKreditPP(idjurnalterbaru);
-                    if (status == "1") // jika insert ke detiljurnal berhasil
+                    if (status == "1") //jika insert ke detiljurnal yang kredit berhasil
                     {
                         status = InsertDJDebetPP(idjurnalterbaru);
-                        if (status == "1") // jika insert ke detiljurnal berhasil
+                        if (status == "1") // jika insert ke detiljurnal yang debit berhasil 
                         {
-                            // status hasil dari insert ihtisar apabila berhasil 
-                            //status =1, jika gagal = mysqlexception
-                            status = IhtisarLabaRugiPP(idjurnalterbaru);
+                            //jika berhasil status=1
+                            status = IhtisarLabaRugiPP(idjurnalterbaru, totalpend);
                         }
                         else //jika gagal
                         {
@@ -179,7 +185,7 @@ namespace ClassLibraryJurnal
                     }
                     else //jika tidak 
                     {
-                        status = "gagal insert ke detil jurnal yang kredit";
+                        status = "gagal insert  ke detiljurnal yang kredit";
                     }
                 }
                 else // jika gagal
@@ -245,13 +251,11 @@ namespace ClassLibraryJurnal
 
         //2.1.2.1 Insert ihtisar laba rugi
         //Tambahkan dulu nama akun Ihtisar Laba Rugi di tabel _akun
-        public static string IhtisarLabaRugiPP(string pIdJurnal)
+        public static string IhtisarLabaRugiPP(string pIdJurnal, int ptotalpend)
         {
-
             //Tambahkan dulu akun Ihtisar Laba Rugi di tabel _akun
-            int totalpend = Laporan.HitungTotalPendapatan();
             string sql = "INSERT INTO _detiljurnal(idJurnal, nomor, noUrut, debet, kredit)" +
-                         "VALUES('" + pIdJurnal + "', '00', 2, 0, " + totalpend + ")"; 
+                         "VALUES('" + pIdJurnal + "', '00', 2, 0, " + ptotalpend + ")"; 
             try
             {
                 Koneksi.JalankanPerintahDML(sql);
@@ -356,7 +360,7 @@ namespace ClassLibraryJurnal
         //2.3 Penutupan modal dan laba rugi
         #region Penutupan Modal dan Laba Rugi
         //Tambahkan di tabel transaksi dengan  idtransaksi = 903 dan keterangan = penutupan modal dan laba rugi
-        public static string PenutupanModalDanLR()
+        public static string PenutupanModalDanLR(int phasil)
         {
             string status = "";
             string periodeterbaru = GetPeriodeTerbaru().IdPeriode;
@@ -366,12 +370,12 @@ namespace ClassLibraryJurnal
                 status = InsertJurnalPMLR(idjurnalterbaru, periodeterbaru);
                 if (status == "1") // jika berhasil insert ke jurnal
                 {
-                    status = IhtisarLabaRugiPMLR(idjurnalterbaru);
+                    status = IhtisarLabaRugiPMLR(idjurnalterbaru,phasil);
                     if (status == "1") //  apabila berhasil  insert ihtisar laba rugi PMLR
                     {
                         // status hasil dari insert modal ke detiljurnal apabila berhasil 
                         //status =1, jika gagal = mysqlexception
-                        status = InsertModalPMLR(idjurnalterbaru);
+                        status = InsertModalPMLR(idjurnalterbaru,phasil);
                     }
                     else //jika gagal insert ihtisar PMLR
                     {
@@ -408,13 +412,10 @@ namespace ClassLibraryJurnal
         //2.3.2 Insert ke tabel _detiljurnal
         //2.3.2.1 Insert ihtisar laba rugi
         //check dulu nama  akun  Ihtisar Laba Rugi di tabel _akun apakah ada, jika tidak ada tambahkan
-        public static string IhtisarLabaRugiPMLR(string pIdJurnal)
+        public static string IhtisarLabaRugiPMLR(string pIdJurnal, int phasil)
         {
-            int totalBiaya = Laporan.HitungTotalBiaya();
-            int totalpend = Laporan.HitungTotalPendapatan();
-            int hasil = totalpend - totalBiaya;
             string sql = "INSERT INTO _detiljurnal(idJurnal, nomor, noUrut, debet, kredit)" +
-                         "VALUES('" + pIdJurnal + "', '00', 1, " + hasil + ", 0)";
+                         "VALUES('" + pIdJurnal + "', '00', 1, " + phasil + ", 0)";
             try
             {
                 Koneksi.JalankanPerintahDML(sql);
@@ -427,13 +428,10 @@ namespace ClassLibraryJurnal
         }
 
         //2.3.2.2 Insert modal
-        public static string InsertModalPMLR(string pIdJurnal)
+        public static string InsertModalPMLR(string pIdJurnal, int phasil)
         {
-            int totalBiaya = Laporan.HitungTotalBiaya();
-            int totalpend = Laporan.HitungTotalPendapatan();
-            int hasil = totalpend - totalBiaya;
             string sql = "INSERT INTO _detiljurnal(idJurnal, nomor, noUrut, debet, kredit)" +
-                         "VALUES('" + pIdJurnal + "', '31', 2, 0," + hasil + ")";
+                         "VALUES('" + pIdJurnal + "', '31', 2, 0," + phasil + ")";
             try
             {
                 Koneksi.JalankanPerintahDML(sql);
