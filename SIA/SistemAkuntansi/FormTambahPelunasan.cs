@@ -20,28 +20,7 @@ namespace SistemAkuntansi
         List<Pelunasan> listHasilData = new List<Pelunasan>();
         List<NotaPenjualan> listHasilData2 = new List<NotaPenjualan>();
         Periode pPeriode = new Periode();
-        private void FormatDataGrid()
-        {
-            dataGridViewNota.Columns.Clear();
-            dataGridViewNota.Columns.Add("noPelunasan", "Nomor Pelunasan");
-            dataGridViewNota.Columns.Add("noNotaPenjualan", "No Nota Penjualan");
-            dataGridViewNota.Columns.Add("tanggal", "Tanggal");
-            dataGridViewNota.Columns.Add("caraPembayaran", "Cara Pembayaran");
-            dataGridViewNota.Columns.Add("nominal", "nominal");
-
-            dataGridViewNota.Columns["noPelunasan"].AutoSizeMode = DataGridViewAutoSizeColumnMode.AllCells;
-            dataGridViewNota.Columns["noNotaPenjualan"].AutoSizeMode = DataGridViewAutoSizeColumnMode.AllCells;
-            dataGridViewNota.Columns["tanggal"].AutoSizeMode = DataGridViewAutoSizeColumnMode.AllCells;
-            dataGridViewNota.Columns["caraPembayaran"].AutoSizeMode = DataGridViewAutoSizeColumnMode.AllCells;
-            dataGridViewNota.Columns["nominal"].AutoSizeMode = DataGridViewAutoSizeColumnMode.AllCells;
-
-            dataGridViewNota.Columns["nominal"].DefaultCellStyle.Alignment = DataGridViewContentAlignment.MiddleRight;
-
-            dataGridViewNota.Columns["nominal"].DefaultCellStyle.Format = "0,###";
-
-            dataGridViewNota.AllowUserToAddRows = false;
-        }
-
+     
         private void buttonSimpan_Click(object sender, EventArgs e)
         {
             FormDaftarPelunasan form = (FormDaftarPelunasan)this.Owner;
@@ -108,7 +87,7 @@ namespace SistemAkuntansi
 
     private void FormTambahPenerimaanPembayaran_Load(object sender, EventArgs e)
         {
-            FormatDataGrid();
+           
             string noNotaBaru;
             pPeriode = Periode.GetPeriodeTerbaru();
             comboBoxNoNotaJual.DropDownStyle = ComboBoxStyle.DropDownList;

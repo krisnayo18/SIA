@@ -258,7 +258,7 @@ namespace ClassLibraryTransaksi
 
                 string noUrutTransTerbaru = "";
                 //cek apakah sudah ada transaksi  pada tanggal  hari ini (data reader dari sql  diatas bisa terbca atau tidak )
-                if (hasilData.Read() == true)//jika berhasil membaca data (sudah ada transaksi pada hari ini)
+                if (hasilData.Read())//jika berhasil membaca data (sudah ada transaksi pada hari ini)
                 {
                     int noUrutTrans = int.Parse(hasilData.GetValue(0).ToString()) + 1; //dapatkan no urut transaksi terbaru 
                     noUrutTransTerbaru = noUrutTrans.ToString().PadLeft(3, '0'); // jika nourutTransaksi pada hari ini 
@@ -289,16 +289,11 @@ namespace ClassLibraryTransaksi
             if (kriteria == "")
             {
                 //tuliskan perintah sql1 = untuk menampilkan semua data  ditabel notapenjualan 
-                sql1 = "SELECT N.noNotaPenjualan, N.idPelanggan, P.nama AS NamaPelanggan, P.alamat AS AlamatPelanggan, N.diskon,"+
-                       "N.totalHarga, N.tglBatasPelunasan, N.tglBatasDiskon, N.tglJual, N.status, N.keterangan FROM " +
-                       "NotaPenjualan N INNER JOIN Pelanggan P ON N.idPelanggan = P.idPelanggan ORDER BY N.noNotaPenjualan DESC";
+                sql1 = "SELECT * FROM vnotapenjualan";
             }
             else
             {
-                sql1 = "SELECT N.noNotaPenjualan, N.idPelanggan,  P.nama AS NamaPelanggan, P.alamat AS AlamatPelanggan, N.diskon,"+
-                        "N.totalHarga, N.tglBatasPelunasan, N.tglBatasDiskon, N.tglJual, N.status, N.keterangan FROM " +
-                        "NotaPenjualan N INNER JOIN Pelanggan P ON N.idPelanggan = P.idPelanggan WHERE " 
-                        + kriteria + " LIKE '%" + nilaiKriteria + "%' ORDER BY N.NoNotaPenjualan DESC";
+                sql1 = "SELECT * FROM vnotapenjualan WHERE "   + kriteria + " LIKE '%" + nilaiKriteria + "%'";
             }
 
             try
@@ -307,7 +302,7 @@ namespace ClassLibraryTransaksi
                 MySqlDataReader hasilData1 = Koneksi.JalankanPerintahQuery(sql1);
                 listNotaJual.Clear();//kosongi isi list terlebih dahulu
 
-                while (hasilData1.Read() == true)
+                while (hasilData1.Read())
                 {
 
                     //mendapatkan  nomornota, status ,dll
@@ -402,7 +397,7 @@ namespace ClassLibraryTransaksi
                 MySqlDataReader hasilData = Koneksi.JalankanPerintahQuery(sql);
                 listNotaJual.Clear();//kosongi isi list terlebih dahulu
 
-                while (hasilData.Read() == true)
+                while (hasilData.Read())
                 {
 
                     string nomornota = hasilData.GetValue(0).ToString();

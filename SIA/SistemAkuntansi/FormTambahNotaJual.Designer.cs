@@ -43,7 +43,6 @@
             this.label15 = new System.Windows.Forms.Label();
             this.textBoxKeterangan = new System.Windows.Forms.TextBox();
             this.label14 = new System.Windows.Forms.Label();
-            this.textBoxStatus = new System.Windows.Forms.TextBox();
             this.label3 = new System.Windows.Forms.Label();
             this.label2 = new System.Windows.Forms.Label();
             this.labelKodePgw = new System.Windows.Forms.Label();
@@ -133,7 +132,6 @@
             this.panel1.Controls.Add(this.label15);
             this.panel1.Controls.Add(this.textBoxKeterangan);
             this.panel1.Controls.Add(this.label14);
-            this.panel1.Controls.Add(this.textBoxStatus);
             this.panel1.Controls.Add(this.label3);
             this.panel1.Controls.Add(this.label2);
             this.panel1.Controls.Add(this.labelKodePgw);
@@ -252,8 +250,9 @@
             // textBoxKeterangan
             // 
             this.textBoxKeterangan.Location = new System.Drawing.Point(386, 90);
+            this.textBoxKeterangan.Multiline = true;
             this.textBoxKeterangan.Name = "textBoxKeterangan";
-            this.textBoxKeterangan.Size = new System.Drawing.Size(145, 20);
+            this.textBoxKeterangan.Size = new System.Drawing.Size(145, 51);
             this.textBoxKeterangan.TabIndex = 68;
             // 
             // label14
@@ -265,13 +264,6 @@
             this.label14.Size = new System.Drawing.Size(84, 13);
             this.label14.TabIndex = 67;
             this.label14.Text = "Keterangan : ";
-            // 
-            // textBoxStatus
-            // 
-            this.textBoxStatus.Location = new System.Drawing.Point(386, 116);
-            this.textBoxStatus.Name = "textBoxStatus";
-            this.textBoxStatus.Size = new System.Drawing.Size(145, 20);
-            this.textBoxStatus.TabIndex = 66;
             // 
             // label3
             // 
@@ -574,7 +566,6 @@
         private System.Windows.Forms.Label labelJenis;
         private System.Windows.Forms.Label labelKodePgw;
         private System.Windows.Forms.Label label2;
-        private System.Windows.Forms.TextBox textBoxStatus;
         private System.Windows.Forms.Label label3;
         private System.Windows.Forms.TextBox textBoxKeterangan;
         private System.Windows.Forms.Label label14;

@@ -209,7 +209,7 @@ namespace SistemAkuntansi
         private void buttonSimpan_Click(object sender, EventArgs e)
         {
             FormUtama frmUtama = (FormUtama)this.Owner.MdiParent;
-          
+            FormDaftarNotaJual form = (FormDaftarNotaJual)this.Owner;
             //buat objek bertipe pelanggan
             Pelanggan pelanggan = new Pelanggan();
             //format combo box pelanggan: X -yyyyyy (kode pelanggan karakter 0 sebanyak 1, nama kategori mulai karakter  ke-4 s/d akhir
@@ -254,16 +254,26 @@ namespace SistemAkuntansi
             if (hasilTambahNota == "1") //jika berhasil maka insert jurnal dan detil jurnal
             {
                 MessageBox.Show("Data nota jual telah tersimpan", "Info");
-              
-              
+
+
                 //tambah posting ke jurnal
-
+                string idtrans = "";
+                string ket = "";
                 string idJurnal = Jurnal.GenerateIdJurnal();
-
+                if(comboBoxStatus.Text == "L")
+                {
+                    idtrans = "008";
+                    ket = "Menjual barang dagangan secara tunai";
+                }
+                else
+                {
+                    idtrans = "011";
+                    ket = "Menjual barang dagangan secara kredit";
+                }
                 Transaksi trans = new Transaksi();
                 //transaksi penjualan tunai (id transkasi 008);
-                trans.IdTransaksi = "008";
-                trans.Keterangan = "Menjual barang dagangan secara tunai";
+                trans.IdTransaksi = idtrans;
+                trans.Keterangan = ket;
 
                 //buat object bertipe jurnal
                 Jurnal jurnal = new Jurnal();
@@ -278,16 +288,21 @@ namespace SistemAkuntansi
 
                 //isi detil jurnalnya
                 int totalharga = HitungGrandTotal(); // panggil method hitung total harga untuk mendapatkan totalharga
-
-                jurnal.TambahDetilJurnalPenjualanBarangTunai(totalharga, totalHpp);
+                if(comboBoxStatus.Text == "L")
+                {
+                    jurnal.TambahDetilJurnalPenjualanBarangTunai(totalharga, totalHpp);
+                }
+                else
+                {
+                    jurnal.TambahDetilJurnalPenjualanBarangKredit(totalharga, totalHpp);
+                }
                  //simpan ke tabel _jurnal
                 string hasilTambahJurnal = Jurnal.TambahData(jurnal);
                 if (hasilTambahJurnal == "1")
                 {
                     MessageBox.Show("berhasil posting ke jurnal");
-                    FormDaftarNotaJual form = (FormDaftarNotaJual)this.Owner;
-                    form.FormDaftarNotaJual_Load(sender, e); //supaya formdaftar barang menampilkan daftar terbaru
                     this.Close();
+                    form.FormDaftarNotaJual_Load(sender, e); //supaya formdaftar barang menampilkan daftar terbaru
                 }
                 else
                 {

@@ -330,7 +330,34 @@ namespace ClassLibraryJurnal
 
             ListDetilJurnal.Add(detil4);
         }
-        
+        //untuk menjual barang dagangan secara kredit
+        public void TambahDetilJurnalPenjualanBarangKredit(int pGrandTotal, int pTotalHpp)
+        {
+            Akun akun1 = new Akun();
+            akun1.NomorAkun = "12";
+            DetilJurnal detil1 = new DetilJurnal(akun1, 1, pGrandTotal, 0);
+
+            ListDetilJurnal.Add(detil1);
+
+            Akun akun2 = new Akun();
+            akun2.NomorAkun = "41";
+            DetilJurnal detil2 = new DetilJurnal(akun2, 2, 0, pGrandTotal);
+
+            ListDetilJurnal.Add(detil2);
+
+            Akun akun3 = new Akun();
+            akun3.NomorAkun = "51";
+            DetilJurnal detil3 = new DetilJurnal(akun3, 3, pTotalHpp, 0);
+
+            ListDetilJurnal.Add(detil3);
+
+            Akun akun4 = new Akun();
+            akun4.NomorAkun = "15";
+            DetilJurnal detil4 = new DetilJurnal(akun4, 4, 0, pTotalHpp);
+
+            ListDetilJurnal.Add(detil4);
+        }
+
         //untuk melunasi hutang secara tunai T0006
         public void TambahDetilJurnalPelunasanHutangTunai(int pHutang, int pDiskon)
         {
