@@ -124,11 +124,11 @@
     <Compile Include="FormDaftarPembayaran.Designer.cs">
       <DependentUpon>FormDaftarPembayaran.cs</DependentUpon>
     </Compile>
-    <Compile Include="FormDaftarPenerimaan.cs">
+    <Compile Include="FormTutupPeriode.cs">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="FormDaftarPenerimaan.Designer.cs">
-      <DependentUpon>FormDaftarPenerimaan.cs</DependentUpon>
+    <Compile Include="FormTutupPeriode.Designer.cs">
+      <DependentUpon>FormTutupPeriode.cs</DependentUpon>
     </Compile>
     <Compile Include="FormDaftarPelunasan.cs">
       <SubType>Form</SubType>
@@ -255,8 +255,8 @@
     <EmbeddedResource Include="FormDaftarPembayaran.resx">
       <DependentUpon>FormDaftarPembayaran.cs</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="FormDaftarPenerimaan.resx">
-      <DependentUpon>FormDaftarPenerimaan.cs</DependentUpon>
+    <EmbeddedResource Include="FormTutupPeriode.resx">
+      <DependentUpon>FormTutupPeriode.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="FormDaftarPelunasan.resx">
       <DependentUpon>FormDaftarPelunasan.cs</DependentUpon>

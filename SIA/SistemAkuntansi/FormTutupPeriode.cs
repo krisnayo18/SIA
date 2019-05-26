@@ -7,19 +7,21 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
-
+using ClassLibraryJurnal;
 namespace SistemAkuntansi
 {
-    public partial class FormDaftarPenerimaan : Form
+    public partial class FormTutupPeriode : Form
     {
-        public FormDaftarPenerimaan()
+        public FormTutupPeriode()
         {
             InitializeComponent();
         }
 
+        //Periode periode = new Periode();
         private void buttonTambah_Click(object sender, EventArgs e)
         {
 
+          
         }
         
         private void FormatDataGrid()
@@ -77,6 +79,16 @@ namespace SistemAkuntansi
             {
                 hasilCari = "T.idNotaPembelian";
             }
+        }
+
+        private void buttonKeluar_Click(object sender, EventArgs e)
+        {
+            this.Close();
+        }
+
+        private void FormTutupPeriode_Load(object sender, EventArgs e)
+        {
+          
         }
     }
 }

@@ -26,9 +26,10 @@ namespace SistemAkuntansi
         {
             this.Location = new Point(0, 0);
             comboBoxCari.DropDownStyle = ComboBoxStyle.DropDownList;
-
+           
             labelTotalHarga.Text = Laporan.HitungLabaRugi().ToString("0,###");
-
+            labelTotalPendapatan.Text = Laporan.HitungTotalPendapatan().ToString("0,###");
+            labelTotalBiaya.Text = Laporan.HitungTotalBiaya().ToString("0,###");
             FormatDataGrid();
             string hasilBaca = Laporan.BacaDataLabaRugi("", "", listHasilData);
 
@@ -58,8 +59,14 @@ namespace SistemAkuntansi
             dataGridViewLabaRugi.Columns["nama"].AutoSizeMode = DataGridViewAutoSizeColumnMode.AllCells;
             dataGridViewLabaRugi.Columns["saldoAkhir"].AutoSizeMode = DataGridViewAutoSizeColumnMode.AllCells;
 
+            dataGridViewLabaRugi.Columns["saldoAkhir"].DefaultCellStyle.Format = "0,###";
 
             dataGridViewLabaRugi.AllowUserToAddRows = false;
+        }
+
+        private void label5_Click(object sender, EventArgs e)
+        {
+
         }
     }
 }

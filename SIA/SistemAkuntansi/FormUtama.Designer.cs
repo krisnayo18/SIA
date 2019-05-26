@@ -36,6 +36,12 @@
             this.labelNamaPgw = new System.Windows.Forms.Label();
             this.labelJabatan = new System.Windows.Forms.Label();
             this.panelMenu = new System.Windows.Forms.Panel();
+            this.panel1 = new System.Windows.Forms.Panel();
+            this.buttonNeraca = new System.Windows.Forms.Button();
+            this.buttonPerubahanEkuitas = new System.Windows.Forms.Button();
+            this.buttonLabaRugi = new System.Windows.Forms.Button();
+            this.buttonBukuBesar = new System.Windows.Forms.Button();
+            this.label1 = new System.Windows.Forms.Label();
             this.panelProfil = new System.Windows.Forms.Panel();
             this.pictureBox1 = new System.Windows.Forms.PictureBox();
             this.panelMaster = new System.Windows.Forms.Panel();
@@ -47,24 +53,19 @@
             this.buttonBarang = new System.Windows.Forms.Button();
             this.labelMaster = new System.Windows.Forms.Label();
             this.panelTransaksi = new System.Windows.Forms.Panel();
-            this.buttonBukuBesar = new System.Windows.Forms.Button();
             this.buttonJurnal = new System.Windows.Forms.Button();
             this.buttonPelunasan = new System.Windows.Forms.Button();
             this.labelTransaksi = new System.Windows.Forms.Label();
             this.buttonPenjualan = new System.Windows.Forms.Button();
             this.buttonPembelian = new System.Windows.Forms.Button();
-            this.panel1 = new System.Windows.Forms.Panel();
-            this.label1 = new System.Windows.Forms.Label();
-            this.buttonLabaRugi = new System.Windows.Forms.Button();
-            this.buttonPerubahanEkuitas = new System.Windows.Forms.Button();
-            this.buttonNeraca = new System.Windows.Forms.Button();
+            this.buttonTutupPeriode = new System.Windows.Forms.Button();
             this.menuStrip1.SuspendLayout();
             this.panelMenu.SuspendLayout();
+            this.panel1.SuspendLayout();
             this.panelProfil.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).BeginInit();
             this.panelMaster.SuspendLayout();
             this.panelTransaksi.SuspendLayout();
-            this.panel1.SuspendLayout();
             this.SuspendLayout();
             // 
             // menuStrip1
@@ -149,6 +150,90 @@
             this.panelMenu.Name = "panelMenu";
             this.panelMenu.Size = new System.Drawing.Size(250, 748);
             this.panelMenu.TabIndex = 6;
+            // 
+            // panel1
+            // 
+            this.panel1.BackColor = System.Drawing.Color.Transparent;
+            this.panel1.Controls.Add(this.buttonNeraca);
+            this.panel1.Controls.Add(this.buttonPerubahanEkuitas);
+            this.panel1.Controls.Add(this.buttonLabaRugi);
+            this.panel1.Controls.Add(this.buttonBukuBesar);
+            this.panel1.Controls.Add(this.label1);
+            this.panel1.Location = new System.Drawing.Point(0, 548);
+            this.panel1.Name = "panel1";
+            this.panel1.Size = new System.Drawing.Size(250, 197);
+            this.panel1.TabIndex = 10;
+            // 
+            // buttonNeraca
+            // 
+            this.buttonNeraca.FlatAppearance.BorderSize = 0;
+            this.buttonNeraca.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.buttonNeraca.Font = new System.Drawing.Font("Century Gothic", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.buttonNeraca.ForeColor = System.Drawing.Color.White;
+            this.buttonNeraca.Location = new System.Drawing.Point(60, 153);
+            this.buttonNeraca.Name = "buttonNeraca";
+            this.buttonNeraca.Size = new System.Drawing.Size(123, 30);
+            this.buttonNeraca.TabIndex = 8;
+            this.buttonNeraca.Text = "Neraca";
+            this.buttonNeraca.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
+            this.buttonNeraca.UseVisualStyleBackColor = true;
+            this.buttonNeraca.Click += new System.EventHandler(this.buttonNeraca_Click);
+            // 
+            // buttonPerubahanEkuitas
+            // 
+            this.buttonPerubahanEkuitas.FlatAppearance.BorderSize = 0;
+            this.buttonPerubahanEkuitas.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.buttonPerubahanEkuitas.Font = new System.Drawing.Font("Century Gothic", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.buttonPerubahanEkuitas.ForeColor = System.Drawing.Color.White;
+            this.buttonPerubahanEkuitas.Location = new System.Drawing.Point(60, 117);
+            this.buttonPerubahanEkuitas.Name = "buttonPerubahanEkuitas";
+            this.buttonPerubahanEkuitas.Size = new System.Drawing.Size(169, 30);
+            this.buttonPerubahanEkuitas.TabIndex = 7;
+            this.buttonPerubahanEkuitas.Text = "Perubahan Ekuitas";
+            this.buttonPerubahanEkuitas.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
+            this.buttonPerubahanEkuitas.UseVisualStyleBackColor = true;
+            this.buttonPerubahanEkuitas.Click += new System.EventHandler(this.buttonPerubahanEkuitas_Click);
+            // 
+            // buttonLabaRugi
+            // 
+            this.buttonLabaRugi.FlatAppearance.BorderSize = 0;
+            this.buttonLabaRugi.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.buttonLabaRugi.Font = new System.Drawing.Font("Century Gothic", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.buttonLabaRugi.ForeColor = System.Drawing.Color.White;
+            this.buttonLabaRugi.Location = new System.Drawing.Point(60, 81);
+            this.buttonLabaRugi.Name = "buttonLabaRugi";
+            this.buttonLabaRugi.Size = new System.Drawing.Size(123, 30);
+            this.buttonLabaRugi.TabIndex = 6;
+            this.buttonLabaRugi.Text = "Laba Rugi";
+            this.buttonLabaRugi.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
+            this.buttonLabaRugi.UseVisualStyleBackColor = true;
+            this.buttonLabaRugi.Click += new System.EventHandler(this.buttonLabaRugi_Click);
+            // 
+            // buttonBukuBesar
+            // 
+            this.buttonBukuBesar.FlatAppearance.BorderSize = 0;
+            this.buttonBukuBesar.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.buttonBukuBesar.Font = new System.Drawing.Font("Century Gothic", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.buttonBukuBesar.ForeColor = System.Drawing.Color.White;
+            this.buttonBukuBesar.Location = new System.Drawing.Point(60, 45);
+            this.buttonBukuBesar.Name = "buttonBukuBesar";
+            this.buttonBukuBesar.Size = new System.Drawing.Size(123, 30);
+            this.buttonBukuBesar.TabIndex = 5;
+            this.buttonBukuBesar.Text = "Buku Besar";
+            this.buttonBukuBesar.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
+            this.buttonBukuBesar.UseVisualStyleBackColor = true;
+            this.buttonBukuBesar.Click += new System.EventHandler(this.buttonBukuBesar_Click);
+            // 
+            // label1
+            // 
+            this.label1.Font = new System.Drawing.Font("Century Gothic", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label1.ForeColor = System.Drawing.Color.White;
+            this.label1.Location = new System.Drawing.Point(3, 3);
+            this.label1.Name = "label1";
+            this.label1.Size = new System.Drawing.Size(243, 25);
+            this.label1.TabIndex = 2;
+            this.label1.Text = "Laporan";
+            this.label1.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
             // 
             // panelProfil
             // 
@@ -291,6 +376,7 @@
             // panelTransaksi
             // 
             this.panelTransaksi.BackColor = System.Drawing.Color.Transparent;
+            this.panelTransaksi.Controls.Add(this.buttonTutupPeriode);
             this.panelTransaksi.Controls.Add(this.buttonJurnal);
             this.panelTransaksi.Controls.Add(this.buttonPelunasan);
             this.panelTransaksi.Controls.Add(this.labelTransaksi);
@@ -300,21 +386,6 @@
             this.panelTransaksi.Name = "panelTransaksi";
             this.panelTransaksi.Size = new System.Drawing.Size(250, 229);
             this.panelTransaksi.TabIndex = 9;
-            // 
-            // buttonBukuBesar
-            // 
-            this.buttonBukuBesar.FlatAppearance.BorderSize = 0;
-            this.buttonBukuBesar.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.buttonBukuBesar.Font = new System.Drawing.Font("Century Gothic", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.buttonBukuBesar.ForeColor = System.Drawing.Color.White;
-            this.buttonBukuBesar.Location = new System.Drawing.Point(60, 45);
-            this.buttonBukuBesar.Name = "buttonBukuBesar";
-            this.buttonBukuBesar.Size = new System.Drawing.Size(123, 30);
-            this.buttonBukuBesar.TabIndex = 5;
-            this.buttonBukuBesar.Text = "Buku Besar";
-            this.buttonBukuBesar.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
-            this.buttonBukuBesar.UseVisualStyleBackColor = true;
-            this.buttonBukuBesar.Click += new System.EventHandler(this.buttonBukuBesar_Click);
             // 
             // buttonJurnal
             // 
@@ -388,74 +459,20 @@
             this.buttonPembelian.UseVisualStyleBackColor = true;
             this.buttonPembelian.Click += new System.EventHandler(this.buttonPembelian_Click);
             // 
-            // panel1
+            // buttonTutupPeriode
             // 
-            this.panel1.BackColor = System.Drawing.Color.Transparent;
-            this.panel1.Controls.Add(this.buttonNeraca);
-            this.panel1.Controls.Add(this.buttonPerubahanEkuitas);
-            this.panel1.Controls.Add(this.buttonLabaRugi);
-            this.panel1.Controls.Add(this.buttonBukuBesar);
-            this.panel1.Controls.Add(this.label1);
-            this.panel1.Location = new System.Drawing.Point(0, 548);
-            this.panel1.Name = "panel1";
-            this.panel1.Size = new System.Drawing.Size(250, 197);
-            this.panel1.TabIndex = 10;
-            // 
-            // label1
-            // 
-            this.label1.Font = new System.Drawing.Font("Century Gothic", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label1.ForeColor = System.Drawing.Color.White;
-            this.label1.Location = new System.Drawing.Point(3, 3);
-            this.label1.Name = "label1";
-            this.label1.Size = new System.Drawing.Size(243, 25);
-            this.label1.TabIndex = 2;
-            this.label1.Text = "Laporan";
-            this.label1.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
-            // 
-            // buttonLabaRugi
-            // 
-            this.buttonLabaRugi.FlatAppearance.BorderSize = 0;
-            this.buttonLabaRugi.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.buttonLabaRugi.Font = new System.Drawing.Font("Century Gothic", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.buttonLabaRugi.ForeColor = System.Drawing.Color.White;
-            this.buttonLabaRugi.Location = new System.Drawing.Point(60, 81);
-            this.buttonLabaRugi.Name = "buttonLabaRugi";
-            this.buttonLabaRugi.Size = new System.Drawing.Size(123, 30);
-            this.buttonLabaRugi.TabIndex = 6;
-            this.buttonLabaRugi.Text = "Laba Rugi";
-            this.buttonLabaRugi.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
-            this.buttonLabaRugi.UseVisualStyleBackColor = true;
-            this.buttonLabaRugi.Click += new System.EventHandler(this.buttonLabaRugi_Click);
-            // 
-            // buttonPerubahanEkuitas
-            // 
-            this.buttonPerubahanEkuitas.FlatAppearance.BorderSize = 0;
-            this.buttonPerubahanEkuitas.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.buttonPerubahanEkuitas.Font = new System.Drawing.Font("Century Gothic", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.buttonPerubahanEkuitas.ForeColor = System.Drawing.Color.White;
-            this.buttonPerubahanEkuitas.Location = new System.Drawing.Point(60, 117);
-            this.buttonPerubahanEkuitas.Name = "buttonPerubahanEkuitas";
-            this.buttonPerubahanEkuitas.Size = new System.Drawing.Size(169, 30);
-            this.buttonPerubahanEkuitas.TabIndex = 7;
-            this.buttonPerubahanEkuitas.Text = "Perubahan Ekuitas";
-            this.buttonPerubahanEkuitas.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
-            this.buttonPerubahanEkuitas.UseVisualStyleBackColor = true;
-            this.buttonPerubahanEkuitas.Click += new System.EventHandler(this.buttonPerubahanEkuitas_Click);
-            // 
-            // buttonNeraca
-            // 
-            this.buttonNeraca.FlatAppearance.BorderSize = 0;
-            this.buttonNeraca.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.buttonNeraca.Font = new System.Drawing.Font("Century Gothic", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.buttonNeraca.ForeColor = System.Drawing.Color.White;
-            this.buttonNeraca.Location = new System.Drawing.Point(60, 153);
-            this.buttonNeraca.Name = "buttonNeraca";
-            this.buttonNeraca.Size = new System.Drawing.Size(123, 30);
-            this.buttonNeraca.TabIndex = 8;
-            this.buttonNeraca.Text = "Neraca";
-            this.buttonNeraca.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
-            this.buttonNeraca.UseVisualStyleBackColor = true;
-            this.buttonNeraca.Click += new System.EventHandler(this.buttonNeraca_Click);
+            this.buttonTutupPeriode.FlatAppearance.BorderSize = 0;
+            this.buttonTutupPeriode.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.buttonTutupPeriode.Font = new System.Drawing.Font("Century Gothic", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.buttonTutupPeriode.ForeColor = System.Drawing.Color.White;
+            this.buttonTutupPeriode.Location = new System.Drawing.Point(59, 186);
+            this.buttonTutupPeriode.Name = "buttonTutupPeriode";
+            this.buttonTutupPeriode.Size = new System.Drawing.Size(149, 30);
+            this.buttonTutupPeriode.TabIndex = 4;
+            this.buttonTutupPeriode.Text = "Tutup Periode";
+            this.buttonTutupPeriode.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
+            this.buttonTutupPeriode.UseVisualStyleBackColor = true;
+            this.buttonTutupPeriode.Click += new System.EventHandler(this.buttonTutupPeriode_Click);
             // 
             // FormUtama
             // 
@@ -473,11 +490,11 @@
             this.menuStrip1.ResumeLayout(false);
             this.menuStrip1.PerformLayout();
             this.panelMenu.ResumeLayout(false);
+            this.panel1.ResumeLayout(false);
             this.panelProfil.ResumeLayout(false);
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).EndInit();
             this.panelMaster.ResumeLayout(false);
             this.panelTransaksi.ResumeLayout(false);
-            this.panel1.ResumeLayout(false);
             this.ResumeLayout(false);
             this.PerformLayout();
 
@@ -515,5 +532,6 @@
         private System.Windows.Forms.Button buttonPerubahanEkuitas;
         private System.Windows.Forms.Button buttonLabaRugi;
         private System.Windows.Forms.Label label1;
+        private System.Windows.Forms.Button buttonTutupPeriode;
     }
 }

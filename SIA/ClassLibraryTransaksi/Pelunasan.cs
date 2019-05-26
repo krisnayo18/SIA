@@ -126,6 +126,8 @@ namespace ClassLibraryTransaksi
 
                 //jalankan sql2 untuk menambhkan ke detiljurnal
                 Koneksi.JalankanPerintahDML(sql2);
+
+                
                 
                 //jika semua perintah sql berhasil dijalankan
                 return "1";

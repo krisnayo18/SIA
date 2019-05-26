@@ -304,5 +304,27 @@ namespace SistemAkuntansi
                 form.BringToFront();
             }
         }
+
+        private void buttonTutupPeriode_Click(object sender, EventArgs e)
+        {
+            DialogResult pesan = MessageBox.Show("Yakin ingin menutup periode ?", "konformasi", MessageBoxButtons.YesNo);
+            if(pesan == DialogResult.Yes)
+            {
+                string status = Periode.TutupPeriode();
+                if (status == "1")
+                {
+                    MessageBox.Show("Berhasil melakukan Tutup Periode Akuntansi");
+                }
+                else
+                {
+                    MessageBox.Show(status);
+                }
+            }
+            else
+            {
+                
+            }
+                
+        }
     }
 }

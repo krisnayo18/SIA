@@ -352,6 +352,23 @@ namespace ClassLibraryJurnal
 
             ListDetilJurnal.Add(detil3);
         }
+        //untuk pelunasan piutang 
+        public void TambahDetilJurnalPelunasanPiutangTunai(int pPiutang)
+        {
+            //kas bertambah 
+            // piutang berkurang
+            Akun akun1 = new Akun();
+            akun1.NomorAkun = "11";
+            DetilJurnal detil1 = new DetilJurnal(akun1, 1, pPiutang, 0);
+
+            ListDetilJurnal.Add(detil1);
+
+            Akun akun3 = new Akun();
+            akun3.NomorAkun = "12";
+            DetilJurnal detil3 = new DetilJurnal(akun3, 2, 0, pPiutang);
+
+            ListDetilJurnal.Add(detil3);
+        }
 
         public static string BacaData(string pKriteria, string pNilaiKriteria, List<Jurnal> listJurnal)
         {

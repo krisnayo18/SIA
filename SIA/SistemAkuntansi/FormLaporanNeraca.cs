@@ -30,6 +30,7 @@ namespace SistemAkuntansi
             dataGridViewNeraca.Columns["nama"].AutoSizeMode = DataGridViewAutoSizeColumnMode.AllCells;
             dataGridViewNeraca.Columns["saldoAkhir"].AutoSizeMode = DataGridViewAutoSizeColumnMode.AllCells;
 
+            dataGridViewNeraca.Columns["saldoAkhir"].DefaultCellStyle.Format = "0,###";
 
             dataGridViewNeraca.AllowUserToAddRows = false;
         }
@@ -43,7 +44,8 @@ namespace SistemAkuntansi
             this.Location = new Point(0, 0);
             comboBoxCari.DropDownStyle = ComboBoxStyle.DropDownList;
 
-           
+            labelTotalHutang.Text = Laporan.tampilHutang().ToString("0,###");
+            labelTotalEkuitas.Text = Laporan.HitungEkuitasAkhir().ToString("0,###");
             labelAktiva.Text = Laporan.HitungTotalAktiva().ToString("0,###");
             labelPasiva.Text = Laporan.HitungTotalPasiva().ToString("0,###");
 

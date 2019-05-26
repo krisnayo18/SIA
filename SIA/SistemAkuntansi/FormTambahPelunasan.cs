@@ -7,7 +7,7 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
-
+using ClassLibraryJurnal;
 using ClassLibraryTransaksi;
 namespace SistemAkuntansi
 {
@@ -19,6 +19,7 @@ namespace SistemAkuntansi
         }
         List<Pelunasan> listHasilData = new List<Pelunasan>();
         List<NotaPenjualan> listHasilData2 = new List<NotaPenjualan>();
+        Periode pPeriode = new Periode();
         private void FormatDataGrid()
         {
             dataGridViewNota.Columns.Clear();
@@ -44,7 +45,7 @@ namespace SistemAkuntansi
         private void buttonSimpan_Click(object sender, EventArgs e)
         {
             FormDaftarPelunasan form = (FormDaftarPelunasan)this.Owner;
-
+            
             NotaPenjualan nota = new NotaPenjualan();
             nota.NoNotaPenjualan = comboBoxNoNotaJual.Text;
             nota.Status = "L";
@@ -61,14 +62,43 @@ namespace SistemAkuntansi
             if (hasilTambahNota == "1") //jika berhasil maka insert jurnal dan detil jurnal
             {
                 MessageBox.Show("Data Pelunasan telah tersimpan", "Info");
-                
-                FormUtama frmUtama = (FormUtama)this.Owner.MdiParent; 
-                form.FormDaftarPelunasan_Load(sender, e);
+                //tambah posting ke jurnal
 
-                dataGridViewNota.Rows.Add(textBoxNoPelunasan.Text, comboBoxNoNotaJual.Text, dateTimePickerTgl.Value, 
-                comboBoxCaraPemb.Text, textBoxNominal.Text);
+                string idJurnal = Jurnal.GenerateIdJurnal();
 
-                this.Close();
+                Transaksi trans = new Transaksi();
+                //transaksi penjualan tunai (id transkasi 008);
+                trans.IdTransaksi = "010";
+                trans.Keterangan = "Pelunasan piutang dari cv abadi";
+
+                //buat object bertipe jurnal
+                Jurnal jurnal = new Jurnal();
+                //tambahkan data
+                jurnal.IdJurnal = int.Parse(idJurnal);
+                jurnal.Tanggal = dateTimePickerTgl.Value;
+
+                jurnal.NomorBukti = comboBoxNoNotaJual.Text;
+                jurnal.Jenis = "JU";
+                jurnal.Periode = pPeriode;
+                jurnal.Transaksi = trans;
+
+                //isi detil jurnalnya
+                int piutang =int.Parse( textBoxNominal.Text); // panggil method hitung total harga untuk mendapatkan totalharga
+
+                jurnal.TambahDetilJurnalPelunasanPiutangTunai(piutang);
+                //simpan ke tabel _jurnal
+                string hasilTambahJurnal = Jurnal.TambahData(jurnal);
+                if (hasilTambahJurnal == "1")
+                {
+                    MessageBox.Show("berhasil posting ke jurnal");
+                    FormUtama frmUtama = (FormUtama)this.Owner.MdiParent;
+                    form.FormDaftarPelunasan_Load(sender, e);
+                    this.Close();
+                }
+                else
+                {
+                    MessageBox.Show("gagal posting ke jurnal" + hasilTambahJurnal);
+                }
             }
             else
             {
@@ -80,6 +110,7 @@ namespace SistemAkuntansi
         {
             FormatDataGrid();
             string noNotaBaru;
+            pPeriode = Periode.GetPeriodeTerbaru();
             comboBoxNoNotaJual.DropDownStyle = ComboBoxStyle.DropDownList;
             comboBoxCaraPemb.DropDownStyle = ComboBoxStyle.DropDownList;
             string hasilGenerate = Pelunasan.GenerateNoNota(out noNotaBaru);
@@ -135,6 +166,11 @@ namespace SistemAkuntansi
             {
                 textBoxNominal.Clear();
             }
+        }
+
+        private void buttonTambahkan_Click(object sender, EventArgs e)
+        {
+
         }
     }
 }

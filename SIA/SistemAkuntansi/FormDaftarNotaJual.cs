@@ -89,8 +89,8 @@ namespace SistemAkuntansi
             dataGridViewNota.Columns["status"].AutoSizeMode = DataGridViewAutoSizeColumnMode.AllCells;
             dataGridViewNota.Columns["keterangan"].AutoSizeMode = DataGridViewAutoSizeColumnMode.AllCells;
 
-            
-
+            dataGridViewNota.Columns["totalHarga"].DefaultCellStyle.Format = "0,###";
+             
 
             dataGridViewNota.AllowUserToAddRows = false;
         }

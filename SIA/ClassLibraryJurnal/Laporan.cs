@@ -114,11 +114,12 @@ namespace ClassLibraryJurnal
                     Laporan laporan = new Laporan();
                     //simpan data  kelompok di idlaporan  
                     laporan.IdLaporan = hasilData.GetValue(0).ToString();
-                    laporan.Judul = hasilData.GetValue(1).ToString();
+                    laporan.Judul = hasilData.GetValue(2).ToString();
+                    
 
                     Periode period = new Periode();
                     //tambahkan kredit pada idperiode ( kredit pada index ke 5)
-                    period.IdPeriode = hasilData.GetValue(2).ToString();
+                    period.IdPeriode = hasilData.GetValue(3).ToString();
 
                     //tambahkan ke list
                     laporan.Periode = period;
@@ -135,45 +136,45 @@ namespace ClassLibraryJurnal
         //Laporan Laba Rugi
         public static int HitungLabaRugi()
         {
-            int totalpend = int.Parse(HitungTotalPendapatan());
-            int totalBiaya = int.Parse(HitungTotalBiaya());
+            int totalpend = HitungTotalPendapatan();
+            int totalBiaya = HitungTotalBiaya();
             int labaRugi = totalpend - totalBiaya;
             return labaRugi;
         }
-        public static string HitungTotalBiaya()
+        public static int HitungTotalBiaya()
         {
-            string totalBiaya = "";
+            int totalBiaya = 0;
             string sql = " SELECT SUM(SaldoAkhir) AS TotalBiaya FROM vsaldoakhir WHERE kelompok = 'B' ";
             try
             {
                 MySqlDataReader hasilData = Koneksi.JalankanPerintahQuery(sql);
                 while (hasilData.Read() == true)
                 {
-                    totalBiaya = hasilData.GetValue(0).ToString();
+                    totalBiaya =int.Parse( hasilData.GetValue(0).ToString());
                 }
                 return totalBiaya;
             }
             catch (MySqlException ex)
             {
-                return ex.Message;
+                return int.Parse(ex.Message);
             }
         }
-        public static string HitungTotalPendapatan()
+        public static int HitungTotalPendapatan()
         {
-            string totalPendapatan = "";
+            int totalPendapatan = 0;
             string sql = " SELECT SUM(SaldoAkhir) AS TotalPendapatan FROM vsaldoakhir WHERE kelompok = 'P' ";
             try
             {
                 MySqlDataReader hasilData = Koneksi.JalankanPerintahQuery(sql);
                 while (hasilData.Read() == true)
                 {
-                    totalPendapatan = hasilData.GetValue(0).ToString();
+                    totalPendapatan = int.Parse(hasilData.GetValue(0).ToString());
                 }
                 return totalPendapatan;
             }
             catch (MySqlException ex)
             {
-                return ex.Message;
+                return int.Parse(ex.Message);
             }
         }
 
@@ -203,11 +204,11 @@ namespace ClassLibraryJurnal
                     //simpan data  kelompok di idlaporan  
                     laporan.IdLaporan = hasilData.GetValue(0).ToString();
                     //simpan nama akun di judul
-                    laporan.Judul = hasilData.GetValue(1).ToString();
+                    laporan.Judul = hasilData.GetValue(2).ToString();
 
                     Periode period = new Periode();
                     //tambahkan saldoakhir pada idperiode ( saldo akhir pada index ke 2)
-                    period.IdPeriode = hasilData.GetValue(2).ToString();
+                    period.IdPeriode = hasilData.GetValue(3).ToString();
 
                     //tambahkan ke list
                     laporan.Periode = period;
@@ -226,25 +227,25 @@ namespace ClassLibraryJurnal
         {
             //hasil query prive (jika ada, di project prive= 0)
             int prive = 0;
-            int ekuitasAkhir = int.Parse(TampilkanModalAwal()) + HitungLabaRugi() - prive;
+            int ekuitasAkhir = TampilkanModalAwal() + HitungLabaRugi() - prive;
             return ekuitasAkhir;
         }
-        public static string TampilkanModalAwal()
+        public static int TampilkanModalAwal()
         {
-            string modalAwal = "";
+            int modalAwal = 0;
             string sql = " SELECT saldoAwal FROM _periodeakun WHERE nomor = '31'";
             try
             {
                 MySqlDataReader hasilData = Koneksi.JalankanPerintahQuery(sql);
                 while (hasilData.Read() == true)
                 {
-                    modalAwal = hasilData.GetValue(0).ToString();
+                    modalAwal =int.Parse( hasilData.GetValue(0).ToString());
                 }
                 return modalAwal;
             }
             catch (MySqlException ex)
             {
-                return ex.Message;
+                return int.Parse(ex.Message);
             }
         }
 
@@ -274,11 +275,11 @@ namespace ClassLibraryJurnal
                     //simpan data  kelompok di idlaporan  
                     laporan.IdLaporan = hasilData.GetValue(0).ToString();
                     //simpan nama akun di judul
-                    laporan.Judul = hasilData.GetValue(1).ToString();
+                    laporan.Judul = hasilData.GetValue(2).ToString();
 
                     Periode period = new Periode();
                     //tambahkan saldoakhir pada idperiode ( saldo akhir pada index ke 2)
-                    period.IdPeriode = hasilData.GetValue(2).ToString();
+                    period.IdPeriode = hasilData.GetValue(3).ToString();
 
                     //tambahkan ke list
                     laporan.Periode = period;
@@ -319,11 +320,11 @@ namespace ClassLibraryJurnal
                     Laporan laporan = new Laporan();
                     //simpan data  kelompok di idlaporan  
                     laporan.IdLaporan = hasilData.GetValue(0).ToString();
-                    laporan.Judul = hasilData.GetValue(1).ToString();
+                    laporan.Judul = hasilData.GetValue(2).ToString();
 
                     Periode period = new Periode();
                     //tambahkan kredit pada idperiode ( kredit pada index ke 5)
-                    period.IdPeriode = hasilData.GetValue(2).ToString();
+                    period.IdPeriode = hasilData.GetValue(3).ToString();
 
                     //tambahkan ke list
                     laporan.Periode = period;
@@ -370,6 +371,24 @@ namespace ClassLibraryJurnal
                 return totalPasiva;
             }
             catch (MySqlException ex)
+            {
+                return int.Parse(ex.Message);
+            }
+        }
+
+        public static int tampilHutang()
+        {
+            int hutang = 0;
+            string sql = "SELECT saldoakhir FROM vsaldoakhir WHERE nama = 'hutang'";
+            try
+            {
+                MySqlDataReader hasilData = Koneksi.JalankanPerintahQuery(sql);
+                while (hasilData.Read() == true)
+                {
+                    hutang = int.Parse(hasilData.GetValue(0).ToString());
+                }
+                return hutang;
+            }catch(MySqlException ex)
             {
                 return int.Parse(ex.Message);
             }

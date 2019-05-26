@@ -42,6 +42,12 @@
             this.label3 = new System.Windows.Forms.Label();
             this.labelTotal = new System.Windows.Forms.Label();
             this.labelPasiva = new System.Windows.Forms.Label();
+            this.labelTotalHutang = new System.Windows.Forms.Label();
+            this.label7 = new System.Windows.Forms.Label();
+            this.label8 = new System.Windows.Forms.Label();
+            this.labelTotalEkuitas = new System.Windows.Forms.Label();
+            this.label9 = new System.Windows.Forms.Label();
+            this.label10 = new System.Windows.Forms.Label();
             ((System.ComponentModel.ISupportInitialize)(this.dataGridViewNeraca)).BeginInit();
             this.panel1.SuspendLayout();
             this.SuspendLayout();
@@ -147,7 +153,7 @@
             // label4
             // 
             this.label4.Font = new System.Drawing.Font("Microsoft Sans Serif", 15.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label4.Location = new System.Drawing.Point(426, 358);
+            this.label4.Location = new System.Drawing.Point(426, 366);
             this.label4.Name = "label4";
             this.label4.Size = new System.Drawing.Size(51, 39);
             this.label4.TabIndex = 71;
@@ -157,7 +163,7 @@
             // label5
             // 
             this.label5.Font = new System.Drawing.Font("Microsoft Sans Serif", 15.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label5.Location = new System.Drawing.Point(254, 357);
+            this.label5.Location = new System.Drawing.Point(254, 365);
             this.label5.Name = "label5";
             this.label5.Size = new System.Drawing.Size(145, 39);
             this.label5.TabIndex = 70;
@@ -167,7 +173,7 @@
             // labelAktiva
             // 
             this.labelAktiva.Font = new System.Drawing.Font("Microsoft Sans Serif", 15.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.labelAktiva.Location = new System.Drawing.Point(450, 358);
+            this.labelAktiva.Location = new System.Drawing.Point(450, 366);
             this.labelAktiva.Name = "labelAktiva";
             this.labelAktiva.Size = new System.Drawing.Size(168, 36);
             this.labelAktiva.TabIndex = 69;
@@ -177,7 +183,7 @@
             // label3
             // 
             this.label3.Font = new System.Drawing.Font("Microsoft Sans Serif", 15.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label3.Location = new System.Drawing.Point(426, 397);
+            this.label3.Location = new System.Drawing.Point(426, 481);
             this.label3.Name = "label3";
             this.label3.Size = new System.Drawing.Size(51, 39);
             this.label3.TabIndex = 68;
@@ -187,7 +193,7 @@
             // labelTotal
             // 
             this.labelTotal.Font = new System.Drawing.Font("Microsoft Sans Serif", 15.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.labelTotal.Location = new System.Drawing.Point(254, 396);
+            this.labelTotal.Location = new System.Drawing.Point(254, 480);
             this.labelTotal.Name = "labelTotal";
             this.labelTotal.Size = new System.Drawing.Size(146, 39);
             this.labelTotal.TabIndex = 67;
@@ -197,21 +203,87 @@
             // labelPasiva
             // 
             this.labelPasiva.Font = new System.Drawing.Font("Microsoft Sans Serif", 15.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.labelPasiva.Location = new System.Drawing.Point(450, 397);
+            this.labelPasiva.Location = new System.Drawing.Point(450, 481);
             this.labelPasiva.Name = "labelPasiva";
             this.labelPasiva.Size = new System.Drawing.Size(168, 36);
             this.labelPasiva.TabIndex = 66;
             this.labelPasiva.Text = "0";
             this.labelPasiva.TextAlign = System.Drawing.ContentAlignment.MiddleRight;
             // 
+            // labelTotalHutang
+            // 
+            this.labelTotalHutang.Font = new System.Drawing.Font("Microsoft Sans Serif", 15.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.labelTotalHutang.Location = new System.Drawing.Point(450, 402);
+            this.labelTotalHutang.Name = "labelTotalHutang";
+            this.labelTotalHutang.Size = new System.Drawing.Size(168, 36);
+            this.labelTotalHutang.TabIndex = 69;
+            this.labelTotalHutang.Text = "0";
+            this.labelTotalHutang.TextAlign = System.Drawing.ContentAlignment.MiddleRight;
+            // 
+            // label7
+            // 
+            this.label7.Font = new System.Drawing.Font("Microsoft Sans Serif", 15.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label7.Location = new System.Drawing.Point(244, 401);
+            this.label7.Name = "label7";
+            this.label7.Size = new System.Drawing.Size(155, 39);
+            this.label7.TabIndex = 70;
+            this.label7.Text = "Total Hutang  :";
+            this.label7.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
+            // 
+            // label8
+            // 
+            this.label8.Font = new System.Drawing.Font("Microsoft Sans Serif", 15.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label8.Location = new System.Drawing.Point(426, 402);
+            this.label8.Name = "label8";
+            this.label8.Size = new System.Drawing.Size(51, 39);
+            this.label8.TabIndex = 71;
+            this.label8.Text = "Rp.";
+            this.label8.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
+            // 
+            // labelTotalEkuitas
+            // 
+            this.labelTotalEkuitas.Font = new System.Drawing.Font("Microsoft Sans Serif", 15.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.labelTotalEkuitas.Location = new System.Drawing.Point(450, 438);
+            this.labelTotalEkuitas.Name = "labelTotalEkuitas";
+            this.labelTotalEkuitas.Size = new System.Drawing.Size(168, 36);
+            this.labelTotalEkuitas.TabIndex = 69;
+            this.labelTotalEkuitas.Text = "0";
+            this.labelTotalEkuitas.TextAlign = System.Drawing.ContentAlignment.MiddleRight;
+            // 
+            // label9
+            // 
+            this.label9.Font = new System.Drawing.Font("Microsoft Sans Serif", 15.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label9.Location = new System.Drawing.Point(240, 437);
+            this.label9.Name = "label9";
+            this.label9.Size = new System.Drawing.Size(159, 39);
+            this.label9.TabIndex = 70;
+            this.label9.Text = "Total Ekuitas  :";
+            this.label9.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
+            // 
+            // label10
+            // 
+            this.label10.Font = new System.Drawing.Font("Microsoft Sans Serif", 15.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label10.Location = new System.Drawing.Point(426, 438);
+            this.label10.Name = "label10";
+            this.label10.Size = new System.Drawing.Size(51, 39);
+            this.label10.TabIndex = 71;
+            this.label10.Text = "Rp.";
+            this.label10.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
+            // 
             // FormLaporanNeraca
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackColor = System.Drawing.Color.SteelBlue;
-            this.ClientSize = new System.Drawing.Size(629, 450);
+            this.ClientSize = new System.Drawing.Size(629, 526);
+            this.Controls.Add(this.label10);
+            this.Controls.Add(this.label8);
             this.Controls.Add(this.label4);
+            this.Controls.Add(this.label9);
+            this.Controls.Add(this.label7);
             this.Controls.Add(this.label5);
+            this.Controls.Add(this.labelTotalEkuitas);
+            this.Controls.Add(this.labelTotalHutang);
             this.Controls.Add(this.labelAktiva);
             this.Controls.Add(this.label3);
             this.Controls.Add(this.labelTotal);
@@ -247,5 +319,11 @@
         private System.Windows.Forms.Label label3;
         private System.Windows.Forms.Label labelTotal;
         private System.Windows.Forms.Label labelPasiva;
+        private System.Windows.Forms.Label labelTotalHutang;
+        private System.Windows.Forms.Label label7;
+        private System.Windows.Forms.Label label8;
+        private System.Windows.Forms.Label labelTotalEkuitas;
+        private System.Windows.Forms.Label label9;
+        private System.Windows.Forms.Label label10;
     }
 }

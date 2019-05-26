@@ -157,6 +157,7 @@
             this.buttonTambahkan.TabIndex = 7;
             this.buttonTambahkan.Text = "TAMBAH";
             this.buttonTambahkan.UseVisualStyleBackColor = false;
+            this.buttonTambahkan.Click += new System.EventHandler(this.buttonTambahkan_Click);
             // 
             // buttonKeluar
             // 

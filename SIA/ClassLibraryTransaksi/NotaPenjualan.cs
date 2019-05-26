@@ -348,7 +348,7 @@ namespace ClassLibraryTransaksi
                     //memperoleh semua data barang nota ditabel detilnotajual
                     MySqlDataReader hasilData2 = Koneksi.JalankanPerintahQuery(sql2);
 
-                    while (hasilData2.Read() == true)
+                    while (hasilData2.Read())
                     {
                         //mendapatkan  kode dan nama barang yang terjual 
                         string kodeBrg = hasilData2.GetValue(0).ToString();

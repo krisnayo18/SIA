@@ -61,6 +61,8 @@ namespace SistemAkuntansi
             dataGridViewEkuitas.Columns["saldoAkhir"].AutoSizeMode = DataGridViewAutoSizeColumnMode.AllCells;
 
 
+            dataGridViewEkuitas.Columns["saldoAkhir"].DefaultCellStyle.Format = "0,###";
+
             dataGridViewEkuitas.AllowUserToAddRows = false;
         }
     }

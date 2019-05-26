@@ -1,6 +1,6 @@
 ﻿namespace SistemAkuntansi
 {
-    partial class FormDaftarPenerimaan
+    partial class FormTutupPeriode
     {
         /// <summary>
         /// Required designer variable.
@@ -69,6 +69,7 @@
             this.buttonKeluar.TabIndex = 28;
             this.buttonKeluar.Text = "KELUAR";
             this.buttonKeluar.UseVisualStyleBackColor = false;
+            this.buttonKeluar.Click += new System.EventHandler(this.buttonKeluar_Click);
             // 
             // dataGridViewPelanggan
             // 
@@ -150,10 +151,10 @@
             this.label1.Name = "label1";
             this.label1.Size = new System.Drawing.Size(607, 32);
             this.label1.TabIndex = 25;
-            this.label1.Text = "DAFTAR PENERIMAAN";
+            this.label1.Text = "FORM TUTUP PERIODE";
             this.label1.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
             // 
-            // FormDaftarPenerimaan
+            // FormTutupPeriode
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
@@ -165,9 +166,9 @@
             this.Controls.Add(this.panel1);
             this.Controls.Add(this.label1);
             this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.None;
-            this.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
-            this.Name = "FormDaftarPenerimaan";
-            this.Text = "FormPenerimaan";
+            this.Margin = new System.Windows.Forms.Padding(2);
+            this.Name = "FormTutupPeriode";
+            this.Load += new System.EventHandler(this.FormTutupPeriode_Load);
             ((System.ComponentModel.ISupportInitialize)(this.dataGridViewPelanggan)).EndInit();
             this.panel1.ResumeLayout(false);
             this.panel1.PerformLayout();
