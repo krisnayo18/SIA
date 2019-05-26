@@ -24,27 +24,27 @@ namespace SistemAkuntansi
         }
         private void textBoxBarang_TextChanged(object sender, EventArgs e)
         {
-            string hasilCari = "";
-            if (comboBoxBarang.Text == "Kode Ekspedisi")
-            {
-                hasilCari = "E.kodeEkspedisi";
-            }
-            else if (comboBoxBarang.Text == "Nama")
-            {
-                hasilCari = "E.nama";
-            }
-            else if (comboBoxBarang.Text == "Alamat")
-            {
-                hasilCari = "E.alamat";
-            }
-            else if (comboBoxBarang.Text == "Nomor Telepon")
-            {
-                hasilCari = "E.noTelp";
-            }
-            else if (comboBoxBarang.Text == "Harga")
-            {
-                hasilCari = "E.harga";
-            }
+            //string hasilCari = "";
+            //if (comboBoxBarang.Text == "Kode Ekspedisi")
+            //{
+            //    hasilCari = "E.kodeEkspedisi";
+            //}
+            //else if (comboBoxBarang.Text == "Nama")
+            //{
+            //    hasilCari = "E.nama";
+            //}
+            //else if (comboBoxBarang.Text == "Alamat")
+            //{
+            //    hasilCari = "E.alamat";
+            //}
+            //else if (comboBoxBarang.Text == "Nomor Telepon")
+            //{
+            //    hasilCari = "E.noTelp";
+            //}
+            //else if (comboBoxBarang.Text == "Harga")
+            //{
+            //    hasilCari = "E.harga";
+            //}
         }
         private void FormatDataGrid()
         {

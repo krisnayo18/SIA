@@ -40,31 +40,31 @@ namespace SistemAkuntansi
 
         private void textBoxPegawai_TextChanged(object sender, EventArgs e)
         {
-            string hasilCari = "";
-            if (comboBoxPegawai.Text == "ID Karyawan")
-            {
-                hasilCari = "P.idkaryawan";
-            }
-            else if (comboBoxPegawai.Text == "Nama Karyawan")
-            {
-                hasilCari = "P.nama";
-            }
-            else if (comboBoxPegawai.Text == "Jenis Kelamin")
-            {
-                hasilCari = "P.gender";
-            }
-            else if (comboBoxPegawai.Text == "Alamat")
-            {
-                hasilCari = "P.alamat";
-            }
-            else if (comboBoxPegawai.Text == "Gaji")
-            {
-                hasilCari = "P.gaji";
-            }
-            else if (comboBoxPegawai.Text == "Nomor Telepon")
-            {
-                hasilCari = "P.noTelepon";
-            }
+            //string hasilCari = "";
+            //if (comboBoxPegawai.Text == "ID Karyawan")
+            //{
+            //    hasilCari = "P.idkaryawan";
+            //}
+            //else if (comboBoxPegawai.Text == "Nama Karyawan")
+            //{
+            //    hasilCari = "P.nama";
+            //}
+            //else if (comboBoxPegawai.Text == "Jenis Kelamin")
+            //{
+            //    hasilCari = "P.gender";
+            //}
+            //else if (comboBoxPegawai.Text == "Alamat")
+            //{
+            //    hasilCari = "P.alamat";
+            //}
+            //else if (comboBoxPegawai.Text == "Gaji")
+            //{
+            //    hasilCari = "P.gaji";
+            //}
+            //else if (comboBoxPegawai.Text == "Nomor Telepon")
+            //{
+            //    hasilCari = "P.noTelepon";
+            //}
 
            
         }

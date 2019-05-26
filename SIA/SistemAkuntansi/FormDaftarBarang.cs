@@ -81,35 +81,35 @@ namespace SistemAkuntansi
 
         private void textBoxBarang_TextChanged(object sender, EventArgs e)
         {
-            string hasilCari = "";
-            if (comboBoxBarang.Text == "Kode Barang")
-            {
-                hasilCari = "B.kodeBarang";
-            }
-            else if (comboBoxBarang.Text == "Nama Barang")
-            {
-                hasilCari = "B.nama";
-            }
-            else if (comboBoxBarang.Text == "Harga Beli")
-            {
-                hasilCari = "B.hargaBeliTerbaru";
-            }
-            else if (comboBoxBarang.Text == "Harga Jual")
-            {
-                hasilCari = "B.hargaJual";
-            }
-            else if (comboBoxBarang.Text == "Jenis")
-            {
-                hasilCari = "B.jenis";
-            }
-            else if (comboBoxBarang.Text == "Kuantitas")
-            {
-                hasilCari = "B.quantity";
-            }
-            else if (comboBoxBarang.Text == "Satuan")
-            {
-                hasilCari = "B.satuan";
-            }
+            //string hasilCari = "";
+            //if (comboBoxBarang.Text == "Kode Barang")
+            //{
+            //    hasilCari = "B.kodeBarang";
+            //}
+            //else if (comboBoxBarang.Text == "Nama Barang")
+            //{
+            //    hasilCari = "B.nama";
+            //}
+            //else if (comboBoxBarang.Text == "Harga Beli")
+            //{
+            //    hasilCari = "B.hargaBeliTerbaru";
+            //}
+            //else if (comboBoxBarang.Text == "Harga Jual")
+            //{
+            //    hasilCari = "B.hargaJual";
+            //}
+            //else if (comboBoxBarang.Text == "Jenis")
+            //{
+            //    hasilCari = "B.jenis";
+            //}
+            //else if (comboBoxBarang.Text == "Kuantitas")
+            //{
+            //    hasilCari = "B.quantity";
+            //}
+            //else if (comboBoxBarang.Text == "Satuan")
+            //{
+            //    hasilCari = "B.satuan";
+            //}
 
             //string hasilBaca = Barang.BacaData(hasilCari, textBoxBarang.Text, listHasilData);
 
