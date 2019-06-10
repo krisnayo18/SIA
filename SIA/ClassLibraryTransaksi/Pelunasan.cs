@@ -96,7 +96,7 @@ namespace ClassLibraryTransaksi
                 return notaPenjualan;
             }
 
-            set
+          private  set
             {
                 notaPenjualan = value;
             }
@@ -221,6 +221,8 @@ namespace ClassLibraryTransaksi
             }
 
         }
+
+
         #endregion
     }
 }

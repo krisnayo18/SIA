@@ -65,6 +65,7 @@ namespace SistemAkuntansi
 
         private void FormTambahNotaJual_Load(object sender, EventArgs e)
         {
+            comboBoxStatus.Items.AddRange(new string[] { "L", "P"});
             this.Location = new Point(500, 26);
             FormatDataGrid();
             pPeriode = Periode.GetPeriodeTerbaru();
@@ -173,6 +174,7 @@ namespace SistemAkuntansi
                 labelSatuan.Text = "";
                 labelJenis.Text = "";
                 textBoxJumlah.Clear();
+                textBoxKode.Focus();
             }
         }
 

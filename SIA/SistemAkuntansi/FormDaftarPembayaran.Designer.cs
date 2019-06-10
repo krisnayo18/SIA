@@ -69,6 +69,7 @@
             this.buttonKeluar.TabIndex = 21;
             this.buttonKeluar.Text = "KELUAR";
             this.buttonKeluar.UseVisualStyleBackColor = false;
+            this.buttonKeluar.Click += new System.EventHandler(this.buttonKeluar_Click);
             // 
             // dataGridViewPelanggan
             // 
@@ -164,9 +165,10 @@
             this.Controls.Add(this.panel1);
             this.Controls.Add(this.label1);
             this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.None;
-            this.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.Margin = new System.Windows.Forms.Padding(2);
             this.Name = "FormDaftarPembayaran";
             this.Text = "FormPembayaran";
+            this.Load += new System.EventHandler(this.FormDaftarPembayaran_Load);
             ((System.ComponentModel.ISupportInitialize)(this.dataGridViewPelanggan)).EndInit();
             this.panel1.ResumeLayout(false);
             this.panel1.PerformLayout();

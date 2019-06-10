@@ -257,6 +257,23 @@ namespace ClassLibraryTransaksi
                 return e.Message;
             }
         }
+        //untuk nota pembelian merubah harga beli terbaru
+        public static string UbahHargaBeliTerbaru(string pKodeBarang, int pHargaBeli)
+        {
+            //perintah sql = untuk merubah harga beli terbaru
+            string sql = "UPDATE barang SET hargabeliterbaru = "+ pHargaBeli + "  WHERE kodeBarang='" + pKodeBarang + "'";
+
+            try
+            {
+                Koneksi.JalankanPerintahDML(sql);
+
+                return "1";
+            }
+            catch (Exception e)
+            {
+                return e.Message;
+            }
+        }
 
         public static string UbahStokTerjual(string pKodeBarang, int pJumlahTerjual)
         {

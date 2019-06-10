@@ -42,8 +42,6 @@
             this.buttonLabaRugi = new System.Windows.Forms.Button();
             this.buttonBukuBesar = new System.Windows.Forms.Button();
             this.label1 = new System.Windows.Forms.Label();
-            this.panelProfil = new System.Windows.Forms.Panel();
-            this.pictureBox1 = new System.Windows.Forms.PictureBox();
             this.panelMaster = new System.Windows.Forms.Panel();
             this.buttonAkun = new System.Windows.Forms.Button();
             this.buttonKaryawan = new System.Windows.Forms.Button();
@@ -53,17 +51,18 @@
             this.buttonBarang = new System.Windows.Forms.Button();
             this.labelMaster = new System.Windows.Forms.Label();
             this.panelTransaksi = new System.Windows.Forms.Panel();
+            this.buttonTutupPeriode = new System.Windows.Forms.Button();
             this.buttonJurnal = new System.Windows.Forms.Button();
             this.buttonPelunasan = new System.Windows.Forms.Button();
             this.labelTransaksi = new System.Windows.Forms.Label();
             this.buttonPenjualan = new System.Windows.Forms.Button();
             this.buttonPembelian = new System.Windows.Forms.Button();
-            this.buttonTutupPeriode = new System.Windows.Forms.Button();
+            this.label2 = new System.Windows.Forms.Label();
+            this.label3 = new System.Windows.Forms.Label();
+            this.buttonPembayaran = new System.Windows.Forms.Button();
             this.menuStrip1.SuspendLayout();
             this.panelMenu.SuspendLayout();
             this.panel1.SuspendLayout();
-            this.panelProfil.SuspendLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).BeginInit();
             this.panelMaster.SuspendLayout();
             this.panelTransaksi.SuspendLayout();
             this.SuspendLayout();
@@ -92,59 +91,59 @@
             // logOutToolStripMenuItem
             // 
             this.logOutToolStripMenuItem.Name = "logOutToolStripMenuItem";
-            this.logOutToolStripMenuItem.Size = new System.Drawing.Size(145, 22);
+            this.logOutToolStripMenuItem.Size = new System.Drawing.Size(152, 22);
             this.logOutToolStripMenuItem.Text = "Log Out";
             this.logOutToolStripMenuItem.Click += new System.EventHandler(this.logOutToolStripMenuItem_Click);
             // 
             // keluarSistemToolStripMenuItem1
             // 
             this.keluarSistemToolStripMenuItem1.Name = "keluarSistemToolStripMenuItem1";
-            this.keluarSistemToolStripMenuItem1.Size = new System.Drawing.Size(145, 22);
+            this.keluarSistemToolStripMenuItem1.Size = new System.Drawing.Size(152, 22);
             this.keluarSistemToolStripMenuItem1.Text = "Keluar Sistem";
             this.keluarSistemToolStripMenuItem1.Click += new System.EventHandler(this.keluarSistemToolStripMenuItem1_Click);
             // 
             // labelKodePgw
             // 
-            this.labelKodePgw.BackColor = System.Drawing.Color.Transparent;
-            this.labelKodePgw.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.labelKodePgw.Location = new System.Drawing.Point(80, 174);
+            this.labelKodePgw.BackColor = System.Drawing.Color.LightSteelBlue;
+            this.labelKodePgw.Font = new System.Drawing.Font("Microsoft Sans Serif", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.labelKodePgw.Location = new System.Drawing.Point(134, 4);
             this.labelKodePgw.Name = "labelKodePgw";
             this.labelKodePgw.RightToLeft = System.Windows.Forms.RightToLeft.No;
-            this.labelKodePgw.Size = new System.Drawing.Size(75, 20);
+            this.labelKodePgw.Size = new System.Drawing.Size(51, 17);
             this.labelKodePgw.TabIndex = 2;
-            this.labelKodePgw.Text = "   Kode";
+            this.labelKodePgw.Text = "KODE";
             this.labelKodePgw.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
             // 
             // labelNamaPgw
             // 
-            this.labelNamaPgw.BackColor = System.Drawing.Color.Transparent;
+            this.labelNamaPgw.BackColor = System.Drawing.Color.LightSteelBlue;
             this.labelNamaPgw.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.labelNamaPgw.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.labelNamaPgw.Location = new System.Drawing.Point(76, 194);
+            this.labelNamaPgw.Font = new System.Drawing.Font("Microsoft Sans Serif", 9F);
+            this.labelNamaPgw.Location = new System.Drawing.Point(4, 4);
             this.labelNamaPgw.Name = "labelNamaPgw";
-            this.labelNamaPgw.Size = new System.Drawing.Size(94, 20);
+            this.labelNamaPgw.Size = new System.Drawing.Size(101, 17);
             this.labelNamaPgw.TabIndex = 4;
             this.labelNamaPgw.Text = " GUEST";
             this.labelNamaPgw.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
             // 
             // labelJabatan
             // 
-            this.labelJabatan.BackColor = System.Drawing.Color.Transparent;
-            this.labelJabatan.Font = new System.Drawing.Font("Microsoft Sans Serif", 14.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.labelJabatan.Location = new System.Drawing.Point(72, 214);
+            this.labelJabatan.BackColor = System.Drawing.Color.LightSteelBlue;
+            this.labelJabatan.Font = new System.Drawing.Font("Microsoft Sans Serif", 9F);
+            this.labelJabatan.Location = new System.Drawing.Point(214, 2);
             this.labelJabatan.Name = "labelJabatan";
-            this.labelJabatan.Size = new System.Drawing.Size(98, 24);
+            this.labelJabatan.Size = new System.Drawing.Size(58, 19);
             this.labelJabatan.TabIndex = 5;
-            this.labelJabatan.Text = " Jabatan";
+            this.labelJabatan.Text = "JABATAN";
             this.labelJabatan.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
             // 
             // panelMenu
             // 
             this.panelMenu.BackColor = System.Drawing.Color.Gray;
             this.panelMenu.Controls.Add(this.panel1);
-            this.panelMenu.Controls.Add(this.panelProfil);
             this.panelMenu.Controls.Add(this.panelMaster);
             this.panelMenu.Controls.Add(this.panelTransaksi);
+            this.panelMenu.Controls.Add(this.labelMaster);
             this.panelMenu.Dock = System.Windows.Forms.DockStyle.Left;
             this.panelMenu.Location = new System.Drawing.Point(0, 24);
             this.panelMenu.Name = "panelMenu";
@@ -155,13 +154,15 @@
             // 
             this.panel1.BackColor = System.Drawing.Color.Transparent;
             this.panel1.Controls.Add(this.buttonNeraca);
+            this.panel1.Controls.Add(this.buttonTutupPeriode);
             this.panel1.Controls.Add(this.buttonPerubahanEkuitas);
+            this.panel1.Controls.Add(this.buttonJurnal);
             this.panel1.Controls.Add(this.buttonLabaRugi);
             this.panel1.Controls.Add(this.buttonBukuBesar);
             this.panel1.Controls.Add(this.label1);
-            this.panel1.Location = new System.Drawing.Point(0, 548);
+            this.panel1.Location = new System.Drawing.Point(0, 408);
             this.panel1.Name = "panel1";
-            this.panel1.Size = new System.Drawing.Size(250, 197);
+            this.panel1.Size = new System.Drawing.Size(250, 293);
             this.panel1.TabIndex = 10;
             // 
             // buttonNeraca
@@ -170,7 +171,7 @@
             this.buttonNeraca.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.buttonNeraca.Font = new System.Drawing.Font("Century Gothic", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.buttonNeraca.ForeColor = System.Drawing.Color.White;
-            this.buttonNeraca.Location = new System.Drawing.Point(60, 153);
+            this.buttonNeraca.Location = new System.Drawing.Point(60, 222);
             this.buttonNeraca.Name = "buttonNeraca";
             this.buttonNeraca.Size = new System.Drawing.Size(123, 30);
             this.buttonNeraca.TabIndex = 8;
@@ -185,7 +186,7 @@
             this.buttonPerubahanEkuitas.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.buttonPerubahanEkuitas.Font = new System.Drawing.Font("Century Gothic", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.buttonPerubahanEkuitas.ForeColor = System.Drawing.Color.White;
-            this.buttonPerubahanEkuitas.Location = new System.Drawing.Point(60, 117);
+            this.buttonPerubahanEkuitas.Location = new System.Drawing.Point(60, 186);
             this.buttonPerubahanEkuitas.Name = "buttonPerubahanEkuitas";
             this.buttonPerubahanEkuitas.Size = new System.Drawing.Size(169, 30);
             this.buttonPerubahanEkuitas.TabIndex = 7;
@@ -200,7 +201,7 @@
             this.buttonLabaRugi.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.buttonLabaRugi.Font = new System.Drawing.Font("Century Gothic", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.buttonLabaRugi.ForeColor = System.Drawing.Color.White;
-            this.buttonLabaRugi.Location = new System.Drawing.Point(60, 81);
+            this.buttonLabaRugi.Location = new System.Drawing.Point(60, 150);
             this.buttonLabaRugi.Name = "buttonLabaRugi";
             this.buttonLabaRugi.Size = new System.Drawing.Size(123, 30);
             this.buttonLabaRugi.TabIndex = 6;
@@ -215,7 +216,7 @@
             this.buttonBukuBesar.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.buttonBukuBesar.Font = new System.Drawing.Font("Century Gothic", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.buttonBukuBesar.ForeColor = System.Drawing.Color.White;
-            this.buttonBukuBesar.Location = new System.Drawing.Point(60, 45);
+            this.buttonBukuBesar.Location = new System.Drawing.Point(60, 114);
             this.buttonBukuBesar.Name = "buttonBukuBesar";
             this.buttonBukuBesar.Size = new System.Drawing.Size(123, 30);
             this.buttonBukuBesar.TabIndex = 5;
@@ -235,28 +236,6 @@
             this.label1.Text = "Laporan";
             this.label1.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
             // 
-            // panelProfil
-            // 
-            this.panelProfil.BackColor = System.Drawing.Color.Gray;
-            this.panelProfil.Controls.Add(this.labelKodePgw);
-            this.panelProfil.Controls.Add(this.pictureBox1);
-            this.panelProfil.Controls.Add(this.labelJabatan);
-            this.panelProfil.Controls.Add(this.labelNamaPgw);
-            this.panelProfil.Location = new System.Drawing.Point(0, 1);
-            this.panelProfil.Name = "panelProfil";
-            this.panelProfil.Size = new System.Drawing.Size(249, 245);
-            this.panelProfil.TabIndex = 10;
-            // 
-            // pictureBox1
-            // 
-            this.pictureBox1.BackgroundImage = global::SIA.Properties.Resources.profil;
-            this.pictureBox1.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Zoom;
-            this.pictureBox1.Location = new System.Drawing.Point(41, 6);
-            this.pictureBox1.Name = "pictureBox1";
-            this.pictureBox1.Size = new System.Drawing.Size(168, 163);
-            this.pictureBox1.TabIndex = 0;
-            this.pictureBox1.TabStop = false;
-            // 
             // panelMaster
             // 
             this.panelMaster.BackColor = System.Drawing.Color.Transparent;
@@ -266,10 +245,9 @@
             this.panelMaster.Controls.Add(this.buttonPelanggan);
             this.panelMaster.Controls.Add(this.buttonEkspedisi);
             this.panelMaster.Controls.Add(this.buttonBarang);
-            this.panelMaster.Controls.Add(this.labelMaster);
-            this.panelMaster.Location = new System.Drawing.Point(1, 269);
+            this.panelMaster.Location = new System.Drawing.Point(1, 29);
             this.panelMaster.Name = "panelMaster";
-            this.panelMaster.Size = new System.Drawing.Size(250, 29);
+            this.panelMaster.Size = new System.Drawing.Size(250, 33);
             this.panelMaster.TabIndex = 7;
             // 
             // buttonAkun
@@ -366,7 +344,7 @@
             this.labelMaster.BackColor = System.Drawing.Color.Transparent;
             this.labelMaster.Font = new System.Drawing.Font("Century Gothic", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.labelMaster.ForeColor = System.Drawing.Color.White;
-            this.labelMaster.Location = new System.Drawing.Point(2, 0);
+            this.labelMaster.Location = new System.Drawing.Point(3, 10);
             this.labelMaster.Name = "labelMaster";
             this.labelMaster.Size = new System.Drawing.Size(243, 29);
             this.labelMaster.TabIndex = 2;
@@ -376,16 +354,30 @@
             // panelTransaksi
             // 
             this.panelTransaksi.BackColor = System.Drawing.Color.Transparent;
-            this.panelTransaksi.Controls.Add(this.buttonTutupPeriode);
-            this.panelTransaksi.Controls.Add(this.buttonJurnal);
+            this.panelTransaksi.Controls.Add(this.buttonPembayaran);
             this.panelTransaksi.Controls.Add(this.buttonPelunasan);
             this.panelTransaksi.Controls.Add(this.labelTransaksi);
             this.panelTransaksi.Controls.Add(this.buttonPenjualan);
             this.panelTransaksi.Controls.Add(this.buttonPembelian);
-            this.panelTransaksi.Location = new System.Drawing.Point(1, 313);
+            this.panelTransaksi.Location = new System.Drawing.Point(1, 68);
             this.panelTransaksi.Name = "panelTransaksi";
-            this.panelTransaksi.Size = new System.Drawing.Size(250, 229);
+            this.panelTransaksi.Size = new System.Drawing.Size(250, 334);
             this.panelTransaksi.TabIndex = 9;
+            // 
+            // buttonTutupPeriode
+            // 
+            this.buttonTutupPeriode.FlatAppearance.BorderSize = 0;
+            this.buttonTutupPeriode.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.buttonTutupPeriode.Font = new System.Drawing.Font("Century Gothic", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.buttonTutupPeriode.ForeColor = System.Drawing.Color.White;
+            this.buttonTutupPeriode.Location = new System.Drawing.Point(60, 78);
+            this.buttonTutupPeriode.Name = "buttonTutupPeriode";
+            this.buttonTutupPeriode.Size = new System.Drawing.Size(149, 30);
+            this.buttonTutupPeriode.TabIndex = 4;
+            this.buttonTutupPeriode.Text = "Tutup Periode";
+            this.buttonTutupPeriode.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
+            this.buttonTutupPeriode.UseVisualStyleBackColor = true;
+            this.buttonTutupPeriode.Click += new System.EventHandler(this.buttonTutupPeriode_Click);
             // 
             // buttonJurnal
             // 
@@ -393,7 +385,7 @@
             this.buttonJurnal.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.buttonJurnal.Font = new System.Drawing.Font("Century Gothic", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.buttonJurnal.ForeColor = System.Drawing.Color.White;
-            this.buttonJurnal.Location = new System.Drawing.Point(59, 150);
+            this.buttonJurnal.Location = new System.Drawing.Point(60, 42);
             this.buttonJurnal.Name = "buttonJurnal";
             this.buttonJurnal.Size = new System.Drawing.Size(95, 30);
             this.buttonJurnal.TabIndex = 4;
@@ -408,7 +400,7 @@
             this.buttonPelunasan.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.buttonPelunasan.Font = new System.Drawing.Font("Century Gothic", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.buttonPelunasan.ForeColor = System.Drawing.Color.White;
-            this.buttonPelunasan.Location = new System.Drawing.Point(59, 114);
+            this.buttonPelunasan.Location = new System.Drawing.Point(59, 74);
             this.buttonPelunasan.Name = "buttonPelunasan";
             this.buttonPelunasan.Size = new System.Drawing.Size(95, 30);
             this.buttonPelunasan.TabIndex = 3;
@@ -450,7 +442,7 @@
             this.buttonPembelian.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.buttonPembelian.Font = new System.Drawing.Font("Century Gothic", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.buttonPembelian.ForeColor = System.Drawing.Color.White;
-            this.buttonPembelian.Location = new System.Drawing.Point(59, 78);
+            this.buttonPembelian.Location = new System.Drawing.Point(59, 110);
             this.buttonPembelian.Name = "buttonPembelian";
             this.buttonPembelian.Size = new System.Drawing.Size(95, 30);
             this.buttonPembelian.TabIndex = 0;
@@ -459,20 +451,42 @@
             this.buttonPembelian.UseVisualStyleBackColor = true;
             this.buttonPembelian.Click += new System.EventHandler(this.buttonPembelian_Click);
             // 
-            // buttonTutupPeriode
+            // label2
             // 
-            this.buttonTutupPeriode.FlatAppearance.BorderSize = 0;
-            this.buttonTutupPeriode.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.buttonTutupPeriode.Font = new System.Drawing.Font("Century Gothic", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.buttonTutupPeriode.ForeColor = System.Drawing.Color.White;
-            this.buttonTutupPeriode.Location = new System.Drawing.Point(59, 186);
-            this.buttonTutupPeriode.Name = "buttonTutupPeriode";
-            this.buttonTutupPeriode.Size = new System.Drawing.Size(149, 30);
-            this.buttonTutupPeriode.TabIndex = 4;
-            this.buttonTutupPeriode.Text = "Tutup Periode";
-            this.buttonTutupPeriode.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
-            this.buttonTutupPeriode.UseVisualStyleBackColor = true;
-            this.buttonTutupPeriode.Click += new System.EventHandler(this.buttonTutupPeriode_Click);
+            this.label2.AutoSize = true;
+            this.label2.BackColor = System.Drawing.Color.LightSteelBlue;
+            this.label2.Font = new System.Drawing.Font("Microsoft Sans Serif", 14.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label2.Location = new System.Drawing.Point(111, 0);
+            this.label2.Name = "label2";
+            this.label2.Size = new System.Drawing.Size(17, 24);
+            this.label2.TabIndex = 7;
+            this.label2.Text = "-";
+            // 
+            // label3
+            // 
+            this.label3.AutoSize = true;
+            this.label3.BackColor = System.Drawing.Color.LightSteelBlue;
+            this.label3.Font = new System.Drawing.Font("Microsoft Sans Serif", 14.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label3.Location = new System.Drawing.Point(191, -1);
+            this.label3.Name = "label3";
+            this.label3.Size = new System.Drawing.Size(17, 24);
+            this.label3.TabIndex = 8;
+            this.label3.Text = "-";
+            // 
+            // buttonPembayaran
+            // 
+            this.buttonPembayaran.FlatAppearance.BorderSize = 0;
+            this.buttonPembayaran.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.buttonPembayaran.Font = new System.Drawing.Font("Century Gothic", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.buttonPembayaran.ForeColor = System.Drawing.Color.White;
+            this.buttonPembayaran.Location = new System.Drawing.Point(59, 146);
+            this.buttonPembayaran.Name = "buttonPembayaran";
+            this.buttonPembayaran.Size = new System.Drawing.Size(123, 30);
+            this.buttonPembayaran.TabIndex = 5;
+            this.buttonPembayaran.Text = "Pembayaran";
+            this.buttonPembayaran.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
+            this.buttonPembayaran.UseVisualStyleBackColor = true;
+            this.buttonPembayaran.Click += new System.EventHandler(this.buttonPembayaran_Click);
             // 
             // FormUtama
             // 
@@ -480,6 +494,11 @@
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackColor = System.Drawing.Color.White;
             this.ClientSize = new System.Drawing.Size(854, 772);
+            this.Controls.Add(this.labelJabatan);
+            this.Controls.Add(this.label3);
+            this.Controls.Add(this.label2);
+            this.Controls.Add(this.labelNamaPgw);
+            this.Controls.Add(this.labelKodePgw);
             this.Controls.Add(this.panelMenu);
             this.Controls.Add(this.menuStrip1);
             this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.None;
@@ -491,8 +510,6 @@
             this.menuStrip1.PerformLayout();
             this.panelMenu.ResumeLayout(false);
             this.panel1.ResumeLayout(false);
-            this.panelProfil.ResumeLayout(false);
-            ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).EndInit();
             this.panelMaster.ResumeLayout(false);
             this.panelTransaksi.ResumeLayout(false);
             this.ResumeLayout(false);
@@ -522,8 +539,6 @@
         private System.Windows.Forms.Panel panelTransaksi;
         private System.Windows.Forms.ToolStripMenuItem logOutToolStripMenuItem;
         private System.Windows.Forms.ToolStripMenuItem keluarSistemToolStripMenuItem1;
-        private System.Windows.Forms.Panel panelProfil;
-        private System.Windows.Forms.PictureBox pictureBox1;
         private System.Windows.Forms.Button buttonPelunasan;
         private System.Windows.Forms.Button buttonJurnal;
         private System.Windows.Forms.Button buttonBukuBesar;
@@ -533,5 +548,8 @@
         private System.Windows.Forms.Button buttonLabaRugi;
         private System.Windows.Forms.Label label1;
         private System.Windows.Forms.Button buttonTutupPeriode;
+        private System.Windows.Forms.Label label2;
+        private System.Windows.Forms.Label label3;
+        private System.Windows.Forms.Button buttonPembayaran;
     }
 }

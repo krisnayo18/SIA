@@ -146,10 +146,5 @@ namespace SistemAkuntansi
                 textBoxNominal.Clear();
             }
         }
-
-        private void buttonTambahkan_Click(object sender, EventArgs e)
-        {
-
-        }
     }
 }

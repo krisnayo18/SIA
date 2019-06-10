@@ -165,9 +165,6 @@
             // comboBoxStatus
             // 
             this.comboBoxStatus.FormattingEnabled = true;
-            this.comboBoxStatus.Items.AddRange(new object[] {
-            "L",
-            "P"});
             this.comboBoxStatus.Location = new System.Drawing.Point(386, 147);
             this.comboBoxStatus.Name = "comboBoxStatus";
             this.comboBoxStatus.Size = new System.Drawing.Size(145, 21);

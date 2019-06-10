@@ -226,19 +226,37 @@ namespace ClassLibraryJurnal
         //untuk  membeli bahan baku secara kredit T0001 dan T0002
         public void TambahDetilJurnalPembelianBarangKredit(int pGrandTotal)
         {
+            //akun untuk sediaan bertambah
             Akun akun1 = new Akun();
             akun1.NomorAkun = "13";
             DetilJurnal detil1 = new DetilJurnal(akun1, 1, pGrandTotal, 0);
 
             ListDetilJurnal.Add(detil1);
 
+            //akun untuk hutang bertambah 
             Akun akun2 = new Akun();
             akun2.NomorAkun = "21";
             DetilJurnal detil2 = new DetilJurnal(akun2, 2, 0, pGrandTotal);
 
             ListDetilJurnal.Add(detil2);
         }
+        //untuk pembelian secara tunai
+        public void TambahDetilJurnalPembelianBarangTunai(int pGrandTotal)
+        {
+            //akun untuk sediaan bertambah              
+            Akun akun1 = new Akun();
+            akun1.NomorAkun = "13";
+            DetilJurnal detil1 = new DetilJurnal(akun1, 1, pGrandTotal, 0);
 
+            ListDetilJurnal.Add(detil1);
+
+            //akun untuk kas berkurang     
+            Akun akun2 = new Akun();
+            akun2.NomorAkun = "11";
+            DetilJurnal detil2 = new DetilJurnal(akun2, 2, 0, pGrandTotal);
+
+            ListDetilJurnal.Add(detil2);
+        }
         //untuk  menerima bahan baku dari gudang T0004
         public void TambahDetilJurnalMenerimaBahanBaku(int pGrandTotal)
         {

@@ -13,6 +13,20 @@ namespace ClassLibraryTransaksi
         private int jumlah, hargaBeli;
         #endregion
 
+        #region Contructor
+        public DetilNotaBeli()
+        {
+            Jumlah = 0;
+            HargaBeli = 0;
+        }
+        public DetilNotaBeli(Barang barang, int jumlah, int hargaBeli)
+        {
+            this.barang = barang;
+            this.jumlah = jumlah;
+            this.hargaBeli = hargaBeli;
+        }
+        #endregion
+
         #region Properties
         public Barang Barang
         {

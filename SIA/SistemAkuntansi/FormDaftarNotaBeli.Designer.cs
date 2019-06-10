@@ -121,18 +121,11 @@
             this.comboBoxCari.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
             this.comboBoxCari.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.comboBoxCari.FormattingEnabled = true;
-            this.comboBoxCari.Items.AddRange(new object[] {
-            "No. Nota",
-            "Tanggal",
-            "Kode Supplier",
-            "Nama Supplier",
-            "Alamat Supplier",
-            "Kode Pegawai",
-            "Nama Pegawai"});
             this.comboBoxCari.Location = new System.Drawing.Point(115, 8);
             this.comboBoxCari.Name = "comboBoxCari";
             this.comboBoxCari.Size = new System.Drawing.Size(192, 21);
             this.comboBoxCari.TabIndex = 19;
+            this.comboBoxCari.TextChanged += new System.EventHandler(this.comboBoxCari_TextChanged);
             // 
             // label2
             // 

@@ -7,6 +7,7 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
+using ClassLibraryTransaksi;
 
 namespace SistemAkuntansi
 {
@@ -19,9 +20,19 @@ namespace SistemAkuntansi
 
         private void buttonTambah_Click(object sender, EventArgs e)
         {
-            /*FormTambahDaftarPembayaran frmTambah = new FormTambahDaftarPembayaran();
+            FormTambahPembayaran frmTambah = new FormTambahPembayaran();
             frmTambah.Owner = this;
-            frmTambah.ShowDialog();*/
+            frmTambah.ShowDialog();
+        }
+
+        private void FormDaftarPembayaran_Load(object sender, EventArgs e)
+        {
+
+        }
+
+        private void buttonKeluar_Click(object sender, EventArgs e)
+        {
+            this.Close();
         }
     }
 }

@@ -7,7 +7,7 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
-
+using ClassLibraryTransaksi;
 
 namespace SistemAkuntansi
 {
@@ -18,6 +18,8 @@ namespace SistemAkuntansi
             InitializeComponent();
         }
 
+        List<NotaPembelian> listHasilData = new List<NotaPembelian>();
+        string kriteria = "";
         private void buttonKeluar_Click(object sender, EventArgs e)
         {
             this.Close();
@@ -25,8 +27,28 @@ namespace SistemAkuntansi
 
         public void FormDaftarNotaBeli_Load(object sender, EventArgs e)
         {
-            
-             
+            comboBoxCari.Items.AddRange(new string[] { "No.Nota","Tanggal","Kode Supplier","Nama Supplier","Alamat Supplier","Diskon","Total Harga","Batas Pelunasan",
+                                                       "Batas Diskon","Tanggal Pembelian","Keterangan","Status" });
+
+            this.Location = new Point(0, 0);
+            comboBoxCari.DropDownStyle = ComboBoxStyle.DropDownList;
+
+            FormatDataGrid();
+
+            string hasilBaca = NotaPembelian.BacaData("", "", listHasilData);
+
+            if (hasilBaca == "1")
+            {
+                dataGridViewNota.Rows.Clear();
+
+                for (int i = 0; i < listHasilData.Count; i++)
+                {
+                    dataGridViewNota.Rows.Add(listHasilData[i].NoNotaPembelian, listHasilData[i].Supplier.IdSupplier,
+                        listHasilData[i].Supplier.Nama, listHasilData[i].Supplier.Alamat, listHasilData[i].Diskon,
+                        listHasilData[i].TotalHarga, listHasilData[i].TglBatasPelunasan, listHasilData[i].TglBatasDiskon,
+                        listHasilData[i].TglBeli, listHasilData[i].Status, listHasilData[i].Keterangan);
+                }
+            }
         }
 
         private void buttonTambah_Click(object sender, EventArgs e)
@@ -39,7 +61,10 @@ namespace SistemAkuntansi
         {
             dataGridViewNota.Columns.Clear();
 
-            dataGridViewNota.Columns.Add("idNotaPembelian", "No Nota");
+            dataGridViewNota.Columns.Add("noNotaPembelian", "No Nota");
+            dataGridViewNota.Columns.Add("idSupplier", "No Supplier");
+            dataGridViewNota.Columns.Add("NamaSupplier", "Nama Supplier");
+            dataGridViewNota.Columns.Add("AlamatSupplier", "Alamat Supplier");
             dataGridViewNota.Columns.Add("diskon", "Diskon");
             dataGridViewNota.Columns.Add("totalHarga", "Total Harga");
             dataGridViewNota.Columns.Add("tglBatasPelunasan", "Batas Pelunasan");
@@ -48,9 +73,12 @@ namespace SistemAkuntansi
             dataGridViewNota.Columns.Add("status", "Status");
             dataGridViewNota.Columns.Add("keterangan", "Keterangan");
 
-            dataGridViewNota.Columns.Add("idSupplier", "No Supplier");
 
-            dataGridViewNota.Columns["idNotaPembelian"].AutoSizeMode = DataGridViewAutoSizeColumnMode.AllCells;
+
+            dataGridViewNota.Columns["noNotaPembelian"].AutoSizeMode = DataGridViewAutoSizeColumnMode.AllCells;
+            dataGridViewNota.Columns["idSupplier"].AutoSizeMode = DataGridViewAutoSizeColumnMode.AllCells;
+            dataGridViewNota.Columns["NamaSupplier"].AutoSizeMode = DataGridViewAutoSizeColumnMode.AllCells;
+            dataGridViewNota.Columns["AlamatSupplier"].AutoSizeMode = DataGridViewAutoSizeColumnMode.AllCells;
             dataGridViewNota.Columns["diskon"].AutoSizeMode = DataGridViewAutoSizeColumnMode.AllCells;
             dataGridViewNota.Columns["totalHarga"].AutoSizeMode = DataGridViewAutoSizeColumnMode.AllCells;
             dataGridViewNota.Columns["tglBatasPelunasan"].AutoSizeMode = DataGridViewAutoSizeColumnMode.AllCells;
@@ -59,7 +87,7 @@ namespace SistemAkuntansi
             dataGridViewNota.Columns["status"].AutoSizeMode = DataGridViewAutoSizeColumnMode.AllCells;
             dataGridViewNota.Columns["keterangan"].AutoSizeMode = DataGridViewAutoSizeColumnMode.AllCells;
 
-            dataGridViewNota.Columns["idSupplier"].AutoSizeMode = DataGridViewAutoSizeColumnMode.AllCells;
+            dataGridViewNota.Columns["totalHarga"].DefaultCellStyle.Format = "0,###";
 
 
             dataGridViewNota.AllowUserToAddRows = false;
@@ -72,12 +100,71 @@ namespace SistemAkuntansi
 
         private void textBoxNotaBeli_TextChanged(object sender, EventArgs e)
         {
-            
+            string nilaiKriteria = textBoxCari.Text;
+            if (comboBoxCari.Text == "No Nota") kriteria = "N.NoNotaPembelian";
+            else if (comboBoxCari.Text == "No Supplier") kriteria = "N.idsupplier";
+            else if (comboBoxCari.Text == "Nama Supplier") kriteria = "s.nama";
+            else if (comboBoxCari.Text == "Alamat Supplier") kriteria = "s.alamat";
+            else if (comboBoxCari.Text == "Diskon") kriteria = "N.diskon";
+            else if (comboBoxCari.Text == "Total Harga") kriteria = "N.totalHarga";
+            else if (comboBoxCari.Text == "Batas Pelunasan") kriteria = "N.tglBatasPelunasan";
+            else if (comboBoxCari.Text == "Batas Diskon") kriteria = "N.tglBatasDiskon";
+            else if (comboBoxCari.Text == "Tanggal Pembelian") kriteria = "N.tglBeli";
+            else if (comboBoxCari.Text == "Status") kriteria = "N.status";
+            else if (comboBoxCari.Text == "Keterangan") kriteria = "N.keterangan";
+
+
+            string hasilBaca = NotaPembelian.BacaData(kriteria, nilaiKriteria, listHasilData);
+
+            if (hasilBaca == "1")
+            {
+                dataGridViewNota.Rows.Clear();
+
+                for (int i = 0; i < listHasilData.Count; i++)
+                {
+                    dataGridViewNota.Rows.Add(listHasilData[i].NoNotaPembelian, listHasilData[i].Supplier.IdSupplier,
+                          listHasilData[i].Supplier.Nama, listHasilData[i].Supplier.Alamat, listHasilData[i].Diskon,
+                          listHasilData[i].TotalHarga, listHasilData[i].TglBatasPelunasan, listHasilData[i].TglBatasDiskon,
+                          listHasilData[i].TglBeli, listHasilData[i].Status, listHasilData[i].Keterangan);
+                }
+            }  
         }
 
         private void buttonCari_Click(object sender, EventArgs e)
         {
             
+        }
+
+        private void comboBoxCari_TextChanged(object sender, EventArgs e)
+        {
+            string nilaiKriteria = textBoxCari.Text;
+            if (comboBoxCari.Text == "No Nota") kriteria = "N.NoNotaPembelian";
+            else if (comboBoxCari.Text == "No Supplier") kriteria = "N.idsupplier";
+            else if (comboBoxCari.Text == "Nama Supplier") kriteria = "s.nama";
+            else if (comboBoxCari.Text == "Alamat Supplier") kriteria = "s.alamat";
+            else if (comboBoxCari.Text == "Diskon") kriteria = "N.diskon";
+            else if (comboBoxCari.Text == "Total Harga") kriteria = "N.totalHarga";
+            else if (comboBoxCari.Text == "Batas Pelunasan") kriteria = "N.tglBatasPelunasan";
+            else if (comboBoxCari.Text == "Batas Diskon") kriteria = "N.tglBatasDiskon";
+            else if (comboBoxCari.Text == "Tanggal Pembelian") kriteria = "N.tglBeli";
+            else if (comboBoxCari.Text == "Status") kriteria = "N.status";
+            else if (comboBoxCari.Text == "Keterangan") kriteria = "N.keterangan";
+
+
+            string hasilBaca = NotaPembelian.BacaData(kriteria, nilaiKriteria, listHasilData);
+
+            if (hasilBaca == "1")
+            {
+                dataGridViewNota.Rows.Clear();
+
+                for (int i = 0; i < listHasilData.Count; i++)
+                {
+                    dataGridViewNota.Rows.Add(listHasilData[i].NoNotaPembelian, listHasilData[i].Supplier.IdSupplier,
+                          listHasilData[i].Supplier.Nama, listHasilData[i].Supplier.Alamat, listHasilData[i].Diskon,
+                          listHasilData[i].TotalHarga, listHasilData[i].TglBatasPelunasan, listHasilData[i].TglBatasDiskon,
+                          listHasilData[i].TglBeli, listHasilData[i].Status, listHasilData[i].Keterangan);
+                }
+            }
         }
     } 
 }

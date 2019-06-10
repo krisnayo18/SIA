@@ -326,5 +326,21 @@ namespace SistemAkuntansi
             }
                 
         }
+
+        private void buttonPembayaran_Click(object sender, EventArgs e)
+        {
+            Form form = Application.OpenForms["FormDaftarPembayaran"];
+            if (form == null)
+            {
+                FormDaftarPembayaran fp = new FormDaftarPembayaran();
+                fp.MdiParent = this;
+                fp.Show();
+            }
+            else
+            {
+                form.Show();
+                form.BringToFront();
+            }
+        }
     }
 }
