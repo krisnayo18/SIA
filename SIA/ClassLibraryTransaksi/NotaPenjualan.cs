@@ -205,9 +205,9 @@ namespace ClassLibraryTransaksi
                     pNotaJual.NoNotaPenjualan + "', " +
                     pNotaJual.Diskon + ", " + 
                     pNotaJual.TotalHarga + ", '" +
-                    pNotaJual.TglBatasPelunasan.ToString("yyyy-MM-dd hh:mm:ss") + "', '" +
-                    pNotaJual.TglBatasPelunasan.ToString("yyyy-MM-dd hh:mm:ss") + "', '" +
-                    pNotaJual.TglJual.ToString("yyyy-MM-dd hh:mm:ss") + "', '" +
+                    pNotaJual.TglBatasPelunasan.ToString("yyyy-MM-dd ") + "', '" +
+                    pNotaJual.TglBatasDiskon.ToString("yyyy-MM-dd ") + "', '" +
+                    pNotaJual.TglJual.ToString("yyyy-MM-dd ") + "', '" +
                     pNotaJual.Status + "', '"+
                     pNotaJual.Keterangan + "', " +
                     pNotaJual.Pelanggan.IdPelanggan + ")";
@@ -403,11 +403,15 @@ namespace ClassLibraryTransaksi
                     string nomornota = hasilData.GetValue(0).ToString();
                     int nominal =int.Parse( hasilData.GetValue(2).ToString());
                     string status = hasilData.GetValue(6).ToString();
+                    double disc = double.Parse(hasilData.GetValue(1).ToString());
+                    DateTime btsDisc = DateTime.Parse(hasilData.GetValue(4).ToString());
 
                     NotaPenjualan nota = new NotaPenjualan();
                     nota.NoNotaPenjualan = nomornota;
                     nota.Status = status;
                     nota.TotalHarga = nominal;
+                    nota.Diskon = disc;
+                    nota.TglBatasDiskon = btsDisc;
 
                     listNotaJual.Add(nota);
                 }

@@ -288,7 +288,7 @@ namespace ClassLibraryTransaksi
                     Karyawan kr = new Karyawan();
                     kr.IdKaryawan = hasilData.GetValue(0).ToString();
                     kr.Nama = hasilData.GetValue(1).ToString();
-                    kr.Gender = hasilData.GetValue(1).ToString();
+                    kr.Gender = hasilData.GetValue(2).ToString();
                     kr.Alamat = hasilData.GetValue(3).ToString();
                     kr.NoTelepon = hasilData.GetValue(4).ToString();
                     kr.Gaji = int.Parse(hasilData.GetValue(5).ToString());

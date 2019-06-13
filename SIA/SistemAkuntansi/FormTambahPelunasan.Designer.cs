@@ -59,7 +59,7 @@
             this.dateTimePickerTgl.Name = "dateTimePickerTgl";
             this.dateTimePickerTgl.Size = new System.Drawing.Size(165, 20);
             this.dateTimePickerTgl.TabIndex = 3;
-            this.dateTimePickerTgl.Value = new System.DateTime(2019, 5, 1, 15, 57, 7, 0);
+            this.dateTimePickerTgl.Value = new System.DateTime(2019, 6, 11, 0, 0, 0, 0);
             // 
             // label3
             // 

@@ -17,7 +17,7 @@ namespace ClassLibraryTransaksi
         #endregion
 
         #region Constructor
-        private Pembayaran()
+        public Pembayaran()
         {
             IdPembayaran = "";
             CaraPembayaran = "";
@@ -94,7 +94,7 @@ namespace ClassLibraryTransaksi
                 return notaPembelian;
             }
 
-            private set
+            set
             {
                 notaPembelian = value;
             }
@@ -103,12 +103,91 @@ namespace ClassLibraryTransaksi
         #endregion
 
         #region Method
+        public static string TambahData(Pembayaran pPemb, NotaPembelian pNota)
+        {
+            //sql1 untuk menambahkan data ke tabel pembayaran
+            string sql = "Insert into pembayaran(idPembayaran, tgl, caraPembayaran, nominal, noNotaPembelian) values ('" +
+                        pPemb.IdPembayaran + "',  '" +
+                        pPemb.Tgl.ToString("yyyy-MM-dd hh:mm:ss") + "', '" +
+                        pPemb.CaraPembayaran + "'," +
+                        pPemb.Nominal + ", '" +
+                        pPemb.NotaPembelian.NoNotaPembelian + "')";
+            try
+            {
+                //jalankan perintah sql untuk menambahkan ke tabel 
+                Koneksi.JalankanPerintahDML(sql);
+
+                //sql2 untuk mengubah status notapenjualan yang belum lunas atau P menjadi L
+                string sql2 = "UPDATE notapembelian SET  status ='" +
+                       pNota.Status + "' WHERE  noNotaPembelian = '" +
+                    pNota.NoNotaPembelian + "'";
+
+                //jalankan sql2 untuk menambhkan ke detiljurnal
+                Koneksi.JalankanPerintahDML(sql2);
+
+
+
+                //jika semua perintah sql berhasil dijalankan
+                return "1";
+            }
+            catch (MySqlException ex)
+            {
+                //jika ada kegagalan perintah
+                return ex.Message;
+            }
+        }
+        public static string BacaData(string pKriteria, string pNilaiKriteria, List<Pembayaran> listHasilData)
+        {
+            string sql = "";
+
+            if (pKriteria == "")
+            {
+                sql = " select P.idPembayaran, P.tgl, P.caraPembayaran, P.nominal, NP.noNotaPembelian, NP.diskon FROM pembayaran P inner join " +
+                      " notapembelian NP on P.nonotapembelian = NP.nonotapembelian ";
+
+
+            }
+            else
+            {
+                sql = "  select P.idPembayaran, P.tgl, P.caraPembayaran, P.nominal, NP.noNotaPembelian, NP.diskon FROM pembayaran P inner join " +
+                      " notapembelian NP on P.nonotapembelian = NP.nonotapembelian where " 
+                      + pKriteria + " LIKE '%" +
+                       pNilaiKriteria + "%'";
+
+            }
+
+            try
+            {
+                MySqlDataReader hasilData = Koneksi.JalankanPerintahQuery(sql);
+                listHasilData.Clear();
+
+                while (hasilData.Read() == true)
+                {
+
+                    string idpemb = hasilData.GetValue(0).ToString();
+                    DateTime tanggal = DateTime.Parse(hasilData.GetValue(1).ToString());
+                    string caraPemb = hasilData.GetValue(2).ToString();
+                    int nominal = int.Parse(hasilData.GetValue(3).ToString());
+
+
+                    NotaPembelian nota = new NotaPembelian();
+                    nota.NoNotaPembelian = hasilData.GetValue(4).ToString();
+                    Pembayaran pembayaran = new Pembayaran(idpemb, caraPemb, tanggal, nominal,nota);
+                    listHasilData.Add(pembayaran);
+                }
+                return "1";
+            }
+            catch (MySqlException ex)
+            {
+                return ex.Message + ". Perintah sql : " + sql;
+            }
+        }
         public static string GenerateNoNota(out string pHasilNoPemb)
         {
             //perintah sql = mendapatkan nourut nota terakhir ditanggal hari ini(tanggal komputer)
-            string sql = "SELECT SUBSTRING(noPelunasan, 9, 3) AS noUrutPemb " +
-                         "FROM pelunasan WHERE Date(tgl) = Date(CURRENT_DATE) " +
-                         "ORDER BY noPelunasan DESC LIMIT 1";
+            string sql = "SELECT SUBSTRING(idpembayaran, 9, 3) AS noUrutPemb " +
+                         "FROM pembayaran WHERE Date(tgl) = Date(CURRENT_DATE) " +
+                         "ORDER BY idpembayaran DESC LIMIT 1";
             pHasilNoPemb = "";
             try
             {
@@ -145,7 +224,7 @@ namespace ClassLibraryTransaksi
             string sql = "";
             if (pKriteria == "")
             {
-                sql = "select * from notapembelian where status ='B' ";
+                sql = "select * from notapembelian where status ='B'";
 
 
             }
@@ -168,12 +247,15 @@ namespace ClassLibraryTransaksi
                     string nomornota = hasilData.GetValue(0).ToString();
                     int nominal = int.Parse(hasilData.GetValue(2).ToString());
                     string status = hasilData.GetValue(6).ToString();
+                    double disc = double.Parse(hasilData.GetValue(1).ToString());
+                    DateTime btsDisc = DateTime.Parse(hasilData.GetValue(4).ToString());
 
                     NotaPembelian nota = new NotaPembelian();
                     nota.NoNotaPembelian = nomornota;
                     nota.Status = status;
                     nota.TotalHarga = nominal;
-
+                    nota.Diskon = disc;
+                    nota.TglBatasDiskon = btsDisc;
                     listNotaBeli.Add(nota);
                 }
                 return "1";

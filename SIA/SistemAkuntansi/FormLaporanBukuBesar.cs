@@ -36,7 +36,8 @@ namespace SistemAkuntansi
             dataGridViewBukuBesar.Columns["kelompok"].AutoSizeMode = DataGridViewAutoSizeColumnMode.AllCells;
             dataGridViewBukuBesar.Columns["nama"].AutoSizeMode = DataGridViewAutoSizeColumnMode.AllCells;
             dataGridViewBukuBesar.Columns["saldoAkhir"].AutoSizeMode = DataGridViewAutoSizeColumnMode.AllCells;
-           
+
+            //dataGridViewBukuBesar.Columns["saldoAkhir"].DefaultCellStyle.Format = "0,###";
 
             dataGridViewBukuBesar.AllowUserToAddRows = false;
         }
@@ -55,10 +56,11 @@ namespace SistemAkuntansi
 
                 for (int i = 0; i < listHasilData.Count; i++)
                 {
+                    int total =int.Parse( listHasilData[i].Periode.IdPeriode);
                     dataGridViewBukuBesar.Rows.Add(
                         listHasilData[i].IdLaporan, 
                         listHasilData[i].Judul,
-                        listHasilData[i].Periode.IdPeriode
+                        total.ToString("RP 0,###") // isinya saldo akhir
                        );
                 }
             }

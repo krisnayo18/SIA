@@ -38,7 +38,9 @@
             this.panelMenu = new System.Windows.Forms.Panel();
             this.panel1 = new System.Windows.Forms.Panel();
             this.buttonNeraca = new System.Windows.Forms.Button();
+            this.buttonTutupPeriode = new System.Windows.Forms.Button();
             this.buttonPerubahanEkuitas = new System.Windows.Forms.Button();
+            this.buttonJurnal = new System.Windows.Forms.Button();
             this.buttonLabaRugi = new System.Windows.Forms.Button();
             this.buttonBukuBesar = new System.Windows.Forms.Button();
             this.label1 = new System.Windows.Forms.Label();
@@ -49,17 +51,17 @@
             this.buttonPelanggan = new System.Windows.Forms.Button();
             this.buttonEkspedisi = new System.Windows.Forms.Button();
             this.buttonBarang = new System.Windows.Forms.Button();
-            this.labelMaster = new System.Windows.Forms.Label();
             this.panelTransaksi = new System.Windows.Forms.Panel();
-            this.buttonTutupPeriode = new System.Windows.Forms.Button();
-            this.buttonJurnal = new System.Windows.Forms.Button();
+            this.buttonJobOrder = new System.Windows.Forms.Button();
+            this.buttonPembayaran = new System.Windows.Forms.Button();
             this.buttonPelunasan = new System.Windows.Forms.Button();
             this.labelTransaksi = new System.Windows.Forms.Label();
             this.buttonPenjualan = new System.Windows.Forms.Button();
             this.buttonPembelian = new System.Windows.Forms.Button();
+            this.labelMaster = new System.Windows.Forms.Label();
             this.label2 = new System.Windows.Forms.Label();
             this.label3 = new System.Windows.Forms.Label();
-            this.buttonPembayaran = new System.Windows.Forms.Button();
+            this.buttonSuratPermintaan = new System.Windows.Forms.Button();
             this.menuStrip1.SuspendLayout();
             this.panelMenu.SuspendLayout();
             this.panel1.SuspendLayout();
@@ -91,14 +93,14 @@
             // logOutToolStripMenuItem
             // 
             this.logOutToolStripMenuItem.Name = "logOutToolStripMenuItem";
-            this.logOutToolStripMenuItem.Size = new System.Drawing.Size(152, 22);
+            this.logOutToolStripMenuItem.Size = new System.Drawing.Size(145, 22);
             this.logOutToolStripMenuItem.Text = "Log Out";
             this.logOutToolStripMenuItem.Click += new System.EventHandler(this.logOutToolStripMenuItem_Click);
             // 
             // keluarSistemToolStripMenuItem1
             // 
             this.keluarSistemToolStripMenuItem1.Name = "keluarSistemToolStripMenuItem1";
-            this.keluarSistemToolStripMenuItem1.Size = new System.Drawing.Size(152, 22);
+            this.keluarSistemToolStripMenuItem1.Size = new System.Drawing.Size(145, 22);
             this.keluarSistemToolStripMenuItem1.Text = "Keluar Sistem";
             this.keluarSistemToolStripMenuItem1.Click += new System.EventHandler(this.keluarSistemToolStripMenuItem1_Click);
             // 
@@ -180,6 +182,21 @@
             this.buttonNeraca.UseVisualStyleBackColor = true;
             this.buttonNeraca.Click += new System.EventHandler(this.buttonNeraca_Click);
             // 
+            // buttonTutupPeriode
+            // 
+            this.buttonTutupPeriode.FlatAppearance.BorderSize = 0;
+            this.buttonTutupPeriode.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.buttonTutupPeriode.Font = new System.Drawing.Font("Century Gothic", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.buttonTutupPeriode.ForeColor = System.Drawing.Color.White;
+            this.buttonTutupPeriode.Location = new System.Drawing.Point(60, 78);
+            this.buttonTutupPeriode.Name = "buttonTutupPeriode";
+            this.buttonTutupPeriode.Size = new System.Drawing.Size(149, 30);
+            this.buttonTutupPeriode.TabIndex = 4;
+            this.buttonTutupPeriode.Text = "Tutup Periode";
+            this.buttonTutupPeriode.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
+            this.buttonTutupPeriode.UseVisualStyleBackColor = true;
+            this.buttonTutupPeriode.Click += new System.EventHandler(this.buttonTutupPeriode_Click);
+            // 
             // buttonPerubahanEkuitas
             // 
             this.buttonPerubahanEkuitas.FlatAppearance.BorderSize = 0;
@@ -194,6 +211,21 @@
             this.buttonPerubahanEkuitas.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
             this.buttonPerubahanEkuitas.UseVisualStyleBackColor = true;
             this.buttonPerubahanEkuitas.Click += new System.EventHandler(this.buttonPerubahanEkuitas_Click);
+            // 
+            // buttonJurnal
+            // 
+            this.buttonJurnal.FlatAppearance.BorderSize = 0;
+            this.buttonJurnal.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.buttonJurnal.Font = new System.Drawing.Font("Century Gothic", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.buttonJurnal.ForeColor = System.Drawing.Color.White;
+            this.buttonJurnal.Location = new System.Drawing.Point(60, 42);
+            this.buttonJurnal.Name = "buttonJurnal";
+            this.buttonJurnal.Size = new System.Drawing.Size(95, 30);
+            this.buttonJurnal.TabIndex = 4;
+            this.buttonJurnal.Text = "Jurnal";
+            this.buttonJurnal.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
+            this.buttonJurnal.UseVisualStyleBackColor = true;
+            this.buttonJurnal.Click += new System.EventHandler(this.buttonJurnal_Click);
             // 
             // buttonLabaRugi
             // 
@@ -339,21 +371,11 @@
             this.buttonBarang.UseVisualStyleBackColor = true;
             this.buttonBarang.Click += new System.EventHandler(this.buttonBarang_Click);
             // 
-            // labelMaster
-            // 
-            this.labelMaster.BackColor = System.Drawing.Color.Transparent;
-            this.labelMaster.Font = new System.Drawing.Font("Century Gothic", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.labelMaster.ForeColor = System.Drawing.Color.White;
-            this.labelMaster.Location = new System.Drawing.Point(3, 10);
-            this.labelMaster.Name = "labelMaster";
-            this.labelMaster.Size = new System.Drawing.Size(243, 29);
-            this.labelMaster.TabIndex = 2;
-            this.labelMaster.Text = "Master";
-            this.labelMaster.Click += new System.EventHandler(this.labelMaster_Click);
-            // 
             // panelTransaksi
             // 
             this.panelTransaksi.BackColor = System.Drawing.Color.Transparent;
+            this.panelTransaksi.Controls.Add(this.buttonSuratPermintaan);
+            this.panelTransaksi.Controls.Add(this.buttonJobOrder);
             this.panelTransaksi.Controls.Add(this.buttonPembayaran);
             this.panelTransaksi.Controls.Add(this.buttonPelunasan);
             this.panelTransaksi.Controls.Add(this.labelTransaksi);
@@ -364,35 +386,35 @@
             this.panelTransaksi.Size = new System.Drawing.Size(250, 334);
             this.panelTransaksi.TabIndex = 9;
             // 
-            // buttonTutupPeriode
+            // buttonJobOrder
             // 
-            this.buttonTutupPeriode.FlatAppearance.BorderSize = 0;
-            this.buttonTutupPeriode.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.buttonTutupPeriode.Font = new System.Drawing.Font("Century Gothic", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.buttonTutupPeriode.ForeColor = System.Drawing.Color.White;
-            this.buttonTutupPeriode.Location = new System.Drawing.Point(60, 78);
-            this.buttonTutupPeriode.Name = "buttonTutupPeriode";
-            this.buttonTutupPeriode.Size = new System.Drawing.Size(149, 30);
-            this.buttonTutupPeriode.TabIndex = 4;
-            this.buttonTutupPeriode.Text = "Tutup Periode";
-            this.buttonTutupPeriode.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
-            this.buttonTutupPeriode.UseVisualStyleBackColor = true;
-            this.buttonTutupPeriode.Click += new System.EventHandler(this.buttonTutupPeriode_Click);
+            this.buttonJobOrder.FlatAppearance.BorderSize = 0;
+            this.buttonJobOrder.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.buttonJobOrder.Font = new System.Drawing.Font("Century Gothic", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.buttonJobOrder.ForeColor = System.Drawing.Color.White;
+            this.buttonJobOrder.Location = new System.Drawing.Point(59, 182);
+            this.buttonJobOrder.Name = "buttonJobOrder";
+            this.buttonJobOrder.Size = new System.Drawing.Size(123, 30);
+            this.buttonJobOrder.TabIndex = 6;
+            this.buttonJobOrder.Text = "Job Order";
+            this.buttonJobOrder.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
+            this.buttonJobOrder.UseVisualStyleBackColor = true;
+            this.buttonJobOrder.Click += new System.EventHandler(this.buttonJobOrder_Click);
             // 
-            // buttonJurnal
+            // buttonPembayaran
             // 
-            this.buttonJurnal.FlatAppearance.BorderSize = 0;
-            this.buttonJurnal.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.buttonJurnal.Font = new System.Drawing.Font("Century Gothic", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.buttonJurnal.ForeColor = System.Drawing.Color.White;
-            this.buttonJurnal.Location = new System.Drawing.Point(60, 42);
-            this.buttonJurnal.Name = "buttonJurnal";
-            this.buttonJurnal.Size = new System.Drawing.Size(95, 30);
-            this.buttonJurnal.TabIndex = 4;
-            this.buttonJurnal.Text = "Jurnal";
-            this.buttonJurnal.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
-            this.buttonJurnal.UseVisualStyleBackColor = true;
-            this.buttonJurnal.Click += new System.EventHandler(this.buttonJurnal_Click);
+            this.buttonPembayaran.FlatAppearance.BorderSize = 0;
+            this.buttonPembayaran.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.buttonPembayaran.Font = new System.Drawing.Font("Century Gothic", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.buttonPembayaran.ForeColor = System.Drawing.Color.White;
+            this.buttonPembayaran.Location = new System.Drawing.Point(59, 146);
+            this.buttonPembayaran.Name = "buttonPembayaran";
+            this.buttonPembayaran.Size = new System.Drawing.Size(123, 30);
+            this.buttonPembayaran.TabIndex = 5;
+            this.buttonPembayaran.Text = "Pembayaran";
+            this.buttonPembayaran.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
+            this.buttonPembayaran.UseVisualStyleBackColor = true;
+            this.buttonPembayaran.Click += new System.EventHandler(this.buttonPembayaran_Click);
             // 
             // buttonPelunasan
             // 
@@ -451,6 +473,18 @@
             this.buttonPembelian.UseVisualStyleBackColor = true;
             this.buttonPembelian.Click += new System.EventHandler(this.buttonPembelian_Click);
             // 
+            // labelMaster
+            // 
+            this.labelMaster.BackColor = System.Drawing.Color.Transparent;
+            this.labelMaster.Font = new System.Drawing.Font("Century Gothic", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.labelMaster.ForeColor = System.Drawing.Color.White;
+            this.labelMaster.Location = new System.Drawing.Point(3, 10);
+            this.labelMaster.Name = "labelMaster";
+            this.labelMaster.Size = new System.Drawing.Size(243, 29);
+            this.labelMaster.TabIndex = 2;
+            this.labelMaster.Text = "Master";
+            this.labelMaster.Click += new System.EventHandler(this.labelMaster_Click);
+            // 
             // label2
             // 
             this.label2.AutoSize = true;
@@ -473,20 +507,20 @@
             this.label3.TabIndex = 8;
             this.label3.Text = "-";
             // 
-            // buttonPembayaran
+            // buttonSuratPermintaan
             // 
-            this.buttonPembayaran.FlatAppearance.BorderSize = 0;
-            this.buttonPembayaran.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.buttonPembayaran.Font = new System.Drawing.Font("Century Gothic", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.buttonPembayaran.ForeColor = System.Drawing.Color.White;
-            this.buttonPembayaran.Location = new System.Drawing.Point(59, 146);
-            this.buttonPembayaran.Name = "buttonPembayaran";
-            this.buttonPembayaran.Size = new System.Drawing.Size(123, 30);
-            this.buttonPembayaran.TabIndex = 5;
-            this.buttonPembayaran.Text = "Pembayaran";
-            this.buttonPembayaran.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
-            this.buttonPembayaran.UseVisualStyleBackColor = true;
-            this.buttonPembayaran.Click += new System.EventHandler(this.buttonPembayaran_Click);
+            this.buttonSuratPermintaan.FlatAppearance.BorderSize = 0;
+            this.buttonSuratPermintaan.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.buttonSuratPermintaan.Font = new System.Drawing.Font("Century Gothic", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.buttonSuratPermintaan.ForeColor = System.Drawing.Color.White;
+            this.buttonSuratPermintaan.Location = new System.Drawing.Point(61, 218);
+            this.buttonSuratPermintaan.Name = "buttonSuratPermintaan";
+            this.buttonSuratPermintaan.Size = new System.Drawing.Size(147, 30);
+            this.buttonSuratPermintaan.TabIndex = 7;
+            this.buttonSuratPermintaan.Text = "Surat Permintaan";
+            this.buttonSuratPermintaan.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
+            this.buttonSuratPermintaan.UseVisualStyleBackColor = true;
+            this.buttonSuratPermintaan.Click += new System.EventHandler(this.buttonSuratPermintaan_Click);
             // 
             // FormUtama
             // 
@@ -551,5 +585,7 @@
         private System.Windows.Forms.Label label2;
         private System.Windows.Forms.Label label3;
         private System.Windows.Forms.Button buttonPembayaran;
+        private System.Windows.Forms.Button buttonJobOrder;
+        private System.Windows.Forms.Button buttonSuratPermintaan;
     }
 }

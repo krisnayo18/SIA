@@ -35,20 +35,14 @@ namespace SistemAkuntansi
             dataGridViewPelunasan.Columns.Add("P.tgl", "Tanggal");
             dataGridViewPelunasan.Columns.Add("P.caraPembayaran", "Cara Pembayaran");
             dataGridViewPelunasan.Columns.Add("P.nominal", "Nominal");
-            //dataGridViewPelunasan.Columns.Add("namaPelanggan", "Nama Pelanggan");
-           
-            //dataGridViewPelunasan.Columns.Add("tglBatasPelunasan", "Tanggal Batas Pelunasan");
 
             dataGridViewPelunasan.Columns["P.noPelunasan"].AutoSizeMode = DataGridViewAutoSizeColumnMode.AllCells;
             dataGridViewPelunasan.Columns["NP.noNotaPenjualan"].AutoSizeMode = DataGridViewAutoSizeColumnMode.AllCells;
             dataGridViewPelunasan.Columns["P.tgl"].AutoSizeMode = DataGridViewAutoSizeColumnMode.AllCells;
             dataGridViewPelunasan.Columns["P.caraPembayaran"].AutoSizeMode = DataGridViewAutoSizeColumnMode.AllCells;
             dataGridViewPelunasan.Columns["P.nominal"].AutoSizeMode = DataGridViewAutoSizeColumnMode.AllCells;
-            //dataGridViewPelunasan.Columns["namaPelanggan"].AutoSizeMode = DataGridViewAutoSizeColumnMode.AllCells;
-            //dataGridViewPelunasan.Columns["status"].AutoSizeMode = DataGridViewAutoSizeColumnMode.AllCells;
-            //dataGridViewPelunasan.Columns["tglBatasPelunasan"].AutoSizeMode = DataGridViewAutoSizeColumnMode.AllCells;
 
-
+            dataGridViewPelunasan.AllowUserToAddRows = false;
         }
         private void textBoxCari_TextChanged(object sender, EventArgs e)
         {
@@ -96,8 +90,9 @@ namespace SistemAkuntansi
                 for (int i = 0; i < listHasilData.Count; i++)
                 {
                     //tampilkan data sesuai urutan di format data grid
+                    string harga = listHasilData[i].Nominal.ToString("RP 0,###");
                     dataGridViewPelunasan.Rows.Add(listHasilData[i].NoPelunasan, listHasilData[i].NotaPenjualan.NoNotaPenjualan,
-                    listHasilData[i].Tanggal, listHasilData[i].CaraPembayaran, listHasilData[i].Nominal );
+                    listHasilData[i].Tanggal.ToString("dddd, dd MMMM yyyy"), listHasilData[i].CaraPembayaran, harga );
                    
                 }
                 

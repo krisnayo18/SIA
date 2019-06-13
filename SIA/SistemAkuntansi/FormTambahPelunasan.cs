@@ -20,21 +20,34 @@ namespace SistemAkuntansi
         List<Pelunasan> listHasilData = new List<Pelunasan>();
         List<NotaPenjualan> listHasilData2 = new List<NotaPenjualan>();
         Periode pPeriode = new Periode();
-     
+        DateTime btsDiskon = DateTime.Now;
+        double diskon = 0;
         private void buttonSimpan_Click(object sender, EventArgs e)
         {
             FormDaftarPelunasan form = (FormDaftarPelunasan)this.Owner;
-            
+            int piutang = int.Parse(textBoxNominal.Text);
+            DateTime tglPemb = dateTimePickerTgl.Value;
+            // pngecekan apabila tanggal pembayaran sebelum tanggal batas diskon
+            if (tglPemb <= btsDiskon) // apabila sebelum batas diskon
+            {
+                diskon = diskon / 100;
+            }
+            else // apabila melewati tanggal batas diskon
+            {
+                diskon = 0;
+            }
+            int hargaDiskon = (int)(piutang * diskon); // hitung total yang harus dibayar oleh pembeli
+
             NotaPenjualan nota = new NotaPenjualan();
             nota.NoNotaPenjualan = comboBoxNoNotaJual.Text;
             nota.Status = "L";
             //buat object bertipe notajual
             Pelunasan lunas = new Pelunasan();
             lunas.NoPelunasan = textBoxNoPelunasan.Text;
+            lunas.NotaPenjualan = nota;
             lunas.Tanggal = dateTimePickerTgl.Value;
             lunas.CaraPembayaran = comboBoxCaraPemb.Text;
-            lunas.Nominal = int.Parse(textBoxNominal.Text);
-            lunas.NotaPenjualan = nota;
+            lunas.Nominal = piutang - hargaDiskon;
 
             string hasilTambahNota = Pelunasan.TambahData(lunas, nota);
 
@@ -62,9 +75,11 @@ namespace SistemAkuntansi
                 jurnal.Transaksi = trans;
 
                 //isi detil jurnalnya
-                int piutang =int.Parse( textBoxNominal.Text); // panggil method hitung total harga untuk mendapatkan totalharga
-
+                //apabila ada diskon
+                //
+                //apabila tidak ada diskon
                 jurnal.TambahDetilJurnalPelunasanPiutangTunai(piutang);
+                
                 //simpan ke tabel _jurnal
                 string hasilTambahJurnal = Jurnal.TambahData(jurnal);
                 if (hasilTambahJurnal == "1")
@@ -139,6 +154,16 @@ namespace SistemAkuntansi
                 if (listHasilData2.Count > 0)
                 {
                     textBoxNominal.Text = listHasilData2[0].TotalHarga.ToString();
+                    btsDiskon = listHasilData2[0].TglBatasDiskon; // 
+                    diskon = listHasilData2[0].Diskon;//untuk mendapatkan diskon
+                    if (diskon > 0) // apabila terdapat diskon, maka tampilkan info diskon dan batas diskon
+                    {
+                        MessageBox.Show("Pembeli mendapatkan diskon : " + diskon + "%, apabila membayar sebelum atau tanggal : " + btsDiskon.ToString("dddd, dd MMMM yyyy"), "Info Diskon");
+                    }
+                    else //apabila ada diskon
+                    {
+                        MessageBox.Show("Tidak ada diskon untuk pembeli", "Info Diskon");
+                    }
                 }
             }
             else

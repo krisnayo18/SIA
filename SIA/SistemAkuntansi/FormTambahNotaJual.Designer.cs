@@ -32,6 +32,7 @@
             this.buttonCetakNota = new System.Windows.Forms.Button();
             this.buttonKeluar = new System.Windows.Forms.Button();
             this.panel1 = new System.Windows.Forms.Panel();
+            this.label18 = new System.Windows.Forms.Label();
             this.comboBoxStatus = new System.Windows.Forms.ComboBox();
             this.labelSatuan = new System.Windows.Forms.Label();
             this.label20 = new System.Windows.Forms.Label();
@@ -121,6 +122,7 @@
             // panel1
             // 
             this.panel1.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(192)))), ((int)(((byte)(192)))), ((int)(((byte)(255)))));
+            this.panel1.Controls.Add(this.label18);
             this.panel1.Controls.Add(this.comboBoxStatus);
             this.panel1.Controls.Add(this.labelSatuan);
             this.panel1.Controls.Add(this.label20);
@@ -162,6 +164,16 @@
             this.panel1.Size = new System.Drawing.Size(542, 394);
             this.panel1.TabIndex = 31;
             // 
+            // label18
+            // 
+            this.label18.AutoSize = true;
+            this.label18.Font = new System.Drawing.Font("Microsoft Sans Serif", 10F, System.Drawing.FontStyle.Bold);
+            this.label18.Location = new System.Drawing.Point(147, 69);
+            this.label18.Name = "label18";
+            this.label18.Size = new System.Drawing.Size(31, 17);
+            this.label18.TabIndex = 116;
+            this.label18.Text = "%  ";
+            // 
             // comboBoxStatus
             // 
             this.comboBoxStatus.FormattingEnabled = true;
@@ -191,11 +203,11 @@
             // 
             // dateTimePickerDiskon
             // 
-            this.dateTimePickerDiskon.CustomFormat = "dd MMMM yyyy";
+            this.dateTimePickerDiskon.CustomFormat = "dddd dd MMM yyyy";
             this.dateTimePickerDiskon.Format = System.Windows.Forms.DateTimePickerFormat.Custom;
             this.dateTimePickerDiskon.Location = new System.Drawing.Point(108, 121);
             this.dateTimePickerDiskon.Name = "dateTimePickerDiskon";
-            this.dateTimePickerDiskon.Size = new System.Drawing.Size(132, 20);
+            this.dateTimePickerDiskon.Size = new System.Drawing.Size(144, 20);
             this.dateTimePickerDiskon.TabIndex = 74;
             // 
             // label17
@@ -210,11 +222,11 @@
             // 
             // dateTimePickerTglLunas
             // 
-            this.dateTimePickerTglLunas.CustomFormat = "dd MMMM yyyy";
+            this.dateTimePickerTglLunas.CustomFormat = "dddd dd MMM yyyy";
             this.dateTimePickerTglLunas.Format = System.Windows.Forms.DateTimePickerFormat.Custom;
             this.dateTimePickerTglLunas.Location = new System.Drawing.Point(108, 94);
             this.dateTimePickerTglLunas.Name = "dateTimePickerTglLunas";
-            this.dateTimePickerTglLunas.Size = new System.Drawing.Size(132, 20);
+            this.dateTimePickerTglLunas.Size = new System.Drawing.Size(144, 20);
             this.dateTimePickerTglLunas.TabIndex = 72;
             // 
             // label16
@@ -231,7 +243,7 @@
             // 
             this.textBoxDiskon.Location = new System.Drawing.Point(108, 68);
             this.textBoxDiskon.Name = "textBoxDiskon";
-            this.textBoxDiskon.Size = new System.Drawing.Size(132, 20);
+            this.textBoxDiskon.Size = new System.Drawing.Size(33, 20);
             this.textBoxDiskon.TabIndex = 70;
             // 
             // label15
@@ -410,12 +422,13 @@
             // 
             // dateTimePickerTanggalJual
             // 
-            this.dateTimePickerTanggalJual.CustomFormat = "dd MMMM yyyy";
+            this.dateTimePickerTanggalJual.CustomFormat = "dddd dd MMM yyyy";
             this.dateTimePickerTanggalJual.Format = System.Windows.Forms.DateTimePickerFormat.Custom;
             this.dateTimePickerTanggalJual.Location = new System.Drawing.Point(108, 42);
             this.dateTimePickerTanggalJual.Name = "dateTimePickerTanggalJual";
-            this.dateTimePickerTanggalJual.Size = new System.Drawing.Size(132, 20);
+            this.dateTimePickerTanggalJual.Size = new System.Drawing.Size(144, 20);
             this.dateTimePickerTanggalJual.TabIndex = 47;
+            this.dateTimePickerTanggalJual.Value = new System.DateTime(2019, 6, 11, 17, 4, 59, 0);
             // 
             // dataGridViewNota
             // 
@@ -575,5 +588,6 @@
         private System.Windows.Forms.Label labelSatuan;
         private System.Windows.Forms.Label label20;
         private System.Windows.Forms.ComboBox comboBoxStatus;
+        private System.Windows.Forms.Label label18;
     }
 }

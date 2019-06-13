@@ -96,7 +96,7 @@ namespace ClassLibraryTransaksi
                 return notaPenjualan;
             }
 
-          private  set
+            set
             {
                 notaPenjualan = value;
             }

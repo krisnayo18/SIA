@@ -36,8 +36,6 @@ namespace SistemAkuntansi
 
         public void FormDaftarNotaJual_Load(object sender, EventArgs e)
         {
-         
-
             this.Location = new Point(0, 0);
             comboBoxCari.DropDownStyle = ComboBoxStyle.DropDownList;
 
@@ -51,10 +49,12 @@ namespace SistemAkuntansi
 
                 for (int i = 0; i < listHasilData.Count; i++)
                 {
+                    string total = listHasilData[i].TotalHarga.ToString("RP 0,###");
                     dataGridViewNota.Rows.Add(listHasilData[i].NoNotaPenjualan, listHasilData[i].Pelanggan.IdPelanggan, 
                         listHasilData[i].Pelanggan.Nama, listHasilData[i].Pelanggan.Alamat, listHasilData[i].Diskon,
-                        listHasilData[i].TotalHarga, listHasilData[i].TglBatasPelunasan, listHasilData[i].TglBatasDiskon, 
-                        listHasilData[i].TglJual, listHasilData[i].Status, listHasilData[i].Keterangan);
+                        total, listHasilData[i].TglBatasPelunasan.ToString("dddd, dd MMMM yyyy"), 
+                        listHasilData[i].TglBatasDiskon.ToString("dddd, dd MMMM yyyy"), 
+                        listHasilData[i].TglJual.ToString("dddd, dd MMMM yyyy"), listHasilData[i].Status, listHasilData[i].Keterangan);
                 }
             }
         }
@@ -89,7 +89,7 @@ namespace SistemAkuntansi
             dataGridViewNota.Columns["status"].AutoSizeMode = DataGridViewAutoSizeColumnMode.AllCells;
             dataGridViewNota.Columns["keterangan"].AutoSizeMode = DataGridViewAutoSizeColumnMode.AllCells;
 
-            dataGridViewNota.Columns["totalHarga"].DefaultCellStyle.Format = "0,###";
+            //dataGridViewNota.Columns["totalHarga"].DefaultCellStyle.Format = "0,###";
              
 
             dataGridViewNota.AllowUserToAddRows = false;

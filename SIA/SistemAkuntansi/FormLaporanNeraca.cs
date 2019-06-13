@@ -30,7 +30,7 @@ namespace SistemAkuntansi
             dataGridViewNeraca.Columns["nama"].AutoSizeMode = DataGridViewAutoSizeColumnMode.AllCells;
             dataGridViewNeraca.Columns["saldoAkhir"].AutoSizeMode = DataGridViewAutoSizeColumnMode.AllCells;
 
-            dataGridViewNeraca.Columns["saldoAkhir"].DefaultCellStyle.Format = "0,###";
+            //dataGridViewNeraca.Columns["saldoAkhir"].DefaultCellStyle.Format = "0,###";
 
             dataGridViewNeraca.AllowUserToAddRows = false;
         }
@@ -58,10 +58,12 @@ namespace SistemAkuntansi
 
                 for (int i = 0; i < listHasilData.Count; i++)
                 {
+                    int saldo = int.Parse(listHasilData[i].Periode.IdPeriode);
                     dataGridViewNeraca.Rows.Add(
                         listHasilData[i].IdLaporan,
                         listHasilData[i].Judul,
-                        listHasilData[i].Periode.IdPeriode);
+                        saldo.ToString("RP 0,###")
+                        );
                 }
             }
         }

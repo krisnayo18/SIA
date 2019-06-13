@@ -10,7 +10,22 @@ namespace ClassLibraryTransaksi
     {
         #region Data Member
         private Karyawan karyawan;
-        private string jumlah, satuan, gajiPerSatuan;
+        private string satuan;
+        private int gajiPerSatuan;
+        #endregion
+
+        #region Constructor
+        public DetilJobOrder()
+        {
+            Satuan = "";
+            GajiPerSatuan = 0;
+        }
+        public DetilJobOrder(Karyawan karyawan, string satuan, int gajiPerSatuan)
+        {
+            this.karyawan = karyawan;
+            this.satuan = satuan;
+            this.gajiPerSatuan = gajiPerSatuan;
+        }
         #endregion
 
         #region Properties
@@ -26,20 +41,6 @@ namespace ClassLibraryTransaksi
                 karyawan = value;
             }
         }
-
-        public string Jumlah
-        {
-            get
-            {
-                return jumlah;
-            }
-
-            set
-            {
-                jumlah = value;
-            }
-        }
-
         public string Satuan
         {
             get
@@ -53,7 +54,7 @@ namespace ClassLibraryTransaksi
             }
         }
 
-        public string GajiPerSatuan
+        public int GajiPerSatuan
         {
             get
             {

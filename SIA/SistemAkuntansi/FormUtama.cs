@@ -95,7 +95,7 @@ namespace SistemAkuntansi
             Form form = Application.OpenForms["FormDaftarEkspedisi"];
             if (form == null)
             {
-                FormDaftarEkspedisi frmEkspedisi = new FormDaftarEkspedisi();
+                FormDaftarSuratPermintaan frmEkspedisi = new FormDaftarSuratPermintaan();
                 frmEkspedisi.MdiParent = this;
                 frmEkspedisi.Show();
             }
@@ -333,6 +333,38 @@ namespace SistemAkuntansi
             if (form == null)
             {
                 FormDaftarPembayaran fp = new FormDaftarPembayaran();
+                fp.MdiParent = this;
+                fp.Show();
+            }
+            else
+            {
+                form.Show();
+                form.BringToFront();
+            }
+        }
+
+        private void buttonJobOrder_Click(object sender, EventArgs e)
+        {
+            Form form = Application.OpenForms["FormDaftarJobOrder"];
+            if (form == null)
+            {
+                FormDaftarJobOrder fp = new FormDaftarJobOrder();
+                fp.MdiParent = this;
+                fp.Show();
+            }
+            else
+            {
+                form.Show();
+                form.BringToFront();
+            }
+        }
+
+        private void buttonSuratPermintaan_Click(object sender, EventArgs e)
+        {
+            Form form = Application.OpenForms["FormDaftarSuratPermintaan"];
+            if (form == null)
+            {
+                FormDaftarSuratPermintaan fp = new FormDaftarSuratPermintaan();
                 fp.MdiParent = this;
                 fp.Show();
             }

@@ -32,6 +32,8 @@
             this.buttonCetak = new System.Windows.Forms.Button();
             this.buttonKeluar = new System.Windows.Forms.Button();
             this.panel1 = new System.Windows.Forms.Panel();
+            this.label18 = new System.Windows.Forms.Label();
+            this.textBoxHarga = new System.Windows.Forms.TextBox();
             this.comboBoxStatus = new System.Windows.Forms.ComboBox();
             this.dateTimePickerDiskon = new System.Windows.Forms.DateTimePicker();
             this.label17 = new System.Windows.Forms.Label();
@@ -68,7 +70,6 @@
             this.label7 = new System.Windows.Forms.Label();
             this.dataGridViewNota = new System.Windows.Forms.DataGridView();
             this.label1 = new System.Windows.Forms.Label();
-            this.textBoxHarga = new System.Windows.Forms.TextBox();
             this.panel1.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.dataGridViewNota)).BeginInit();
             this.SuspendLayout();
@@ -121,6 +122,7 @@
             // panel1
             // 
             this.panel1.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(192)))), ((int)(((byte)(192)))), ((int)(((byte)(255)))));
+            this.panel1.Controls.Add(this.label18);
             this.panel1.Controls.Add(this.textBoxHarga);
             this.panel1.Controls.Add(this.comboBoxStatus);
             this.panel1.Controls.Add(this.dateTimePickerDiskon);
@@ -162,6 +164,23 @@
             this.panel1.Size = new System.Drawing.Size(543, 394);
             this.panel1.TabIndex = 36;
             // 
+            // label18
+            // 
+            this.label18.AutoSize = true;
+            this.label18.Font = new System.Drawing.Font("Microsoft Sans Serif", 10F, System.Drawing.FontStyle.Bold);
+            this.label18.Location = new System.Drawing.Point(147, 65);
+            this.label18.Name = "label18";
+            this.label18.Size = new System.Drawing.Size(31, 17);
+            this.label18.TabIndex = 115;
+            this.label18.Text = "%  ";
+            // 
+            // textBoxHarga
+            // 
+            this.textBoxHarga.Location = new System.Drawing.Point(233, 238);
+            this.textBoxHarga.Name = "textBoxHarga";
+            this.textBoxHarga.Size = new System.Drawing.Size(114, 20);
+            this.textBoxHarga.TabIndex = 114;
+            // 
             // comboBoxStatus
             // 
             this.comboBoxStatus.FormattingEnabled = true;
@@ -172,12 +191,13 @@
             // 
             // dateTimePickerDiskon
             // 
-            this.dateTimePickerDiskon.CustomFormat = "dd MMMM yyyy";
+            this.dateTimePickerDiskon.CustomFormat = "dddd dd MMM yyyy";
             this.dateTimePickerDiskon.Format = System.Windows.Forms.DateTimePickerFormat.Custom;
             this.dateTimePickerDiskon.Location = new System.Drawing.Point(111, 115);
             this.dateTimePickerDiskon.Name = "dateTimePickerDiskon";
-            this.dateTimePickerDiskon.Size = new System.Drawing.Size(132, 20);
+            this.dateTimePickerDiskon.Size = new System.Drawing.Size(160, 20);
             this.dateTimePickerDiskon.TabIndex = 112;
+            this.dateTimePickerDiskon.Value = new System.DateTime(2019, 6, 11, 17, 4, 38, 0);
             // 
             // label17
             // 
@@ -191,12 +211,13 @@
             // 
             // dateTimePickerTglLunas
             // 
-            this.dateTimePickerTglLunas.CustomFormat = "dd MMMM yyyy";
+            this.dateTimePickerTglLunas.CustomFormat = "dddd dd MMM yyyy";
             this.dateTimePickerTglLunas.Format = System.Windows.Forms.DateTimePickerFormat.Custom;
             this.dateTimePickerTglLunas.Location = new System.Drawing.Point(111, 88);
             this.dateTimePickerTglLunas.Name = "dateTimePickerTglLunas";
-            this.dateTimePickerTglLunas.Size = new System.Drawing.Size(132, 20);
+            this.dateTimePickerTglLunas.Size = new System.Drawing.Size(160, 20);
             this.dateTimePickerTglLunas.TabIndex = 110;
+            this.dateTimePickerTglLunas.Value = new System.DateTime(2019, 6, 11, 17, 4, 33, 0);
             // 
             // label16
             // 
@@ -212,7 +233,7 @@
             // 
             this.textBoxDiskon.Location = new System.Drawing.Point(111, 62);
             this.textBoxDiskon.Name = "textBoxDiskon";
-            this.textBoxDiskon.Size = new System.Drawing.Size(132, 20);
+            this.textBoxDiskon.Size = new System.Drawing.Size(30, 20);
             this.textBoxDiskon.TabIndex = 108;
             // 
             // label15
@@ -264,18 +285,19 @@
             // 
             // dateTimePickerTanggalBeli
             // 
-            this.dateTimePickerTanggalBeli.CustomFormat = "dd MMMM yyyy";
+            this.dateTimePickerTanggalBeli.CustomFormat = "dddd dd MMM yyyy";
             this.dateTimePickerTanggalBeli.Format = System.Windows.Forms.DateTimePickerFormat.Custom;
             this.dateTimePickerTanggalBeli.Location = new System.Drawing.Point(111, 36);
             this.dateTimePickerTanggalBeli.Name = "dateTimePickerTanggalBeli";
-            this.dateTimePickerTanggalBeli.Size = new System.Drawing.Size(132, 20);
+            this.dateTimePickerTanggalBeli.Size = new System.Drawing.Size(160, 20);
             this.dateTimePickerTanggalBeli.TabIndex = 103;
+            this.dateTimePickerTanggalBeli.Value = new System.DateTime(2019, 6, 11, 17, 4, 28, 0);
             // 
             // textBoxNo
             // 
             this.textBoxNo.Location = new System.Drawing.Point(111, 10);
             this.textBoxNo.Name = "textBoxNo";
-            this.textBoxNo.Size = new System.Drawing.Size(132, 20);
+            this.textBoxNo.Size = new System.Drawing.Size(160, 20);
             this.textBoxNo.TabIndex = 102;
             // 
             // label4
@@ -499,13 +521,6 @@
             this.label1.Text = "TAMBAH NOTA BELI";
             this.label1.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
             // 
-            // textBoxHarga
-            // 
-            this.textBoxHarga.Location = new System.Drawing.Point(233, 238);
-            this.textBoxHarga.Name = "textBoxHarga";
-            this.textBoxHarga.Size = new System.Drawing.Size(114, 20);
-            this.textBoxHarga.TabIndex = 114;
-            // 
             // FormTambahNotaBeli
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
@@ -571,5 +586,6 @@
         private System.Windows.Forms.Label label8;
         private System.Windows.Forms.Label label9;
         private System.Windows.Forms.TextBox textBoxHarga;
+        private System.Windows.Forms.Label label18;
     }
 }

@@ -24,8 +24,7 @@ namespace SistemAkuntansi
         int hargaBeli = 0;
         List<Pelanggan> listHasilData = new List<Pelanggan>();
         List<Barang> listHasilBarang = new List<Barang>();
-
-         Periode pPeriode = new Periode();
+        Periode pPeriode = new Periode();
         private void FormatDataGrid()
         {
             dataGridViewNota.Columns.Clear();
@@ -159,9 +158,9 @@ namespace SistemAkuntansi
             {
                 int subTotal = int.Parse(labelHarga.Text) * int.Parse(textBoxJumlah.Text);
                 totalHpp = totalHpp + (int.Parse(textBoxJumlah.Text) * hargaBeli);
-
+                int hrgaJual =int.Parse(labelHarga.Text);
                 dataGridViewNota.Rows.Add(textBoxKode.Text, labelNama.Text, textBoxDiskon.Text,
-                comboBoxStatus.Text, textBoxKeterangan.Text, labelHarga.Text, labelJenis.Text,
+                comboBoxStatus.Text, textBoxKeterangan.Text, hrgaJual, labelJenis.Text,
                 labelSatuan.Text,  textBoxJumlah.Text,   subTotal);
 
                 labelTotalHarga.Text = HitungGrandTotal().ToString("0,###");
@@ -220,16 +219,15 @@ namespace SistemAkuntansi
             pelanggan.Alamat = textBoxAlamat.Text;
 
             //buat object bertipe notajual
-            NotaPenjualan nota = new NotaPenjualan();
-            nota.NoNotaPenjualan = textBoxNo.Text;
-            nota.Status = comboBoxStatus.Text;
-            nota.Keterangan = textBoxKeterangan.Text;
-            nota.Diskon = double.Parse(textBoxDiskon.Text);
-            nota.TotalHarga = HitungGrandTotal();
-            nota.TglBatasPelunasan = dateTimePickerTglLunas.Value;
-            nota.TglBatasDiskon = dateTimePickerDiskon.Value;
-            nota.TglJual = dateTimePickerTanggalJual.Value;
-            nota.Pelanggan = pelanggan;
+            string no = textBoxNo.Text;
+            string stat = comboBoxStatus.Text;
+            string keter = textBoxKeterangan.Text; 
+            double disk = double.Parse(textBoxDiskon.Text);
+            int total = HitungGrandTotal();
+            DateTime btsLunas = dateTimePickerTglLunas.Value;
+            DateTime btsDisk = dateTimePickerDiskon.Value;
+            DateTime tanggalJual = dateTimePickerTanggalJual.Value;
+            NotaPenjualan nota = new NotaPenjualan(no, stat,keter,disk,total,btsLunas,btsLunas,tanggalJual,pelanggan);
 
             //data barang diperoleh dari data gridview
             for (int i = 0; i < dataGridViewNota.Rows.Count; i++)

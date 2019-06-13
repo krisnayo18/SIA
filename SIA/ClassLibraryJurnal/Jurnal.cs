@@ -273,17 +273,19 @@ namespace ClassLibraryJurnal
             ListDetilJurnal.Add(detil2);
         }
 
-        //untuk menghitung biaya tenaga kerja langsung
+        //untuk menghitung biaya tenaga kerja langsung dan dibebankan ke wip
         public void TambahDetilJurnalMenghitungBiayaTK(int pGrandTotal)
-        {
+        {   
+            //akun untuk wip berada di debit
             Akun akun1 = new Akun();
-            akun1.NomorAkun = "11";
+            akun1.NomorAkun = "14";
             DetilJurnal detil1 = new DetilJurnal(akun1, 1, pGrandTotal, 0);
 
             ListDetilJurnal.Add(detil1);
 
+            //akun untuk hutang gaji berada di kredit
             Akun akun2 = new Akun();
-            akun2.NomorAkun = "41";
+            akun2.NomorAkun = "22";
             DetilJurnal detil2 = new DetilJurnal(akun2, 2, 0, pGrandTotal);
 
             ListDetilJurnal.Add(detil2);
@@ -292,14 +294,16 @@ namespace ClassLibraryJurnal
         //untuk membayar tenaga kerja secara tunai 
         public void TambahDetilJurnalPembayaranTK(int pGrandTotal)
         {
+            //akun untuk hutang gaji berada di debit
             Akun akun1 = new Akun();
-            akun1.NomorAkun = "11";
+            akun1.NomorAkun = "22";
             DetilJurnal detil1 = new DetilJurnal(akun1, 1, pGrandTotal, 0);
 
             ListDetilJurnal.Add(detil1);
 
+            //akun untuk kas berada di kredit
             Akun akun2 = new Akun();
-            akun2.NomorAkun = "41";
+            akun2.NomorAkun = "11";
             DetilJurnal detil2 = new DetilJurnal(akun2, 2, 0, pGrandTotal);
 
             ListDetilJurnal.Add(detil2);
@@ -377,25 +381,45 @@ namespace ClassLibraryJurnal
         }
 
         //untuk melunasi hutang secara tunai T0006
-        public void TambahDetilJurnalPelunasanHutangTunai(int pHutang, int pDiskon)
+        public void TambahDetilJurnalPembayaranHutangTunai(int pHutang, int pDiskon)
         {
-            Akun akun1 = new Akun();
-            akun1.NomorAkun = "21";
-            DetilJurnal detil1 = new DetilJurnal(akun1, 1, pHutang, 0);
+            if (pDiskon > 0)//jika ada diskon
+            {
+                //akun untuk hutang
+                Akun akun1 = new Akun();
+                akun1.NomorAkun = "21";
+                DetilJurnal detil1 = new DetilJurnal(akun1, 1, pHutang, 0);
 
-            ListDetilJurnal.Add(detil1);
+                ListDetilJurnal.Add(detil1);
 
-            Akun akun2 = new Akun();
-            akun2.NomorAkun = "11";
-            DetilJurnal detil2 = new DetilJurnal(akun2, 2, 0, pHutang-pDiskon);
+                //akun untuk kas
+                Akun akun2 = new Akun();
+                akun2.NomorAkun = "11";
+                DetilJurnal detil2 = new DetilJurnal(akun2, 2, 0, pHutang - pDiskon);
 
-            ListDetilJurnal.Add(detil2);
+                ListDetilJurnal.Add(detil2);
 
-            Akun akun3 = new Akun();
-            akun3.NomorAkun = "13";
-            DetilJurnal detil3 = new DetilJurnal(akun3, 3, 0, pDiskon);
+                //akun untuk diskon karena tidak ada akun diskon, ganti dengan akun sediaan bahan baku
+                Akun akun3 = new Akun();
+                akun3.NomorAkun = "13";
+                DetilJurnal detil3 = new DetilJurnal(akun3, 3, 0, pDiskon);
 
-            ListDetilJurnal.Add(detil3);
+                ListDetilJurnal.Add(detil3);
+            }
+            else //jika tidak ada diskon
+            {
+                //akun untuk hutang
+                Akun akun1 = new Akun();
+                akun1.NomorAkun = "21";
+                DetilJurnal detil1 = new DetilJurnal(akun1, 1, pHutang, 0);
+                ListDetilJurnal.Add(detil1);
+
+                //akun untuk kas
+                Akun akun2 = new Akun();
+                akun2.NomorAkun = "11";
+                DetilJurnal detil2 = new DetilJurnal(akun2, 2, 0, pHutang);
+                ListDetilJurnal.Add(detil2);
+            }
         }
         //untuk pelunasan piutang 
         public void TambahDetilJurnalPelunasanPiutangTunai(int pPiutang)

@@ -100,11 +100,11 @@
     <Compile Include="FormLaporanBukuBesar.Designer.cs">
       <DependentUpon>FormLaporanBukuBesar.cs</DependentUpon>
     </Compile>
-    <Compile Include="FormDaftarEkspedisi.cs">
+    <Compile Include="FormDaftarSuratPermintaan.cs">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="FormDaftarEkspedisi.Designer.cs">
-      <DependentUpon>FormDaftarEkspedisi.cs</DependentUpon>
+    <Compile Include="FormDaftarSuratPermintaan.Designer.cs">
+      <DependentUpon>FormDaftarSuratPermintaan.cs</DependentUpon>
     </Compile>
     <Compile Include="FormDaftarJobOrder.cs">
       <SubType>Form</SubType>
@@ -231,8 +231,8 @@
     <EmbeddedResource Include="FormDaftarBarang.resx">
       <DependentUpon>FormDaftarBarang.cs</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="FormDaftarEkspedisi.resx">
-      <DependentUpon>FormDaftarEkspedisi.cs</DependentUpon>
+    <EmbeddedResource Include="FormDaftarSuratPermintaan.resx">
+      <DependentUpon>FormDaftarSuratPermintaan.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="FormDaftarJurnal.resx">
       <DependentUpon>FormDaftarJurnal.cs</DependentUpon>

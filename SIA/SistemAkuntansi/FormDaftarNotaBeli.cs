@@ -27,6 +27,7 @@ namespace SistemAkuntansi
 
         public void FormDaftarNotaBeli_Load(object sender, EventArgs e)
         {
+
             comboBoxCari.Items.AddRange(new string[] { "No.Nota","Tanggal","Kode Supplier","Nama Supplier","Alamat Supplier","Diskon","Total Harga","Batas Pelunasan",
                                                        "Batas Diskon","Tanggal Pembelian","Keterangan","Status" });
 
@@ -43,10 +44,12 @@ namespace SistemAkuntansi
 
                 for (int i = 0; i < listHasilData.Count; i++)
                 {
+                    string total = listHasilData[i].TotalHarga.ToString("RP 0,###");
                     dataGridViewNota.Rows.Add(listHasilData[i].NoNotaPembelian, listHasilData[i].Supplier.IdSupplier,
                         listHasilData[i].Supplier.Nama, listHasilData[i].Supplier.Alamat, listHasilData[i].Diskon,
-                        listHasilData[i].TotalHarga, listHasilData[i].TglBatasPelunasan, listHasilData[i].TglBatasDiskon,
-                        listHasilData[i].TglBeli, listHasilData[i].Status, listHasilData[i].Keterangan);
+                        total, listHasilData[i].TglBatasPelunasan.ToString("dddd, dd MMMM yyyy"), 
+                        listHasilData[i].TglBatasDiskon.ToString("dddd, dd MMMM yyyy"),
+                        listHasilData[i].TglBeli.ToString("dddd, dd MMMM yyyy"), listHasilData[i].Status, listHasilData[i].Keterangan);
                 }
             }
         }
@@ -87,7 +90,7 @@ namespace SistemAkuntansi
             dataGridViewNota.Columns["status"].AutoSizeMode = DataGridViewAutoSizeColumnMode.AllCells;
             dataGridViewNota.Columns["keterangan"].AutoSizeMode = DataGridViewAutoSizeColumnMode.AllCells;
 
-            dataGridViewNota.Columns["totalHarga"].DefaultCellStyle.Format = "0,###";
+            //dataGridViewNota.Columns["totalHarga"].DefaultCellStyle.Format = "0,###";
 
 
             dataGridViewNota.AllowUserToAddRows = false;

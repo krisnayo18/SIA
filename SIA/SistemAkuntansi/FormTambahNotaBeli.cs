@@ -125,16 +125,8 @@ namespace SistemAkuntansi
             supplier.Alamat = textBoxAlamat.Text;
 
             //buat object bertipe notabeli
-            NotaPembelian nota = new NotaPembelian();
-            nota.NoNotaPembelian = textBoxNo.Text;
-            nota.Status = comboBoxStatus.Text;
-            nota.Keterangan = textBoxKeterangan.Text;
-            nota.Diskon = double.Parse(textBoxDiskon.Text);
-            nota.TotalHarga = HitungGrandTotal();
-            nota.TglBatasPelunasan = dateTimePickerTglLunas.Value;
-            nota.TglBatasDiskon = dateTimePickerDiskon.Value;
-            nota.TglBeli = dateTimePickerTanggalBeli.Value;
-            nota.Supplier = supplier;
+            NotaPembelian nota = new NotaPembelian(textBoxNo.Text, comboBoxStatus.Text, textBoxKeterangan.Text, double.Parse(textBoxDiskon.Text),
+                HitungGrandTotal(), dateTimePickerTglLunas.Value, dateTimePickerDiskon.Value, dateTimePickerTanggalBeli.Value, supplier);
 
             //data barang diperoleh dari data gridview
             for (int i = 0; i < dataGridViewNota.Rows.Count; i++)
@@ -240,7 +232,6 @@ namespace SistemAkuntansi
                         labelNama.Text = listHasilBarang[0].Nama;
                         labelSatuan.Text = listHasilBarang[0].Satuan;
                         labelJenis.Text = listHasilBarang[0].Jenis;
-                        //labelHarga.Text = listHasilBarang[0].HargaBeliTerbaru.ToString();//masih bimbang
                         textBoxHarga.Focus();
                         textBoxJumlah.Text = "1";
                     }

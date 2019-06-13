@@ -40,7 +40,7 @@ namespace ClassLibraryTransaksi
             this.diskon = diskon;
             this.totalHarga = totalHarga;
             this.tglBatasPelunasan = tglBatasPelunasan;
-            this.tglBatasDiskon = tglBatasDiskon;
+            TglBatasDiskon = tglBatasDiskon;
             this.tglBeli = tglBeli;
             this.supplier = supplier;
             ListNotaBeliDetil = new List<DetilNotaBeli>();
@@ -197,9 +197,9 @@ namespace ClassLibraryTransaksi
                     pNotaBeli.NoNotaPembelian+ "', " +
                     pNotaBeli.Diskon + ", " +
                     pNotaBeli.TotalHarga + ", '" +
-                    pNotaBeli.TglBatasPelunasan.ToString("yyyy-MM-dd hh:mm:ss") + "', '" +
-                    pNotaBeli.TglBatasPelunasan.ToString("yyyy-MM-dd hh:mm:ss") + "', '" +
-                    pNotaBeli.TglBeli.ToString("yyyy-MM-dd hh:mm:ss") + "', '" +
+                    pNotaBeli.TglBatasPelunasan.ToString("yyyy-MM-dd ") + "', '" +
+                    pNotaBeli.TglBatasDiskon.ToString("yyyy-MM-dd ") + "', '" +
+                    pNotaBeli.TglBeli.ToString("yyyy-MM-dd ") + "', '" +
                     pNotaBeli.Status + "', '" +
                     pNotaBeli.Keterangan + "', " +
                     pNotaBeli.Supplier.IdSupplier + ")";

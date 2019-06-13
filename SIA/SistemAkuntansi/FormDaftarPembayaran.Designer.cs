@@ -30,14 +30,14 @@
         {
             this.buttonTambah = new System.Windows.Forms.Button();
             this.buttonKeluar = new System.Windows.Forms.Button();
-            this.dataGridViewPelanggan = new System.Windows.Forms.DataGridView();
+            this.dataGridViewPembayaran = new System.Windows.Forms.DataGridView();
             this.panel1 = new System.Windows.Forms.Panel();
             this.buttonCari = new System.Windows.Forms.Button();
             this.textBoxCari = new System.Windows.Forms.TextBox();
             this.comboBoxCari = new System.Windows.Forms.ComboBox();
             this.label2 = new System.Windows.Forms.Label();
             this.label1 = new System.Windows.Forms.Label();
-            ((System.ComponentModel.ISupportInitialize)(this.dataGridViewPelanggan)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.dataGridViewPembayaran)).BeginInit();
             this.panel1.SuspendLayout();
             this.SuspendLayout();
             // 
@@ -71,14 +71,14 @@
             this.buttonKeluar.UseVisualStyleBackColor = false;
             this.buttonKeluar.Click += new System.EventHandler(this.buttonKeluar_Click);
             // 
-            // dataGridViewPelanggan
+            // dataGridViewPembayaran
             // 
-            this.dataGridViewPelanggan.BackgroundColor = System.Drawing.Color.White;
-            this.dataGridViewPelanggan.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
-            this.dataGridViewPelanggan.Location = new System.Drawing.Point(9, 84);
-            this.dataGridViewPelanggan.Name = "dataGridViewPelanggan";
-            this.dataGridViewPelanggan.Size = new System.Drawing.Size(607, 267);
-            this.dataGridViewPelanggan.TabIndex = 20;
+            this.dataGridViewPembayaran.BackgroundColor = System.Drawing.Color.White;
+            this.dataGridViewPembayaran.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
+            this.dataGridViewPembayaran.Location = new System.Drawing.Point(9, 84);
+            this.dataGridViewPembayaran.Name = "dataGridViewPembayaran";
+            this.dataGridViewPembayaran.Size = new System.Drawing.Size(607, 267);
+            this.dataGridViewPembayaran.TabIndex = 20;
             // 
             // panel1
             // 
@@ -161,7 +161,7 @@
             this.ClientSize = new System.Drawing.Size(629, 400);
             this.Controls.Add(this.buttonTambah);
             this.Controls.Add(this.buttonKeluar);
-            this.Controls.Add(this.dataGridViewPelanggan);
+            this.Controls.Add(this.dataGridViewPembayaran);
             this.Controls.Add(this.panel1);
             this.Controls.Add(this.label1);
             this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.None;
@@ -169,7 +169,7 @@
             this.Name = "FormDaftarPembayaran";
             this.Text = "FormPembayaran";
             this.Load += new System.EventHandler(this.FormDaftarPembayaran_Load);
-            ((System.ComponentModel.ISupportInitialize)(this.dataGridViewPelanggan)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.dataGridViewPembayaran)).EndInit();
             this.panel1.ResumeLayout(false);
             this.panel1.PerformLayout();
             this.ResumeLayout(false);
@@ -179,7 +179,7 @@
         #endregion
         private System.Windows.Forms.Button buttonTambah;
         private System.Windows.Forms.Button buttonKeluar;
-        private System.Windows.Forms.DataGridView dataGridViewPelanggan;
+        private System.Windows.Forms.DataGridView dataGridViewPembayaran;
         private System.Windows.Forms.Panel panel1;
         private System.Windows.Forms.Button buttonCari;
         private System.Windows.Forms.TextBox textBoxCari;

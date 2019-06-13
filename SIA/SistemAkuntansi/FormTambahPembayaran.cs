@@ -21,9 +21,84 @@ namespace SistemAkuntansi
         List<Pembayaran> listHasilData = new List<Pembayaran>();
         List<NotaPembelian> listHasilData2 = new List<NotaPembelian>();
         Periode pPeriode = new Periode();
+        DateTime btsDiskon = DateTime.Now;
+        double diskon = 0;
         private void buttonSimpan_Click(object sender, EventArgs e)
         {
+            FormDaftarPembayaran form = (FormDaftarPembayaran)this.Owner;
+            int hutang = int.Parse(textBoxNominal.Text);
+            DateTime tglPemb = dateTimePickerTgl.Value;
+            // pngecekan apabila tanggal pembayaran sebelum tanggal batas diskon
+            if (tglPemb <= btsDiskon) // apabila sebelum batas diskon
+            {
+                diskon = diskon / 100;
+            }
+            else // apabila melewati tanggal batas diskon
+            {
+                diskon = 0;
+            }
+            int hargaDiskon = (int)(hutang * diskon); // hitung total yang harus dibayar
 
+            //buat object bertipe notaBeli
+            NotaPembelian nota = new NotaPembelian();
+            nota.NoNotaPembelian = comboBoxNoNotaBeli.Text;
+            nota.Status = "L";
+            
+            Pembayaran lunas = new Pembayaran();
+            lunas.IdPembayaran = textBoxNoPembayaran.Text;
+            lunas.CaraPembayaran = comboBoxCaraPemb.Text;
+            lunas.Tgl = dateTimePickerTgl.Value;
+            lunas.Nominal = hutang - hargaDiskon;
+            //lunas.NotaPembelian = nota;
+
+            string hasilTambahNota = Pembayaran.TambahData(lunas, nota);
+
+            if (hasilTambahNota == "1") //jika berhasil maka insert jurnal dan detil jurnal
+            {
+                MessageBox.Show("Data Pembayaran telah tersimpan", "Info");
+                //tambah posting ke jurnal
+
+                string idJurnal = Jurnal.GenerateIdJurnal();
+
+                Transaksi trans = new Transaksi();
+                //transaksi penjualan tunai (id transkasi 008);
+                trans.IdTransaksi = "009";
+                trans.Keterangan = "Melunasi hutang secara tunai";
+
+                //buat object bertipe jurnal
+                Jurnal jurnal = new Jurnal();
+                //tambahkan data
+                jurnal.IdJurnal = int.Parse(idJurnal);
+                jurnal.Tanggal = dateTimePickerTgl.Value;
+
+                jurnal.NomorBukti = comboBoxNoNotaBeli.Text;
+                jurnal.Jenis = "JU";
+                jurnal.Periode = pPeriode;
+                jurnal.Transaksi = trans;
+
+                //isi detil jurnalnya
+                //apabila diskon tidak 0 atau tidak ada diskon
+                //
+                //apabila ada diskon
+                jurnal.TambahDetilJurnalPembayaranHutangTunai(hutang, hargaDiskon);
+                //simpan ke tabel _jurnal
+                string hasilTambahJurnal = Jurnal.TambahData(jurnal);
+                if (hasilTambahJurnal == "1")
+                {
+                    MessageBox.Show("berhasil posting ke jurnal");
+                    FormUtama frmUtama = (FormUtama)this.Owner.MdiParent;
+                    this.Close();
+                    form.FormDaftarPembayaran_Load(sender, e);
+                }
+                else
+                {
+                    MessageBox.Show("gagal posting ke jurnal" + hasilTambahJurnal);
+                }
+            }
+            else
+            {
+                MessageBox.Show("Data pembayaran gagal tersimpan. Pesan kesalahan : " + hasilTambahNota, "Kesalahan");
+            }
         }
 
         private void buttonKeluar_Click(object sender, EventArgs e)
@@ -39,7 +114,7 @@ namespace SistemAkuntansi
         private void comboBoxNoNotaBeli_SelectedIndexChanged(object sender, EventArgs e)
         {
             listHasilData.Clear();
-            string hasilBaca = Pembayaran.BacaDataPembayaran("noNotaPenjualan", comboBoxNoNotaBeli.Text, listHasilData2);
+            string hasilBaca = Pembayaran.BacaDataPembayaran("noNotaPembelian", comboBoxNoNotaBeli.Text, listHasilData2);
 
             if (hasilBaca == "1")
             {
@@ -47,6 +122,17 @@ namespace SistemAkuntansi
                 if (listHasilData2.Count > 0)
                 {
                     textBoxNominal.Text = listHasilData2[0].TotalHarga.ToString();
+                    btsDiskon = listHasilData2[0].TglBatasDiskon;
+                    diskon = listHasilData2[0].Diskon;//untuk mendapatkan diskon
+                    if(diskon > 0) // apabila terdapat diskon, maka tampilkan info diskon dan batas diskon
+                    {
+                        MessageBox.Show("Mendapatkan diskon : " + diskon + "%, apabila membayar sebelum atau tanggal :  " + btsDiskon.ToString("dddd, dd MMMM yyyy"),
+                            "Info Diskon");
+                    }
+                    else //apabila tidak ada diskon
+                    {
+                        MessageBox.Show("Tidak ada diskon", "Info Diskon");
+                    }
                 }
             }
             else

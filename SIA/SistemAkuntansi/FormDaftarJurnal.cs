@@ -73,13 +73,15 @@ namespace SistemAkuntansi
                 {
                     //tampilkan ke daftar grid sesuai urutan index yang ada di method baca data)
                     //penempatan data sesuai format data grid
+                    int debit = int.Parse(listHasilData[i].Transaksi.IdTransaksi);
+                    int kredit = int.Parse(listHasilData[i].Periode.IdPeriode);
                         dataGridViewJurnal.Rows.Add(
                         listHasilData[i].IdJurnal, 
-                        listHasilData[i].Tanggal, 
+                        listHasilData[i].Tanggal.ToString("dddd, dd MMMM yyyy"), 
                         listHasilData[i].Transaksi.Keterangan,
                         listHasilData[i].Jenis,
-                        listHasilData[i].Transaksi.IdTransaksi,
-                        listHasilData[i].Periode.IdPeriode,
+                        debit.ToString(" RP 0,###"),
+                        kredit.ToString("RP 0,###"),
                         listHasilData[i].NomorBukti
                         );
                    
