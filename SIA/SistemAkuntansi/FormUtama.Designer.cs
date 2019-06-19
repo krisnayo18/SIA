@@ -52,6 +52,8 @@
             this.buttonEkspedisi = new System.Windows.Forms.Button();
             this.buttonBarang = new System.Windows.Forms.Button();
             this.panelTransaksi = new System.Windows.Forms.Panel();
+            this.buttonSuratJalan = new System.Windows.Forms.Button();
+            this.buttonSuratPermintaan = new System.Windows.Forms.Button();
             this.buttonJobOrder = new System.Windows.Forms.Button();
             this.buttonPembayaran = new System.Windows.Forms.Button();
             this.buttonPelunasan = new System.Windows.Forms.Button();
@@ -61,7 +63,6 @@
             this.labelMaster = new System.Windows.Forms.Label();
             this.label2 = new System.Windows.Forms.Label();
             this.label3 = new System.Windows.Forms.Label();
-            this.buttonSuratPermintaan = new System.Windows.Forms.Button();
             this.menuStrip1.SuspendLayout();
             this.panelMenu.SuspendLayout();
             this.panel1.SuspendLayout();
@@ -374,6 +375,7 @@
             // panelTransaksi
             // 
             this.panelTransaksi.BackColor = System.Drawing.Color.Transparent;
+            this.panelTransaksi.Controls.Add(this.buttonSuratJalan);
             this.panelTransaksi.Controls.Add(this.buttonSuratPermintaan);
             this.panelTransaksi.Controls.Add(this.buttonJobOrder);
             this.panelTransaksi.Controls.Add(this.buttonPembayaran);
@@ -385,6 +387,36 @@
             this.panelTransaksi.Name = "panelTransaksi";
             this.panelTransaksi.Size = new System.Drawing.Size(250, 334);
             this.panelTransaksi.TabIndex = 9;
+            // 
+            // buttonSuratJalan
+            // 
+            this.buttonSuratJalan.FlatAppearance.BorderSize = 0;
+            this.buttonSuratJalan.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.buttonSuratJalan.Font = new System.Drawing.Font("Century Gothic", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.buttonSuratJalan.ForeColor = System.Drawing.Color.White;
+            this.buttonSuratJalan.Location = new System.Drawing.Point(61, 254);
+            this.buttonSuratJalan.Name = "buttonSuratJalan";
+            this.buttonSuratJalan.Size = new System.Drawing.Size(147, 30);
+            this.buttonSuratJalan.TabIndex = 7;
+            this.buttonSuratJalan.Text = "Surat Jalan";
+            this.buttonSuratJalan.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
+            this.buttonSuratJalan.UseVisualStyleBackColor = true;
+            this.buttonSuratJalan.Click += new System.EventHandler(this.buttonSuratJalan_Click);
+            // 
+            // buttonSuratPermintaan
+            // 
+            this.buttonSuratPermintaan.FlatAppearance.BorderSize = 0;
+            this.buttonSuratPermintaan.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.buttonSuratPermintaan.Font = new System.Drawing.Font("Century Gothic", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.buttonSuratPermintaan.ForeColor = System.Drawing.Color.White;
+            this.buttonSuratPermintaan.Location = new System.Drawing.Point(61, 218);
+            this.buttonSuratPermintaan.Name = "buttonSuratPermintaan";
+            this.buttonSuratPermintaan.Size = new System.Drawing.Size(147, 30);
+            this.buttonSuratPermintaan.TabIndex = 7;
+            this.buttonSuratPermintaan.Text = "Surat Permintaan";
+            this.buttonSuratPermintaan.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
+            this.buttonSuratPermintaan.UseVisualStyleBackColor = true;
+            this.buttonSuratPermintaan.Click += new System.EventHandler(this.buttonSuratPermintaan_Click);
             // 
             // buttonJobOrder
             // 
@@ -507,21 +539,6 @@
             this.label3.TabIndex = 8;
             this.label3.Text = "-";
             // 
-            // buttonSuratPermintaan
-            // 
-            this.buttonSuratPermintaan.FlatAppearance.BorderSize = 0;
-            this.buttonSuratPermintaan.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.buttonSuratPermintaan.Font = new System.Drawing.Font("Century Gothic", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.buttonSuratPermintaan.ForeColor = System.Drawing.Color.White;
-            this.buttonSuratPermintaan.Location = new System.Drawing.Point(61, 218);
-            this.buttonSuratPermintaan.Name = "buttonSuratPermintaan";
-            this.buttonSuratPermintaan.Size = new System.Drawing.Size(147, 30);
-            this.buttonSuratPermintaan.TabIndex = 7;
-            this.buttonSuratPermintaan.Text = "Surat Permintaan";
-            this.buttonSuratPermintaan.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
-            this.buttonSuratPermintaan.UseVisualStyleBackColor = true;
-            this.buttonSuratPermintaan.Click += new System.EventHandler(this.buttonSuratPermintaan_Click);
-            // 
             // FormUtama
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
@@ -587,5 +604,6 @@
         private System.Windows.Forms.Button buttonPembayaran;
         private System.Windows.Forms.Button buttonJobOrder;
         private System.Windows.Forms.Button buttonSuratPermintaan;
+        private System.Windows.Forms.Button buttonSuratJalan;
     }
 }

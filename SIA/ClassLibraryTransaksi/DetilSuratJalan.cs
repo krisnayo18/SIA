@@ -13,6 +13,18 @@ namespace ClassLibraryTransaksi
         private int jumlah;
         #endregion
 
+        #region Constructor
+        public DetilSuratJalan()
+        {
+            Jumlah = 0;
+        }
+        public DetilSuratJalan(Barang barang, int jumlah)
+        {
+            this.barang = barang;
+            this.jumlah = jumlah;
+        }
+        #endregion
+
         #region Properties
         public Barang Barang
         {

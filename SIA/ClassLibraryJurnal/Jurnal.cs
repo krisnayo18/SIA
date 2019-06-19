@@ -260,14 +260,16 @@ namespace ClassLibraryJurnal
         //untuk  menerima bahan baku dari gudang T0004
         public void TambahDetilJurnalMenerimaBahanBaku(int pGrandTotal)
         {
+            //akun untuk wip
             Akun akun1 = new Akun();
-            akun1.NomorAkun = "11";
+            akun1.NomorAkun = "14";
             DetilJurnal detil1 = new DetilJurnal(akun1, 1, pGrandTotal, 0);
 
             ListDetilJurnal.Add(detil1);
 
+            //akun untuk sediaan bahan baku
             Akun akun2 = new Akun();
-            akun2.NomorAkun = "41";
+            akun2.NomorAkun = "13";
             DetilJurnal detil2 = new DetilJurnal(akun2, 2, 0, pGrandTotal);
 
             ListDetilJurnal.Add(detil2);
@@ -312,14 +314,16 @@ namespace ClassLibraryJurnal
         //untuk menyelesaikan produksi job order
         public void TambahDetilJurnalPenyelesaianProduksi(int pGrandTotal)
         {
+            //akun untuk sediaan barang jadi
             Akun akun1 = new Akun();
-            akun1.NomorAkun = "11";
+            akun1.NomorAkun = "15";
             DetilJurnal detil1 = new DetilJurnal(akun1, 1, pGrandTotal, 0);
 
             ListDetilJurnal.Add(detil1);
 
+            //akun untuk wip
             Akun akun2 = new Akun();
-            akun2.NomorAkun = "41";
+            akun2.NomorAkun = "14";
             DetilJurnal detil2 = new DetilJurnal(akun2, 2, 0, pGrandTotal);
 
             ListDetilJurnal.Add(detil2);

@@ -48,7 +48,7 @@ namespace SistemAkuntansi
             this.Close();
         }
 
-        private void FormDaftarSuratPermintaan_Load(object sender, EventArgs e)
+        public void FormDaftarSuratPermintaan_Load(object sender, EventArgs e)
         {
             this.Location = new Point(0, 0);
             comboBoxCari.DropDownStyle = ComboBoxStyle.DropDownList;

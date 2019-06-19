@@ -79,7 +79,7 @@ namespace SistemAkuntansi
             if (form == null) // jika form ini belum di create sebelumnya
             {
 
-                FormDaftarBarang formBarang = new FormDaftarBarang();
+                FormDaftarSuratJalan formBarang = new FormDaftarSuratJalan();
                 formBarang.MdiParent = this; // buat form ini 
                 formBarang.Show();
             }
@@ -365,6 +365,22 @@ namespace SistemAkuntansi
             if (form == null)
             {
                 FormDaftarSuratPermintaan fp = new FormDaftarSuratPermintaan();
+                fp.MdiParent = this;
+                fp.Show();
+            }
+            else
+            {
+                form.Show();
+                form.BringToFront();
+            }
+        }
+
+        private void buttonSuratJalan_Click(object sender, EventArgs e)
+        {
+            Form form = Application.OpenForms["FormDaftarSuratJalan"];
+            if (form == null)
+            {
+                FormDaftarSuratJalan fp = new FormDaftarSuratJalan();
                 fp.MdiParent = this;
                 fp.Show();
             }

@@ -115,7 +115,7 @@ namespace ClassLibraryTransaksi
             {
                 // perintah sql 1 = untuk menambahkan data ke tabel surat permintaan 
                 string sql1 = "INSERT INTO suratPermintaan(noSuratPermintaan, tanggal,  keterangan, kodeJobOrder) VALUES ('" +
-                    pSuratPermintaan.NoSuratPermintaan + "', " +
+                    pSuratPermintaan.NoSuratPermintaan + "', '" +
                     pSuratPermintaan.Tanggal.ToString("yyyy-MM-dd ") + "', '" +
                     pSuratPermintaan.Keterangan + "', '" +
                     pSuratPermintaan.JobOrder.KodeJobOrder + "')";
@@ -194,11 +194,15 @@ namespace ClassLibraryTransaksi
             if (kriteria == "")
             {
                 //tuliskan perintah sql1 = untuk menampilkan semua data  ditabel suratpermintaan
-                sql1 = "select * from suratpermintaan order by noSuratPermintaan desc";
+                sql1 = "select SP.noSuratPermintaan, SP.tanggal, SP.keterangan, SP.kodejoborder, JO.quantity, JO.directlabor, " +
+                       " JO.directmaterial, JO.overheadproduksi from suratpermintaan SP inner join joborder JO on SP.kodejoborder = JO.kodejoborder " +
+                       " order by noSuratPermintaan desc";
             }
             else
             {
-                sql1 = "select * from suratpermintaan where " + kriteria + " LIKE '%" + nilaiKriteria + "%' order by noSuratPermintaan desc";
+                sql1 = "select SP.noSuratPermintaan, SP.tanggal, SP.keterangan, SP.kodejoborder, JO.quantity, JO.directlabor, " +
+                       " JO.directmaterial, JO.overheadproduksi from suratpermintaan SP inner join joborder JO on SP.kodejoborder = JO.kodejoborder " +
+                       "  where " + kriteria + " LIKE '%" + nilaiKriteria + "%' order by noSuratPermintaan desc";
             }
 
             try
@@ -218,11 +222,19 @@ namespace ClassLibraryTransaksi
                     //permintaan dari job order 
                     //mendapatkan kode job order
                     string kodeJob = hasilData1.GetValue(3).ToString();
+                    int pquantity =int.Parse(hasilData1.GetValue(4).ToString());
+                    int labor = int.Parse(hasilData1.GetValue(5).ToString());
+                    int material = int.Parse(hasilData1.GetValue(6).ToString());
+                    int over = int.Parse(hasilData1.GetValue(7).ToString());
 
                     //buat object bertipe joborder
                     JobOrder job = new JobOrder();
                     //tambahkan  data 
                     job.KodeJobOrder = kodeJob;
+                    job.Quantity = pquantity;
+                    job.DirectLabor = labor;
+                    job.DirectMaterial = material;
+                    job.OverheadProduksi = over;
 
                     //Surat Permintaan
                     //buat object surat Permintaan dan tambahkan data
@@ -257,7 +269,7 @@ namespace ClassLibraryTransaksi
                         //ingat baik baik agar fk tidak duplicate
                         DetilSuratPermintaan detilSurat = new DetilSuratPermintaan(brg, jumlah);
 
-                        //simpan detil barang ke nota
+                        //simpan detil barang 
                         surat.TambahDetilBarang(brg, jumlah);
                     }
                     //simpan ke list

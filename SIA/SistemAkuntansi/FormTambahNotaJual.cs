@@ -209,6 +209,7 @@ namespace SistemAkuntansi
 
         private void buttonSimpan_Click(object sender, EventArgs e)
         {
+
             FormUtama frmUtama = (FormUtama)this.Owner.MdiParent;
             FormDaftarNotaJual form = (FormDaftarNotaJual)this.Owner;
             //buat objek bertipe pelanggan

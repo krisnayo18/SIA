@@ -100,6 +100,50 @@ namespace SistemAkuntansi
         private void buttonSimpan_Click(object sender, EventArgs e)
         {
 
+            FormUtama frmUtama = (FormUtama)this.Owner.MdiParent;
+            FormDaftarSuratPermintaan form = (FormDaftarSuratPermintaan)this.Owner;
+            //buat objek bertipe job order
+            JobOrder job = new JobOrder();
+            job.KodeJobOrder = comboBoxKodeJobOrder.Text;
+            
+
+            //buat object bertipe suratpermintaan
+            string no = textBoxNoSurat.Text;
+            string ket = textBoxKeterangan.Text;
+            DateTime tanggal = dateTimePickerTgl.Value;
+            SuratPermintaan surat = new SuratPermintaan(no, ket, tanggal,job);
+
+            //data barang diperoleh dari data gridview
+            for (int i = 0; i < dataGridViewSurat.Rows.Count; i++)
+            {
+                //buat object bertipe barang
+                Barang barang = new Barang();
+                //tambahkan kode, nama, jenis, satuan
+                //hati hati dalam menambahkan
+                barang.KodeBarang = dataGridViewSurat.Rows[i].Cells["KodeBarang"].Value.ToString();
+                barang.Nama = dataGridViewSurat.Rows[i].Cells["NamaBarang"].Value.ToString();
+                barang.Jenis = dataGridViewSurat.Rows[i].Cells["jenis"].Value.ToString();
+                barang.Satuan = dataGridViewSurat.Rows[i].Cells["satuan"].Value.ToString();
+                //simpan  data harga dan jumlah 
+                int jumlah = int.Parse(dataGridViewSurat.Rows[i].Cells["Jumlah"].Value.ToString());
+                //buat object dan tambahkan
+                DetilSuratPermintaan detilSurat = new DetilSuratPermintaan(barang, jumlah);
+                //simpan detil barang ke nota
+                surat.TambahDetilBarang(barang, jumlah);
+            }
+
+            string hasilTambahSurat = SuratPermintaan.TambahData(surat);
+
+            if (hasilTambahSurat == "1") 
+            {
+                    MessageBox.Show("berhasil tambah surat permintaan, barang akan diterima setelah menambahkan surat jalan");
+                    this.Close();
+                    form.FormDaftarSuratPermintaan_Load(sender, e); //supaya formdaftar surat menampilkan daftar terbaru
+            }
+            else
+            {
+                MessageBox.Show("Data nota jual gagal tersimpan. Pesan kesalahan : " + hasilTambahSurat, "Kesalahan");
+            }
         }
 
         private void textBoxKode_TextChanged(object sender, EventArgs e)
@@ -114,13 +158,22 @@ namespace SistemAkuntansi
                 {
                     if (listHasilBarang.Count > 0) //jika kode barang  ditemukan di database
                     {
+                        string hasilJenis = listHasilBarang[0].Jenis;
+                        if (hasilJenis == "BB")
+                        {
+                            labelNama.Text = listHasilBarang[0].Nama;
+                            labelSatuan.Text = listHasilBarang[0].Satuan;
+                            labelJenis.Text = listHasilBarang[0].Jenis;
+                            labelHarga.Text = listHasilBarang[0].HargaBeliTerbaru.ToString();
+                            textBoxJumlah.Focus();
+                            textBoxJumlah.Text = "1";
+                        }
+                        else
+                        {
+                            MessageBox.Show("Gunakan bahan baku, untuk mengurangi biaya.");
+                            textBoxKode.Clear();
+                        }
 
-                        labelNama.Text = listHasilBarang[0].Nama;
-                        labelSatuan.Text = listHasilBarang[0].Satuan;
-                        labelJenis.Text = listHasilBarang[0].Jenis;
-                        labelHarga.Text = listHasilBarang[0].HargaBeliTerbaru.ToString();
-                        textBoxJumlah.Focus();
-                        textBoxJumlah.Text = "1";
                     }
                     else
                     {
@@ -166,6 +219,25 @@ namespace SistemAkuntansi
                 grandTotal = grandTotal + subTotal;
             }
             return grandTotal;
+        }
+
+        private void comboBoxKodeJobOrder_SelectedIndexChanged(object sender, EventArgs e)
+        {
+            listHasilJob.Clear();
+            string hasilBaca = JobOrder.BacaData("kodejoborder", comboBoxKodeJobOrder.Text, listHasilJob);
+
+            if (hasilBaca == "1")
+            {
+                textBoxItem.Clear();
+                if (listHasilJob.Count > 0)
+                {
+                    textBoxItem.Text = listHasilJob[0].Barang.Nama;
+                }
+            }
+            else
+            {
+                textBoxItem.Clear();
+            }
         }
     }
    

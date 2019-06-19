@@ -182,6 +182,7 @@ namespace ClassLibraryTransaksi
         #endregion
 
         #region Method
+       
         public void TambahDetilJobOrder(Karyawan pKaryawan,  string pSatuan, int pGajiPerSatuan)
         {
             DetilJobOrder djo = new DetilJobOrder(pKaryawan, pSatuan,pGajiPerSatuan);
@@ -190,10 +191,10 @@ namespace ClassLibraryTransaksi
 
         }
         //method untuk mengubah data direct material saat penerimaan bahan baku
-        public static string UpdateDirectMaterial(JobOrder pJob)
+        public static string UpdateDirectMaterial(string pJob, int pDirectMaterial)
         {
             string sql = "UPDATE jobOrder SET directMaterial = " +
-                        pJob.DirectMaterial + " where kodeJobOrder = '" + pJob.KodeJobOrder  + "'";
+                        pDirectMaterial + " where kodeJobOrder = '" + pJob  + "'";
             try
             {
                 Koneksi.JalankanPerintahDML(sql);
@@ -317,7 +318,7 @@ namespace ClassLibraryTransaksi
             {
                 sql1 = "SELECT J.kodeJobOrder, B.kodeBarang, B.nama as Item, B.hargaBeliTerbaru, J.quantity, B.satuan, J.directMaterial, J.directLabor, " +
                        " J.overheadProduksi, J.tglMulai, J.tglSelesai, J.noNotaPenjualan FROM notapenjualan NP inner join " +
-                       " joborder J on NP.noNotaPenjualan = J.noNotaPenjualan inner join barang B on B.kodeBarang = J.kodebarang " + 
+                       " joborder J on NP.noNotaPenjualan = J.noNotaPenjualan inner join barang B on B.kodeBarang = J.kodebarang  where " + 
                        kriteria + " LIKE '%" + nilaiKriteria + "%' order by kodejoborder DESC";
             }
 

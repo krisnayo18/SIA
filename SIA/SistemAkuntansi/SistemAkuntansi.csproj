@@ -64,11 +64,11 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
-    <Compile Include="FormDaftarBarang.cs">
+    <Compile Include="FormDaftarSuratJalan.cs">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="FormDaftarBarang.Designer.cs">
-      <DependentUpon>FormDaftarBarang.cs</DependentUpon>
+    <Compile Include="FormDaftarSuratJalan.Designer.cs">
+      <DependentUpon>FormDaftarSuratJalan.cs</DependentUpon>
     </Compile>
     <Compile Include="FormDaftarJurnal.cs">
       <SubType>Form</SubType>
@@ -228,8 +228,8 @@
     <Compile Include="FormLaporanLabaRugi.Designer.cs">
       <DependentUpon>FormLaporanLabaRugi.cs</DependentUpon>
     </Compile>
-    <EmbeddedResource Include="FormDaftarBarang.resx">
-      <DependentUpon>FormDaftarBarang.cs</DependentUpon>
+    <EmbeddedResource Include="FormDaftarSuratJalan.resx">
+      <DependentUpon>FormDaftarSuratJalan.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="FormDaftarSuratPermintaan.resx">
       <DependentUpon>FormDaftarSuratPermintaan.cs</DependentUpon>
