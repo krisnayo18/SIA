@@ -295,7 +295,6 @@ namespace SistemAkuntansi
                 {
                     jurnal.TambahDetilJurnalPenyelesaianProduksi(totalJobCost);
                     
-                    Barang.
                 }
                 else
                 {

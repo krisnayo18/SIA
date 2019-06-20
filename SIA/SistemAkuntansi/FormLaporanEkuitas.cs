@@ -26,6 +26,7 @@ namespace SistemAkuntansi
             labelLabaRugi.Text = Laporan.HitungLabaRugi().ToString("0,###");
             labelTotalHarga.Text = Laporan.HitungEkuitasAkhir().ToString("0,###");
 
+
             FormatDataGrid();
             string hasilBaca = Laporan.BacaDataEkuitas("", "", listHasilData);
 
@@ -41,8 +42,10 @@ namespace SistemAkuntansi
                         listHasilData[i].Judul,
                         saldo.ToString("RP 0,###")
                         );
+                    labelEkuitasAwal.Text = saldo.ToString("0,###");
                 }
             }
+
         }
 
         private void buttonKeluar_Click(object sender, EventArgs e)

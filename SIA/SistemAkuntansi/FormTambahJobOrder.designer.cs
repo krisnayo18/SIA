@@ -273,9 +273,9 @@
             // labelTotalGaji
             // 
             this.labelTotalGaji.Font = new System.Drawing.Font("Microsoft Sans Serif", 26.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.labelTotalGaji.Location = new System.Drawing.Point(376, 189);
+            this.labelTotalGaji.Location = new System.Drawing.Point(328, 189);
             this.labelTotalGaji.Name = "labelTotalGaji";
-            this.labelTotalGaji.Size = new System.Drawing.Size(163, 39);
+            this.labelTotalGaji.Size = new System.Drawing.Size(211, 39);
             this.labelTotalGaji.TabIndex = 81;
             this.labelTotalGaji.Text = "0";
             this.labelTotalGaji.TextAlign = System.Drawing.ContentAlignment.MiddleRight;

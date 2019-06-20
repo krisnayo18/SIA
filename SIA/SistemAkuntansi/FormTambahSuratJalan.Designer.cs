@@ -228,9 +228,9 @@
             // labelTotalHarga
             // 
             this.labelTotalHarga.Font = new System.Drawing.Font("Microsoft Sans Serif", 26.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.labelTotalHarga.Location = new System.Drawing.Point(368, 122);
+            this.labelTotalHarga.Location = new System.Drawing.Point(297, 122);
             this.labelTotalHarga.Name = "labelTotalHarga";
-            this.labelTotalHarga.Size = new System.Drawing.Size(163, 39);
+            this.labelTotalHarga.Size = new System.Drawing.Size(234, 39);
             this.labelTotalHarga.TabIndex = 109;
             this.labelTotalHarga.Text = "0";
             this.labelTotalHarga.TextAlign = System.Drawing.ContentAlignment.MiddleRight;

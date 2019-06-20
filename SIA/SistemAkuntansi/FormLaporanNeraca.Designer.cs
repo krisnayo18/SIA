@@ -163,11 +163,11 @@
             // label5
             // 
             this.label5.Font = new System.Drawing.Font("Microsoft Sans Serif", 15.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label5.Location = new System.Drawing.Point(254, 365);
+            this.label5.Location = new System.Drawing.Point(191, 366);
             this.label5.Name = "label5";
-            this.label5.Size = new System.Drawing.Size(145, 39);
+            this.label5.Size = new System.Drawing.Size(219, 39);
             this.label5.TabIndex = 70;
-            this.label5.Text = "Total Aktiva  :";
+            this.label5.Text = "Total Aktiva (Aset)  :";
             this.label5.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
             // 
             // labelAktiva
@@ -193,11 +193,11 @@
             // labelTotal
             // 
             this.labelTotal.Font = new System.Drawing.Font("Microsoft Sans Serif", 15.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.labelTotal.Location = new System.Drawing.Point(254, 480);
+            this.labelTotal.Location = new System.Drawing.Point(27, 481);
             this.labelTotal.Name = "labelTotal";
-            this.labelTotal.Size = new System.Drawing.Size(146, 39);
+            this.labelTotal.Size = new System.Drawing.Size(372, 39);
             this.labelTotal.TabIndex = 67;
-            this.labelTotal.Text = "Total Pasiva :";
+            this.labelTotal.Text = "Total Pasiva (Kewajiban + hutang )  :";
             this.labelTotal.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
             // 
             // labelPasiva

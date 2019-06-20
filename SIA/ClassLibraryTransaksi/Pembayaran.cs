@@ -4,6 +4,7 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
+using System.Transactions;
 
 namespace ClassLibraryTransaksi
 {
@@ -105,35 +106,40 @@ namespace ClassLibraryTransaksi
         #region Method
         public static string TambahData(Pembayaran pPemb, NotaPembelian pNota)
         {
-            //sql1 untuk menambahkan data ke tabel pembayaran
-            string sql = "Insert into pembayaran(idPembayaran, tgl, caraPembayaran, nominal, noNotaPembelian) values ('" +
+            using (var tranScope = new TransactionScope(TransactionScopeOption.RequiresNew))
+            {
+                //sql1 untuk menambahkan data ke tabel pembayaran
+                string sql = "Insert into pembayaran(idPembayaran, tgl, caraPembayaran, nominal, noNotaPembelian) values ('" +
                         pPemb.IdPembayaran + "',  '" +
                         pPemb.Tgl.ToString("yyyy-MM-dd hh:mm:ss") + "', '" +
                         pPemb.CaraPembayaran + "'," +
                         pPemb.Nominal + ", '" +
-                        pPemb.NotaPembelian.NoNotaPembelian + "')";
-            try
-            {
-                //jalankan perintah sql untuk menambahkan ke tabel 
-                Koneksi.JalankanPerintahDML(sql);
+                        pNota.NoNotaPembelian + "')";
+                try
+                {
+                    //jalankan perintah sql untuk menambahkan ke tabel 
+                    Koneksi.JalankanPerintahDML(sql);
 
-                //sql2 untuk mengubah status notapenjualan yang belum lunas atau P menjadi L
-                string sql2 = "UPDATE notapembelian SET  status ='" +
-                       pNota.Status + "' WHERE  noNotaPembelian = '" +
-                    pNota.NoNotaPembelian + "'";
+                    //sql2 untuk mengubah status notapenjualan yang belum lunas atau P menjadi L
+                    string sql2 = "UPDATE notapembelian SET  status ='" +
+                           pNota.Status + "' WHERE  noNotaPembelian = '" +
+                        pNota.NoNotaPembelian + "'";
 
-                //jalankan sql2 untuk menambhkan ke detiljurnal
-                Koneksi.JalankanPerintahDML(sql2);
+                    //jalankan sql2 untuk menambhkan ke detiljurnal
+                    Koneksi.JalankanPerintahDML(sql2);
 
 
 
-                //jika semua perintah sql berhasil dijalankan
-                return "1";
-            }
-            catch (MySqlException ex)
-            {
-                //jika ada kegagalan perintah
-                return ex.Message;
+                    //jika semua perintah sql berhasil dijalankan
+                    tranScope.Complete();
+                    return "1";
+                }
+                catch (MySqlException ex)
+                {
+                    //jika ada kegagalan perintah
+                    tranScope.Dispose();
+                    return ex.Message;
+                }
             }
         }
         public static string BacaData(string pKriteria, string pNilaiKriteria, List<Pembayaran> listHasilData)
