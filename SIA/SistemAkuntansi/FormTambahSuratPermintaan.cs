@@ -77,7 +77,7 @@ namespace SistemAkuntansi
             dateTimePickerTgl.Value = DateTime.Now;
             dateTimePickerTgl.Enabled = false;
 
-            string hasilBaca = JobOrder.BacaData("", "", listHasilJob);
+            string hasilBaca = JobOrder.BacaData("J.status", "P", listHasilJob);
 
             if (hasilBaca == "1")
             {

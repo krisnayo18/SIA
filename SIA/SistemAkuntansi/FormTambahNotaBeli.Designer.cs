@@ -29,7 +29,6 @@
         private void InitializeComponent()
         {
             this.buttonSimpan = new System.Windows.Forms.Button();
-            this.buttonCetak = new System.Windows.Forms.Button();
             this.buttonKeluar = new System.Windows.Forms.Button();
             this.panel1 = new System.Windows.Forms.Panel();
             this.label18 = new System.Windows.Forms.Label();
@@ -88,21 +87,6 @@
             this.buttonSimpan.Text = "SIMPAN";
             this.buttonSimpan.UseVisualStyleBackColor = false;
             this.buttonSimpan.Click += new System.EventHandler(this.buttonSimpan_Click);
-            // 
-            // buttonCetak
-            // 
-            this.buttonCetak.BackColor = System.Drawing.Color.DodgerBlue;
-            this.buttonCetak.FlatAppearance.BorderSize = 0;
-            this.buttonCetak.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.buttonCetak.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.buttonCetak.ForeColor = System.Drawing.Color.White;
-            this.buttonCetak.Location = new System.Drawing.Point(237, 447);
-            this.buttonCetak.Name = "buttonCetak";
-            this.buttonCetak.Size = new System.Drawing.Size(96, 33);
-            this.buttonCetak.TabIndex = 38;
-            this.buttonCetak.Text = "CETAK";
-            this.buttonCetak.UseVisualStyleBackColor = false;
-            this.buttonCetak.Click += new System.EventHandler(this.buttonCetakNotaBeli_Click);
             // 
             // buttonKeluar
             // 
@@ -528,11 +512,9 @@
             this.BackColor = System.Drawing.Color.SteelBlue;
             this.ClientSize = new System.Drawing.Size(567, 492);
             this.Controls.Add(this.buttonSimpan);
-            this.Controls.Add(this.buttonCetak);
             this.Controls.Add(this.buttonKeluar);
             this.Controls.Add(this.panel1);
             this.Controls.Add(this.label1);
-            this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.None;
             this.Name = "FormTambahNotaBeli";
             this.Text = "FormTambahNotaBeli";
             this.Load += new System.EventHandler(this.FormTambahNotaBeli_Load);
@@ -546,7 +528,6 @@
         #endregion
 
         private System.Windows.Forms.Button buttonSimpan;
-        private System.Windows.Forms.Button buttonCetak;
         private System.Windows.Forms.Button buttonKeluar;
         private System.Windows.Forms.Panel panel1;
         private System.Windows.Forms.DataGridView dataGridViewNota;

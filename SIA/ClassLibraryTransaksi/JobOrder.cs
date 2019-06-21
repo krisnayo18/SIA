@@ -11,7 +11,7 @@ namespace ClassLibraryTransaksi
    public  class JobOrder
     {
         #region Data Member
-        private string kodeJobOrder;
+        private string kodeJobOrder, status;
         private int quantity, directLabor, directMaterial, overheadProduksi;
         private DateTime tglMulai, tglSelesai;
         private Barang barang;
@@ -26,6 +26,7 @@ namespace ClassLibraryTransaksi
             Quantity = 0;
             DirectLabor = 0;
             DirectMaterial = 0;
+            Status = "";
             OverheadProduksi = 0;
             TglMulai = DateTime.Now;
             TglSelesai = DateTime.Now;
@@ -33,7 +34,7 @@ namespace ClassLibraryTransaksi
             //barang dan nota penjualan aggregation, tidak boleh di new didalam class
 
         }
-        public JobOrder(string kodeJobOrder, int quantity, int directLabor, int directMaterial, int overheadProduksi, DateTime tglMulai, DateTime tglSelesai, Barang barang, NotaPenjualan notaPenjualan)
+        public JobOrder(string kodeJobOrder, int quantity, int directLabor, int directMaterial, int overheadProduksi, DateTime tglMulai, DateTime tglSelesai,string pStatus, Barang barang, NotaPenjualan notaPenjualan)
         {
             this.kodeJobOrder = kodeJobOrder;
             this.quantity = quantity;
@@ -44,6 +45,7 @@ namespace ClassLibraryTransaksi
             this.tglSelesai = tglSelesai;
             this.barang = barang;
             this.notaPenjualan = notaPenjualan;
+            this.status = pStatus;
             ListDetilJobOrder = new List<DetilJobOrder>();
         }
         #endregion
@@ -179,16 +181,42 @@ namespace ClassLibraryTransaksi
             }
         }
 
+        public string Status
+        {
+            get
+            {
+                return status;
+            }
+
+            set
+            {
+                status = value;
+            }
+        }
+
         #endregion
 
         #region Method
-       
+
         public void TambahDetilJobOrder(Karyawan pKaryawan,  string pSatuan, int pGajiPerSatuan)
         {
             DetilJobOrder djo = new DetilJobOrder(pKaryawan, pSatuan,pGajiPerSatuan);
             ListDetilJobOrder.Add(djo);
 
 
+        }
+        public static string UpdateStatusJobOrder(string pJob)
+        {
+            string sql = "UPDATE jobOrder SET status = 'S' where kodeJobOrder = '" + pJob + "'";
+            try
+            {
+                Koneksi.JalankanPerintahDML(sql);
+                return "1";
+            }
+            catch (MySqlException ex)
+            {
+                return ex.Message + ". Perintah sql: " + sql;
+            }
         }
         //method untuk mengubah data direct material saat penerimaan bahan baku
         public static string UpdateDirectMaterial(string pJob, int pDirectMaterial)
@@ -226,7 +254,7 @@ namespace ClassLibraryTransaksi
             {
                 // perintah sql 1 = untuk menambahkan data ke tabel Job Order
                 string sql1 = "INSERT INTO JobOrder(kodeJobOrder, quantity,  directLabor, directMaterial, overheadProduksi, tglMulai, tglSelesai, kodeBarang, " +
-                    " noNotaPenjualan) VALUES ('" +
+                    " noNotaPenjualan, status) VALUES ('" +
                     pJobOrder.KodeJobOrder + "', " +
                     pJobOrder.Quantity + ", " +
                     pJobOrder.DirectLabor + ", " +
@@ -235,7 +263,8 @@ namespace ClassLibraryTransaksi
                     pJobOrder.TglMulai.ToString("yyyy-MM-dd ") + "', '" +
                     pJobOrder.TglSelesai.ToString("yyyy-MM-dd ") + "', '" +
                     pJobOrder.Barang.KodeBarang + "', '" +
-                    pJobOrder.NotaPenjualan.NoNotaPenjualan+ "')";
+                    pJobOrder.NotaPenjualan.NoNotaPenjualan+ "','" + 
+                    pJobOrder.Status + "')";
 
                 try
                 {
@@ -311,13 +340,13 @@ namespace ClassLibraryTransaksi
             {
                 //tuliskan perintah sql1 = untuk menampilkan semua data  ditabel JobOrder 
                 sql1 = "SELECT J.kodeJobOrder, B.kodeBarang, B.nama as Item, B.hargaBeliTerbaru, J.quantity, B.satuan, J.directMaterial, J.directLabor, " +
-                       " J.overheadProduksi, J.tglMulai, J.tglSelesai, J.noNotaPenjualan FROM notapenjualan NP inner join " +
+                       " J.overheadProduksi, J.tglMulai, J.tglSelesai, J.noNotaPenjualan, J.status FROM notapenjualan NP inner join " +
                        " joborder J on NP.noNotaPenjualan = J.noNotaPenjualan inner join barang B on B.kodeBarang = J.kodebarang order by kodejoborder DESC ";
             }
             else
             {
                 sql1 = "SELECT J.kodeJobOrder, B.kodeBarang, B.nama as Item, B.hargaBeliTerbaru, J.quantity, B.satuan, J.directMaterial, J.directLabor, " +
-                       " J.overheadProduksi, J.tglMulai, J.tglSelesai, J.noNotaPenjualan FROM notapenjualan NP inner join " +
+                       " J.overheadProduksi, J.tglMulai, J.tglSelesai, J.noNotaPenjualan, J.status FROM notapenjualan NP inner join " +
                        " joborder J on NP.noNotaPenjualan = J.noNotaPenjualan inner join barang B on B.kodeBarang = J.kodebarang  where " + 
                        kriteria + " LIKE '%" + nilaiKriteria + "%' order by kodejoborder DESC";
             }
@@ -338,6 +367,7 @@ namespace ClassLibraryTransaksi
                     int pOver = int.Parse(hasilData1.GetValue(8).ToString());
                     DateTime pMulai = DateTime.Parse(hasilData1.GetValue(9).ToString());
                     DateTime pSelesai = DateTime.Parse(hasilData1.GetValue(10).ToString());
+                    string pStatus = hasilData1.GetValue(12).ToString();
 
                     //tambahkan no nota
                     string noNota = hasilData1.GetValue(11).ToString();
@@ -361,7 +391,7 @@ namespace ClassLibraryTransaksi
 
                     //job order
                     //buat object joborder dan tambahkan data
-                    JobOrder job = new JobOrder(kodeJob, pQuantity, pLabor, pMaterial, pOver, pMulai, pSelesai,barang,nota);
+                    JobOrder job = new JobOrder(kodeJob, pQuantity, pLabor, pMaterial, pOver, pMulai, pSelesai,pStatus ,barang,nota);
 
                     //DETAIL Job Order
                     //query utk detail Job Order 

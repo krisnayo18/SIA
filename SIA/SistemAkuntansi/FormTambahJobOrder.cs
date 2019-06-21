@@ -75,7 +75,8 @@ namespace SistemAkuntansi
             int overhead = 0;
             DateTime pMulai = dateTimePickerMulai.Value;
             DateTime  pSelesai = dateTimePickerSelesai.Value;
-            JobOrder job = new JobOrder(kode, quant, labor, material, overhead, pMulai, pSelesai, br, nota);
+            string pStatus = "P";
+            JobOrder job = new JobOrder(kode, quant, labor, material, overhead, pMulai, pSelesai, pStatus, br, nota);
 
             //data barang diperoleh dari data gridview
             for (int i = 0; i < dataGridViewJobOrder.Rows.Count; i++)

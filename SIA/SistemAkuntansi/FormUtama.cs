@@ -19,10 +19,6 @@ namespace SistemAkuntansi
         {
             InitializeComponent();
         }
-
-        
-
-
         //public void PengaturanHakAksesMenu(Jabatan pJabatan)
         //{
         //    if (pJabatan.IdJabatan == "J1") //jika jabatan nya pegawai pembelian
@@ -58,8 +54,7 @@ namespace SistemAkuntansi
             this.Close();
         }
         private void FormUtama_Load(object sender, EventArgs e)
-        {
-            
+        {   
 
             this.WindowState = FormWindowState.Maximized;
             
@@ -189,24 +184,23 @@ namespace SistemAkuntansi
         //
         private void labelTransaksi_Click(object sender, EventArgs e)
         {
-            if (panelTransaksi.Height == 25)          
-                panelTransaksi.Height = 120;    
-            else
-                panelTransaksi.Height = 25;
+          
         }
 
         private void labelMaster_Click(object sender, EventArgs e)
         {
-            if(panelMaster.Height == 25)
+            if(panelMaster.Height == 31)
             {
-                panelMaster.Height = 210;
-                panelTransaksi.Location = new Point(1, 479);
+                panelMaster.Height = 215;
+                panelTransaksi.Location = new Point(20, 220);
+                panelLaporan.Location = new Point(20, 595);
             }
             else
             {
-                panelMaster.Height = 25;
-                panelTransaksi.Location = new Point(1, 300);
-            }
+                panelMaster.Height = 31;
+                panelTransaksi.Location = new Point(20, 40);
+                panelLaporan.Location = new Point(21, 417);
+            }      
         }
 
         private void buttonPelunasan_Click(object sender, EventArgs e)

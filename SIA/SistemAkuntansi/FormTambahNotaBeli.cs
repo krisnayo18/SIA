@@ -199,9 +199,15 @@ namespace SistemAkuntansi
                 string hasilTambahJurnal = Jurnal.TambahData(jurnal);
                 if (hasilTambahJurnal == "1")
                 {
-                    MessageBox.Show("berhasil posting ke jurnal");
-                    this.Close();
-                    form.FormDaftarNotaBeli_Load(sender, e); //supaya formdaftar barang menampilkan daftar terbaru
+                    string hasilCetak = NotaPembelian.CetakNota("NoNotaPembelian", textBoxNo.Text, "Nota_Beli_Tambah.txt");
+                    if (hasilCetak == "1")
+                    {
+                        MessageBox.Show("berhasil posting ke jurnal");
+                        MessageBox.Show("Nota telah tercetak");
+                        this.Close();
+                        form.FormDaftarNotaBeli_Load(sender, e); //supaya formdaftar barang menampilkan daftar terbaru
+                    }
+                    else MessageBox.Show("Nota beli gagal dicetak. Pesan kesalahan : " + hasilCetak);
                 }
                 else
                 {
@@ -305,9 +311,7 @@ namespace SistemAkuntansi
 
         private void buttonCetakNotaBeli_Click(object sender, EventArgs e)
         {
-            //string hasilCetak = NotaBeli.CetakNota("N.NoNota", textBoxNo.Text, "Nota_Beli_Tambah.txt");
-            //if (hasilCetak == "1") MessageBox.Show("Nota telah tercetak");
-            //else MessageBox.Show("Nota beli gagal dicetak. Pesan kesalahan : " + hasilCetak);   
+           
         }
     }
 }

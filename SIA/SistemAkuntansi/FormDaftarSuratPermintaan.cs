@@ -28,11 +28,13 @@ namespace SistemAkuntansi
             dataGridViewSurat.Columns.Add("tanggal", "Tanggal");
             dataGridViewSurat.Columns.Add("keterangan", "Keterangan");
             dataGridViewSurat.Columns.Add("kodeJobOrder", "Kode Job Order");
+            dataGridViewSurat.Columns.Add("status", "Status Job Order");
 
             dataGridViewSurat.Columns["noSuratPermintaan"].AutoSizeMode = DataGridViewAutoSizeColumnMode.AllCells;
             dataGridViewSurat.Columns["tanggal"].AutoSizeMode = DataGridViewAutoSizeColumnMode.AllCells;
             dataGridViewSurat.Columns["keterangan"].AutoSizeMode = DataGridViewAutoSizeColumnMode.AllCells;
             dataGridViewSurat.Columns["kodeJobOrder"].AutoSizeMode = DataGridViewAutoSizeColumnMode.AllCells;
+            dataGridViewSurat.Columns["status"].AutoSizeMode = DataGridViewAutoSizeColumnMode.AllCells;
 
             dataGridViewSurat.AllowUserToAddRows = false;
         }
@@ -64,7 +66,7 @@ namespace SistemAkuntansi
                 for (int i = 0; i < listHasilPermintaan.Count; i++)
                 {
                     dataGridViewSurat.Rows.Add(listHasilPermintaan[i].NoSuratPermintaan, listHasilPermintaan[i].Tanggal.ToString("dddd, dd MMMM yyyy"),
-                        listHasilPermintaan[i].Keterangan,listHasilPermintaan[i].JobOrder.KodeJobOrder
+                        listHasilPermintaan[i].Keterangan,listHasilPermintaan[i].JobOrder.KodeJobOrder, listHasilPermintaan[i].JobOrder.Status
                         );
                 }
             }

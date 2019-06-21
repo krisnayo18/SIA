@@ -121,18 +121,6 @@
             this.comboBoxCari.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
             this.comboBoxCari.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.comboBoxCari.FormattingEnabled = true;
-            this.comboBoxCari.Items.AddRange(new object[] {
-            "No Nota",
-            "No Pelanggan",
-            "Nama Pelanggan",
-            "Alamat Pelanggan",
-            "Diskon",
-            "Total Harga",
-            "Batas Pelunasan",
-            "Batas Diskon",
-            "Tanggal Penjualan",
-            "Status",
-            "Keterangan"});
             this.comboBoxCari.Location = new System.Drawing.Point(115, 8);
             this.comboBoxCari.Name = "comboBoxCari";
             this.comboBoxCari.Size = new System.Drawing.Size(192, 21);
@@ -189,7 +177,6 @@
             this.Controls.Add(this.dataGridViewNota);
             this.Controls.Add(this.panel1);
             this.Controls.Add(this.label1);
-            this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.None;
             this.Name = "FormDaftarNotaJual";
             this.Text = "Daftar Nota Jual";
             this.Load += new System.EventHandler(this.FormDaftarNotaJual_Load);

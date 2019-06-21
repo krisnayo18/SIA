@@ -48,6 +48,7 @@
   </ItemGroup>
   <ItemGroup>
     <Compile Include="Barang.cs" />
+    <Compile Include="Cetak.cs" />
     <Compile Include="DetilJobOrder.cs" />
     <Compile Include="DetilNotaBeli.cs" />
     <Compile Include="DetilNotaJual.cs" />

@@ -29,7 +29,6 @@
         private void InitializeComponent()
         {
             this.buttonSimpan = new System.Windows.Forms.Button();
-            this.buttonCetakNota = new System.Windows.Forms.Button();
             this.buttonKeluar = new System.Windows.Forms.Button();
             this.panel1 = new System.Windows.Forms.Panel();
             this.label18 = new System.Windows.Forms.Label();
@@ -88,21 +87,6 @@
             this.buttonSimpan.Text = "SIMPAN";
             this.buttonSimpan.UseVisualStyleBackColor = false;
             this.buttonSimpan.Click += new System.EventHandler(this.buttonSimpan_Click);
-            // 
-            // buttonCetakNota
-            // 
-            this.buttonCetakNota.BackColor = System.Drawing.Color.DodgerBlue;
-            this.buttonCetakNota.FlatAppearance.BorderSize = 0;
-            this.buttonCetakNota.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.buttonCetakNota.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.buttonCetakNota.ForeColor = System.Drawing.Color.White;
-            this.buttonCetakNota.Location = new System.Drawing.Point(120, 447);
-            this.buttonCetakNota.Name = "buttonCetakNota";
-            this.buttonCetakNota.Size = new System.Drawing.Size(96, 33);
-            this.buttonCetakNota.TabIndex = 33;
-            this.buttonCetakNota.Text = "CETAK";
-            this.buttonCetakNota.UseVisualStyleBackColor = false;
-            this.buttonCetakNota.Click += new System.EventHandler(this.buttonCetakNota_Click);
             // 
             // buttonKeluar
             // 
@@ -530,7 +514,6 @@
             this.BackColor = System.Drawing.Color.SteelBlue;
             this.ClientSize = new System.Drawing.Size(567, 492);
             this.Controls.Add(this.buttonSimpan);
-            this.Controls.Add(this.buttonCetakNota);
             this.Controls.Add(this.buttonKeluar);
             this.Controls.Add(this.panel1);
             this.Controls.Add(this.label1);
@@ -548,7 +531,6 @@
         #endregion
 
         private System.Windows.Forms.Button buttonSimpan;
-        private System.Windows.Forms.Button buttonCetakNota;
         private System.Windows.Forms.Button buttonKeluar;
         private System.Windows.Forms.Panel panel1;
         private System.Windows.Forms.TextBox textBoxNo;

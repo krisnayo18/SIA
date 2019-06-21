@@ -28,8 +28,8 @@ namespace SistemAkuntansi
         public void FormDaftarNotaBeli_Load(object sender, EventArgs e)
         {
 
-            comboBoxCari.Items.AddRange(new string[] { "No.Nota","Tanggal","Kode Supplier","Nama Supplier","Alamat Supplier","Diskon","Total Harga","Batas Pelunasan",
-                                                       "Batas Diskon","Tanggal Pembelian","Keterangan","Status" });
+            comboBoxCari.Items.AddRange(new string[] { "No Nota","ID Supplier","Nama Supplier","Alamat Supplier","Diskon","Total Harga","Batas Pelunasan",
+                                                       "Batas Diskon","Tanggal Pembelian","Status","Keterangan" });
 
             this.Location = new Point(0, 0);
             comboBoxCari.DropDownStyle = ComboBoxStyle.DropDownList;
@@ -76,8 +76,6 @@ namespace SistemAkuntansi
             dataGridViewNota.Columns.Add("status", "Status");
             dataGridViewNota.Columns.Add("keterangan", "Keterangan");
 
-
-
             dataGridViewNota.Columns["noNotaPembelian"].AutoSizeMode = DataGridViewAutoSizeColumnMode.AllCells;
             dataGridViewNota.Columns["idSupplier"].AutoSizeMode = DataGridViewAutoSizeColumnMode.AllCells;
             dataGridViewNota.Columns["NamaSupplier"].AutoSizeMode = DataGridViewAutoSizeColumnMode.AllCells;
@@ -90,68 +88,55 @@ namespace SistemAkuntansi
             dataGridViewNota.Columns["status"].AutoSizeMode = DataGridViewAutoSizeColumnMode.AllCells;
             dataGridViewNota.Columns["keterangan"].AutoSizeMode = DataGridViewAutoSizeColumnMode.AllCells;
 
-            //dataGridViewNota.Columns["totalHarga"].DefaultCellStyle.Format = "0,###";
-
-
             dataGridViewNota.AllowUserToAddRows = false;
         }
 
         private void buttoncetak_Click(object sender, EventArgs e)
         {
-            
+            string hasilCetak = NotaPembelian.CetakNota(kriteria, textBoxCari.Text, "daftar_nota_Beli.txt");
+            if (hasilCetak == "1") MessageBox.Show("Nota telah tercetak");
+            else MessageBox.Show("Nota beli gagal dicetak. Pesan kesalahan : " + hasilCetak);
         }
 
         private void textBoxNotaBeli_TextChanged(object sender, EventArgs e)
         {
-            string nilaiKriteria = textBoxCari.Text;
-            if (comboBoxCari.Text == "No Nota") kriteria = "N.NoNotaPembelian";
-            else if (comboBoxCari.Text == "No Supplier") kriteria = "N.idsupplier";
-            else if (comboBoxCari.Text == "Nama Supplier") kriteria = "s.nama";
-            else if (comboBoxCari.Text == "Alamat Supplier") kriteria = "s.alamat";
-            else if (comboBoxCari.Text == "Diskon") kriteria = "N.diskon";
-            else if (comboBoxCari.Text == "Total Harga") kriteria = "N.totalHarga";
-            else if (comboBoxCari.Text == "Batas Pelunasan") kriteria = "N.tglBatasPelunasan";
-            else if (comboBoxCari.Text == "Batas Diskon") kriteria = "N.tglBatasDiskon";
-            else if (comboBoxCari.Text == "Tanggal Pembelian") kriteria = "N.tglBeli";
-            else if (comboBoxCari.Text == "Status") kriteria = "N.status";
-            else if (comboBoxCari.Text == "Keterangan") kriteria = "N.keterangan";
-
-
-            string hasilBaca = NotaPembelian.BacaData(kriteria, nilaiKriteria, listHasilData);
-
-            if (hasilBaca == "1")
+            if(textBoxCari.Text == "")
             {
-                dataGridViewNota.Rows.Clear();
+                string hasilBaca = NotaPembelian.BacaData("", "", listHasilData);
 
-                for (int i = 0; i < listHasilData.Count; i++)
+                if (hasilBaca == "1")
                 {
-                    dataGridViewNota.Rows.Add(listHasilData[i].NoNotaPembelian, listHasilData[i].Supplier.IdSupplier,
-                          listHasilData[i].Supplier.Nama, listHasilData[i].Supplier.Alamat, listHasilData[i].Diskon,
-                          listHasilData[i].TotalHarga, listHasilData[i].TglBatasPelunasan, listHasilData[i].TglBatasDiskon,
-                          listHasilData[i].TglBeli, listHasilData[i].Status, listHasilData[i].Keterangan);
+                    dataGridViewNota.Rows.Clear();
+
+                    for (int i = 0; i < listHasilData.Count; i++)
+                    {
+                        string total = listHasilData[i].TotalHarga.ToString("RP 0,###");
+                        dataGridViewNota.Rows.Add(listHasilData[i].NoNotaPembelian, listHasilData[i].Supplier.IdSupplier,
+                            listHasilData[i].Supplier.Nama, listHasilData[i].Supplier.Alamat, listHasilData[i].Diskon,
+                            total, listHasilData[i].TglBatasPelunasan.ToString("dddd, dd MMMM yyyy"),
+                            listHasilData[i].TglBatasDiskon.ToString("dddd, dd MMMM yyyy"),
+                            listHasilData[i].TglBeli.ToString("dddd, dd MMMM yyyy"), listHasilData[i].Status, listHasilData[i].Keterangan);
+                    }
                 }
-            }  
+            }
         }
 
         private void buttonCari_Click(object sender, EventArgs e)
         {
-            
-        }
 
-        private void comboBoxCari_TextChanged(object sender, EventArgs e)
-        {
+
             string nilaiKriteria = textBoxCari.Text;
-            if (comboBoxCari.Text == "No Nota") kriteria = "N.NoNotaPembelian";
-            else if (comboBoxCari.Text == "No Supplier") kriteria = "N.idsupplier";
-            else if (comboBoxCari.Text == "Nama Supplier") kriteria = "s.nama";
-            else if (comboBoxCari.Text == "Alamat Supplier") kriteria = "s.alamat";
-            else if (comboBoxCari.Text == "Diskon") kriteria = "N.diskon";
-            else if (comboBoxCari.Text == "Total Harga") kriteria = "N.totalHarga";
-            else if (comboBoxCari.Text == "Batas Pelunasan") kriteria = "N.tglBatasPelunasan";
-            else if (comboBoxCari.Text == "Batas Diskon") kriteria = "N.tglBatasDiskon";
-            else if (comboBoxCari.Text == "Tanggal Pembelian") kriteria = "N.tglBeli";
-            else if (comboBoxCari.Text == "Status") kriteria = "N.status";
-            else if (comboBoxCari.Text == "Keterangan") kriteria = "N.keterangan";
+            if (comboBoxCari.Text == "No Nota") kriteria = "noNotaPembelian";
+            else if (comboBoxCari.Text == "ID Supplier") kriteria = "idSupplier";
+            else if (comboBoxCari.Text == "Nama Supplier") kriteria = "namaSupplier";
+            else if (comboBoxCari.Text == "Alamat Supplier") kriteria = "alamatSupplier";
+            else if (comboBoxCari.Text == "Diskon") kriteria = "diskon";
+            else if (comboBoxCari.Text == "Total Harga") kriteria = "totalHarga";
+            else if (comboBoxCari.Text == "Batas Pelunasan") kriteria = "tglBatasPelunasan";
+            else if (comboBoxCari.Text == "Batas Diskon") kriteria = "tglBatasDiskon";
+            else if (comboBoxCari.Text == "Tanggal Pembelian") kriteria = "tglBeli";
+            else if (comboBoxCari.Text == "Status") kriteria = "status";
+            else if (comboBoxCari.Text == "Keterangan") kriteria = "keterangan";
 
 
             string hasilBaca = NotaPembelian.BacaData(kriteria, nilaiKriteria, listHasilData);
@@ -162,10 +147,32 @@ namespace SistemAkuntansi
 
                 for (int i = 0; i < listHasilData.Count; i++)
                 {
+                    string total = listHasilData[i].TotalHarga.ToString("RP 0,###");
                     dataGridViewNota.Rows.Add(listHasilData[i].NoNotaPembelian, listHasilData[i].Supplier.IdSupplier,
-                          listHasilData[i].Supplier.Nama, listHasilData[i].Supplier.Alamat, listHasilData[i].Diskon,
-                          listHasilData[i].TotalHarga, listHasilData[i].TglBatasPelunasan, listHasilData[i].TglBatasDiskon,
-                          listHasilData[i].TglBeli, listHasilData[i].Status, listHasilData[i].Keterangan);
+                        listHasilData[i].Supplier.Nama, listHasilData[i].Supplier.Alamat, listHasilData[i].Diskon,
+                        total, listHasilData[i].TglBatasPelunasan.ToString("dddd, dd MMMM yyyy"),
+                        listHasilData[i].TglBatasDiskon.ToString("dddd, dd MMMM yyyy"),
+                        listHasilData[i].TglBeli.ToString("dddd, dd MMMM yyyy"), listHasilData[i].Status, listHasilData[i].Keterangan);
+                }
+            }
+        }
+
+        private void comboBoxCari_TextChanged(object sender, EventArgs e)
+        {
+            string hasilBaca = NotaPembelian.BacaData("", "", listHasilData);
+
+            if (hasilBaca == "1")
+            {
+                dataGridViewNota.Rows.Clear();
+
+                for (int i = 0; i < listHasilData.Count; i++)
+                {
+                    string total = listHasilData[i].TotalHarga.ToString("RP 0,###");
+                    dataGridViewNota.Rows.Add(listHasilData[i].NoNotaPembelian, listHasilData[i].Supplier.IdSupplier,
+                        listHasilData[i].Supplier.Nama, listHasilData[i].Supplier.Alamat, listHasilData[i].Diskon,
+                        total, listHasilData[i].TglBatasPelunasan.ToString("dddd, dd MMMM yyyy"),
+                        listHasilData[i].TglBatasDiskon.ToString("dddd, dd MMMM yyyy"),
+                        listHasilData[i].TglBeli.ToString("dddd, dd MMMM yyyy"), listHasilData[i].Status, listHasilData[i].Keterangan);
                 }
             }
         }

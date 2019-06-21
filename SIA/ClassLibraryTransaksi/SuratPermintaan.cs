@@ -195,13 +195,13 @@ namespace ClassLibraryTransaksi
             {
                 //tuliskan perintah sql1 = untuk menampilkan semua data  ditabel suratpermintaan
                 sql1 = "select SP.noSuratPermintaan, SP.tanggal, SP.keterangan, SP.kodejoborder, JO.quantity, JO.directlabor, " +
-                       " JO.directmaterial, JO.overheadproduksi from suratpermintaan SP inner join joborder JO on SP.kodejoborder = JO.kodejoborder " +
+                       " JO.directmaterial, JO.overheadproduksi, JO.status from suratpermintaan SP inner join joborder JO on SP.kodejoborder = JO.kodejoborder " +
                        " order by noSuratPermintaan desc";
             }
             else
             {
                 sql1 = "select SP.noSuratPermintaan, SP.tanggal, SP.keterangan, SP.kodejoborder, JO.quantity, JO.directlabor, " +
-                       " JO.directmaterial, JO.overheadproduksi from suratpermintaan SP inner join joborder JO on SP.kodejoborder = JO.kodejoborder " +
+                       " JO.directmaterial, JO.overheadproduksi, JO.status from suratpermintaan SP inner join joborder JO on SP.kodejoborder = JO.kodejoborder " +
                        "  where " + kriteria + " LIKE '%" + nilaiKriteria + "%' order by noSuratPermintaan desc";
             }
 
@@ -226,6 +226,7 @@ namespace ClassLibraryTransaksi
                     int labor = int.Parse(hasilData1.GetValue(5).ToString());
                     int material = int.Parse(hasilData1.GetValue(6).ToString());
                     int over = int.Parse(hasilData1.GetValue(7).ToString());
+                    string pStatus = hasilData1.GetValue(8).ToString();
 
                     //buat object bertipe joborder
                     JobOrder job = new JobOrder();
@@ -235,6 +236,7 @@ namespace ClassLibraryTransaksi
                     job.DirectLabor = labor;
                     job.DirectMaterial = material;
                     job.OverheadProduksi = over;
+                    job.Status = pStatus;
 
                     //Surat Permintaan
                     //buat object surat Permintaan dan tambahkan data

@@ -86,7 +86,7 @@ namespace SistemAkuntansi
             dateTimePickerTgl.Value = DateTime.Now;
             dateTimePickerTgl.Enabled = false;
 
-            string hasilBaca = SuratPermintaan.BacaData("", "", listHasilSuratPer);
+            string hasilBaca = SuratPermintaan.BacaData("JO.status", "P", listHasilSuratPer);
 
             if (hasilBaca == "1")
             {
@@ -101,22 +101,7 @@ namespace SistemAkuntansi
             {
                 comboBoxSuratPermintaan.Items.Clear();
             }
-            string hasilBaca2 = SuratPermintaan.BacaData("nosuratpermintaan", comboBoxSuratPermintaan.Text, listHasilSuratPer);
-            if (hasilBaca2 == "1")
-            {
-                if (listHasilSuratPer.Count > 0)
-                {
-                    kodeJob = listHasilSuratPer[0].JobOrder.KodeJobOrder;
-                    quantity = listHasilSuratPer[0].JobOrder.Quantity;
-                    directMaterial = listHasilSuratPer[0].JobOrder.DirectMaterial;
-                    totalJobCost = listHasilSuratPer[0].JobOrder.DirectLabor + listHasilSuratPer[0].JobOrder.DirectMaterial +
-                                   listHasilSuratPer[0].JobOrder.OverheadProduksi;
-                }
-            }
-            else
-            {
-                MessageBox.Show("Perintah SQL gagal dijalankan. Pesan kesalahan: " + hasilBaca2);
-            }
+          
             comboBoxSuratPermintaan.SelectedIndex = 0;
 
             FormUtama form = (FormUtama)this.Owner.MdiParent;
@@ -200,6 +185,10 @@ namespace SistemAkuntansi
                 labelJenis.Text = "";
                 textBoxJumlah.Clear();
                 textBoxKode.Focus();
+                if(comboBoxJenis.Text == "Masuk")
+                {
+                    textBoxJumlah.Enabled = false;
+                }
             }
         }
         private int HitungGrandTotal()
@@ -294,7 +283,12 @@ namespace SistemAkuntansi
                 if (comboBoxJenis.Text == "Masuk")
                 {
                     jurnal.TambahDetilJurnalPenyelesaianProduksi(totalJobCost);
-                    
+                    string hasil = JobOrder.UpdateStatusJobOrder(kodeJob);
+                    if(hasil == "1")
+                        MessageBox.Show("Job Order : " + kodeJob + " telah selesai ");
+                    else
+                        MessageBox.Show(hasil);
+
                 }
                 else
                 {
@@ -375,6 +369,22 @@ namespace SistemAkuntansi
 
         private void comboBoxSuratPermintaan_SelectedIndexChanged(object sender, EventArgs e)
         {
+            string hasilBaca2 = SuratPermintaan.BacaData("nosuratpermintaan", comboBoxSuratPermintaan.Text, listHasilSuratPer);
+            if (hasilBaca2 == "1")
+            {
+                if (listHasilSuratPer.Count > 0)
+                {
+                    kodeJob = listHasilSuratPer[0].JobOrder.KodeJobOrder;
+                    quantity = listHasilSuratPer[0].JobOrder.Quantity;
+                    directMaterial = listHasilSuratPer[0].JobOrder.DirectMaterial;
+                    totalJobCost = listHasilSuratPer[0].JobOrder.DirectLabor + listHasilSuratPer[0].JobOrder.DirectMaterial +
+                                   listHasilSuratPer[0].JobOrder.OverheadProduksi;
+                }
+            }
+            else
+            {
+                MessageBox.Show("Perintah SQL gagal dijalankan. Pesan kesalahan: " + hasilBaca2);
+            }
             comboBoxJenis_TextChanged(sender, e);
         }
     }

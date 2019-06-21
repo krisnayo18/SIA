@@ -1,6 +1,7 @@
 ﻿using MySql.Data.MySqlClient;
 using System;
 using System.Collections.Generic;
+using System.IO;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
@@ -366,6 +367,75 @@ namespace ClassLibraryTransaksi
             catch (MySqlException ex)
             {
                 return ex.Message;
+            }
+        }
+
+        public static string CetakNota(string pKriteria, string pNilaiKriteria, string pNamaFile)
+        {
+            try
+            {
+                List<NotaPembelian> listNotaBeli = new List<NotaPembelian>();
+
+                string hasilBaca = NotaPembelian.BacaData(pKriteria, pNilaiKriteria, listNotaBeli);
+
+                StreamWriter file = new StreamWriter(pNamaFile);
+
+                for (int i = 0; i < listNotaBeli.Count; i++)
+                {
+                    file.WriteLine("");
+                    file.WriteLine("TOKO MAJU MAKMUR UNTUNG SELALU");
+                    file.WriteLine("Jl. Raya Kalirungkut Surabaya");
+                    file.WriteLine("Telp. (031) - 12345678");
+                    file.WriteLine("=".PadRight(50, '='));
+
+                    //Header
+                    file.WriteLine("No.Nota : " + listNotaBeli[i].NoNotaPembelian);
+                    file.WriteLine("Tanggal : " + listNotaBeli[i].TglBeli);
+                    file.WriteLine("");
+                    file.WriteLine("Supplier : " + listNotaBeli[i].Supplier.Nama);
+                    file.WriteLine("Alamat   : " + listNotaBeli[i].Supplier.Alamat);
+                    file.WriteLine("");
+                    //file.WriteLine("Pegawai Pembelian : " + listNotaBeli[i]..Nama);
+                    file.WriteLine("=".PadRight(50, '='));
+
+                    //Tampilkan barang yg terjual
+                    long grandTotal = 0;
+                    for (int j = 0; j < listNotaBeli[i].ListNotaBeliDetil.Count; j++)
+                    {
+                        string nama = listNotaBeli[i].ListNotaBeliDetil[j].Barang.Nama;
+
+                        if (nama.Length > 30)
+                        {
+                            nama = nama.Substring(0, 30);
+                        }
+
+                        int jmlh = listNotaBeli[i].ListNotaBeliDetil[j].Jumlah;
+                        long harga = listNotaBeli[i].ListNotaBeliDetil[j].HargaBeli;
+                        long subTotal = jmlh * harga;
+
+                        file.Write(nama.PadRight(30, ' '));
+                        file.Write(jmlh.ToString().PadRight(3, ' '));
+                        file.Write(harga.ToString("0,###").PadLeft(7, ' '));
+                        file.Write(subTotal.ToString("0,###").PadLeft(10, ' '));
+                        file.WriteLine("");
+                        //hitung grand total
+                        grandTotal = grandTotal + (jmlh * harga);
+                    }
+                    file.WriteLine("=".PadRight(50, '='));
+                    file.WriteLine("TOTAL : " + grandTotal.ToString("0,###"));
+                    file.WriteLine("=".PadRight(50, '='));
+                    file.WriteLine("");
+                }
+                file.Close();
+
+                //cetak ke printer
+                Cetak c = new Cetak(pNamaFile, "Courier New", 9, 10, 10, 10, 10);
+                c.CetakKePrinter("tulisan");
+                return "1";
+            }
+            catch (MySqlException e)
+            {
+                return e.Message;
             }
         }
         #endregion

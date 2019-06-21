@@ -71,6 +71,7 @@ namespace SistemAkuntansi
             dataGridViewJobOrder.Columns.Add("overheadProduksi", "Overhead Produksi");
             dataGridViewJobOrder.Columns.Add("tanggalMulai", "Tanggal Mulai");
             dataGridViewJobOrder.Columns.Add("tanggalSelesai", "Tanggal Selesai");
+            dataGridViewJobOrder.Columns.Add("Status", "status");
 
             dataGridViewJobOrder.Columns["kodeJobOrder"].AutoSizeMode = DataGridViewAutoSizeColumnMode.AllCells;
             dataGridViewJobOrder.Columns["noNotaPenjualan"].AutoSizeMode = DataGridViewAutoSizeColumnMode.AllCells;
@@ -82,6 +83,7 @@ namespace SistemAkuntansi
             dataGridViewJobOrder.Columns["overheadProduksi"].AutoSizeMode = DataGridViewAutoSizeColumnMode.AllCells;
             dataGridViewJobOrder.Columns["tanggalMulai"].AutoSizeMode = DataGridViewAutoSizeColumnMode.AllCells;
             dataGridViewJobOrder.Columns["tanggalSelesai"].AutoSizeMode = DataGridViewAutoSizeColumnMode.AllCells;
+            dataGridViewJobOrder.Columns["status"].AutoSizeMode = DataGridViewAutoSizeColumnMode.AllCells;
 
             dataGridViewJobOrder.AllowUserToAddRows = false;
         }
@@ -112,7 +114,7 @@ namespace SistemAkuntansi
                     dataGridViewJobOrder.Rows.Add(listHasilData[i].KodeJobOrder, listHasilData[i].NotaPenjualan.NoNotaPenjualan,
                         listHasilData[i].Barang.Nama, listHasilData[i].Quantity, listHasilData[i].Barang.Satuan,
                         directLabor, directMat, over, listHasilData[i].TglMulai.ToString("dddd, dd MMMM yyyy"),
-                        listHasilData[i].TglSelesai.ToString("dddd, dd MMMM yyyy"));
+                        listHasilData[i].TglSelesai.ToString("dddd, dd MMMM yyyy"), listHasilData[i].Status);
                 }
             }
         }
