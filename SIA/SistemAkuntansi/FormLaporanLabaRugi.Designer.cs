@@ -257,10 +257,9 @@
             this.Controls.Add(this.dataGridViewLabaRugi);
             this.Controls.Add(this.panel1);
             this.Controls.Add(this.label1);
-            this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.None;
+            this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.FixedDialog;
             this.Margin = new System.Windows.Forms.Padding(2);
             this.Name = "FormLaporanLabaRugi";
-            this.Text = "SuratJalan";
             this.Load += new System.EventHandler(this.FormLaporanLabaRugi_Load);
             ((System.ComponentModel.ISupportInitialize)(this.dataGridViewLabaRugi)).EndInit();
             this.panel1.ResumeLayout(false);

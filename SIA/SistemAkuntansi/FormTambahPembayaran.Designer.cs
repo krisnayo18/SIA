@@ -279,9 +279,8 @@
             this.Controls.Add(this.buttonKeluar);
             this.Controls.Add(this.panel1);
             this.Controls.Add(this.label1);
-            this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.None;
+            this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.FixedDialog;
             this.Name = "FormTambahPembayaran";
-            this.Text = "FormTambahPembayaran";
             this.Load += new System.EventHandler(this.FormTambahPembayaran_Load);
             this.panel1.ResumeLayout(false);
             this.panel1.PerformLayout();

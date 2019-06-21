@@ -154,7 +154,7 @@
             this.label1.Text = "DAFTAR PENERIMAAN PEMBAYARAN";
             this.label1.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
             // 
-            // FormDaftarPenerimaanPembayaran
+            // FormDaftarPelunasan
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
@@ -165,10 +165,9 @@
             this.Controls.Add(this.dataGridViewPelunasan);
             this.Controls.Add(this.panel1);
             this.Controls.Add(this.label1);
-            this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.None;
+            this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.FixedDialog;
             this.Margin = new System.Windows.Forms.Padding(2);
-            this.Name = "FormDaftarPenerimaanPembayaran";
-            this.Text = "FormPenerimaanPembayaran";
+            this.Name = "FormDaftarPelunasan";
             this.Load += new System.EventHandler(this.FormDaftarPelunasan_Load);
             ((System.ComponentModel.ISupportInitialize)(this.dataGridViewPelunasan)).EndInit();
             this.panel1.ResumeLayout(false);

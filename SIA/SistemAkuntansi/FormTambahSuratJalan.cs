@@ -101,8 +101,9 @@ namespace SistemAkuntansi
             {
                 comboBoxSuratPermintaan.Items.Clear();
             }
-          
+            if(comboBoxSuratPermintaan.Items.Count != 0)
             comboBoxSuratPermintaan.SelectedIndex = 0;
+            comboBoxJenis.SelectedIndex = 0;
 
             FormUtama form = (FormUtama)this.Owner.MdiParent;
             labelKodePgw.Text = form.labelKodePgw.Text;

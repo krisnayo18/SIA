@@ -107,6 +107,11 @@ namespace SistemAkuntansi
                 comboBoxPelanggan.Items.Clear();
             }
 
+            if (comboBoxPelanggan.Items.Count != 0)
+                comboBoxPelanggan.SelectedIndex = 0;
+            if (comboBoxStatus.Items.Count != 0)
+                comboBoxStatus.SelectedIndex = 0;
+
             FormUtama form = (FormUtama)this.Owner.MdiParent;
             labelKodePgw.Text = form.labelKodePgw.Text;
             labelNamaPgw.Text = form.labelNamaPgw.Text;

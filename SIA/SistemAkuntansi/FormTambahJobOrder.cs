@@ -243,6 +243,10 @@ namespace SistemAkuntansi
             {
                 comboBoxNoNotaJual.Items.Clear();
             }
+
+            if (comboBoxNoNotaJual.Items.Count != 0)
+                comboBoxNoNotaJual.SelectedIndex = 0;
+            comboBoxItem.SelectedIndex = 0;
             FormUtama form = (FormUtama)this.Owner.MdiParent;
             labelKodePgw.Text = form.labelKodePgw.Text;
             labelNamaPgw.Text = form.labelNamaPgw.Text;

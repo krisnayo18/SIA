@@ -136,6 +136,9 @@ namespace SistemAkuntansi
             {
                 comboBoxNoNotaJual.Items.Clear();
             }
+            if(comboBoxNoNotaJual.Items.Count != 0)
+            comboBoxNoNotaJual.SelectedIndex = 0;
+            comboBoxCaraPemb.SelectedIndex = 0;
         }
 
         private void buttonKeluar_Click(object sender, EventArgs e)

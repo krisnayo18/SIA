@@ -159,10 +159,9 @@
             this.Controls.Add(this.buttonKeluar);
             this.Controls.Add(this.dataGridViewSurat);
             this.Controls.Add(this.label1);
-            this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.None;
+            this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.FixedDialog;
             this.Margin = new System.Windows.Forms.Padding(2);
             this.Name = "FormDaftarSuratPermintaan";
-            this.Text = "FormEkspedisi";
             this.Load += new System.EventHandler(this.FormDaftarSuratPermintaan_Load);
             ((System.ComponentModel.ISupportInitialize)(this.dataGridViewSurat)).EndInit();
             this.ResumeLayout(false);

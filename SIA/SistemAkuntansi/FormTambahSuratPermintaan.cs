@@ -92,6 +92,9 @@ namespace SistemAkuntansi
                 comboBoxKodeJobOrder.Items.Clear();
             }
 
+            if (comboBoxKodeJobOrder.Items.Count !=0)
+                comboBoxKodeJobOrder.SelectedIndex = 0;
+            
             FormUtama form = (FormUtama)this.Owner.MdiParent;
             labelKodePgw.Text = form.labelKodePgw.Text;
             labelNamaPgw.Text = form.labelNamaPgw.Text;

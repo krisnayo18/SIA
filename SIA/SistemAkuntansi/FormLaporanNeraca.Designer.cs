@@ -292,10 +292,9 @@
             this.Controls.Add(this.dataGridViewNeraca);
             this.Controls.Add(this.panel1);
             this.Controls.Add(this.label1);
-            this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.None;
+            this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.FixedDialog;
             this.Margin = new System.Windows.Forms.Padding(2);
             this.Name = "FormLaporanNeraca";
-            this.Text = "FormLaporanNeraca";
             this.Load += new System.EventHandler(this.FormLaporanNeraca_Load);
             ((System.ComponentModel.ISupportInitialize)(this.dataGridViewNeraca)).EndInit();
             this.panel1.ResumeLayout(false);

@@ -177,8 +177,8 @@
             this.Controls.Add(this.dataGridViewNota);
             this.Controls.Add(this.panel1);
             this.Controls.Add(this.label1);
+            this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.FixedDialog;
             this.Name = "FormDaftarNotaJual";
-            this.Text = "Daftar Nota Jual";
             this.Load += new System.EventHandler(this.FormDaftarNotaJual_Load);
             ((System.ComponentModel.ISupportInitialize)(this.dataGridViewNota)).EndInit();
             this.panel1.ResumeLayout(false);

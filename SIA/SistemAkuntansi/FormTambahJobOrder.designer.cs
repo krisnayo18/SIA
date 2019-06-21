@@ -543,7 +543,7 @@
             this.Controls.Add(this.buttonKeluar);
             this.Controls.Add(this.panel1);
             this.Controls.Add(this.label1);
-            this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.None;
+            this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.FixedDialog;
             this.Name = "FormTambahJobOrder";
             this.Load += new System.EventHandler(this.FormTambahBarang_Load);
             this.panel1.ResumeLayout(false);

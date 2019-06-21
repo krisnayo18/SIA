@@ -123,8 +123,6 @@ namespace SistemAkuntansi
 
         private void buttonCari_Click(object sender, EventArgs e)
         {
-
-
             string nilaiKriteria = textBoxCari.Text;
             if (comboBoxCari.Text == "No Nota") kriteria = "noNotaPembelian";
             else if (comboBoxCari.Text == "ID Supplier") kriteria = "idSupplier";

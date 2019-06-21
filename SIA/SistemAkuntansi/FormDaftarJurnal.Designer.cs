@@ -165,9 +165,8 @@
             this.Controls.Add(this.buttoncetak);
             this.Controls.Add(this.buttonKeluar);
             this.Controls.Add(this.dataGridViewJurnal);
-            this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.None;
+            this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.FixedDialog;
             this.Name = "FormDaftarJurnal";
-            this.Text = "FormDaftarJurnal";
             this.Load += new System.EventHandler(this.FormDaftarJurnal_Load);
             this.panel1.ResumeLayout(false);
             this.panel1.PerformLayout();

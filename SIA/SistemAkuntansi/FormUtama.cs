@@ -55,7 +55,7 @@ namespace SistemAkuntansi
         }
         private void FormUtama_Load(object sender, EventArgs e)
         {   
-
+           
             this.WindowState = FormWindowState.Maximized;
             
             this.IsMdiContainer = true;
@@ -375,6 +375,38 @@ namespace SistemAkuntansi
             if (form == null)
             {
                 FormDaftarSuratJalan fp = new FormDaftarSuratJalan();
+                fp.MdiParent = this;
+                fp.Show();
+            }
+            else
+            {
+                form.Show();
+                form.BringToFront();
+            }
+        }
+
+        private void buttonPenerimaan_Click(object sender, EventArgs e)
+        {
+            Form form = Application.OpenForms["FormDaftarPenerimaan"];
+            if (form == null)
+            {
+                FormDaftarPenerimaan fp = new FormDaftarPenerimaan();
+                fp.MdiParent = this;
+                fp.Show();
+            }
+            else
+            {
+                form.Show();
+                form.BringToFront();
+            }
+        }
+
+        private void buttonPengiriman_Click(object sender, EventArgs e)
+        {
+            Form form = Application.OpenForms["FormDaftarPengiriman"];
+            if (form == null)
+            {
+                FormDaftarPengiriman fp = new FormDaftarPengiriman();
                 fp.MdiParent = this;
                 fp.Show();
             }

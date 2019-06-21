@@ -150,9 +150,8 @@
             this.Controls.Add(this.dataGridViewBukuBesar);
             this.Controls.Add(this.panel1);
             this.Controls.Add(this.label1);
-            this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.None;
+            this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.FixedDialog;
             this.Name = "FormLaporanBukuBesar";
-            this.Text = "Daftar Pelanggan";
             this.Load += new System.EventHandler(this.FormDaftarPelanggan_Load);
             ((System.ComponentModel.ISupportInitialize)(this.dataGridViewBukuBesar)).EndInit();
             this.panel1.ResumeLayout(false);

@@ -159,9 +159,8 @@
             this.Controls.Add(this.buttonKeluar);
             this.Controls.Add(this.dataGridViewJobOrder);
             this.Controls.Add(this.label1);
-            this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.None;
+            this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.FixedDialog;
             this.Name = "FormDaftarJobOrder";
-            this.Text = "FormJobOrder";
             this.Load += new System.EventHandler(this.FormDaftarJobOrder_Load);
             ((System.ComponentModel.ISupportInitialize)(this.dataGridViewJobOrder)).EndInit();
             this.ResumeLayout(false);

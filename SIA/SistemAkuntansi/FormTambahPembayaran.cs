@@ -178,6 +178,9 @@ namespace SistemAkuntansi
             {
                 comboBoxNoNotaBeli.Items.Clear();
             }
+            if (comboBoxNoNotaBeli.Items.Count != 0)
+                comboBoxNoNotaBeli.SelectedIndex = 0;
+            comboBoxCaraPemb.SelectedIndex = 0;
         }
     }
 }

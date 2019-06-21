@@ -433,9 +433,8 @@
             this.Controls.Add(this.buttonKosongi);
             this.Controls.Add(this.label1);
             this.Controls.Add(this.buttonKeluar);
-            this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.None;
+            this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.FixedDialog;
             this.Name = "FormTambahSuratJalan";
-            this.Text = "FormTambahSuratJalan";
             this.Load += new System.EventHandler(this.FormTambahSuratJalan_Load);
             this.panel1.ResumeLayout(false);
             this.panel1.PerformLayout();

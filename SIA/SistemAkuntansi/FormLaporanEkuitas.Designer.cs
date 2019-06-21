@@ -255,10 +255,9 @@
             this.Controls.Add(this.dataGridViewEkuitas);
             this.Controls.Add(this.panel1);
             this.Controls.Add(this.label1);
-            this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.None;
+            this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.FixedDialog;
             this.Margin = new System.Windows.Forms.Padding(2);
             this.Name = "FormLaporanEkuitas";
-            this.Text = "FormLaporanEkuitas";
             this.Load += new System.EventHandler(this.FormDaftarPermintaan_Load);
             ((System.ComponentModel.ISupportInitialize)(this.dataGridViewEkuitas)).EndInit();
             this.panel1.ResumeLayout(false);

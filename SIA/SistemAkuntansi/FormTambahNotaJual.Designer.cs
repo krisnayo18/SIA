@@ -517,9 +517,8 @@
             this.Controls.Add(this.buttonKeluar);
             this.Controls.Add(this.panel1);
             this.Controls.Add(this.label1);
-            this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.FixedSingle;
+            this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.FixedDialog;
             this.Name = "FormTambahNotaJual";
-            this.Text = "Tambah Nota Jual";
             this.Load += new System.EventHandler(this.FormTambahNotaJual_Load);
             this.panel1.ResumeLayout(false);
             this.panel1.PerformLayout();

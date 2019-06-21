@@ -311,7 +311,7 @@
             this.buttonPenerimaan.Text = "Penerimaan";
             this.buttonPenerimaan.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
             this.buttonPenerimaan.UseVisualStyleBackColor = true;
-            this.buttonPenerimaan.Click += new System.EventHandler(this.buttonSuratJalan_Click);
+            this.buttonPenerimaan.Click += new System.EventHandler(this.buttonPenerimaan_Click);
             // 
             // buttonPengiriman
             // 
@@ -326,7 +326,7 @@
             this.buttonPengiriman.Text = "Pengiriman";
             this.buttonPengiriman.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
             this.buttonPengiriman.UseVisualStyleBackColor = true;
-            this.buttonPengiriman.Click += new System.EventHandler(this.buttonSuratJalan_Click);
+            this.buttonPengiriman.Click += new System.EventHandler(this.buttonPengiriman_Click);
             // 
             // buttonSuratJalan
             // 
@@ -572,7 +572,7 @@
             this.flowLayoutPanelMenu.FlowDirection = System.Windows.Forms.FlowDirection.TopDown;
             this.flowLayoutPanelMenu.Location = new System.Drawing.Point(0, 24);
             this.flowLayoutPanelMenu.Name = "flowLayoutPanelMenu";
-            this.flowLayoutPanelMenu.Size = new System.Drawing.Size(280, 756);
+            this.flowLayoutPanelMenu.Size = new System.Drawing.Size(280, 748);
             this.flowLayoutPanelMenu.TabIndex = 9;
             this.flowLayoutPanelMenu.WrapContents = false;
             // 
@@ -582,7 +582,7 @@
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.AutoSize = true;
             this.BackColor = System.Drawing.Color.White;
-            this.ClientSize = new System.Drawing.Size(854, 780);
+            this.ClientSize = new System.Drawing.Size(854, 772);
             this.Controls.Add(this.flowLayoutPanelMenu);
             this.Controls.Add(this.labelJabatan);
             this.Controls.Add(this.label3);
