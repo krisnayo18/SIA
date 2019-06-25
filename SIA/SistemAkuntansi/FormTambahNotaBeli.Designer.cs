@@ -163,7 +163,7 @@
             this.textBoxHarga.Location = new System.Drawing.Point(233, 238);
             this.textBoxHarga.Name = "textBoxHarga";
             this.textBoxHarga.Size = new System.Drawing.Size(114, 20);
-            this.textBoxHarga.TabIndex = 114;
+            this.textBoxHarga.TabIndex = 8;
             // 
             // comboBoxStatus
             // 
@@ -171,7 +171,7 @@
             this.comboBoxStatus.Location = new System.Drawing.Point(389, 141);
             this.comboBoxStatus.Name = "comboBoxStatus";
             this.comboBoxStatus.Size = new System.Drawing.Size(145, 21);
-            this.comboBoxStatus.TabIndex = 113;
+            this.comboBoxStatus.TabIndex = 6;
             // 
             // dateTimePickerDiskon
             // 
@@ -180,7 +180,7 @@
             this.dateTimePickerDiskon.Location = new System.Drawing.Point(111, 115);
             this.dateTimePickerDiskon.Name = "dateTimePickerDiskon";
             this.dateTimePickerDiskon.Size = new System.Drawing.Size(160, 20);
-            this.dateTimePickerDiskon.TabIndex = 112;
+            this.dateTimePickerDiskon.TabIndex = 3;
             this.dateTimePickerDiskon.Value = new System.DateTime(2019, 6, 11, 17, 4, 38, 0);
             // 
             // label17
@@ -200,7 +200,7 @@
             this.dateTimePickerTglLunas.Location = new System.Drawing.Point(111, 88);
             this.dateTimePickerTglLunas.Name = "dateTimePickerTglLunas";
             this.dateTimePickerTglLunas.Size = new System.Drawing.Size(160, 20);
-            this.dateTimePickerTglLunas.TabIndex = 110;
+            this.dateTimePickerTglLunas.TabIndex = 2;
             this.dateTimePickerTglLunas.Value = new System.DateTime(2019, 6, 11, 17, 4, 33, 0);
             // 
             // label16
@@ -218,7 +218,7 @@
             this.textBoxDiskon.Location = new System.Drawing.Point(111, 62);
             this.textBoxDiskon.Name = "textBoxDiskon";
             this.textBoxDiskon.Size = new System.Drawing.Size(30, 20);
-            this.textBoxDiskon.TabIndex = 108;
+            this.textBoxDiskon.TabIndex = 1;
             // 
             // label15
             // 
@@ -236,7 +236,7 @@
             this.textBoxKeterangan.Multiline = true;
             this.textBoxKeterangan.Name = "textBoxKeterangan";
             this.textBoxKeterangan.Size = new System.Drawing.Size(145, 51);
-            this.textBoxKeterangan.TabIndex = 106;
+            this.textBoxKeterangan.TabIndex = 5;
             // 
             // label14
             // 
@@ -264,7 +264,7 @@
             this.comboBoxSupplier.Location = new System.Drawing.Point(389, 12);
             this.comboBoxSupplier.Name = "comboBoxSupplier";
             this.comboBoxSupplier.Size = new System.Drawing.Size(145, 21);
-            this.comboBoxSupplier.TabIndex = 96;
+            this.comboBoxSupplier.TabIndex = 4;
             this.comboBoxSupplier.SelectedIndexChanged += new System.EventHandler(this.comboBoxSupplier_SelectedIndexChanged);
             // 
             // dateTimePickerTanggalBeli
@@ -444,7 +444,7 @@
             this.textBoxJumlah.Location = new System.Drawing.Point(491, 238);
             this.textBoxJumlah.Name = "textBoxJumlah";
             this.textBoxJumlah.Size = new System.Drawing.Size(49, 20);
-            this.textBoxJumlah.TabIndex = 83;
+            this.textBoxJumlah.TabIndex = 9;
             this.textBoxJumlah.KeyDown += new System.Windows.Forms.KeyEventHandler(this.textBoxJumlah_KeyDown);
             // 
             // labelTotalHarga
@@ -472,7 +472,7 @@
             this.textBoxKode.Location = new System.Drawing.Point(7, 238);
             this.textBoxKode.Name = "textBoxKode";
             this.textBoxKode.Size = new System.Drawing.Size(82, 20);
-            this.textBoxKode.TabIndex = 80;
+            this.textBoxKode.TabIndex = 7;
             this.textBoxKode.TextChanged += new System.EventHandler(this.textBoxKode_TextChanged);
             // 
             // label7

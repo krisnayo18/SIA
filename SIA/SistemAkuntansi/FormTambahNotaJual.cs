@@ -306,16 +306,24 @@ namespace SistemAkuntansi
                 string hasilTambahJurnal = Jurnal.TambahData(jurnal);
                 if (hasilTambahJurnal == "1")
                 {
-                    string hasilCetak = NotaPenjualan.CetakNota("noNotaPenjualan", textBoxNo.Text, "tambah_nota_penjualan.txt");
-                    if (hasilCetak == "1")
+                    MessageBox.Show("berhasil posting ke jurnal");
+                    DialogResult pesan = MessageBox.Show("Apakah anda ingin mencetak nota ? ", "konformasi", MessageBoxButtons.YesNo);
+                    if (pesan == DialogResult.Yes)
                     {
-                        MessageBox.Show("Nota telah tercetak");
-                        MessageBox.Show("berhasil posting ke jurnal");
-                        this.Close();
-                        form.FormDaftarNotaJual_Load(sender, e); //supaya formdaftar barang menampilkan daftar terbaru
+                        string hasilCetak = NotaPenjualan.CetakNota("noNotaPenjualan", textBoxNo.Text, "tambah_nota_penjualan.txt");
+                        if (hasilCetak == "1")
+                        {
+                            MessageBox.Show("Nota telah tercetak");
+                            this.Close();
+                            form.FormDaftarNotaJual_Load(sender, e); 
+                        }
+                        else MessageBox.Show("Nota beli gagal dicetak. Pesan kesalahan : " + hasilCetak);
                     }
-                    else MessageBox.Show("Nota beli gagal dicetak. Pesan kesalahan : " + hasilCetak);
-                   
+                    else
+                    {
+                        this.Close();
+                        form.FormDaftarNotaJual_Load(sender, e);
+                    }
                 }
                 else
                 {

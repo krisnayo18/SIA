@@ -128,8 +128,9 @@ namespace SistemAkuntansi
                     diskon = listHasilData2[0].Diskon;//untuk mendapatkan diskon
                     if(diskon > 0) // apabila terdapat diskon, maka tampilkan info diskon dan batas diskon
                     {
-                        MessageBox.Show("Mendapatkan diskon : " + diskon + "%, apabila membayar sebelum atau tanggal :  " + btsDiskon.ToString("dddd, dd MMMM yyyy"),
-                            "Info Diskon");
+                        MessageBox.Show(" Mendapatkan diskon  " + 
+                            diskon + "%, apabila membayar sebelum atau tanggal :  " + 
+                            btsDiskon.ToString("dddd, dd MMMM yyyy"),"Info Diskon");
                     }
                     else //apabila tidak ada diskon
                     {
@@ -178,8 +179,6 @@ namespace SistemAkuntansi
             {
                 comboBoxNoNotaBeli.Items.Clear();
             }
-            if (comboBoxNoNotaBeli.Items.Count != 0)
-                comboBoxNoNotaBeli.SelectedIndex = 0;
             comboBoxCaraPemb.SelectedIndex = 0;
         }
     }

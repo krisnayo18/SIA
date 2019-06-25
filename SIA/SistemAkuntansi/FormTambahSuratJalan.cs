@@ -103,7 +103,7 @@ namespace SistemAkuntansi
             }
             if(comboBoxSuratPermintaan.Items.Count != 0)
             comboBoxSuratPermintaan.SelectedIndex = 0;
-            comboBoxJenis.SelectedIndex = 0;
+            comboBoxJenis.SelectedIndex = 1;
 
             FormUtama form = (FormUtama)this.Owner.MdiParent;
             labelKodePgw.Text = form.labelKodePgw.Text;
@@ -335,7 +335,7 @@ namespace SistemAkuntansi
 
                     if (hasilBaca2 == "1")
                     {
-                        if (listHasilJob.Count > 0) //jika kode barang  ditemukan di database
+                        if (listHasilJob.Count > 0)
                         {
                             textBoxKode.Enabled = false;
                             textBoxKode.Text = listHasilJob[0].Barang.KodeBarang;

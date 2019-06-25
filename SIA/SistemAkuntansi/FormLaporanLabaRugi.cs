@@ -8,6 +8,8 @@ using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
 using ClassLibraryJurnal;
+using System.IO;
+
 namespace SistemAkuntansi
 {
     public partial class FormLaporanLabaRugi : Form
@@ -43,7 +45,7 @@ namespace SistemAkuntansi
                     dataGridViewLabaRugi.Rows.Add(
                         listHasilData[i].IdLaporan,
                         listHasilData[i].Judul,
-                         saldo.ToString("RP 0,###"));
+                         saldo.ToString("0,###"));
                 }
             }
         }
@@ -68,6 +70,62 @@ namespace SistemAkuntansi
         private void label5_Click(object sender, EventArgs e)
         {
 
+        }
+
+        private void buttonCetak_Click(object sender, EventArgs e)
+        {
+            string bulan = DateTime.Now.Month.ToString();
+            string tahun = DateTime.Now.Year.ToString();
+            string periode = "Periode 1 " + bulan + " " + tahun + " s/d " + " 30 " + bulan + " " + tahun;
+            StreamWriter file = new StreamWriter("Laporan_Laba_Rugi.txt");
+            //Header
+            file.WriteLine("");
+            file.WriteLine("".PadRight(20) + "LAPORAN LABA RUGI");
+            file.WriteLine("".PadRight(21) + "\"Bagoes Bangets\"");
+            file.WriteLine("".PadRight(13) + periode);
+            file.WriteLine("");
+            file.WriteLine("");
+
+            file.WriteLine("PENDAPATAN :");
+            file.Write("".PadRight(5,' ') + "Penjualan".PadRight(38, ' '));
+            file.Write(dataGridViewLabaRugi.Rows[0].Cells["saldoAkhir"].Value.ToString().PadLeft(12,' '));
+            file.WriteLine("");
+
+            file.Write("".PadRight(5,' ') + "Retur Penjualan & Penyesuaian Harga".PadRight(38, ' '));
+            file.Write(dataGridViewLabaRugi.Rows[1].Cells["saldoAkhir"].Value.ToString().PadLeft(12,' '));
+            file.WriteLine("");
+
+            file.WriteLine("=".PadRight(55, '='));
+            file.Write("".PadRight(22,' ') + "TOTAL PENDAPATAN :".PadRight(21,' '));
+            file.Write(labelTotalPendapatan.Text.PadLeft(12,' '));
+            file.WriteLine("");
+            file.WriteLine("");
+
+            file.WriteLine("BIAYA :");
+            file.Write("".PadRight(5,' ') + "HPP".PadRight(38,' '));
+            file.Write(dataGridViewLabaRugi.Rows[2].Cells["saldoAkhir"].Value.ToString().PadLeft(12,' '));
+            file.WriteLine("");
+
+            file.Write("".PadRight(5,' ') + "Biaya Gaji ".PadRight(38,' '));
+            file.Write(dataGridViewLabaRugi.Rows[3].Cells["saldoAkhir"].Value.ToString().PadLeft(12,' '));
+            file.WriteLine("");
+
+            file.Write("".PadRight(5,' ') + "Biaya Transportasi ".PadRight(38,' '));
+            file.Write(dataGridViewLabaRugi.Rows[4].Cells["saldoAkhir"].Value.ToString().PadLeft(12, ' '));
+            file.WriteLine("");
+
+            file.WriteLine("=".PadRight(55, '='));
+            file.Write("".PadRight(27,' ') + "TOTAL BIAYA :".PadRight(16,' '));
+            file.Write(labelTotalBiaya.Text.PadLeft(12,' '));
+            file.WriteLine("");
+
+            file.WriteLine("");
+            file.Write("".PadRight(15,' ') +"LABA/RUGI SEBELUM PAJAK :".PadRight(28,' '));
+            file.Write(labelTotalHarga.Text.PadLeft(12,' '));
+            file.WriteLine("");
+
+            file.Close();
+            MessageBox.Show("Berhasil cetak laporan laba rugi", "info");
         }
     }
 }

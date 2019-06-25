@@ -28,8 +28,9 @@ namespace SistemAkuntansi
         public void FormDaftarNotaBeli_Load(object sender, EventArgs e)
         {
 
-            comboBoxCari.Items.AddRange(new string[] { "No Nota","ID Supplier","Nama Supplier","Alamat Supplier","Diskon","Total Harga","Batas Pelunasan",
-                                                       "Batas Diskon","Tanggal Pembelian","Status","Keterangan" });
+            comboBoxCari.Items.AddRange(new string[] { "No Nota","ID Supplier","Nama Supplier","Alamat Supplier",
+                "Diskon","Total Harga","Batas Pelunasan",
+                "Batas Diskon","Tanggal Pembelian","Status","Keterangan" });
 
             this.Location = new Point(0, 0);
             comboBoxCari.DropDownStyle = ComboBoxStyle.DropDownList;
@@ -58,7 +59,7 @@ namespace SistemAkuntansi
         {
             FormTambahNotaBeli form = new FormTambahNotaBeli();
             form.Owner = this;
-            form.ShowDialog();
+            form.Show();
         }
         private void FormatDataGrid()
         {

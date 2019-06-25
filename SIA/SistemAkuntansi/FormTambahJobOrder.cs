@@ -211,7 +211,7 @@ namespace SistemAkuntansi
             {
                 MessageBox.Show("Gagal melakukan generate code. Pesan kesalahan: " + hasilGenerate);
             }
-
+            dateTimePickerSelesai.Value = DateTime.Now;
             dateTimePickerMulai.Value = DateTime.Now;
             dateTimePickerMulai.Enabled = false;
             textBoxSatuan.Enabled = false;

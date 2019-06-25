@@ -8,6 +8,7 @@ using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
 using ClassLibraryJurnal;
+using System.IO;
 
 namespace SistemAkuntansi
 {
@@ -25,7 +26,7 @@ namespace SistemAkuntansi
 
             labelLabaRugi.Text = Laporan.HitungLabaRugi().ToString("0,###");
             labelTotalHarga.Text = Laporan.HitungEkuitasAkhir().ToString("0,###");
-
+            labelEkuitasAwal.Text = Laporan.TampilkanModalAwal().ToString("0,###");
 
             FormatDataGrid();
             string hasilBaca = Laporan.BacaDataEkuitas("", "", listHasilData);
@@ -42,7 +43,7 @@ namespace SistemAkuntansi
                         listHasilData[i].Judul,
                         saldo.ToString("RP 0,###")
                         );
-                    labelEkuitasAwal.Text = saldo.ToString("0,###");
+                    //labelEkuitasAwal.Text = saldo.ToString("0,###");
                 }
             }
 
@@ -69,6 +70,49 @@ namespace SistemAkuntansi
             dataGridViewEkuitas.Columns["saldoAkhir"].DefaultCellStyle.Format = "0,###";
 
             dataGridViewEkuitas.AllowUserToAddRows = false;
+        }
+
+        private void buttonCetak_Click(object sender, EventArgs e)
+        {
+            int hasil = Laporan.TampilkanModalAwal() + Laporan.HitungLabaRugi();
+            string bulan = DateTime.Now.Month.ToString();
+            string tahun = DateTime.Now.Year.ToString();
+            string periode = "Periode 1 " + bulan + " " + tahun + " s/d " + " 30 " + bulan + " " + tahun;
+            StreamWriter file = new StreamWriter("Laporan_Ekuitas.txt");
+            //Header
+            file.WriteLine("");
+            file.WriteLine("".PadRight(21) + "LAPORAN EKUITAS");
+            file.WriteLine("".PadRight(21) + "\"Bagoes Bangets\"");
+            file.WriteLine("".PadRight(13) + periode);
+            file.WriteLine("");
+            file.WriteLine("");
+
+            file.Write("".PadRight(5, ' ') + "Ekuitas Pemilik per awal periode".PadRight(38, ' '));
+            file.Write(labelEkuitasAwal.Text.PadLeft(12, ' '));
+            file.WriteLine("");
+
+            file.Write("".PadRight(5, ' ') + "Laba Rugi Tahun Berjalan".PadRight(38, ' '));
+            file.Write(Laporan.HitungLabaRugi().ToString("0,###").PadLeft(12, ' '));
+            file.WriteLine("");
+
+            file.WriteLine("=".PadRight(55, '='));
+            file.Write("".PadRight(5, ' ') + "Ekuitas setelah Laba Rugi".PadRight(38, ' '));
+            file.Write(hasil.ToString("0,###").PadLeft(12, ' '));
+            file.WriteLine("");
+            file.WriteLine("");
+
+            file.Write("".PadRight(5, ' ') + "Penarikan ekuitas pemilik".PadRight(38, ' '));
+            file.Write("0".PadLeft(12, ' '));
+            file.WriteLine("");
+            file.WriteLine("=".PadRight(55, '='));
+
+            file.WriteLine("");
+            file.Write("".PadRight(5, ' ') + "Ekuitas pemilik per akhir periode".PadRight(38, ' '));
+            file.Write(hasil.ToString("0,###").PadLeft(12, ' '));
+            file.WriteLine("");
+
+            file.Close();
+            MessageBox.Show("Berhasil cetak laporan Ekuitas", "info");
         }
     }
 }

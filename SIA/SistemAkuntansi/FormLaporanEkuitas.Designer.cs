@@ -45,6 +45,7 @@
             this.labelEkuitasAwal = new System.Windows.Forms.Label();
             this.label7 = new System.Windows.Forms.Label();
             this.label8 = new System.Windows.Forms.Label();
+            this.buttonCetak = new System.Windows.Forms.Button();
             ((System.ComponentModel.ISupportInitialize)(this.dataGridViewEkuitas)).BeginInit();
             this.panel1.SuspendLayout();
             this.SuspendLayout();
@@ -179,7 +180,7 @@
             // label4
             // 
             this.label4.Font = new System.Drawing.Font("Microsoft Sans Serif", 15.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label4.Location = new System.Drawing.Point(426, 466);
+            this.label4.Location = new System.Drawing.Point(427, 454);
             this.label4.Name = "label4";
             this.label4.Size = new System.Drawing.Size(51, 39);
             this.label4.TabIndex = 65;
@@ -189,17 +190,17 @@
             // label5
             // 
             this.label5.Font = new System.Drawing.Font("Microsoft Sans Serif", 15.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label5.Location = new System.Drawing.Point(111, 465);
+            this.label5.Location = new System.Drawing.Point(115, 451);
             this.label5.Name = "label5";
-            this.label5.Size = new System.Drawing.Size(288, 39);
+            this.label5.Size = new System.Drawing.Size(275, 39);
             this.label5.TabIndex = 64;
-            this.label5.Text = "Ekuitas Setelah Laba Rugi  :";
+            this.label5.Text = "Laba Rugi Tahun Berjalan :";
             this.label5.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
             // 
             // labelLabaRugi
             // 
             this.labelLabaRugi.Font = new System.Drawing.Font("Microsoft Sans Serif", 15.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.labelLabaRugi.Location = new System.Drawing.Point(450, 466);
+            this.labelLabaRugi.Location = new System.Drawing.Point(451, 454);
             this.labelLabaRugi.Name = "labelLabaRugi";
             this.labelLabaRugi.Size = new System.Drawing.Size(168, 36);
             this.labelLabaRugi.TabIndex = 63;
@@ -236,12 +237,28 @@
             this.label8.Text = "Rp.";
             this.label8.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
             // 
+            // buttonCetak
+            // 
+            this.buttonCetak.BackColor = System.Drawing.Color.DodgerBlue;
+            this.buttonCetak.FlatAppearance.BorderSize = 0;
+            this.buttonCetak.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.buttonCetak.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.buttonCetak.ForeColor = System.Drawing.Color.White;
+            this.buttonCetak.Location = new System.Drawing.Point(116, 357);
+            this.buttonCetak.Name = "buttonCetak";
+            this.buttonCetak.Size = new System.Drawing.Size(96, 33);
+            this.buttonCetak.TabIndex = 66;
+            this.buttonCetak.Text = "CETAK";
+            this.buttonCetak.UseVisualStyleBackColor = false;
+            this.buttonCetak.Click += new System.EventHandler(this.buttonCetak_Click);
+            // 
             // FormLaporanEkuitas
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackColor = System.Drawing.Color.SteelBlue;
             this.ClientSize = new System.Drawing.Size(629, 569);
+            this.Controls.Add(this.buttonCetak);
             this.Controls.Add(this.label8);
             this.Controls.Add(this.label4);
             this.Controls.Add(this.label7);
@@ -284,5 +301,6 @@
         private System.Windows.Forms.Label labelEkuitasAwal;
         private System.Windows.Forms.Label label7;
         private System.Windows.Forms.Label label8;
+        private System.Windows.Forms.Button buttonCetak;
     }
 }

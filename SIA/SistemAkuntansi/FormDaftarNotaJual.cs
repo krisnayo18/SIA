@@ -31,7 +31,7 @@ namespace SistemAkuntansi
         {
             FormTambahNotaJual frmTambah = new FormTambahNotaJual();
             frmTambah.Owner = this;
-            frmTambah.ShowDialog();
+            frmTambah.Show(); //coba ganti menjadi show dialog
         }
 
         public void FormDaftarNotaJual_Load(object sender, EventArgs e)
@@ -90,9 +90,6 @@ namespace SistemAkuntansi
             dataGridViewNota.Columns["tglJual"].AutoSizeMode = DataGridViewAutoSizeColumnMode.AllCells;
             dataGridViewNota.Columns["status"].AutoSizeMode = DataGridViewAutoSizeColumnMode.AllCells;
             dataGridViewNota.Columns["keterangan"].AutoSizeMode = DataGridViewAutoSizeColumnMode.AllCells;
-
-            //dataGridViewNota.Columns["totalHarga"].DefaultCellStyle.Format = "0,###";
-             
 
             dataGridViewNota.AllowUserToAddRows = false;
         }
