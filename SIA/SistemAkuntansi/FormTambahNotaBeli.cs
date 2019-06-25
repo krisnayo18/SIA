@@ -214,13 +214,13 @@ namespace SistemAkuntansi
                         {
                             MessageBox.Show("Nota telah tercetak");
                             this.Close();
-                            form.FormDaftarNotaBeli_Load(sender, e); 
+                            form.FormDaftarNotaBeli_Load(sender, e);
                         }
                         else MessageBox.Show("Nota beli gagal dicetak. Pesan kesalahan : " + hasilCetak);
                     }
                     else
                     {
-                        MessageBox.Show("silahkan cek form daftar penjualan");
+                       
                         this.Close();
                         form.FormDaftarNotaBeli_Load(sender, e);
                     }

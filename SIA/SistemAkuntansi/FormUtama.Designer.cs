@@ -174,7 +174,7 @@
             this.panelLaporan.Controls.Add(this.buttonLabaRugi);
             this.panelLaporan.Controls.Add(this.buttonBukuBesar);
             this.panelLaporan.Controls.Add(this.label1);
-            this.panelLaporan.Location = new System.Drawing.Point(3, 621);
+            this.panelLaporan.Location = new System.Drawing.Point(3, 626);
             this.panelLaporan.Name = "panelLaporan";
             this.panelLaporan.Size = new System.Drawing.Size(250, 293);
             this.panelLaporan.TabIndex = 10;
@@ -295,7 +295,7 @@
             this.panelTransaksi.Controls.Add(this.buttonPembelian);
             this.panelTransaksi.Location = new System.Drawing.Point(3, 244);
             this.panelTransaksi.Name = "panelTransaksi";
-            this.panelTransaksi.Size = new System.Drawing.Size(250, 371);
+            this.panelTransaksi.Size = new System.Drawing.Size(250, 376);
             this.panelTransaksi.TabIndex = 9;
             // 
             // buttonPenerimaan
@@ -304,7 +304,7 @@
             this.buttonPenerimaan.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.buttonPenerimaan.Font = new System.Drawing.Font("Century Gothic", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.buttonPenerimaan.ForeColor = System.Drawing.Color.White;
-            this.buttonPenerimaan.Location = new System.Drawing.Point(61, 326);
+            this.buttonPenerimaan.Location = new System.Drawing.Point(58, 223);
             this.buttonPenerimaan.Name = "buttonPenerimaan";
             this.buttonPenerimaan.Size = new System.Drawing.Size(147, 30);
             this.buttonPenerimaan.TabIndex = 7;
@@ -319,7 +319,7 @@
             this.buttonPengiriman.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.buttonPengiriman.Font = new System.Drawing.Font("Century Gothic", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.buttonPengiriman.ForeColor = System.Drawing.Color.White;
-            this.buttonPengiriman.Location = new System.Drawing.Point(61, 290);
+            this.buttonPengiriman.Location = new System.Drawing.Point(59, 110);
             this.buttonPengiriman.Name = "buttonPengiriman";
             this.buttonPengiriman.Size = new System.Drawing.Size(147, 30);
             this.buttonPengiriman.TabIndex = 7;
@@ -334,7 +334,7 @@
             this.buttonSuratJalan.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.buttonSuratJalan.Font = new System.Drawing.Font("Century Gothic", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.buttonSuratJalan.ForeColor = System.Drawing.Color.White;
-            this.buttonSuratJalan.Location = new System.Drawing.Point(61, 254);
+            this.buttonSuratJalan.Location = new System.Drawing.Point(61, 331);
             this.buttonSuratJalan.Name = "buttonSuratJalan";
             this.buttonSuratJalan.Size = new System.Drawing.Size(147, 30);
             this.buttonSuratJalan.TabIndex = 7;
@@ -349,7 +349,7 @@
             this.buttonSuratPermintaan.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.buttonSuratPermintaan.Font = new System.Drawing.Font("Century Gothic", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.buttonSuratPermintaan.ForeColor = System.Drawing.Color.White;
-            this.buttonSuratPermintaan.Location = new System.Drawing.Point(61, 218);
+            this.buttonSuratPermintaan.Location = new System.Drawing.Point(61, 295);
             this.buttonSuratPermintaan.Name = "buttonSuratPermintaan";
             this.buttonSuratPermintaan.Size = new System.Drawing.Size(147, 30);
             this.buttonSuratPermintaan.TabIndex = 7;
@@ -364,7 +364,7 @@
             this.buttonJobOrder.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.buttonJobOrder.Font = new System.Drawing.Font("Century Gothic", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.buttonJobOrder.ForeColor = System.Drawing.Color.White;
-            this.buttonJobOrder.Location = new System.Drawing.Point(59, 182);
+            this.buttonJobOrder.Location = new System.Drawing.Point(59, 259);
             this.buttonJobOrder.Name = "buttonJobOrder";
             this.buttonJobOrder.Size = new System.Drawing.Size(123, 30);
             this.buttonJobOrder.TabIndex = 6;
@@ -379,7 +379,7 @@
             this.buttonPembayaran.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.buttonPembayaran.Font = new System.Drawing.Font("Century Gothic", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.buttonPembayaran.ForeColor = System.Drawing.Color.White;
-            this.buttonPembayaran.Location = new System.Drawing.Point(59, 146);
+            this.buttonPembayaran.Location = new System.Drawing.Point(59, 187);
             this.buttonPembayaran.Name = "buttonPembayaran";
             this.buttonPembayaran.Size = new System.Drawing.Size(123, 30);
             this.buttonPembayaran.TabIndex = 5;
@@ -436,7 +436,7 @@
             this.buttonPembelian.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.buttonPembelian.Font = new System.Drawing.Font("Century Gothic", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.buttonPembelian.ForeColor = System.Drawing.Color.White;
-            this.buttonPembelian.Location = new System.Drawing.Point(59, 110);
+            this.buttonPembelian.Location = new System.Drawing.Point(59, 151);
             this.buttonPembelian.Name = "buttonPembelian";
             this.buttonPembelian.Size = new System.Drawing.Size(95, 30);
             this.buttonPembelian.TabIndex = 0;

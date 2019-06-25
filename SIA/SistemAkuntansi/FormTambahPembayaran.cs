@@ -43,8 +43,6 @@ namespace SistemAkuntansi
             NotaPembelian nota = new NotaPembelian();
             nota.NoNotaPembelian = comboBoxNoNotaBeli.Text;
             nota.Status = "L";
-
-            MessageBox.Show("" + nota.NoNotaPembelian);
             
             Pembayaran lunas = new Pembayaran();
             lunas.IdPembayaran = textBoxNoPembayaran.Text;

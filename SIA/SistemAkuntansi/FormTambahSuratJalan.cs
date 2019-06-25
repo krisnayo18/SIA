@@ -22,7 +22,7 @@ namespace SistemAkuntansi
         int quantity = 0;
         int totalJobCost = 0;
         int hargaBeli = 0;
-        int directMaterial = 0;
+        int directMaterial;
         string kodeJob = "";
         List<SuratPermintaan> listHasilSuratPer = new List<SuratPermintaan>();
         List<Barang> listHasilBarang = new List<Barang>();
@@ -297,7 +297,7 @@ namespace SistemAkuntansi
                   
                     if(hasil =="1")
                     {
-                        MessageBox.Show("sudah di update" + kodeJob + ", total " + directMaterial);
+                        MessageBox.Show("sudah di update " + kodeJob + ", total Direct Material RP " + totalharga.ToString("0,###") );
                     }
                     else
                     {
@@ -348,11 +348,9 @@ namespace SistemAkuntansi
                     else
                     {
                         MessageBox.Show("Perintah SQL gagal dijalankan. Pesan kesalahan: " + hasilBaca2);
-                    }
-               
+                    }        
 
                 MessageBox.Show("Kode Job Order : " + kodeJob + ",Quantity : " + quantity + ", Total Job Cost : " + totalJobCost.ToString("RP 0,###") + "", "Info");
-
             }
             else if(comboBoxJenis.Text == "Keluar")
             {
@@ -370,6 +368,7 @@ namespace SistemAkuntansi
 
         private void comboBoxSuratPermintaan_SelectedIndexChanged(object sender, EventArgs e)
         {
+
             string hasilBaca2 = SuratPermintaan.BacaData("nosuratpermintaan", comboBoxSuratPermintaan.Text, listHasilSuratPer);
             if (hasilBaca2 == "1")
             {

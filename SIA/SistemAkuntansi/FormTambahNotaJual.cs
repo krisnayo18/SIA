@@ -315,7 +315,7 @@ namespace SistemAkuntansi
                         {
                             MessageBox.Show("Nota telah tercetak");
                             this.Close();
-                            form.FormDaftarNotaJual_Load(sender, e); 
+                            form.FormDaftarNotaJual_Load(sender, e);
                         }
                         else MessageBox.Show("Nota beli gagal dicetak. Pesan kesalahan : " + hasilCetak);
                     }
