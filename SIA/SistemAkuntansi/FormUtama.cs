@@ -54,8 +54,8 @@ namespace SistemAkuntansi
             this.Close();
         }
         private void FormUtama_Load(object sender, EventArgs e)
-        {   
-           
+        {
+            string asu;
             this.WindowState = FormWindowState.Maximized;
             
             this.IsMdiContainer = true;
